@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2020-12-22T12:23:11-08:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Series solutions at regular singularities</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+  \DeclareMathOperator{\IM}{Im}
+  \DeclareMathOperator{\ess}{ess}
+  \DeclareMathOperator{\intr}{int}
+  \DeclareMathOperator{\dist}{dist}
+  \DeclareMathOperator{\dom}{dom}
+  \DeclareMathOperator{\diag}{diag}
+  \DeclareMathOperator{\span}{span}
+  \DeclareMathOperator{\null}{null}
+  \DeclareMathOperator{\rank}{rank}
+  \DeclareMathOperator{\col}{col}
+  \DeclareMathOperator{\row}{row}
+  \DeclareMathOperator{\proj}{proj}
+  \DeclareMathOperator\re{\mathrm {Re~}}
+  \DeclareMathOperator\im{\mathrm {Im~}}
+  
+  \newcommand\dd{\mathrm d}
+  \newcommand{\eps}{\varepsilon}
+  \newcommand{\To}{\longrightarrow}
+  \newcommand{\hilbert}{\mathcal{H}}
+  \newcommand{\s}{\mathcal{S}_2}
+  \newcommand{\A}{\mathcal{A}}
+  \newcommand\h{\mathcal{H}}
+  \newcommand{\J}{\mathcal{J}}
+  \newcommand{\M}{\mathcal{M}}
+  \newcommand{\F}{\mathbb{F}}
+  \newcommand{\N}{\mathcal{N}}
+  \newcommand{\T}{\mathbb{T}}
+  \newcommand{\W}{\mathcal{W}}
+  \newcommand{\X}{\mathcal{X}}
+  \newcommand{\D}{\mathbb{D}}
+  \newcommand{\C}{\mathbb{C}}
+  \newcommand{\BOP}{\mathbf{B}}
+  \newcommand{\Z}{\mathbb{Z}}
+  \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+  \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+  \newcommand{\pick}{\mathcal{P}_2}
+  \newcommand{\schur}{\mathcal{S}_2}
+  \newcommand{\R}{\mathbb{R}}
+  \newcommand{\Complex}{\mathbb{C}}
+  \newcommand{\Field}{\mathbb{F}}
+  \newcommand{\RPlus}{\Real^{+}}
+  \newcommand{\Polar}{\mathcal{P}_{\s}}
+  \newcommand{\Poly}{\mathcal{P}(E)}
+  \newcommand{\EssD}{\mathcal{D}}
+  \newcommand{\Lop}{\mathcal{L}}
+  \newcommand{\cc}[1]{\overline{#1}}
+  \newcommand{\abs}[1]{\left\vert#1\right\vert}
+  \newcommand{\set}[1]{\left\{#1\right\}}
+  \newcommand{\seq}[1]{\left\lt#1\right&gt;}
+  \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+  \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+  \newcommand{\tr}{\operatorname{tr}}
+  \newcommand{\ran}[1]{\operatorname{ran}#1}
+  \newcommand{\nt}{\stackrel{\mathrm {nt}}{\to}}
+  \newcommand{\pnt}{\xrightarrow{pnt}}
+  \newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+  \newcommand{\ad}{^\ast}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\adinv}{^{\ast -1}}
+  \newcommand{\invad}{^{-1 \ast}}
+  \newcommand\Pick{\mathcal P}
+  \newcommand\Ha{\mathbb{H}}
+  \newcommand{\HH}{\Ha\times\Ha}
+  \newcommand\Htau{\mathbb{H}(\tau)}
+  \newcommand{\vp}{\varphi}
+  \newcommand{\ph}{\varphi}
+  \newcommand\al{\alpha}
+  \newcommand\ga{\gamma}
+  \newcommand\de{\delta}
+  \newcommand\ep{\varepsilon}
+  \newcommand\la{\lambda}
+  \newcommand\up{\upsilon}
+  \newcommand\si{\sigma}
+  \newcommand\beq{\begin{equation}}
+  \newcommand\ds{\displaystyle}
+  \newcommand\eeq{\end{equation}}
+  \newcommand\df{\stackrel{\rm def}{=}}
+  \newcommand\ii{\mathrm i}
+  \newcommand{\vectwo}[2]
+  {
+     \begin{pmatrix} #1 \\ #2 \end{pmatrix}
+  }
+  \newcommand{\vecthree}[3]
+  {
+     \begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}
+  }
+  \newcommand\blue{\color{blue}}
+  \newcommand\black{\color{black}}
+  \newcommand\red{\color{red}}
+  
+  \newcommand\nn{\nonumber}
+  \newcommand\bbm{\begin{bmatrix}}
+  \newcommand\ebm{\end{bmatrix}}
+  \newcommand\bpm{\begin{pmatrix}}
+  \newcommand\epm{\end{pmatrix}}
+  \numberwithin{equation}{section}
+  \newcommand\nin{\noindent}
+  \newcommand{\nCr}[2]{\,_{#1}C_{#2}} 
+  \newcommand{\vec}[1]{{\bf #1}}
+  \newcommand{\ps}{\displaystyle \sum_{n=0}^\infty a_n x^n}
+  \newcommand{\psg}{\displaystyle \sum_{n=0}^\infty b_n x^n}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="linanal.html"><span class="title">Math 344 - Linear Analysis II Notes</span></a></h1>
+<p class="byline">Ryan Tully-Doyle</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch-series-3.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch-series.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch-series-5.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch-series-3.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch-series.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch-series-5.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="ch-series.html" data-scroll="ch-series"><span class="codenumber">1</span> <span class="title">Series solutions</span></a><ul>
+<li><a href="ch-series-1.html" data-scroll="ch-series-1">Power series</a></li>
+<li><a href="ch-series-2.html" data-scroll="ch-series-2">Series solutions at ordinary points</a></li>
+<li><a href="ch-series-3.html" data-scroll="ch-series-3">Legrendre series</a></li>
+<li><a href="ch-series-4.html" data-scroll="ch-series-4" class="active">Series solutions at regular singularities</a></li>
+<li><a href="ch-series-5.html" data-scroll="ch-series-5">Frobenius series</a></li>
+<li><a href="ch-series-6.html" data-scroll="ch-series-6">Bessel equations</a></li>
+<li><a href="ch-series-7.html" data-scroll="ch-series-7">Series as vectors (an introduction to \(L^2\))</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-2.html" data-scroll="chapter-2"><span class="codenumber">2</span> <span class="title">All things Fourier</span></a><ul>
+<li><a href="section-8.html" data-scroll="section-8">Periodicity</a></li>
+<li><a href="section-9.html" data-scroll="section-9">Sums of periodic functions</a></li>
+<li><a href="section-10.html" data-scroll="section-10">Questions of convergence</a></li>
+<li><a href="section-11.html" data-scroll="section-11">First applications</a></li>
+<li><a href="section-12.html" data-scroll="section-12">Fourier series and linear algebra</a></li>
+<li><a href="section-13.html" data-scroll="section-13">The Fourier transform</a></li>
+<li><a href="section-14.html" data-scroll="section-14">Convolution</a></li>
+<li><a href="section-15.html" data-scroll="section-15">Applications of convolution</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch-laplace.html" data-scroll="ch-laplace"><span class="codenumber">3</span> <span class="title">The Laplace Transform</span></a><ul>
+<li><a href="ch-laplace-1.html" data-scroll="ch-laplace-1">Motivation for transform methods</a></li>
+<li><a href="ch-laplace-2.html" data-scroll="ch-laplace-2">The Laplace Transform</a></li>
+<li><a href="ch-laplace-3.html" data-scroll="ch-laplace-3">Periodic functions</a></li>
+<li><a href="ch-laplace-4.html" data-scroll="ch-laplace-4">The Laplace transform of derivatives</a></li>
+<li><a href="ch-laplace-5.html" data-scroll="ch-laplace-5">The shifting theorems</a></li>
+<li><a href="ch-laplace-6.html" data-scroll="ch-laplace-6">Heaviside functions</a></li>
+<li><a href="ch-laplace-7.html" data-scroll="ch-laplace-7">Impulses - the Dirac delta “function”</a></li>
+<li><a href="ch-laplace-8.html" data-scroll="ch-laplace-8">Convolution</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch-series-4"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.4</span> <span class="title">Series solutions at regular singularities</span>
+</h2>
+<section class="subsection" id="subsection-10"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.1</span> <span class="title">Types of singular points</span>
+</h3>
+<p id="p-79">So far, we've looked at differential equations at ordinary points, specifically</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + p(x)y' + q(x)y = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">That is, we've assumed that analytic solutions exist and proceeded with power series methods. However, a major area of interest in many applied settings is what happens at points where <p id="p-80">p</p> and \(q\) fail to be analytic. These <dfn class="terminology">singular points</dfn> are often very important to consider when analyzing a system. (You may need to know what happens to the behavior of the system as the input approaches a singular point.)</p>
+<article class="definition definition-like" id="def-singular-point"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.1</span><span class="period">.</span>
+</h6>
+<p id="p-81">A point \(x = x_0\) is a <dfn class="terminology">regular singular point</dfn> of the equation</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + p(x)y' + q(x) y= 0
+\end{equation*}
+</div>
+<p data-braille="continuation">if</p>
+<ol class="decimal">
+<li id="li-14">\(x_0\) is a singular point of the equation,</li>
+<li id="li-15">and both<div class="displaymath">
+\begin{equation*}
+\hat{p}(x) = (x - x_0)p(x), \hspace{1cm} \hat{q(x)}=(x-x_0)^2 q(x)
+\end{equation*}
+</div>are analytic at \(x = x_0\)</li>
+</ol>
+<p data-braille="continuation">A singular point that does not satisfy these conditions is called an <dfn class="terminology">irregular singular point</dfn>.</p></article><p id="p-82">To give you some terminology (and a connection with complex analysis), a function \(f(x)\) for which \(f(x)(x = x_0)^n\) is analytic at \(x_0\) for \(n = N\) but singular at \(x_0\) for \(n \lt N\) is said to have a <dfn class="terminology">pole of order \(N\) at \(x_0\)</dfn>. The point of the definition above is that for a second order equation, essentially the worst singular behavior we can have and still work with series directly is second order poles. Similar statements apply to higher order equations.</p>
+<article class="example example-like" id="example-10"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-10"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Classifying points.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like"><p id="p-83">Classify the points of the equation</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + \frac{1}{x(x-1)^2}y' + \frac{x}{x(x-1)^3} y = 0
+\end{equation*}
+</div>
+<p id="p-84">The equation clearly has singularities at \(x = 0, 1\text{.}\) For \(x = 0\text{,}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\hat{p}(x) = x p(x) = \frac{1}{x - 1}, \hspace{1cm} \hat{q}(x) = xq(x) \frac{1}{(x-1)^3},
+\end{equation*}
+</div>
+<p data-braille="continuation">both of which are analytic at \(x = 0\text{.}\) Thus, \(x =0\) is a regular singular point.</p>
+<p id="p-85">On the other hand, at \(x = 1\text{,}\) we have</p>
+<div class="displaymath">
+\begin{equation*}
+\hat{p}(x) = (x - 1) p(x) = \frac{1}{x(x-1)},
+\end{equation*}
+</div>
+<p data-braille="continuation">which is singular at \(x = 1\text{.}\) Thus, \(x =1\) is an irregular singular point.</p></article></div></section><section class="subsection" id="subsection-11"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.2</span> <span class="title">Series solutions at regular singular points</span>
+</h3>
+<p id="p-86">Suppose that \(x = x_0\) is a regular singular point for the equation</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + p(x)y' + q(x)y = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Essentially we can remove the singular behavior by multiplying through by \((x - x_0)^2\) to get an equation of the form</p>
+<div class="displaymath">
+\begin{equation*}
+(x - x_0)^2 y'' + (x-x_0)\hat{p}(x) y' + \hat{q}(x) y = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">where \(\hat{p} = (x-x_0)p(x), \hat{q} = (x - x_0)^2 q(x)\) are analytic at \(x_0\text{.}\) Going one step further, we can make the substitution \(u = x - x_0\text{,}\) which moves the regular singular point to \(x=0\text{,}\) and so we can restrict our attention to equations of the form</p>
+<div class="displaymath">
+\begin{equation*}
+x^2 + x p(x) y' + q(x) y = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">where \(p, q\) are analytic at \(0\text{.}\) (We've essentially just pulled the singular behavior out of the coefficient functions to make it easier to analyze.)</p>
+<p id="p-87">The most elementary equation in this family is the Cauchy-Euler equation, where \(p, q\) are just constants \(p_0, q_0\text{.}\) In that case, we have a second order linear constant coefficient homogeneous equation, which we can solve using the method of the indicial equation.</p>
+<article class="theorem theorem-like" id="theorem-7"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.4.3</span><span class="period">.</span>
+</h6>
+<p id="p-88">Suppose we have a Cauchy-Euler equation</p>
+<div class="displaymath">
+\begin{equation*}
+x^2 y'' + x p_0 y' + q_0 y = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">The equation has solutions on \((0,\infty)\) of the form \(y = x^r\text{,}\) where \(r\) is a solution to the indicial equation</p>
+<div class="displaymath">
+\begin{equation}
+r(r-1) + p_0 r + q_0 = 0\label{eq-indicial}\tag{1.4.1}
+\end{equation}
+</div></article><p id="p-89">We can use the constant case to guide our method for more general coefficients. Suppose we have an equation with coefficient functions</p>
+<div class="displaymath">
+\begin{equation*}
+x^2 y'' + xp(x)y' + q(x) y = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">with \(p,q\) analytic at \(0\text{.}\) Then we can assume that there is some positive radius of convergence \(R\) for which \(p, q\) both have convergent series expansions</p>
+<div class="displaymath">
+\begin{align*}
+p(x) \amp= p_0 + p_1 x + p_2 x^2 + \ldots\\
+q(x) \amp= q_0 + q_1 x + q_2 x^2 + \ldots
+\end{align*}
+</div>
+<p data-braille="continuation">We can plug these in to get the equation</p>
+<div class="displaymath">
+\begin{equation*}
+x^2 y'' + x\left(p_0 + p_1 x + p_2 x^2 + \ldots\right)y' + \left(q_0 + q_1 x + q_2 x^2 + \ldots \right)y = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Now we have to make a guess. Notice that if \(x\) is very small, then \(p(x) \approx p_0\) and \(q(x) \approx q_0\text{,}\) which means that near 0, the equation is approximately the Cauchy-Euler equation:</p>
+<div class="displaymath">
+\begin{equation*}
+x^2 y'' + x\left(p_0 + p_1 x + p_2 x^2 + \ldots\right)y' + \left(q_0 + q_1 x + q_2 x^2 + \ldots \right)y \approx x^2 y'' + p_0 x y' + q_0 y = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">So we guess that the form of the series solution includes a term \(x^r\) that describes the behavior of the function near \(x = 0\) in \((0,R)\) (where we're looking at a Cauchy-Euler equation) and a piece in terms of a power series that picks up the behavior away from \(0\text{.}\)</p>
+<p id="p-90">That is, using this intuition, we can guess that for the equation</p>
+<div class="displaymath">
+\begin{equation*}
+x^2 y'' +  x p(x) y' + q(x) y = 0,
+\end{equation*}
+</div>
+<p data-braille="continuation">solutions will be of the form</p>
+<div class="displaymath">
+\begin{equation}
+y(x) = x^r \sum_{n=0}^\infty a_n x^n, \,\,\,a_0 \neq 0\label{eq-frob}\tag{1.4.2}
+\end{equation}
+</div>
+<p data-braille="continuation">where as before, \(r\) is a solution to the indicial equation</p>
+<div class="displaymath">
+\begin{equation*}
+r(r+1) + p_0 r + q_0 = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">This turns out to be the right idea, and series of the form <a class="xref" data-knowl="./knowl/eq-frob.html" title="Equation 1.4.2">(1.4.2)</a> are called <dfn class="terminology">Frobenius series</dfn>.</p>
+<article class="theorem theorem-like" id="thm-frob-real-distinct"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.4.4</span><span class="period">.</span>
+</h6>
+<p id="p-91">For \(x &gt; 0\text{,}\) suppose that</p>
+<div class="displaymath">
+\begin{equation}
+x^2 y'' + xp(x)y' + q(x)y = 0\label{eq-reg-sing}\tag{1.4.3}
+\end{equation}
+</div>
+<p data-braille="continuation">and that \(p, q\) are analytic at 0 with a mutual radius of convergence \(R\text{.}\) Write \(p(x) = \sum p_n x^n, q(x) = \sum q_n x^n\text{.}\) Let \(r_1, r_2\) be roots of the indicial equation <a class="xref" data-knowl="./knowl/eq-indicial.html" title="Equation 1.4.1">(1.4.1)</a>, and assume that \(r_1 \leq r_2\) if the roots are real.</p>
+<p id="p-92">Then <a class="xref" data-knowl="./knowl/eq-reg-sing.html" title="Equation 1.4.3">(1.4.3)</a> has a Frobenius series solution of the form</p>
+<div class="displaymath">
+\begin{equation*}
+y_1(x) = x^{r_1} \sum_{n=0}^\infty a_n x^n, \,\,\, a_0 \neq 0
+\end{equation*}
+</div>
+<p data-braille="continuation">which converges at least on \((0,R)\text{.}\)</p>
+<p id="p-93">If \(r_1, r_2\) are distinct and do not differ by an integer, then there exists a second linearly independent Frobenius series solution of the form</p>
+<div class="displaymath">
+\begin{equation*}
+y_2(x) = x^{r_2} \sum_{n=0}^\infty b_n x^n, \,\,\, b_0 \neq 0.
+\end{equation*}
+</div></article><a class="xref" data-knowl="./knowl/thm-frob-real-distinct.html" title="Theorem 1.4.4">Theorem 1.4.4</a></section></section></div></main>
+</div>
+</body>
+</html>

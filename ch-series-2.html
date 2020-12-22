@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2020-12-22T12:23:11-08:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Series solutions at ordinary points</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Sage)'});
+});
+</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\DeclareMathOperator{\RE}{Re}
+  \DeclareMathOperator{\IM}{Im}
+  \DeclareMathOperator{\ess}{ess}
+  \DeclareMathOperator{\intr}{int}
+  \DeclareMathOperator{\dist}{dist}
+  \DeclareMathOperator{\dom}{dom}
+  \DeclareMathOperator{\diag}{diag}
+  \DeclareMathOperator{\span}{span}
+  \DeclareMathOperator{\null}{null}
+  \DeclareMathOperator{\rank}{rank}
+  \DeclareMathOperator{\col}{col}
+  \DeclareMathOperator{\row}{row}
+  \DeclareMathOperator{\proj}{proj}
+  \DeclareMathOperator\re{\mathrm {Re~}}
+  \DeclareMathOperator\im{\mathrm {Im~}}
+  
+  \newcommand\dd{\mathrm d}
+  \newcommand{\eps}{\varepsilon}
+  \newcommand{\To}{\longrightarrow}
+  \newcommand{\hilbert}{\mathcal{H}}
+  \newcommand{\s}{\mathcal{S}_2}
+  \newcommand{\A}{\mathcal{A}}
+  \newcommand\h{\mathcal{H}}
+  \newcommand{\J}{\mathcal{J}}
+  \newcommand{\M}{\mathcal{M}}
+  \newcommand{\F}{\mathbb{F}}
+  \newcommand{\N}{\mathcal{N}}
+  \newcommand{\T}{\mathbb{T}}
+  \newcommand{\W}{\mathcal{W}}
+  \newcommand{\X}{\mathcal{X}}
+  \newcommand{\D}{\mathbb{D}}
+  \newcommand{\C}{\mathbb{C}}
+  \newcommand{\BOP}{\mathbf{B}}
+  \newcommand{\Z}{\mathbb{Z}}
+  \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+  \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+  \newcommand{\pick}{\mathcal{P}_2}
+  \newcommand{\schur}{\mathcal{S}_2}
+  \newcommand{\R}{\mathbb{R}}
+  \newcommand{\Complex}{\mathbb{C}}
+  \newcommand{\Field}{\mathbb{F}}
+  \newcommand{\RPlus}{\Real^{+}}
+  \newcommand{\Polar}{\mathcal{P}_{\s}}
+  \newcommand{\Poly}{\mathcal{P}(E)}
+  \newcommand{\EssD}{\mathcal{D}}
+  \newcommand{\Lop}{\mathcal{L}}
+  \newcommand{\cc}[1]{\overline{#1}}
+  \newcommand{\abs}[1]{\left\vert#1\right\vert}
+  \newcommand{\set}[1]{\left\{#1\right\}}
+  \newcommand{\seq}[1]{\left\lt#1\right&gt;}
+  \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+  \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+  \newcommand{\tr}{\operatorname{tr}}
+  \newcommand{\ran}[1]{\operatorname{ran}#1}
+  \newcommand{\nt}{\stackrel{\mathrm {nt}}{\to}}
+  \newcommand{\pnt}{\xrightarrow{pnt}}
+  \newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+  \newcommand{\ad}{^\ast}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\adinv}{^{\ast -1}}
+  \newcommand{\invad}{^{-1 \ast}}
+  \newcommand\Pick{\mathcal P}
+  \newcommand\Ha{\mathbb{H}}
+  \newcommand{\HH}{\Ha\times\Ha}
+  \newcommand\Htau{\mathbb{H}(\tau)}
+  \newcommand{\vp}{\varphi}
+  \newcommand{\ph}{\varphi}
+  \newcommand\al{\alpha}
+  \newcommand\ga{\gamma}
+  \newcommand\de{\delta}
+  \newcommand\ep{\varepsilon}
+  \newcommand\la{\lambda}
+  \newcommand\up{\upsilon}
+  \newcommand\si{\sigma}
+  \newcommand\beq{\begin{equation}}
+  \newcommand\ds{\displaystyle}
+  \newcommand\eeq{\end{equation}}
+  \newcommand\df{\stackrel{\rm def}{=}}
+  \newcommand\ii{\mathrm i}
+  \newcommand{\vectwo}[2]
+  {
+     \begin{pmatrix} #1 \\ #2 \end{pmatrix}
+  }
+  \newcommand{\vecthree}[3]
+  {
+     \begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}
+  }
+  \newcommand\blue{\color{blue}}
+  \newcommand\black{\color{black}}
+  \newcommand\red{\color{red}}
+  
+  \newcommand\nn{\nonumber}
+  \newcommand\bbm{\begin{bmatrix}}
+  \newcommand\ebm{\end{bmatrix}}
+  \newcommand\bpm{\begin{pmatrix}}
+  \newcommand\epm{\end{pmatrix}}
+  \numberwithin{equation}{section}
+  \newcommand\nin{\noindent}
+  \newcommand{\nCr}[2]{\,_{#1}C_{#2}} 
+  \newcommand{\vec}[1]{{\bf #1}}
+  \newcommand{\ps}{\displaystyle \sum_{n=0}^\infty a_n x^n}
+  \newcommand{\psg}{\displaystyle \sum_{n=0}^\infty b_n x^n}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="linanal.html"><span class="title">Math 344 - Linear Analysis II Notes</span></a></h1>
+<p class="byline">Ryan Tully-Doyle</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch-series-1.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch-series.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch-series-3.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch-series-1.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch-series.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch-series-3.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
+<li class="link">
+<a href="ch-series.html" data-scroll="ch-series"><span class="codenumber">1</span> <span class="title">Series solutions</span></a><ul>
+<li><a href="ch-series-1.html" data-scroll="ch-series-1">Power series</a></li>
+<li><a href="ch-series-2.html" data-scroll="ch-series-2" class="active">Series solutions at ordinary points</a></li>
+<li><a href="ch-series-3.html" data-scroll="ch-series-3">Legrendre series</a></li>
+<li><a href="ch-series-4.html" data-scroll="ch-series-4">Series solutions at regular singularities</a></li>
+<li><a href="ch-series-5.html" data-scroll="ch-series-5">Frobenius series</a></li>
+<li><a href="ch-series-6.html" data-scroll="ch-series-6">Bessel equations</a></li>
+<li><a href="ch-series-7.html" data-scroll="ch-series-7">Series as vectors (an introduction to \(L^2\))</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-2.html" data-scroll="chapter-2"><span class="codenumber">2</span> <span class="title">All things Fourier</span></a><ul>
+<li><a href="section-8.html" data-scroll="section-8">Periodicity</a></li>
+<li><a href="section-9.html" data-scroll="section-9">Sums of periodic functions</a></li>
+<li><a href="section-10.html" data-scroll="section-10">Questions of convergence</a></li>
+<li><a href="section-11.html" data-scroll="section-11">First applications</a></li>
+<li><a href="section-12.html" data-scroll="section-12">Fourier series and linear algebra</a></li>
+<li><a href="section-13.html" data-scroll="section-13">The Fourier transform</a></li>
+<li><a href="section-14.html" data-scroll="section-14">Convolution</a></li>
+<li><a href="section-15.html" data-scroll="section-15">Applications of convolution</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch-laplace.html" data-scroll="ch-laplace"><span class="codenumber">3</span> <span class="title">The Laplace Transform</span></a><ul>
+<li><a href="ch-laplace-1.html" data-scroll="ch-laplace-1">Motivation for transform methods</a></li>
+<li><a href="ch-laplace-2.html" data-scroll="ch-laplace-2">The Laplace Transform</a></li>
+<li><a href="ch-laplace-3.html" data-scroll="ch-laplace-3">Periodic functions</a></li>
+<li><a href="ch-laplace-4.html" data-scroll="ch-laplace-4">The Laplace transform of derivatives</a></li>
+<li><a href="ch-laplace-5.html" data-scroll="ch-laplace-5">The shifting theorems</a></li>
+<li><a href="ch-laplace-6.html" data-scroll="ch-laplace-6">Heaviside functions</a></li>
+<li><a href="ch-laplace-7.html" data-scroll="ch-laplace-7">Impulses - the Dirac delta “function”</a></li>
+<li><a href="ch-laplace-8.html" data-scroll="ch-laplace-8">Convolution</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch-series-2"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">Series solutions at ordinary points</span>
+</h2>
+<section class="subsection" id="subsection-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2.1</span> <span class="title">Ordinary points</span>
+</h3>
+<p id="p-35">Consider the second order linear differential equation</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + p(x) y' + q(x) y = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">The fact that we have functions as “coefficients” for the terms means that our previous tools do not apply. Instead, we'll try to discover solutions using power series and recurrence relations. It will be much easier to do this if \(p\) and \(q\) are well-behaved where we center our power series.</p>
+<article class="definition definition-like" id="def-ordinary-point"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span>
+</h6>
+<p id="p-36">A point \(x = x_0\) is an <dfn class="terminology">ordinary point</dfn> for the differential equation</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + p(x) y' + q(x) y = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">if \(p\) and \(q\) are analytic at \(x = x_0\text{.}\) If a point is not ordinary, then it is called a <dfn class="terminology">singular point</dfn> of the equation.</p></article><article class="example example-like" id="example-5"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Finding ordinary points.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-37">Find the ordinary points of the differential equation</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + \frac{1}{x^2 - 1} y' + \frac{1}{x - 3} y = 0.
+\end{equation*}
+</div>
+<p id="p-38">Because \(p, q\) fail to be analytic at \(x = \pm 1, 3\) the equation is singular at those three points. Every other point is an ordinary point.</p></article></div></section><section class="subsection" id="subsection-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2.2</span> <span class="title">Power series solutions at ordinary points</span>
+</h3>
+<p id="p-39">We now give an example of solving a differential equation with series solutions. We'll start with a problem that we already know the solution to, before moving on to solving Airy's equation. It will be useful to recall the expressions for the derivatives of convergent power series. If \(y = \ps\text{,}\) then</p>
+<div class="displaymath">
+\begin{align*}
+y' \amp= \sum_{n=1}^\infty n a_n x^{n-1},\\
+y'' \amp = \sum_{n=2}^\infty n(n-1) a_n x^{n-2}.
+\end{align*}
+</div>
+<article class="example example-like" id="example-6"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-6"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Finding series solutions.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-6"><article class="example example-like"><p id="p-40">Find the general solution to the differential equation \(y'' + y = 0\) using series methods.</p>
+<p id="p-41">We expect to find two linearly independent solutions, and we expect the general solution to be of the form \(y = c_1 y_1 + c_2 y_2\) for arbitrary constants \(c_1, c_2\) because we have a second order equation. Notice that \(p = 0\) and \(q = 1\) which are analytic at every point, so we will work at the center \(x = 0\) and assume that our solution is of the form \(y = \ps\text{.}\)</p>
+<p id="p-42">On taking derivatives and plugging into the differential equation, we get</p>
+<div class="displaymath">
+\begin{equation*}
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} + \ps = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">We want to combine these into a single sum and use a recurrence relation to find the solutions, but we need the terms and the index ranges to match. If we shift the index on the first sum by letting \(n - 2 \to n \text{,}\) we get</p>
+<div class="displaymath">
+\begin{equation*}
+\sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} + \ps = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Now we can combine the series to get</p>
+<div class="displaymath">
+\begin{equation*}
+\sum_{n=0}^\infty \left[(n+2)(n+1) a_{n+2} + a_n\right]x^n = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">which gives the family of coefficient equations</p>
+<div class="displaymath">
+\begin{equation*}
+(n+2)(n+1)a_{n+2} + a_n = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">which is convenient to rearrange as</p>
+<div class="displaymath">
+\begin{equation*}
+a_{n+2} = -\frac{1}{(n+2)(n+1)} a_n, \,\,\, n = 0, 1, 2, \ldots
+\end{equation*}
+</div>
+<p id="p-43">Notice that we need two pieces of information to determine all of the information contained in this recursion: \(n = 0\) starts a chain that gives the coefficients for the even values of \(n\text{,}\) and \(n = 1\) starts a chain that gives that information for the odd values (corresponding to the two separate independent solutions). We consider each family separately.</p>
+<div class="displaymath">
+\begin{align*}
+n = 0\amp: a_2 = -\frac{1}{2 \cdot 1} a_0 = -\frac{1}{2!}a_0\\
+n = 2\amp: a_4 = -\frac{1}{4 \cdot 3} a_2 = \frac{1}{4 \cdot 3 \cdot 2 \cdot 1} a_0 = \frac{1}{4!} a_0\\
+n=4\amp: a_6 = -\frac{1}{6 \cdot 5} a_4 = -\frac{1}{6!} a_0.
+\end{align*}
+</div>
+<p data-braille="continuation">That is, the even terms seem to be of the form \(a_{2k} = \frac{(-1)^k}{(2k!)} a_0\text{.}\)</p>
+<p id="p-44">For the odd values of \(n\text{,}\) we get</p>
+<div class="displaymath">
+\begin{align*}
+n = 1\amp: a_3 = -\frac{1}{3 \cdot 2} a_1 = -\frac{1}{3!}a_1\\
+n = 3\amp: a_5 = -\frac{1}{5 \cdot 4} a_3 = \frac{1}{5 \cdot 4 \cdot 3 \cdot2 \cdot 1} a_1 = \frac{1}{5!} a_1\\
+n=5\amp: a_7 = -\frac{1}{7 \cdot 6} a_5 = -\frac{1}{7!} a_1.
+\end{align*}
+</div>
+<p data-braille="continuation">which looks like \(a_{2k+1} = \frac{(-1)^k}{(2k+1)!} a_1\text{.}\)</p>
+<p id="p-45">Now that we know the coeffients of the power series, we can write</p>
+<div class="displaymath">
+\begin{align*}
+y \amp= a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \ldots\\
+\amp= a_0 + a_1 x - \frac{1}{2!} a_0 x^2 - \frac{1}{3!} a_1 x^3 + \ldots\\
+\amp = a_0 ( 1 - \frac{1}{2!} x^2 + \frac{1}{4!} x^4 - \ldots) + a_1 (x - \frac{1}{3!} x^3 + \frac{1}{5!}x^5 - \ldots)
+\end{align*}
+</div>
+<p data-braille="continuation">which allows us to write \(y = a_0 y_1 + a_0 y_2\) where</p>
+<div class="displaymath">
+\begin{equation*}
+y_1(x) = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n},  \hspace{1cm} y_2 = \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!} x^{2n+1}.
+\end{equation*}
+</div>
+<p id="p-46">An easy application of the rato test shows that each of these series converges for all values of \(x\) (that is, the radius of converge is \(\infty\)).</p>
+<p id="p-47">Finally, we need to verify that these series are linearly independent. With two objects, this will be true as long as the functions aren't scalar multiples of each other, which is indeed the case.</p>
+<p id="p-48">(We might note that none of this is surprising in this case because the series in question have very nice closed forms you should recongize on sight!)</p></article></div>
+<p id="p-49">At an ordinary point, we will always follow the steps in the example above.</p>
+<ol class="decimal">
+<li id="li-10">Assume that a solution of the form \(y = \ps\) exists.</li>
+<li id="li-11">Plug the series into the equation to get a recurrence relation and find the coefficients in terms of \(a_0\) and \(a_1\text{.}\)</li>
+<li id="li-12">Use the ratio test to find the radius of convergence (which is where out solution is valid).</li>
+<li id="li-13">Verify that the solutions are linearly independent.</li>
+</ol>
+<article class="theorem theorem-like" id="theorem-4"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span>
+</h6>
+<p id="p-50">Let \(p, q\) be analytic functions on some common interval \(\abs{x - x_0} \lt r\) centered at \(x_0\text{.}\) Then the general solution to the second order differential equation</p>
+<div class="displaymath">
+\begin{equation*}
+y'' + p y' + q y = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">can be represented as power series centered at \(x_0\) on the same interval. The coefficients in the series can be described in terms of the initial data \(a_0, a_1\text{,}\) and the general solution can be rearranged into the form</p>
+<div class="displaymath">
+\begin{equation*}
+y = a_0 y_1 + a_1 y_2
+\end{equation*}
+</div>
+<p data-braille="continuation">where \(y_1, y_2\) are linearly independent.</p></article><p id="p-51">We conclude this chapter with the solution of Airy's equation.</p>
+<article class="example example-like" id="example-7"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-7"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Airy's equation.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-7"><article class="example example-like"><p id="p-52">Solve the equation</p>
+<div class="displaymath">
+\begin{equation*}
+y'' - x y = 0.
+\end{equation*}
+</div>
+<p id="p-53">Since \(p = 0\) and \(q = x\text{,}\) every point is an ordinary point. So we assume that a series solution exists of the form \(y = \ps\text{.}\) Plugging into the equation, we get</p>
+<div class="displaymath">
+\begin{equation*}
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} - x \ps = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Multiplying through, we get</p>
+<div class="displaymath">
+\begin{equation*}
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} - \sum_{n = 0}^\infty a_n x^{n+1} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">First, we'll make the powers match, then we'll shift indicies as necessary.</p>
+<div class="displaymath">
+\begin{equation*}
+\sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} - \sum_{n = 1}^\infty a_{n-1} x^{n} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Now that the powers of \(x\) match, the easiest way to make the index ranges match is to pop the first term off of the first sum.</p>
+<div class="displaymath">
+\begin{equation*}
+2a_2 + \sum_{n=1}^\infty (n+2)(n+1) a_{n+2} x^{n} - \sum_{n = 1}^\infty a_{n-1} x^{n} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Before we combine, notice that right away we can see that \(a_2 = 0\text{.}\) This is going to have an interesting effect on the resulting series.</p>
+<div class="displaymath">
+\begin{equation*}
+2a_2 + \sum_{n=1}^\infty \left[(n+2)(n+1) a_{n+2} - a_{n-1} \right] x^n = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Setting the coefficients to be 0, we get the family of relations</p>
+<div class="displaymath">
+\begin{equation*}
+a_{n+2} = \frac{1}{(n+2)(n+1)} a_{n-1}.
+\end{equation*}
+</div>
+<p data-braille="continuation">Because there is a separation of three index elements between the terms in the recursion, there will be three families of equations. Immediately, we can see that because \(a_2 = 0\text{,}\) the recursion imples that \(a_5, a_8, a_{11}, \ldots = 0\) as well. (From the theorem, we know that we should be able to get all the information we need in terms of \(a_0\) and \(a_1\text{.}\))</p>
+<p id="p-54">For the set of coefficients beginning with \(a_0\text{,}\) we have</p>
+<div class="displaymath">
+\begin{align*}
+n = 1\amp: a_3 = \frac{1}{3 \cdot 2} a_0\\
+n = 4\amp: a_6 = \frac{1}{6 \cdot 5} a_3 = \frac{1}{6 \cdot 5 \cdot 3 \cdot 2} a_0\\
+n=7\amp: a_9 = \frac{1}{9 \cdot 8} a_6 = \frac{1}{9 \cdot 8 \cdot 6 \cdot 5 \cdot 3 \cdot 2} a_0.
+\end{align*}
+</div>
+<p data-braille="continuation">There is a clear pattern, though it is annoying to write in closed form.</p>
+<p id="p-55">For the set of coefficients beginning with \(a_1\text{,}\) we have</p>
+<div class="displaymath">
+\begin{align*}
+n = 2\amp: a_4 = \frac{1}{4 \cdot 3} a_1 \\
+n = 5\amp: a_7 = \frac{1}{7 \cdot 6} a_4 = \frac{1}{7 \cdot 6 \cdot 4 \cdot3 } a_1 \\
+n=8\amp: a_10 = \frac{1}{10 \cdot 9} a_7 = \frac{1}{10 \cdot 9 \cdot 7 \cdot 6 \cdot 4 \cdot 3} a_1.
+\end{align*}
+</div>
+<p data-braille="continuation">Then the general solution to the equation is</p>
+<div class="displaymath">
+\begin{equation*}
+y = a_0 y_1(x) + a_1 y_2(x)
+\end{equation*}
+</div>
+<p data-braille="continuation">where</p>
+<div class="displaymath">
+\begin{align*}
+y_1(x) \amp= 1 +  \frac{1}{3 \cdot 2} x^3 + \frac{1}{6 \cdot 5 \cdot 3\cdot 2} x^6 + \ldots\\
+y_2(x) \amp= x + \frac{1}{4 \cdot 3} x^4 + \frac{1}{7\cdot 6 \cdot 4 \cdot 3}x^7 + \ldots
+\end{align*}
+</div>
+<p data-braille="continuation">These power series are convergent everywhere, obviously linearly independent, and unfortunately have no closed form; that is, series representations is the best that we can do.</p>
+<div class="hidden-sagecell-sage" id="sage-1"><script type="text/x-sage">var( 'z y x'); y = 1 +  1/6 *x^3 + 1/180 *x^6
+z = x + 1/12 *x^4 + 1/504 *x^7
+a = plot([],title="(Approx) Solutions to Airy's equation")
+a += plot(y, x, (-2,2), color='red')
+a += plot(z, x, (-2,2))
+show(a)
+</script></div></article></div></section></section></div></main>
+</div>
+</body>
+</html>

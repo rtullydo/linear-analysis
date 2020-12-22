@@ -1,0 +1,1111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude">
+
+    <docinfo>
+        <macros>
+        \DeclareMathOperator{\RE}{Re}
+          \DeclareMathOperator{\IM}{Im}
+          \DeclareMathOperator{\ess}{ess}
+          \DeclareMathOperator{\intr}{int}
+          \DeclareMathOperator{\dist}{dist}
+          \DeclareMathOperator{\dom}{dom}
+          \DeclareMathOperator{\diag}{diag}
+          \DeclareMathOperator{\span}{span}
+          \DeclareMathOperator{\null}{null}
+          \DeclareMathOperator{\rank}{rank}
+          \DeclareMathOperator{\col}{col}
+          \DeclareMathOperator{\row}{row}
+          \DeclareMathOperator{\proj}{proj}
+          \DeclareMathOperator\re{\mathrm {Re~}}
+          \DeclareMathOperator\im{\mathrm {Im~}}
+          %\newcommand\half{\tfrac 12}
+          \newcommand\dd{\mathrm d}
+          \newcommand{\eps}{\varepsilon}
+          \newcommand{\To}{\longrightarrow}
+          \newcommand{\hilbert}{\mathcal{H}}
+          \newcommand{\s}{\mathcal{S}_2}
+          \newcommand{\A}{\mathcal{A}}
+          \newcommand\h{\mathcal{H}}
+          \newcommand{\J}{\mathcal{J}}
+          \newcommand{\M}{\mathcal{M}}
+          \newcommand{\F}{\mathbb{F}}
+          \newcommand{\N}{\mathcal{N}}
+          \newcommand{\T}{\mathbb{T}}
+          \newcommand{\W}{\mathcal{W}}
+          \newcommand{\X}{\mathcal{X}}
+          \newcommand{\D}{\mathbb{D}}
+          \newcommand{\C}{\mathbb{C}}
+          \newcommand{\BOP}{\mathbf{B}}
+          \newcommand{\Z}{\mathbb{Z}}
+          \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+          \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+          \newcommand{\pick}{\mathcal{P}_2}
+          \newcommand{\schur}{\mathcal{S}_2}
+          \newcommand{\R}{\mathbb{R}}
+          \newcommand{\Complex}{\mathbb{C}}
+          \newcommand{\Field}{\mathbb{F}}
+          \newcommand{\RPlus}{\Real^{+}}
+          \newcommand{\Polar}{\mathcal{P}_{\s}}
+          \newcommand{\Poly}{\mathcal{P}(E)}
+          \newcommand{\EssD}{\mathcal{D}}
+          \newcommand{\Lop}{\mathcal{L}}
+          \newcommand{\cc}[1]{\overline{#1}}
+          \newcommand{\abs}[1]{\left\vert#1\right\vert}
+          \newcommand{\set}[1]{\left\{#1\right\}}
+          \newcommand{\seq}[1]{\left\lt#1\right>}
+          \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+          \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+          \newcommand{\tr}{\operatorname{tr}}
+          \newcommand{\ran}[1]{\operatorname{ran}#1}
+          \newcommand{\nt}{\stackrel{\mathrm {nt}}{\to}}
+          \newcommand{\pnt}{\xrightarrow{pnt}}
+          \newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+          \newcommand{\ad}{^\ast}
+          \newcommand{\inv}{^{-1}}
+          \newcommand{\adinv}{^{\ast -1}}
+          \newcommand{\invad}{^{-1 \ast}}
+          \newcommand\Pick{\mathcal P}
+          \newcommand\Ha{\mathbb{H}}
+          \newcommand{\HH}{\Ha\times\Ha}
+          \newcommand\Htau{\mathbb{H}(\tau)}
+          \newcommand{\vp}{\varphi}
+          \newcommand{\ph}{\varphi}
+          \newcommand\al{\alpha}
+          \newcommand\ga{\gamma}
+          \newcommand\de{\delta}
+          \newcommand\ep{\varepsilon}
+          \newcommand\la{\lambda}
+          \newcommand\up{\upsilon}
+          \newcommand\si{\sigma}
+          \newcommand\beq{\begin{equation}}
+          \newcommand\ds{\displaystyle}
+          \newcommand\eeq{\end{equation}}
+          \newcommand\df{\stackrel{\rm def}{=}}
+          \newcommand\ii{\mathrm i}
+          \newcommand{\vectwo}[2]
+          {
+             \begin{pmatrix} #1 \\ #2 \end{pmatrix}
+          }
+          \newcommand{\vecthree}[3]
+          {
+             \begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}
+          }
+          \newcommand\blue{\color{blue}}
+          \newcommand\black{\color{black}}
+          \newcommand\red{\color{red}}
+          %\newcommand\red{\color{black}}
+          \newcommand\nn{\nonumber}
+          \newcommand\bbm{\begin{bmatrix}}
+          \newcommand\ebm{\end{bmatrix}}
+          \newcommand\bpm{\begin{pmatrix}}
+          \newcommand\epm{\end{pmatrix}}
+          \numberwithin{equation}{section}
+          \newcommand\nin{\noindent}
+          \newcommand{\nCr}[2]{\,_{#1}C_{#2}} % nCr
+          \newcommand{\vec}[1]{{\bf #1}}
+          \newcommand{\ps}{\displaystyle \sum_{n=0}^\infty a_n x^n}
+          \newcommand{\psg}{\displaystyle \sum_{n=0}^\infty b_n x^n}
+        </macros>
+    </docinfo>
+
+<book xml:id="linanal">
+    <title>Math 344 - Linear Analysis II Notes</title>
+    <frontmatter>
+
+        <titlepage>
+            <author>
+              <personname>Ryan Tully-Doyle</personname>
+              <institution>Cal Poly, SLO</institution>
+            </author>
+            <date><today /></date>
+        </titlepage>
+    </frontmatter>
+
+
+    <chapter xml:id="ch-series">
+        <title>Series solutions</title>
+        <section xml:id="ch-series-1">
+          <title>Power series</title>
+          <subsection><title>Motivation</title>
+          <p>One of the limitations of the elementary techniques of differential equations is the extremely limited number of types of equations that can be solved. Once we are dealing with equations that are second order or higher, we are pretty much restricted to equations with constant coefficients (<m>ay'' + by' + cy = 0</m>), or equations in special forms (like the Cauchy-Euler equations <m>ax^2y'' + bxy' + cy = 0</m>).</p>
+
+          <example><title>Airy's equation</title>
+            <p>A seemingly simple equation that cannot be solved with elementary techniques is <term>Airy's equation</term>, which is of the form
+            <me>
+              y'' - xy = 0.
+            </me>
+            </p>
+          </example>
+
+          <p>One problem that we run into is that many functions cannot be expressed as combinations of the elementary functions that we learn in calculus (for example, <m>f(x) = \int e^{x^2}\, dx</m>), and these functions are frequently the solutions to differential equations like the one in the example above. We turn, as we did in calculus, to <term>power series</term> representations of functions. Power series are one of the most important ideas developed in introductory calculus (though it is often the case that WHY you are learning about them isn't immediately obvious). We'll begin by recalled the definition of a power series, the question of when and where such a series converges, and some basic operations that we can perform</p>
+        </subsection>
+        <subsection><title>Definition of power series and convergence</title>
+          <definition xml:id="def-powerseries">
+            <p>An infinite series of the form
+              <me>
+                \sum_{n=0}^\infty a_n (x - x_0)^n
+              </me>
+              is called a power series centered at <m>x = x_0</m>.
+            </p>
+             <p>Because we can always make the substitution <m>u = x-x_0</m>, it is typically sufficient to consider series centered at <m>0</m>,
+            <men xml:id="def-powerseries-zero">
+              \sum_{n=0}^\infty a_n x^n.
+            </men>
+          </p>
+          </definition>
+
+          <p>A power series <term>converges</term> at a point <m>x</m> if the sequence of partial sums converges - that is,
+          <me>
+            \lim_{N \to \infty} \sum_{n = 0}^N a_n x^n
+          </me>
+          exists and is equal to a finite value. The <term>interval of convergence</term> of a power series (centered at 0) is the largest interval of the form <m>I = (-r,r)</m> for which the series converges for each <m>x \in (-r,r)</m>. The quantity <m>r</m> is called the <term>radius of convergence</term>. There are three possibilities for the value of <m>r</m>.</p>
+
+          <theorem xml:id="thm-power-converge">
+            <p>For a series of the form given in <xref ref="def-powerseries-zero"/>, exactly one of the following holds.
+            <ol>
+              <li><m>r = 0:</m> <m>\ps</m> converges only for <m>x = 0</m>.</li>
+              <li><m>r = \infty:</m> <m>\ps</m> converges for every <m>x \in \R</m>.</li>
+              <li><m>r</m> is finite: There is a constant <m>r > 0</m> so that <m>\ps</m> converges for <m>x \lt \abs{r}</m> and diverges for <m>x > \abs{r}</m>.</li>
+            </ol></p>
+          </theorem>
+
+          <p>The tool from calculus that is most useful in computing a radius of convergence for a power series is the <term>ratio test</term> (the reason is that only a single <m>x</m> will remain after computing the ratio).</p>
+
+          <definition>
+            <p>For the power series <m>\ps</m>, the radius of convergence <m>r</m> is given by <m>r = \frac{1}{L}</m> where <m>L</m> is the limit
+            <me>
+              \lim_{n\to\infty} \abs{\frac{a_{n+1}}{a_n}} = L.
+            </me>
+            If <m>L = 0</m>, then <m>r = \infty</m> (that is, the series converges for all values of <m>x</m>). If <m>L = \infty</m>, then <m>r = 0</m> (that is, the series only converges trivially at <m>x = 0</m>).</p>
+          </definition>
+
+          <example><title>Finding the radius of convergence</title>
+            <p>Compute the radius of convergence of
+              <me>
+                \sum_{n=0}^\infty \frac{2^{n+1}}{5^n} x^n.
+              </me>
+            </p>
+            <p>
+              We compute the limit
+              <me>
+                \lim_{n\to \infty}\abs{\frac{a_{n+1}}{a_n}} = \lim_{n\to \infty} \frac{2^{n+2}}{5^{n+1}} \cdot \frac{5^n}{2^{n + 1}} = \frac{2}{5},
+              </me>
+              and so <m>r = \frac{5}{2}</m>.</p>
+            </example>
+          </subsection>
+          <subsection><title>Algebra and calculus of power series</title>
+            <p>The beauty and utility in power series is that when they converge, they can be treated almost like giant polynomials. That is, we can perform algebra and calculs operations on convergent power series. To do so, first we can make a function out of a power series by restricting the domain to the interval of convergence (so that the function is well-defined). That is, if <m>r</m> is the radius of convergence for <m>\ps</m>, then we can define
+            <me>
+              f(x) = \ps, \hspace{1cm} x \in (-r,r).
+            </me></p>
+
+            <p>Before we discuss operations involving power series, we note a fundamental fact (related to the identical fact about polynomials) - two power series are equal if and only if their corresponding coefficients are equal. That is,
+              <me>
+                \ps = \sum_{n=0}^\infty b_n x^n \text{ if and only if } a_n = b_n \text{ for all } n.
+              </me>
+            </p>
+
+            <p>When we combine power series, we have to make sure that we work on a domain where both functions are defined - that is, if <m>f</m> and <m>g</m> have radii of convergence <m>r_1, r_2</m> respectively, then the radius of convergence of an algebraic combination of <m>f,g</m> will be <m>r = \min\{r_1,r_2\}</m>.</p>
+
+            <assemblage>
+              <p>Let <m>f(x) = \ps</m> and <m>g(x) =\psg</m> with common radius of convergence <m>r</m>.
+              <ol>
+                <li>Addition: <m>f(x) +g(x)  = \displaystyle\sum_{n=0}^\infty (a_n + b_n) x^n</m>.</li>
+                <li>Scalar multiplication: <m>c f(x) = \displaystyle\sum_{n=0}^\infty (ca_n) x^n</m></li>
+                <li>Multiplication of series: <m>f(x) g(x) = \displaystyle\sum_{n=0}^\infty c_n x^n</m> where the coefficients <m>c_n</m> are computed by <m>c_n = \displaystyle \sum_{k=0}^n a_{n-k} b_k</m> (this is essentially the result of a giant distribution and collection of like terms)</li>
+              </ol>
+              Division can be defined as well (as long as the function in the denominator is not zero), but is used less often in what we will be studying
+              </p>
+            </assemblage>
+
+            <p>One of our first applications of power series will be to plug them into equations, in order to figure out the coefficients. If we know the coefficients of a function given by a power series, then we know the function. Typically, finding the coefficients will involve solving a <term>recurrence relation</term>, which is a recursive process for determining coefficients from some number of known coeffients.</p>
+
+            <example><title>Solving a recurrence relation</title>
+            <p>Assume that the coefficients in the power series 
+              <me>
+                f(x) = \ps
+              </me>
+              satisfy the equation
+              <me>
+                \sum_{n=1}^\infty n a_n x^n - \sum_{n=0}^\infty a_n x^{n+1} = 0.
+              </me>
+              Find a formula that gives any <m>a_n</m> in terms of <m>a_0</m>.
+              </p>
+
+              <p>First, to combine power series, we'll need both the powers of the like terms to match, and the series to have the same number of terms. Notice that if we replace <m>n \rightarrow n + 1</m> in the second series, and we change the range of the index accordingly, we get
+              <me>
+                \sum_{n=1}^\infty n a_n x^n - \sum_{n=1}^\infty a_{n-1} x^{n} = 0.
+              </me>
+              As the powers of the corresponding terms match, and the range of indicies match, we can combine the series using addition to get
+              <me>
+                \sum_{n=1}^\infty (na_n - a_{n-1}) x^n = 0.
+              </me>
+              Because a convergent power series can only be equal to zero if the coefficients are all zero, we get the recurrence relation
+              <me>
+                na_n - a_{n-1}  = 0, \hspace{1cm} n = 1, 2, 3, \ldots,
+              </me>
+              which can be written
+              <me>
+                a_n = \frac{1}{n} a_{n-1}, \hspace{1cm} n = 1, 2, 3 \ldots.
+              </me>
+              This gives a family of equations that we can use to find each coefficient in terms of <m>a_0</m> and eventually guess a formula that won't require us to work recursively.</p>
+
+              <md>
+                <mrow>\amp n = 1: \,\,\, a_1 = a_0.</mrow>
+                <mrow>\amp n = 2: \,\,\, a_2 = \frac{1}{2}a_1 = \frac{1}{2} a_0.</mrow>
+                <mrow>\amp n = 3: \,\,\, a_3 = \frac{1}{3}a_2 = \frac{1}{3\cdot 2} a_0.</mrow>
+                <mrow>\amp n = 4: \,\,\, a_4 = \frac{1}{4}a_3 = \frac{1}{4\cdot 3 \cdot 2} a_0.</mrow>
+              </md>
+
+              <p>We can guess that the general formula for <m>a_n</m> is 
+              <me>
+                a_n = \frac{1}{n!} a_0.
+              </me>
+              (Notice that I haven't claimed to have proved this, because that would require mathematical induction. For our purposes in this course, if a pattern looks to hold, we will assume that it continues indefinitely.)</p>
+
+              <p>Under the assumption that our formula for <m>a_n</m> holds for all <m>n</m>, we can say 
+              <me>
+                f(x) = a_0 \sum_{n=0}^\infty \frac{1}{n!} x^n,
+              </me>
+              which you might notice is the Taylor series at 0 for the function
+              <m>f(x) = a_0 e^x</m>.</p>
+            </example>
+
+            <p>Just like algebra, we can perform calculus on power series in the obvious way (treating them like giant polynomials). Suppose that <m>f</m> is defined by a power series with domain equal to the interval of convergence, so that
+            <me>
+              f(x) = \ps, \,\,\, \abs{x} \lt r.
+            </me> 
+            Then we can differentiate <m>f</m> term by term to any order of derivative (after all, we're never going to run out of <m>x</m>es):
+
+            <md>
+              <mrow>f'(x) \amp= \sum_{n=1}^\infty n a_n x^{n-1}</mrow>
+              <mrow>f''(x) \amp = \sum_{n=2}^\infty n(n-1) a_n x^{n-2}</mrow>
+            </md>
+            and so on. Power series can also be integrated, which is straightforward to write a formula for. (You might consider doing it as an exercise.)</p>
+          </subsection>
+
+          <subsection><title>Analytic functions (a connection with complex analysis)</title>
+            <p>A function with a power series defined on some interval <m>(a,b)</m> is particularly nice because the power series implies the existence of derivatives of all orders. Such functions are called <term>smooth</term>. (Note that smooth functions need not have a convergent power series, which is a weird but deep fact of real analysis!). Power series representations are so special, we name functions that have them as a special class.</p>
+
+            <definition xml:id="def-analytic">
+              <p>A function <m>f</m> with a convergent power series representation on some non-trivial interval of convergence <m>(a,b)</m> is called an <term>analytic</term> function on <m>(a,b)</m>.</p>
+            </definition>
+
+            <p>Analytic functions are the nicest behaved functions in calculus and its applications. One of the major theorems of calculus is that if a function is analytic, then it has a unique power series representation, called the <term>Taylor series</term> for <m>f</m>. Even better, the series can be computed!</p>
+
+            <me>
+              f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!} (x  -x_0)^n.
+            </me>
+
+            <p>The functions of introductory calculus are nearly all analytic, many on the entire real line. You should be familiar with the power series expansions of those functions derived from exponential functions.</p>
+
+            <assemblage>
+              <p><ol>
+                <li> <m>\displaystyle e^x = 1 + x + \frac{1}{2!} x^2 + \frac{1}{3!} x^3 + \ldots = \sum_{n=0}^\infty \frac{1}{n!} x^n</m></li>
+                <li> <m>\displaystyle \cos x = 1 - \frac{1}{2!} x^2 + \frac{1}{4!} x^4 + \ldots =   \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n}</m></li>
+                <li> <m>\displaystyle \sin x = x - \frac{1}{3!} x^3 + \frac{1}{5!} x^5 + \ldots =   \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} x^{2n+ 1}</m></li>
+              </ol></p>
+            </assemblage>
+
+            <p>Because we can combine power series using algebra to get new power series, we can do the same with the analytic functions that they represent. That is, if <m>f, g</m> are analytic, so are algebraic combinations of them.</p>
+
+            <theorem>
+              <p>If <m>f, g</m> are analytic functions on a common interval <m>(a,b)</m>, then so are <m>f + g, f - g, fg</m>, and <m>\frac{f}{g}</m> (as long as <m>g(x) \neq 0</m>).</p>
+            </theorem>
+
+            <p>The most useful examples of analytic functions are polynomials! (From this persepective, polynomials are just finite power series.) Polynomials are analytic at every point, and so therefore are <m>f + g, f - g</m> and <m>f g</m>. Things are a bit more complicated in the case of rational functions <m>\frac{f}{g}</m>, because the zeroes of <m>g</m> determine the radius of convergence of the quotient.</p>
+
+            <p>Here we come across one of the first places that the analysis of analytic functions is actually secretly taking place in the complex plane. Consider the function
+              <me>
+                f(x) = \frac{1}{1+x^2}.
+              </me>
+            <m>1 + x^2</m> doesn't possess any real zeroes. Does this mean that the power series for <m>f</m> converges everywhere? Let's see. Using the fact that <m>\frac{1}{1 - x} = 1 + x + x^2 + \ldots</m> for <m>\abs{x} \lt 1</m>, we can show that
+            <me>
+              \frac{1}{1 + x^2} = \frac{1}{1 - (-x^2)} = 1 + (-x^2) + (-x^2)^2 + (-x^2)^3 + \ldots = \sum_{n=0}^\infty (-1)^n x^{2n},
+            </me>
+            as long as <m>\abs{-x^2} \lt 1</m> which is just <m>\abs{x} \lt 1</m>. So even though <m>1 + x^2</m> has no real zeros, the power series for <m>f</m> only had radius of convergence <m>1</m>! What's going on?</p>
+
+            <p>It turns out that when we're looking at quotients of analytic functions, we need to consider all of the zeros of the denominator, real and complex. For our example, <m>1 + x^2 = 0</m> has solutions <m>\pm i</m>, which are a distance of 1 away from the origin in the complex plane (0 on the real line). Since the closest zero to the center of our power series is 1 unit away, the radius of convergence is 1.</p>
+
+            <theorem>
+              <p>If <m>p(x), q(x)</m> are polynomials and <m>q(x_0) \neq 0</m>, then the radius of convergence of the power series representation is the distance from <m>x_0</m> to the closest root (real or complex) of <m>q</m>.
+              </p>
+            </theorem>
+
+            <example><title>Radius of convergence for a rational function</title>
+              <p> Compute the radius of convergence of the power series centered at <m>x = 0</m> of 
+                <me>
+                  f(x) = \frac{x^2}{(x +3)(x^2 + 3)}.
+                </me>
+              </p>
+
+              <p>The zeroes of <m>q</m> are <m>x_1= -3, x_2 = i\sqrt{3}, x_3 = -i\sqrt{3}</m>. Using the distance formula, we can compute that the distances to the origin are <m>d_1 = 3, d_2 = \sqrt{3}, d_3 = \sqrt{3}</m>, and so the radius of convergence is <m>r = \sqrt{3}</m>.</p>
+            </example>
+          </subsection>
+
+
+        </section>
+
+        <section xml:id="ch-series-2">
+            <title>Series solutions at ordinary points</title>
+            <subsection>
+              <title>Ordinary points</title>
+              <p>Consider the second order linear differential equation
+                <me>
+                  y'' + p(x) y' + q(x) y = 0.
+                </me>
+              The fact that we have functions as <q>coefficients</q> for the terms means that our previous tools do not apply. Instead, we'll try to discover solutions using power series and recurrence relations. It will be much easier to do this if <m>p</m> and <m>q</m> are well-behaved where we center our power series.</p>
+
+              <definition xml:id="def-ordinary-point">
+                <p>A point <m>x = x_0</m> is an <term>ordinary point</term> for the differential equation
+                <me>
+                  y'' + p(x) y' + q(x) y = 0
+                </me>
+                if <m>p</m> and <m>q</m> are analytic at <m>x = x_0</m>. If a point is not ordinary, then it is called a <term>singular point</term> of the equation.</p>
+              </definition>
+
+              <example><title>Finding ordinary points</title>
+                <p>Find the ordinary points of the differential equation
+                  <me>
+                    y'' + \frac{1}{x^2 - 1} y' + \frac{1}{x - 3} y = 0.
+                  </me>
+                </p>
+
+                <p>Because <m>p, q</m> fail to be analytic at <m>x = \pm 1, 3</m> the equation is singular at those three points. Every other point is an ordinary point.</p>
+              </example>
+            </subsection>
+
+            <subsection><title>Power series solutions at ordinary points</title>
+              <p>We now give an example of solving a differential equation with series solutions. We'll start with a problem that we already know the solution to, before moving on to solving Airy's equation. It will be useful to recall the expressions for the derivatives of convergent power series. If <m>y = \ps</m>, then
+              <md>
+                <mrow>y' \amp= \sum_{n=1}^\infty n a_n x^{n-1},</mrow>
+                <mrow>y'' \amp = \sum_{n=2}^\infty n(n-1) a_n x^{n-2}.</mrow>
+              </md></p>
+
+              <example><title>Finding series solutions</title>
+                <p>Find the general solution to the differential equation
+                  <m>y'' + y = 0</m>
+                  using series methods.</p>
+
+                <p>We expect to find two linearly independent solutions, and we expect the general solution to be of the form <m>y = c_1 y_1 + c_2 y_2</m> for arbitrary constants <m>c_1, c_2</m> because we have a second order equation. Notice that <m>p = 0</m> and <m>q = 1</m> which are analytic at every point, so we will work at the center <m>x = 0</m> and assume that our solution is of the form <m>y = \ps</m>.</p>
+
+                <p>On taking derivatives and plugging into the differential equation, we get
+                <me>
+                  \sum_{n=2}^\infty n(n-1) a_n x^{n-2} + \ps = 0.
+                </me>
+                We want to combine these into a single sum and use a recurrence relation to find the solutions, but we need the terms and the index ranges to match. If we shift the index on the first sum by letting <m>n - 2 \to n </m>, we get
+                <me>
+                  \sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} + \ps = 0.
+                </me>
+                Now we can combine the series to get
+                <me>
+                  \sum_{n=0}^\infty \left[(n+2)(n+1) a_{n+2} + a_n\right]x^n = 0
+                </me>
+                which gives the family of coefficient equations
+                <me>
+                  (n+2)(n+1)a_{n+2} + a_n = 0
+                </me>
+                which is convenient to rearrange as
+                <me>
+                  a_{n+2} = -\frac{1}{(n+2)(n+1)} a_n, \,\,\, n = 0, 1, 2, \ldots
+                </me>
+                </p>
+                <p>Notice that we need two pieces of information to determine all of the information contained in this recursion: <m>n = 0</m> starts a chain that gives the coefficients for the even values of <m>n</m>, and <m>n = 1</m> starts a chain that gives that information for the odd values (corresponding to the two separate independent solutions). We consider each family separately.
+
+                <md>
+                  <mrow>n = 0\amp: a_2 = -\frac{1}{2 \cdot 1} a_0 = -\frac{1}{2!}a_0</mrow>
+                  <mrow>n = 2\amp: a_4 = -\frac{1}{4 \cdot 3} a_2 = \frac{1}{4 \cdot 3 \cdot 2 \cdot 1} a_0 = \frac{1}{4!} a_0</mrow>
+                  <mrow> n=4\amp: a_6 = -\frac{1}{6 \cdot 5} a_4 = -\frac{1}{6!} a_0.</mrow>
+                </md>
+                That is, the even terms seem to be of the form
+                <m> a_{2k} = \frac{(-1)^k}{(2k!)} a_0</m>.</p>
+
+                <p>For the odd values of <m>n</m>, we get
+                <md>
+                  <mrow>n = 1\amp: a_3 = -\frac{1}{3 \cdot 2} a_1 = -\frac{1}{3!}a_1</mrow>
+                  <mrow>n = 3\amp: a_5 = -\frac{1}{5 \cdot 4} a_3 = \frac{1}{5 \cdot 4 \cdot 3 \cdot2 \cdot 1} a_1 = \frac{1}{5!} a_1</mrow>
+                  <mrow> n=5\amp: a_7 = -\frac{1}{7 \cdot 6} a_5 = -\frac{1}{7!} a_1.</mrow>
+                </md>
+                which looks like <m>a_{2k+1} = \frac{(-1)^k}{(2k+1)!} a_1</m>. </p>
+
+                <p>Now that we know the coeffients of the power series, we can write
+                  <md>
+                    <mrow>y \amp= a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \ldots</mrow>
+                    <mrow>\amp= a_0 + a_1 x - \frac{1}{2!} a_0 x^2 - \frac{1}{3!} a_1 x^3 + \ldots</mrow>
+                    <mrow>\amp = a_0 ( 1 - \frac{1}{2!} x^2 + \frac{1}{4!} x^4 - \ldots) + a_1 (x - \frac{1}{3!} x^3 + \frac{1}{5!}x^5 - \ldots)</mrow>
+                  </md>
+                  which allows us to write
+                  <m>y = a_0 y_1 + a_0 y_2</m> where
+                  <me>
+                    y_1(x) = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n},  \hspace{1cm} y_2 = \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!} x^{2n+1}.</me>
+                  </p>
+
+                  <p>An easy application of the rato test shows that each of these series converges for all values of <m>x</m> (that is, the radius of converge is <m>\infty</m>).</p>
+
+                  <p>Finally, we need to verify that these series are linearly independent. With two objects, this will be true as long as the functions aren't scalar multiples of each other, which is indeed the case.</p>
+
+                  <p>(We might note that none of this is surprising in this case because the series in question have very nice closed forms you should recongize on sight!)</p>
+              </example>
+
+              <p>At an ordinary point, we will always follow the steps in the example above.
+                <ol>
+                  <li>Assume that a solution of the form <m>y = \ps</m> exists.</li>
+                  <li>Plug the series into the equation to get a recurrence relation and find the coefficients in terms of <m>a_0</m> and <m>a_1</m>.</li>
+                  <li>Use the ratio test to find the radius of convergence (which is where out solution is valid).</li>
+                  <li>Verify that the solutions are linearly independent.</li>
+                </ol></p>
+
+                <theorem>
+                  <p>Let <m>p, q</m> be analytic functions on some common interval <m>\abs{x - x_0} \lt r</m> centered at <m>x_0</m>. Then the general solution to the second order differential equation
+                  <me>
+                    y'' + p y' + q y = 0
+                  </me>
+                  can be represented as power series centered at <m>x_0</m> on the same interval. The coefficients in the series can be described in terms of the initial data <m>a_0, a_1</m>, and the general solution can be rearranged 
+                  into the form
+                  <me>
+                    y = a_0 y_1 + a_1 y_2
+                  </me>
+                  where <m>y_1, y_2</m> are linearly independent.
+                </p></theorem>
+
+                <p>We conclude this chapter with the solution of Airy's equation.</p>
+
+                <example><title>Airy's equation</title>
+                  <p>Solve the equation 
+                    <me>
+                      y'' - x y = 0.
+                    </me>
+                  </p>
+
+                  <p>Since <m>p = 0</m> and <m>q = x</m>, every point is an ordinary point. So we assume that a series solution exists of the form <m>y = \ps</m>. Plugging into the equation, we get
+                  <me>
+                    \sum_{n=2}^\infty n(n-1) a_n x^{n-2} - x \ps = 0.
+                  </me>
+                  Multiplying through, we get
+                  <me>
+                    \sum_{n=2}^\infty n(n-1) a_n x^{n-2} - \sum_{n = 0}^\infty a_n x^{n+1} = 0.
+                  </me>
+                  First, we'll make the powers match, then we'll shift indicies as necessary.
+                  <me>
+                    \sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} - \sum_{n = 1}^\infty a_{n-1} x^{n} = 0.
+                  </me>
+                  Now that the powers of <m>x</m> match, the easiest way to make the index ranges match is to pop the first term off of the first sum.
+                  <me>
+                    2a_2 + \sum_{n=1}^\infty (n+2)(n+1) a_{n+2} x^{n} - \sum_{n = 1}^\infty a_{n-1} x^{n} = 0.
+                  </me>
+                  Before we combine, notice that right away we can see that <m>a_2 = 0</m>. This is going to have an interesting effect on the resulting series.
+                  <me>
+                    2a_2 + \sum_{n=1}^\infty \left[(n+2)(n+1) a_{n+2} - a_{n-1} \right] x^n = 0.
+                  </me>
+                  Setting the coefficients to be 0, we get the family of relations
+                  <me>
+                    a_{n+2} = \frac{1}{(n+2)(n+1)} a_{n-1}.
+                  </me>
+                  Because there is a separation of three index elements between the terms in the recursion, there will be three families of equations. Immediately, we can see that because <m>a_2 = 0</m>, the recursion imples that <m>a_5, a_8, a_{11}, \ldots = 0</m> as well. (From the theorem, we know that we should be able to get all the information we need in terms of <m>a_0</m> and <m>a_1</m>.)</p>
+
+                  <p>For the set of coefficients beginning with <m>a_0</m>, we have
+
+                  <md>
+                    <mrow>n = 1\amp: a_3 = \frac{1}{3 \cdot 2} a_0</mrow>
+                    <mrow>n = 4\amp: a_6 = \frac{1}{6 \cdot 5} a_3 = \frac{1}{6 \cdot 5 \cdot 3 \cdot 2} a_0</mrow>
+                    <mrow> n=7\amp: a_9 = \frac{1}{9 \cdot 8} a_6 = \frac{1}{9 \cdot 8 \cdot 6 \cdot 5 \cdot 3 \cdot 2} a_0.</mrow>
+                  </md>
+                  There is a clear pattern, though it is annoying to write in closed form.</p>
+
+                  <p>For the set of coefficients beginning with <m>a_1</m>, we have
+                  <md>
+                    <mrow>n = 2\amp: a_4 = \frac{1}{4 \cdot 3} a_1 </mrow>
+                    <mrow>n = 5\amp: a_7 = \frac{1}{7 \cdot 6} a_4 = \frac{1}{7 \cdot 6 \cdot 4 \cdot3 } a_1 </mrow>
+                    <mrow> n=8\amp: a_10 = \frac{1}{10 \cdot 9} a_7 = \frac{1}{10 \cdot 9 \cdot 7 \cdot 6 \cdot 4 \cdot 3} a_1.</mrow>
+                  </md> 
+
+                  Then the general solution to the equation is
+                  <me> y = a_0 y_1(x) + a_1 y_2(x)</me>
+                  where
+                  <md>
+                    <mrow>y_1(x) \amp= 1 +  \frac{1}{3 \cdot 2} x^3 + \frac{1}{6 \cdot 5 \cdot 3\cdot 2} x^6 + \ldots</mrow>
+                    <mrow>y_2(x) \amp= x + \frac{1}{4 \cdot 3} x^4 + \frac{1}{7\cdot 6 \cdot 4 \cdot 3}x^7 + \ldots</mrow>
+                  </md>
+                  These power series are convergent everywhere, obviously linearly independent, and unfortunately have no closed form; that is, series representations is the best that we can do.</p>
+
+                  <sage>
+                    <input>
+                      var( 'z y x'); y = 1 +  1/6 *x^3 + 1/180 *x^6
+                      z = x + 1/12 *x^4 + 1/504 *x^7
+                      a = plot([],title="(Approx) Solutions to Airy's equation")
+                      a += plot(y, x, (-2,2), color='red')
+                      a += plot(z, x, (-2,2))
+                      show(a)
+                    </input>
+                  </sage>
+
+
+
+                </example>
+            </subsection>
+        </section>
+
+        <section xml:id="ch-series-3">
+            <title>Legrendre series</title>
+            <subsection><title>Legendre's equation</title>
+            <p>Physics and applied mathematics provide a wealth of differential equations, some of which are sufficiently common to carry special names, notably
+              <md>
+                <mrow>(1 - x^2)y'' - 2x y' + c(c + 1)y = 0, \,\,\, \text{ (Legendre's equation)}</mrow>
+                <mrow> y'' - 2xy' + 2cy = 0, \,\,\, \text{ (Hermite's equation)}</mrow>
+                <mrow> (1 - x^2) y'' - xy' + c^2 y = 0 \,\,\, \text{ (Chebyshev's equation)}</mrow>
+              </md>
+              where <m>c</m> is some parameter that can take on any real value. All of these equations have an ordinary point at <m>x = 0</m>, and so have series solutions of the form <m>y = \ps</m>. The solutions to these equations for different values of <m>c</m> have special properties, particularly when <m>c</m> is an integer.</p>
+
+              <p>In this section, we'll investigate the solutions and properties of the Legendre equation. First, note that the equation as written is not in our standard form. We'll need to rewrite it to get an estimate for the interval of convergence of our series solution (though it will be convenient to leave it in its original form when we attempt to solve it.) In the form
+                <me>
+                  y'' - \frac{2x}{1 - x^2} y' + \frac{c(c+1)}{1 - x^2} y = 0,
+                </me>
+                we can see that <m>p, q</m> are analytic at the very least on the interval <m>(-1,1)</m>, as the power series for <m>\frac{1}{1- x^2}</m> has radius of convergence <m>1</m>.</p>
+
+                <p>Armed with the knowledge that our solutions exist, we can follow the usual technique to derive the solutions.</p>
+
+                <exercise>
+                  <p>Derive the general solutions to the Legendre equation using recurrence relations. 
+                  </p>
+                </exercise>
+
+                <p>In general, the solutions to Legendre's equation for a fixed constant <m>c</m> are of the form
+                <me>
+                  y = y_1(x) + y_2(x)
+                </me>
+                with
+                <md>
+                  <mrow>y_1(x) \amp= a_0\left[1 - \frac{c(c+1)}{2}x^2 + \frac{(c-2)c(c+1)(c+3)}{4!} x^4\right. </mrow>
+                  <mrow> \amp\left.\hspace{1in} - \frac{(c-4)(c-2)c(c+1)(c+3)(c+5)}{6!} x^6 +\ldots\right]</mrow>
+                  <mrow></mrow>
+                  <mrow>y_2(x) \amp= a_1\left[x - \frac{(c-1)(c+2)}{3!} x^3 + \frac{(c-3)(c-1)(c+2)(c+4)}{5!}x^5 + \ldots\right]</mrow>
+                </md>
+                </p>
+              </subsection>
+
+              <subsection>
+                <title>Legendre polynomial</title>
+                <p>It turns out that the most important case of the Legendre equation occurs when the constant <m>c</m> is an integer, which we emphasize by calling it <m>c=N</m>. In that case, the recursion that determines the solution to the equation is
+                <me>
+                  a_{n+2} = -\frac{n(n+1) - N(N+1)}{(n+1)(n+2)} a_n.
+                </me>
+                Since <m>N</m> is fixed, this means that <m>a_{N+2} = 0</m>, and moreover that the subsequent terms in the recursion are zero as well: <me>a_{N+2} = a_{N+4} = a_{N+6} = \ldots = 0.</me>
+                That is, either <m>y_1</m> or <m>y_2</m> is a finite power series - a polynomial - depending on if <m>N</m> is even or odd. These polynomials turn out to be quite useful.
+              </p>
+
+              <definition>
+                <p>Let <m>N</m> be a nonnegative intger. The <term>Legendre polynomial of degree <m>N</m></term>, denoted <m>P_N(x)</m>, is the polynomial solution to 
+                <me>
+                  (1- x^2) y'' - 2 x y' + N(N+1)y = 0,
+                </me>
+                normalized so that <m>P_N(1) = 1</m>.
+                </p>
+              </definition>
+
+              <example>
+                <p>The first few Legendre polynomials are easy to write down. Remember that each polynomial is normalized to have <m>P_N(1) = 1</m>.
+                  <md>
+                    <mrow>N \amp= 0:y_1(x) = a_0 \Rightarrow P_1(x) = 1.</mrow>
+                    <mrow>N \amp= 1: y_2(x) = a_1 x \Rightarrow P_2(x) = x.</mrow>
+                    <mrow>N \amp= 2: y_1(x) = a_0(1 - 3x^2) \Rightarrow P_2(x) = \frac{1}{2}(3x^2 -1).  </mrow>
+                  </md>
+                </p>
+              </example>
+
+              <p>For larger values of <m>N</m>, we need a better method to produce these polynomials. Fortunately for us, computer algebra systems have functions that produce these polynomials very quickly. (The following is in the mathematical language Sage. Similar functions exist in MATLAB, Mathematica, Octave, python, etc.)</p>
+
+              <sage>
+                <input>
+                  var('x')
+                  legendre_P(2,x)
+                </input>
+              </sage>
+
+              <p>If we wish to proceeed by hand, there is an explicit formula for generating <m>P_N(x)</m> known as Rodrigues's formula:
+                <me>
+                  P_N(x) = \frac{1}{2^N N!} \frac{d^N}{dx^N} (x^2 - 1)^N, \hspace{1cm} N = 0, 1, 2, \ldots
+                </me>
+              </p>
+              </subsection>
+
+              <subsection>
+                <title>Legendre polynomials and vector spaces</title>
+                <p>Here we reach an instance of one of the most important larger themes of mathematical analysis - we can view functions with nice properties as vectors sitting inside an infinite dimensional vector space. With certain modifications, these spaces act very similarly to the familiar Euclidean spaces <m>\R^n</m>. One of the most important features of vector spaces is that vectors can be decomposed into orthogonal pieces with respect to some inner product in terms of a basis. For example, we can think of the Taylor series for a function as expressing that function in terms of the vectors <m>1, x, x^2, \ldots</m>, where the coefficients <m>\frac{f^{(n)}(a)}{n!}</m> are really the coordinates of the vector.</p>
+
+                <p>The continuous functions on the interval <m>[-1,1]</m> are denoted <m>C^0[-1,1]</m>. (We're using symmetric intervals in this case because the Legendre polynomials are even or odd.) This space is a (infinite dimensional) inner product space with the dot product defined as
+                <me>
+                  f \cdot g = \ip{f}{g} = \int_{-1}^1 f(x) g(x) \, dx.
+                </me>
+                Following the analogy with <m>\R^n</m>, we define two vectors in an inner product space to be <term>orthogonal</term> if <m>\ip{f}{g} = 0</m>. Beyond a notion of <q>angle</q>, the inner product also gives a way to measure length with the <term>norm</term> defined in this case by
+                <me>
+                  \norm{f} = \sqrt{\ip{f}{f}} = \sqrt{\int_{-1}^1 f(x)^2 \, dx}.
+                </me></p>
+
+                <theorem>
+                  <p>The Legendre polynomials are mutually orthogonal; that is,
+                  <me>
+                    \ip{P_j}{P_k} = \int_{-1}^1 P_j(x) P_k(x) \, dx = 0 \text{ if } j \neq k.
+                  </me> 
+                  Thus, the polynomials <m>P_0, P_1, \ldots, P_n</m> are an orthogonal basis for the space of polynomials of degree <m>n</m> or less.</p>
+                </theorem>
+
+                <proof>
+                  <p>See Annin, Goode, p. 744.</p>
+                </proof>
+
+                <p>Furthermore, one can show that for a fixed integer <m>j</m> that
+                <me>
+                  \norm{P_j} = \sqrt{\frac{2}{2j+1}}.
+                </me></p>
+
+                <p>One of the most important properties of an orthgonal basis for an inner product space is that generic vectors can be decomposed into orthogonal pieces. Suppose that we have the set of Legendre polynomials <m>P_0, \ldots, P_N</m> as an orthogonal basis for the polynomials of degree <m>N</m> or less. Then we can compute the expansion of a polynomial in terms of Legendre polynomials by the formula
+                <me>
+                  p(x) = \sum_{i=0}^{N} a_i P_i = \sum_{i=0}^n \frac{\ip{p}{P_i}}{\norm{P_i}^2} P_i.
+                </me>
+                This should look familiar, as we are finding the coefficients <m>a_i</m> by using the vector projection formula <m>\proj_v u = \frac{u\cdot v}{\norm{v}^2} u</m>. Since we know that <m>\norm{P_i}^2 = \frac{2}{2i + 1}</m>, we get the specific expansion
+                <me>
+                  p(x) = \sum_{i=1}^N a_i P_i(x), \text{ where } a_i = \frac{2i+1}{2} \int_{-1}^1 p(x) P_i(x) \, dx.
+                </me></p>
+
+                <p>The real power of the expansion idea is that it holds for general functions, not just polynomials, under the additional assumption that <m>f \in C^1(-1,1)</m>; that is, both <m>f, f'</m> are continuous.</p>
+
+                <theorem>
+                  <p>Suppose that <m>f, f'</m> are continuous on <m>(-1,1)</m>. Then <m>f</m> has a Legendre series expansion on <m>(-1,1)</m> given by
+                  <me>
+                    f(x) = \sum_{i=1}^\infty a_i P_i(x)
+                  </me>
+                  where each <m>a_i</m> is given by the vector projection
+                  <me>
+                    a_i = \frac{\ip{f}{P_i}}{\norm{P_i}^2} = \frac{2i + 1}{2} \int_{-1}^1 f(x)P_i(x)\, dx.
+                  </me></p>
+                </theorem>
+
+                <p>It is not at all obvious that an infinite series of functions should converge, nor what it means for a series of functions to converge to another function. Mathematicians wrestled with these ideas for more than a century establishing the basics of modern function theory. Proof of the theorem above will require you to consult an advanced textbook on spaces of functions. For now, accept the assertion that the theorem above does indeed have a proof and that mathematicians, physicists, and engineers have been using these sorts of ideas for far longer than they have been rigorously demonstrable.</p>
+
+                <p>You might wonder why we would prefer to work with Legendre series rather than the Taylor series that are so easy to compute - first, notice that Taylor series only exist for <em>analytic</em> functions, where here we have Legendre series for functions that are merely continuously differentiable. Secondly, it turns out that working numerically with Taylor approximations is actually pretty terrible. The term used in numerical analysis is <term>ill-conditioned</term>. Legendre expansions are significantly more stable in computations. In many cases, Legendre series also converge to the function being approximated much more quickly than Taylor series, which we can illustrate with the following example.</p>
+
+                <example><title>Taylor and Legendre approximation of <m>\sin \pi x</m>.</title>
+                <p>The function <m>\sin \pi x</m> completes one period on the interval <m>(-1, 1)</m> and obviously has a continuous derivative. The Taylor expansion of <m>\sin \pi x</m> to degree 5 is given by the formula
+                <me>
+                  T_5(x) = \pi x - \frac{\pi^3 x^3}{6} + \frac{\pi^5 x^5}{120}
+                </me>
+                It is straightforward to compute the first few terms in the Legendre expansion as follows: First, note that since sine is odd, there will be no terms of even degree. That is, <m>\sin x = a_1 P_1(x) + a_3 P_3(x) + a_5 P_5(x)</m>.
+                <md>
+                  <mrow>
+                  a_1 \amp= \frac{2(1) + 1}{2} \int_{-1}^1 x \sin \pi x\, dx = \frac{3}{\pi}</mrow>
+                  <mrow>a_3 \amp= \frac{2(3) + 1}{2} \int_{-1}^1 \frac{1}{2}(3x^2 - 1) \sin\pi x \, dx = \frac{7}{\pi^3}(\pi^2 - 15)</mrow>
+                  <mrow>a_5 \amp= \frac{2(5) + 1}{2} \int_{-1}^1 P_5(x) \, dx = \frac{11}{\pi^5} (945 - 105\pi^2 + \pi^4)</mrow>
+                </md></p>
+
+                <p>Let us compare these approximations.</p>
+                <sage>
+                  <input>
+                   var ('x')
+                    f(x) = sin(x)
+                    g = plot(sin(pi*x), (-1,1))
+                    P1 = legendre_P(1, x)
+                    P3 = legendre_P(3, x)
+                    P5 = legendre_P(5, x)
+                    P(x) = 3/pi * P1 + 7/pi**3*(pi**2 - 15)*P3 + 11/pi**5*(945 - 105*pi**2 + pi**4)*P5
+                    g+= plot(P(x), (-1,1), color='red')
+                    T(x) = pi*x - pi**3*x**3/6 + pi**5*x**5/120
+                    g+= plot(T(x), (-1,1), color = 'green')
+                    show(g)
+                  </input>
+                </sage>
+
+                <p>Notice how much deviation there is in the Taylor approximation towards the end of the interval, as compared to the Legendre approximation which even at 5th degree fits right into the sine function.</p>
+                </example>
+
+              </subsection>
+        </section>
+
+        <section xml:id="ch-series-4">
+            <title>Series solutions at regular singularities</title>
+            <subsection><title>Types of singular points</title>
+            <p>So far, we've looked at differential equations at ordinary points, specifically
+            <me>
+              y'' + p(x)y' + q(x)y = 0.
+            </me>
+            That is, we've assumed that analytic solutions exist and proceeded with power series methods. However, a major area of interest in many applied settings is what happens at points where <p>p</p> and <m>q</m> fail to be analytic. These <term>singular points</term> are often very important to consider when analyzing a system. (You may need to know what happens to the behavior of the system as the input approaches a singular point.)</p>
+
+            <definition xml:id="def-singular-point">
+              <p>A point <m>x = x_0</m> is a <term>regular singular point</term> of the equation
+              <me>
+                y'' + p(x)y' + q(x) y= 0
+              </me>
+              if 
+              <ol>
+                <li><m>x_0</m> is a singular point of the equation,</li>
+                <li>and both
+                  <me>
+                    \hat{p}(x) = (x - x_0)p(x), \hspace{1cm} \hat{q(x)}=(x-x_0)^2 q(x)
+                  </me>
+                  are analytic at <m>x = x_0</m>
+                </li>
+              </ol>
+              A singular point that does not satisfy these conditions is called an <term>irregular singular point</term>.</p>
+            </definition>
+
+            <p>To give you some terminology (and a connection with complex analysis), a function <m>f(x)</m> for which <m>f(x)(x = x_0)^n</m> is analytic at <m>x_0</m> for <m>n = N</m> but singular at <m>x_0</m> for <m>n \lt N</m> is said to have a <term>pole of order <m>N</m> at <m>x_0</m></term>. The point of the definition above is that for a second order equation, essentially the worst singular behavior we can have and still work with series directly is second order poles. Similar statements apply to higher order equations.</p>
+
+            <example><title>Classifying points</title>
+              <p>Classify the points of the equation
+                <me>
+                  y'' + \frac{1}{x(x-1)^2}y' + \frac{x}{x(x-1)^3} y = 0
+                </me>
+              </p>
+
+              <p>The equation clearly has singularities at <m>x = 0, 1</m>. For <m>x = 0</m>, 
+              <me>
+                \hat{p}(x) = x p(x) = \frac{1}{x - 1}, \hspace{1cm} \hat{q}(x) = xq(x) \frac{1}{(x-1)^3},
+              </me>
+              both of which are analytic at <m>x = 0</m>. Thus, <m>x =0</m> is a regular singular point.</p>
+              <p>On the other hand, at <m>x = 1</m>, we have
+              <me>
+                \hat{p}(x) = (x - 1) p(x) = \frac{1}{x(x-1)},
+              </me>
+              which is singular at <m>x = 1</m>. Thus, <m>x =1</m> is an irregular singular point.</p>
+            </example>
+          </subsection>
+          <subsection>
+            <title>Series solutions at regular singular points</title>
+            <p>Suppose that <m>x = x_0</m> is a regular singular point for the equation
+            <me>
+              y'' + p(x)y' + q(x)y = 0.
+            </me>
+            Essentially we can remove the singular behavior by multiplying through by <m>(x - x_0)^2</m> to get an equation of the form
+            <me>
+              (x - x_0)^2 y'' + (x-x_0)\hat{p}(x) y' + \hat{q}(x) y = 0
+            </me>
+            where <m>\hat{p} = (x-x_0)p(x), \hat{q} = (x - x_0)^2 q(x)</m> are analytic at <m>x_0</m>. Going one step further, we can make the substitution <m>u = x - x_0</m>, which moves the regular singular point to <m>x=0</m>, and so we can restrict our attention to equations of the form
+            <me>
+              x^2 + x p(x) y' + q(x) y = 0
+            </me>
+            where <m>p, q</m> are analytic at <m>0</m>. (We've essentially just pulled the singular behavior out of the coefficient functions to make it easier to analyze.)</p>
+
+            <p>The most elementary equation in this family is the Cauchy-Euler equation, where <m>p, q</m> are just constants <m>p_0, q_0</m>. In that case, we have a second order linear constant coefficient homogeneous equation, which we can solve using the method of the indicial equation.</p>
+
+            <theorem>
+              <p>Suppose we have a Cauchy-Euler equation
+              <me>
+                x^2 y'' + x p_0 y' + q_0 y = 0.
+              </me>
+              The equation has solutions on <m>(0,\infty)</m> of the form <m>y = x^r</m>, where <m>r</m> is a solution to the indicial equation
+              <men xml:id="eq-indicial">
+                r(r-1) + p_0 r + q_0 = 0</men>
+              </p>
+            </theorem>
+
+            <p>We can use the constant case to guide our method for more general coefficients. Suppose we have an equation with coefficient functions
+              <me>
+                x^2 y'' + xp(x)y' + q(x) y = 0
+              </me>
+              with <m>p,q</m> analytic at <m>0</m>. Then we can assume that there is some positive radius of convergence <m>R</m> for which <m>p, q</m> both have convergent series expansions
+              <md>
+                <mrow>p(x) \amp= p_0 + p_1 x + p_2 x^2 + \ldots</mrow>
+                <mrow>q(x) \amp= q_0 + q_1 x + q_2 x^2 + \ldots</mrow>
+              </md>
+              We can plug these in to get the equation
+              <me>
+                x^2 y'' + x\left(p_0 + p_1 x + p_2 x^2 + \ldots\right)y' + \left(q_0 + q_1 x + q_2 x^2 + \ldots \right)y = 0.
+              </me>
+              Now we have to make a guess. Notice that if <m>x</m> is very small, then <m>p(x) \approx p_0</m> and <m>q(x) \approx q_0</m>, which means that near 0, the equation is approximately the Cauchy-Euler equation:
+              <me>
+               x^2 y'' + x\left(p_0 + p_1 x + p_2 x^2 + \ldots\right)y' + \left(q_0 + q_1 x + q_2 x^2 + \ldots \right)y \approx x^2 y'' + p_0 x y' + q_0 y = 0.
+              </me>
+              So we guess that the form of the series solution includes a term <m>x^r</m> that describes the behavior of the function near <m>x = 0</m> in <m>(0,R)</m> (where we're looking at a Cauchy-Euler equation) and a piece in terms of a power series that picks up the behavior away from <m>0</m>.
+               </p>
+
+               <p>That is, using this intuition, we can guess that for the equation
+                <me>
+                  x^2 y'' +  x p(x) y' + q(x) y = 0,
+                </me>
+                solutions will be of the form
+                <men xml:id="eq-frob">
+                  y(x) = x^r \sum_{n=0}^\infty a_n x^n, \,\,\,a_0 \neq 0
+                </men> 
+                where as before, <m>r</m> is a solution to the indicial equation
+                <me>
+                  r(r+1) + p_0 r + q_0 = 0.
+                </me>
+                This turns out to be the right idea, and series of the form <xref ref="eq-frob"/> are called <term>Frobenius series</term>.
+              </p>
+
+              <theorem xml:id="thm-frob-real-distinct">
+                <p>For <m>x > 0</m>, suppose that
+                <men xml:id="eq-reg-sing">
+                  x^2 y'' + xp(x)y' + q(x)y = 0
+                </men>
+                and that <m>p, q</m> are analytic at 0 with a mutual radius of convergence <m>R</m>. Write <m>p(x) = \sum p_n x^n, q(x) = \sum q_n x^n</m>. Let <m>r_1, r_2</m> be roots of the indicial equation <xref ref="eq-indicial"/>, and assume that <m>r_1 \leq r_2</m> if the roots are real.</p>
+
+                <p>Then <xref ref="eq-reg-sing"/> has a Frobenius series solution of the form
+                <me>
+                  y_1(x) = x^{r_1} \sum_{n=0}^\infty a_n x^n, \,\,\, a_0 \neq 0
+                </me>
+                which converges at least on <m>(0,R)</m>.</p>
+
+                <p>If <m>r_1, r_2</m> are distinct and do not differ by an integer, then there exists a second linearly independent Frobenius series solution of the form
+                <me>
+                  y_2(x) = x^{r_2} \sum_{n=0}^\infty b_n x^n, \,\,\, b_0 \neq 0.
+                </me>
+                </p>
+              </theorem>
+
+
+
+          </subsection>
+
+
+
+        </section>
+
+        <section xml:id="ch-series-5">
+            <title>Frobenius series</title>
+        </section>
+
+        <section xml:id="ch-series-6">
+            <title>Bessel equations</title>
+        </section>
+
+        <section xml:id="ch-series-7">
+            <title>Series as vectors (an introduction to <m>L^2</m>)</title>
+        </section>
+    </chapter>
+
+    <chapter>
+      <title>All things Fourier</title>
+      <section>
+        <title>Periodicity</title>
+      </section>
+      <section>
+        <title>Sums of periodic functions</title>
+      </section>
+      <section>
+        <title>Questions of convergence</title>
+      </section>
+      <section>
+        <title>First applications</title>
+      </section>
+      <section>
+        <title>Fourier series and linear algebra</title>
+      </section>
+      <section>
+        <title>The Fourier transform</title>
+      </section>
+      <section>
+        <title>Convolution</title>
+      </section>
+      <section>
+        <title>Applications of convolution</title>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="ch-laplace">
+      <title>The Laplace Transform</title>
+      <section xml:id="ch-laplace-1">
+        <title>Motivation for transform methods</title>
+        <p>The most important differential equations are <term>linear constant coefficient differential equations</term>, usually introduced in the second order. For example,
+        <me> y'' + 3 y' + 2 y = \cos x</me>
+        is such an equation. More generally, these equations have the form 
+        <me> a_n y^{(n)}(x) + \ldots + a_1 y'(x) + a_0 y(x) = f(x).</me> (This can be written <me>\mathcal{F}(y) = f(x)</me> where <m>\mathcal{F}</m> is the operator that takes <m>y</m> to the differential expression on the left hand side.)
+        These equations are important because they are the general equations that describe harmonic motions - vibration, oscillation, and rotations.</p>
+
+        <p>The method of solution we develop in earlier courses is to find the solution by working in steps. First, we solve the associated <term>homogeneous equation</term> in order to identify any functions that are sent to the zero function by the differential operator. This is called the <term>homogeneous solution</term> <m>y_h</m>. To do so, we use the method of the characteristic equation or the method of annihilators. In either case, we have to factor potentially high degree polynomials.</p>
+
+        <example>
+            <p>To solve the homogeneous equation
+                <me>
+                y'' + 3y' + 2y = 0,
+                </me>
+            we first consider the characteristic equation
+                <me>
+                    m^2 + 3m + 2 = 0
+                </me>
+            which factors as 
+                <me>
+                    (m+2)(m+1) = 0
+                </me>
+            with solutions <m>m = -2, m=-1</m>. Then the principle of superposition tells us that the homogeneous solution is
+                <me>
+                    y_h = c_1 e^{-2x} + c_2 e^{-x}.
+                </me></p>
+        </example>
+
+        <p>Now, for the second step, we need to find a <term>particular solution</term> that we can feed into the differential equation so that <m>\mathcal{F}(y_p) = f(x)</m>. We learn several methods for this in first courses that consider differential equations, usually including the method of undetermined coefficients and the method of variation of parameters. In both cases, we're limited to either forcing functions nice enough that we can guess the form of the solution (in the case of undetermined coefficients) or functions that we can integrate (in the case of variation of parameters). However, in physical systems we often want to consider driving or forcing functions <m>f(x)</m> that represent physical conditions that don't have nice integrals: for example, switches that turn on and off, or impulses that are applied to the system instantaneously (such as a strike). While the methods above can be adapted to deal with these, it is easier to <term>transform</term> the problem into a different mathematical setup that will simplify the process of dealing with these common physical situations.</p>
+
+        <p>The model problem to keep in mind is the following mass-spring type setup:
+            <me>
+                y'' + ay ' + by = F
+            </me>
+            where <m>F</m> might switch on and off or act on the system instantaneously (and so cannot be a continuous function). By transforming the problem into an equivalent domain, we can deal with these fundamental situations very easily.
+        </p>
+        </section>
+
+        <section xml:id="ch-laplace-2">
+            <title>The Laplace Transform</title>
+            <subsection><title>Definition of the Laplace Transform</title>
+            <p>Our first transform method is the <term>Laplace transform</term>, which takes a function <m>f:[0,\infty) \to \R</m> and produces a function of a new variable <m>F(s)</m>.</p>
+            <definition xml:id="def-laplace">
+                <p>Let <m>f</m> be a function on <m>[0,\infty)</m>. The Laplace transform of <m>f</m> is defined by the integral operator
+                <me>
+                    \mathcal{L}[f] = \int_0^\infty f(t) e^{-st} \, dt = F(s).
+                </me></p>
+            </definition>
+
+            <p>Before we get into when we can use the Laplace transform and why it is so powerful, we'll start with some examples of computing the transforms of some basic functions.</p>
+
+            <example>
+              <title><m>f(t) = 1</m></title>
+                <p>We'll start by computing the Laplace transform of <m>f(t) = 1</m>. Recall that when we're dealing with improper integrals (with limits at <m>\infty</m> in this case), we need to consider the integral as shorthand for a limit.</p>
+
+                <md>
+                <mrow>L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-st} \, dt</mrow>
+                <mrow>\amp = \lim_{B \to \infty} \left(\frac{-1}{s} e^{-st}\right) \bigg\rvert_0^B</mrow>
+                <mrow>\amp = \frac{-1}{s} \lim_{B\to\infty} e^{-sB} - 1</mrow>
+                <mrow>\amp = \frac{1}{s}.</mrow>
+                </md>
+
+                <p>So <m>\mathcal{L}[1] = \frac{1}{s}</m>, as long as <m>s >0</m> (or the improper integral fails to converge, a condition that will usually apply).</p>
+            </example>
+            <example>
+              <title><m>f(t) = t</m></title>
+              <p>Now let's look at <m>f(t) = t</m>, which will require integration by parts.
+
+              <md>
+                <mrow>\mathcal{L}{t} \amp= \int_0^\infty t \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B t e^{-st} \, dt</mrow>
+                <mrow>\amp= \lim_{B \to \infty} \frac{-t}{s} e^{-st}\bigg\rvert_0^B - \int_0^B \frac{-1}{s}e^{-st}\, dt</mrow>
+                <mrow>\amp = \lim_{B \to \infty} \frac{-B}{s} e^{-sB} - 0 + \frac{1}{s} \lim_{B \to \infty} \int_0^B e^{-st}\, dt</mrow>
+                <mrow>\amp= 0 - 0 + \frac{1}{s}\mathcal{L}[1] = \frac{1}{s^2}</mrow>
+              </md>
+              so long as <m>s > 0</m>.
+              (Note that it is very easy so show that as <m>B \to \infty</m>, we get <m>\frac{-B}{s}e^{-sB} \to 0</m> by L'Hospital's rule.)
+              </p>
+            </example>
+            <exercise>
+              <p>Use the same idea as the previous example to show that 
+                <me>
+                \mathcal{L}[t^n] = \frac{n!}{s^{n+1}}, \hspace{1cm} s > 0</me>
+                for any positive integer <m>n</m>.
+              </p>
+            </exercise>
+            <example>
+              <title><m>f(t) = e^{at}</m></title>
+              <p>
+                Now consider the exponential function <m>e^{at}</m> for some constant <m>a</m>.
+
+              <md>
+                <mrow>\mathcal{L}[e^{at}] \amp= \int_0^\infty e^{at} \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-(s - a)t} \, dt</mrow>
+                <mrow>\amp = \lim_{B\to\infty} \frac{-1}{s-a} e^{-(s-a)t} \bigg\rvert_0^B</mrow>
+                <mrow>\amp= \frac{-1}{s - a} \lim_{B \to \infty} e^{-(s-a)B} - 1 = \frac{1}{s-a}</mrow>
+              </md>
+              as long as <m> s > a</m>.
+              </p>
+            </example>
+            <example>
+              <title><m>f(t) = \cos bt</m></title>
+              <p>Our final introductory example concerns the basic trig function <m>f(t) = \cos bt</m>. (We can use parts here or just note that
+              <me>
+                \int e^{at}\cos{bt} \, dt= \frac{e^{at}}{a^2 + b^2}(a\cos bt + b \sin bt)
+              </me>
+              which is a standard table integral.) Then,
+
+              <md>
+                <mrow>\mathcal{L}[\cos bt] \amp= \int_0^\infty \cos bt \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-st} \cos bt  \, dt</mrow>
+                <mrow>\amp= \lim_{B \to \infty} \left[ \frac{e^{-st}}{s^2 + b^2} (-s\cos bt + b \sin bt)\right]\bigg\rvert_0^B</mrow>
+                <mrow>\amp= \frac{s}{s^2 + b^2}</mrow>
+                as long as <m>s > 0</m> to ensure that the improper integral converges.
+              </md></p>
+            </example>
+            <exercise>
+              <p>Use a standard integral and the argument in the previous example to show that 
+                <me>
+                  \mathcal{L}[\sin bt] = \frac{b}{s^2 + b^2}, \hspace{1cm} s > 0.
+                </me>
+              </p>
+            </exercise>
+            Notice that at this point, we have constructed the Laplace transforms of the basic forms of forcing functions that we consider in the method of undetermined coefficients (which is no accident!).
+          </subsection>
+
+          <subsection><title>Basic properties of the Laplace transform</title>
+          <p>One of the most important properties of the integral is that it acts linearly on the integrand. That is, for constants <m>a,b</m> and integrable functions <m>f,g</m>, we have
+            <me>
+            \int af + bg = a\int f + b \int g.
+             </me>
+             Because the integral is linear, often operations that are defined in terms of integrals are also linear. This is the case with the Laplace transform as long as it converges, since 
+             <md>
+              <mrow>\mathcal{L}[af(t) + bg(t)] \amp= \int_0^\infty e^{-st}(a f(t) + b g(t)) \, dt</mrow>
+              <mrow>\amp= a \int_0^\infty e^{-st}f(t) \, dt + b \int_0^\infty e^{-st} g(t) \, dt</mrow>
+              <mrow>\amp = a \mathcal{L}[f(t)] + b \mathcal{L}[g(t)]</mrow>
+              </md>
+              This often gets recorded as the equivalent conditions
+              <men>
+                \mathcal{L}[f+g] = \mathcal{L}[f] + \mathcal{L}[g]
+              </men>
+              and
+              <men>
+                \mathcal{L}[cf] = c \mathcal{L}[f].
+              </men>
+           </p>
+           <example><title>Laplace transform of a combination of functions</title>
+            <p>Compute the Laplace transform of <m>f(t) = t^2 + 3e^{2t} + \sin 3t</m>, including the domain.</p>
+
+            <p>Linearity makes this easy, since
+              <md>
+                <mrow>\mathcal{L}[2t^2 + 3e^{2t} + \sin 3t] \amp= \mathcal{L}[2t^2] + \mathcal{L}[3e^{2t}] + \mathcal{L}[\sin 3t]</mrow>
+                <mrow>\amp= 2\mathcal{L}[t^2] + 3\mathcal{L}[e^{2t}] + \mathcal{L}[\sin 3t]</mrow>
+                <mrow>\amp= 2\frac{1}{s^2} + 3\frac{1}{s-2} + \frac{3}{s^2 + 9}, \hspace{1in} s > 2.</mrow>
+              </md>
+            </p>
+          </example>
+           <p>Combined with the results from the previous discussion, we can now compute the transforms of a lot of the most important forcing functions that we consider when we learn constant coefficient linear equations. So far, it seems like we haven't gained much of an advantage, but the next section should make clear that the Laplace transform can handle functions far beyond what can be done with earlier methods. Also still open is the big question:
+            <question>
+              <p>How does the Laplace transform apply to differential equations?</p>
+            </question></p>
+         </subsection>
+
+         <subsection><title>Piecewise continuous functions</title>
+          <p>The most important quality of the Laplace transform is that it can be used on functions that are piecewise continuous. In physical situations, this correponds to forcing functions that change at points of time. For example, a continuously applied constant force could suddenly become a harmonic force modeled by a trig function at some time, and then at a later time, the force could disappear. Functions that change definitions, but which remain continuous in between those points of change are called <term>piecewise continuous functions</term>.</p>
+
+          <definition xml:id="def-piecewise">
+            <p>A function <m>f(t)</m> is a piecewise continuous function on an interval <m>[a,b]</m> if the interval can be divided up into finitely many subintervals <m>[a_i,a_{i+1}]</m> so that 
+            <ol>
+              <li><m>f</m> is a continuous function when restricted to each <m>[a_i,a_{i+1}]</m>, and</li>
+              <li><m>f</m> does not possess a  vertical asymptote at any of the points <m>a_i</m> (that is, <m>f</m> approaches a finite limit at the end of each subinterval)</li>
+            </ol>
+            If <m>f</m> is piecewise continuous on every interval of the form <m>[0,b]</m> for any constant <m>b</m>, then <m>f</m> is piecewise continuous on <m>[0,\infty)</m>.</p>
+          </definition>
+        </subsection>
+
+        </section>
+
+        <section xml:id="ch-laplace-3">
+          <title>Periodic functions</title>
+        </section>
+
+        <section xml:id="ch-laplace-4">
+          <title>The Laplace transform of derivatives</title>
+        </section>
+        <section xml:id="ch-laplace-5">
+          <title>The shifting theorems</title>
+        </section>
+        <section xml:id="ch-laplace-6">
+          <title>Heaviside functions</title>
+        </section>
+        <section xml:id="ch-laplace-7">
+          <title>Impulses - the Dirac delta <q>function</q></title>
+        </section>
+        <section xml:id="ch-laplace-8">
+          <title>Convolution</title>
+        </section>
+
+
+    </chapter>
+
+
+
+</book>
+
+</pretext>
