@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2020-12-22T16:55:38-08:00       *-->
+<!--*       on 2020-12-30T13:12:05-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -11,7 +11,7 @@
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Sums of periodic functions</title>
+<title>Complex exponentials and trig functions</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
@@ -43,7 +43,15 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Sage)'});
+});
+</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
 </script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
 <link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
@@ -159,6 +167,7 @@ MathJax.Hub.Config({
   \newcommand{\vec}[1]{{\bf #1}}
   \newcommand{\ps}{\displaystyle \sum_{n=0}^\infty a_n x^n}
   \newcommand{\psg}{\displaystyle \sum_{n=0}^\infty b_n x^n}
+  \newcommand{\hz}{\,\mathrm{Hz}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -194,13 +203,14 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="chapter-2.html" data-scroll="chapter-2"><span class="codenumber">2</span> <span class="title">All things Fourier</span></a><ul>
 <li><a href="section-8.html" data-scroll="section-8">Periodicity</a></li>
-<li><a href="section-9.html" data-scroll="section-9" class="active">Sums of periodic functions</a></li>
-<li><a href="section-10.html" data-scroll="section-10">Questions of convergence</a></li>
-<li><a href="section-11.html" data-scroll="section-11">First applications</a></li>
-<li><a href="section-12.html" data-scroll="section-12">Fourier series and linear algebra</a></li>
-<li><a href="section-13.html" data-scroll="section-13">The Fourier transform</a></li>
-<li><a href="section-14.html" data-scroll="section-14">Convolution</a></li>
-<li><a href="section-15.html" data-scroll="section-15">Applications of convolution</a></li>
+<li><a href="section-9.html" data-scroll="section-9" class="active">Complex exponentials and trig functions</a></li>
+<li><a href="section-10.html" data-scroll="section-10">Sums of periodic functions</a></li>
+<li><a href="section-11.html" data-scroll="section-11">Questions of convergence</a></li>
+<li><a href="section-12.html" data-scroll="section-12">First applications</a></li>
+<li><a href="section-13.html" data-scroll="section-13">Fourier series and linear algebra</a></li>
+<li><a href="section-14.html" data-scroll="section-14">The Fourier transform</a></li>
+<li><a href="section-15.html" data-scroll="section-15">Convolution</a></li>
+<li><a href="section-16.html" data-scroll="section-16">Applications of convolution</a></li>
 </ul>
 </li>
 <li class="link">
@@ -218,8 +228,258 @@ MathJax.Hub.Config({
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-9"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Sums of periodic functions</span>
-</h2></section></div></main>
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Complex exponentials and trig functions</span>
+</h2>
+<section class="subsection" id="subsection-18"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.2.1</span> <span class="title">Complex numbers and arithmetic</span>
+</h3>
+<p id="p-147">I am a complex analyst by trade, so I will assert that the complex numbers are really the only way to go if you want to do mathematical analysis. The use of complex numbers and functions to represent real systems is common convention for several reasons. First, the math is WAY easier in the complex setting. Basically, without delving into complex analysis, we're going to be cheating by thinking of functions as complex-valued with real inputs.</p>
+<p id="p-148">First and foremost, I am a mathematician, not an engineer, so I will use the symbol \(i\) to represent the terribly named imaginary unit</p>
+<div class="displaymath">
+\begin{equation*}
+i = \sqrt{-1}.
+\end{equation*}
+</div>
+<p data-braille="continuation">Feel free to use \(j\) if it makes your brain happy.</p>
+<p id="p-149">A complex number is a quantity</p>
+<div class="displaymath">
+\begin{equation*}
+z = x + iy
+\end{equation*}
+</div>
+<p data-braille="continuation">where \(x, y\) are real numbers. \(x\) is called the <dfn class="terminology">real part</dfn> of \(z\) and is written \(x = \RE z\text{.}\) Likewise, \(y\) is called the <dfn class="terminology">imaginary part</dfn> of \(z\) (yes, the imaginary part is real) and is written \(y = \IM z\text{.}\) Notice that this means that we can think of the real numbers as living inside the complex numbers (it's the set with \(y = 0\)).</p>
+<p id="p-150">You should think of the complex numbers as essentially having the same structural features as the real numbers. The operations are defined on the real and imaginary parts, with the additional feature that \(i^2 = -1\text{.}\) Say that \(z = x + iy\) and \(w = a + ib\text{.}\)</p>
+<ul class="disc">
+<li id="li-19">Addition:<div class="displaymath">
+\begin{equation*}
+z + w =  (x + a) + i(y + b)
+\end{equation*}
+</div>
+</li>
+<li id="li-20">Multiplication<div class="displaymath">
+\begin{equation*}
+zw = (a + ib)(x + iy) = (ax - by) + i(bx + ay)
+\end{equation*}
+</div>
+</li>
+<li id="li-21">Division:<div class="displaymath">
+\begin{equation*}
+\frac{z}{w} = \frac{x + iy}{a + ib} = \frac{(x + iy)(a - ib)}{(a + ib)(a - ib)} = \frac{(ax + by)}{a^2 + b^2} + i \frac{ay - bx}{a^2 + b^2}
+\end{equation*}
+</div>
+</li>
+</ul>
+<p id="p-151">If \(z = x + iy\) then the <dfn class="terminology">complex conjugate</dfn> of \(z\) is</p>
+<div class="displaymath">
+\begin{equation*}
+\cc{z} = x - iy.
+\end{equation*}
+</div>
+<p data-braille="continuation">Complex conjugates follow the following “distribution” like rules:</p>
+<div class="displaymath">
+\begin{equation*}
+\cc{z + w} = \cc{z} + \cc{w}, \,\, \cc{zw} = \cc{z} \cc{w}, \,\, \cc{\cc{z}} =z.
+\end{equation*}
+</div>
+<p data-braille="continuation">With complex conjugates, it is very easy to write formulas for the real and imaginary part of a complex number.</p>
+<div class="displaymath">
+\begin{equation*}
+\RE z = \frac{z + \cc{z}}{2}, \,\,\, \IM z = \frac{z - \cc{z}}{2i}
+\end{equation*}
+</div>
+<p id="p-152">Complex conjugates are very important in calculus and matrix settings, so we have an alternative notation that we apply to more complicated objects: \(\cc{z} = z\ad\text{.}\) Because integrals are limits of finite sums, integration respects complex conjugation and we write</p>
+<div class="displaymath">
+\begin{equation*}
+\left(\int f(t)g(t) \, dt \right)\ad = \int f(t)\ad g(t)\ad \, dt.
+\end{equation*}
+</div>
+<p id="p-153">A natural way to think of a complex number is as a vector, with the real part representing the “\(x\)-coordinate” and the imaginary part the “\(y\)”. Because of the way that complex conjugates are defined, we can compute the norm or magnitude of a complex number by</p>
+<div class="displaymath">
+\begin{equation*}
+\abs{z} = \sqrt{x^2 + y^2} = \sqrt{z \cc{z}}.
+\end{equation*}
+</div>
+<p data-braille="continuation">In practice, it is useful to write the above expression as \(\abs{z}^2 = z \cc{z}\text{.}\)</p>
+<article class="theorem theorem-like" id="theorem-12"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Parallelogram identity.</span>
+</h6>
+<p id="p-154">Let \(z, w\) be complex numbers. Then</p>
+<div class="displaymath">
+\begin{equation*}
+\abs{z + w}^2 + \abs{z - w}^2 = 2(\abs{z}^2 + \abs{w}^2).
+\end{equation*}
+</div></article><p id="p-155">Another useful related property is</p>
+<div class="displaymath">
+\begin{equation*}
+\abs{z + w}^2 = \abs{z}^2 + 2\RE z\cc{w} + \abs{w}^2.
+\end{equation*}
+</div>
+<p id="p-156">Finally, just as a vector in \(\R^2\) can be thought of in both Cartesian and polar forms, so too can a complex number. Given \(z = x + iy\text{,}\) the length of the vector can be written \(r = \abs{z} = \sqrt{x^2 + y^2}\) and the angle from the positive real axis satisifies \(\tan \theta = \frac{y}{x}\text{.}\) The angle \(\theta\) is called the <dfn class="terminology">argument</dfn> of the complex number and is sometimes written \(\arg z\text{.}\) First note that this means that the complex numbers of radius 1 coincide precisely with the unit circle. Since \(x = r \cos \theta\) and \(y = r \sin \theta\text{,}\) we can write</p>
+<div class="displaymath">
+\begin{equation*}
+z = r\cos\theta + i r \sin \theta,
+\end{equation*}
+</div>
+<p data-braille="continuation">though we're quickly going to get a more useful form. The thing to note is that complex numbers naturally encode and support the trig functions that represent rotations. As complicated as complex numbers might seem, this is the major theme of our use of them: <em class="emphasis">complex numbers are rotations of real numbers</em>.</p></section><section class="subsection" id="subsection-19"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.2.2</span> <span class="title">Complex exponentials and Euler's formula</span>
+</h3>
+<p id="p-157">The most important complex function is the complex exponential \(f(z) = e^z\text{.}\)  Given a Taylor series with a positive interval of convergence, we can extend the Taylor series formula to complex numbers simply by plugging in complex numbers. The set of convergence will be a disk with diameter equivalent to the real interval of convergence. Hence, we make the definition</p>
+<div class="displaymath">
+\begin{equation*}
+e^z = \sum_{n=0}^\infty \frac{z^n}{n!},
+\end{equation*}
+</div>
+<p data-braille="continuation">which converges for all \(z \in \C\text{.}\) It is an easy exercise (do it!) to show that</p>
+<div class="displaymath">
+\begin{equation*}
+\cc{e^z} = e^{\cc{z}}.
+\end{equation*}
+</div>
+<p id="p-158">As is the case in one variable, \(e^z\) is the unique function that is its own derivative. We will take on authority that the complex exponential satisfies the usual algebraic properties (as defining the complex logarithm is more appropriately done in a complex analysis course):</p>
+<div class="displaymath">
+\begin{align*}
+e^{z + w} \amp= e^z + e^w\\
+{e^z}^w \amp e^{zw}
+\end{align*}
+</div>
+<p id="p-159">Using the properties of exponential functions, we can write</p>
+<div class="displaymath">
+\begin{equation*}
+e^z = e^{x + iy} = e^x e^{iy}.
+\end{equation*}
+</div>
+<p data-braille="continuation">This doesn't seem like we've gained much, but something magical happens with \(e^{iy}\text{.}\) When the power of a complex exponential is purely imaginary, it corresponds to a point on the unit circle! That is,</p>
+<div class="displaymath">
+\begin{equation}
+e^{iy} = \cos y + i \sin y,\label{eq-cis}\tag{2.2.1}
+\end{equation}
+</div>
+<p data-braille="continuation">which is an almost unimaginably useful formula called <dfn class="terminology">Euler's formula</dfn>. You might suspect such a relationship should hold given that the Taylor series for sine and cosine <em class="emphasis">almost</em> look like they add to \(e^x\) in the real case, but the alternating signs are wrong. In the complex case, this relation holds.</p>
+<p id="p-160">What this means is that complex multiplication and division (and hence exponentiation) can be rewritten in form that is tractable. If \(z_1 = r_1 e^{i\theta_1}, z_2 = r_2 e^{i\theta_2}\text{,}\) then</p>
+<div class="displaymath">
+\begin{equation*}
+z_1 z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)},
+\end{equation*}
+</div>
+<p data-braille="continuation">and</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{z_1}{z_2} = \frac{r_1}{r_2} e^{i \theta_1 - \theta_2}.
+\end{equation*}
+</div>
+<p data-braille="continuation">It's easy to miss how weird and useful this idea is. Essentially, we've come up with a way to multiply vectors and produce a vector.</p>
+<p id="p-161">Since <a class="xref" data-knowl="./knowl/eq-cis.html" title="Equation 2.2.1">(2.2.1)</a> expresses \(e^{i\theta}\) in terms of sine and cosine, we can reverse this relation to define sine and cosine in terms of complex exponentials.</p>
+<div class="displaymath">
+\begin{equation*}
+\cos \theta = \frac{e^{i\theta} + e^{-i\theta}}{2}, \,\,\, \sin \theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}.
+\end{equation*}
+</div>
+<p id="p-162">One of the themes of this course is that we can decompose functions into pieces that have useful properties. One way that you might not have seen before is to pull a function apart into symmetric pieces. A function is called <dfn class="terminology">even</dfn> if \(f(x) = f(-x)\) (corresponding to symmetry about the \(y\)-axis. A function is called <dfn class="terminology">odd</dfn> if \(f(x) = -f(-x)\) (corresponding to symmetry about the origin). We can build even and odd functions out of any function in the following way:</p>
+<div class="displaymath">
+\begin{equation*}
+f_{even}(x) = \frac{f(x) + f(-x)}{2}, \,\,\, f_{odd}(x) = \frac{f(x) - f(-x)}{2}.
+\end{equation*}
+</div>
+<article class="exercise exercise-like" id="exercise-3"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-3"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like">\(f_{even}\)\(f_{odd}\)</article></div>
+<p id="p-163">\(f_{even}\) and \(f_{odd}\) decompose <em class="emphasis">any</em> function into symmertic pieces, as</p>
+<div class="displaymath">
+\begin{equation*}
+f_{even}(x) + f_{odd}(x) = \frac{f(x) + f(-x)}{2} + \frac{f(x) - f(-x)}{2} = f(x).
+\end{equation*}
+</div>
+<p data-braille="continuation">It turns out that the even and odd pieces of the complex exponential are the trig functions.</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{e^{i\theta} + e^{-i\theta}}{2} = \cos \theta,
+\end{equation*}
+</div>
+<p data-braille="continuation">and</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{e^{i\theta} - e^{-i\theta}}{2} = i \sin \theta.
+\end{equation*}
+</div></section><section class="subsection" id="subsection-20"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.2.3</span> <span class="title">What complex exponentials mean and how to use them</span>
+</h3>
+<p id="p-164">Typically, we're going to be working with a real parameter \(t\text{.}\) So define the function</p>
+<div class="displaymath">
+\begin{equation*}
+f(t) = e^{it} = \cos t + i \sin t.
+\end{equation*}
+</div>
+<p data-braille="continuation">As \(t\) moves along in time, what is \(f\) doing? If we think about the complex numbers as vectors (that is, \(f(t) = (\RE f(t), \IM f(t))\text{,}\) we can think of \(f\) as a parametric function where \(x(t) = \cos t\) and \(y(t) = \sin t\text{.}\) Then as \(t\) increases, the graph of \(f\) traces out the unit circle, rotating in the counterclockwise direction. Likewise, negative complex exponentials trace out the unit circle but in the clockwise direction. One complete traversal of the circle takes place as \(t\) goes from \(0\) to \(2 \pi\text{.}\)</p>
+<p id="p-165">It is typical practice in applications to work with integer values for frequency, and so in engineering (and general Fourier analysis), the convention is to use as the basic exponential relation</p>
+<div class="displaymath">
+\begin{equation*}
+e^{2\pi i t} = \cos 2\pi t + i \sin 2\pi t,
+\end{equation*}
+</div>
+<p data-braille="continuation">as this gives a function with frequency \(1\) (that is, we complete one loop around the unit circle for \(t \in [0,1]\)). In other words, \(e^{2\pi i t}\) has frequency \(1 \hz\text{.}\) More generally,</p>
+<div class="displaymath">
+\begin{equation*}
+e^{2\pi n i t} = \cos{2 \pi n t} + i \sin 2\pi n t
+\end{equation*}
+</div>
+<p data-braille="continuation">has frequency \(n \hz\text{.}\)</p>
+<p id="p-166">Notice that \(e^{-2\pi n i t}\) also has frequency \(n \hz\text{,}\) but travels in the opposite direction. This will be an important theme in Fourier analysis - oscillations of a given frequency have <em class="emphasis">two</em> components, propagating in opposite directions.</p>
+<p id="p-167">Complex exponentials are vastly easier to work with than the sinusoids. Recall that the generic sine function is</p>
+<div class="displaymath">
+\begin{equation*}
+f(t) = A \sin(2 \pi \nu t + \phi)
+\end{equation*}
+</div>
+<p data-braille="continuation">with frequency \(\nu\text{,}\) amplitude \(A\text{,}\) and phase \(\phi\text{.}\) The complex exponential with the same information is</p>
+<div class="displaymath">
+\begin{equation*}
+g(t) = A e^{i(2\pi \nu t + \phi)}
+\end{equation*}
+</div>
+<p data-braille="continuation">which can be split into</p>
+<div class="displaymath">
+\begin{equation*}
+g(t) = Ae^{i\phi} e^{2 \pi \nu u t}.
+\end{equation*}
+</div>
+<p data-braille="continuation">Notice that</p>
+<div class="displaymath">
+\begin{equation*}
+\abs{Ae^{i\phi} e^{2 \pi \nu u t}} = \abs{A} = A
+\end{equation*}
+</div>
+<p data-braille="continuation">and that \(e^{i\phi}\) describes a starting point on the unit circle.</p>
+<p id="p-168">Finally, we'll come to a fact that you may have seen in previous courses, though usually without explanation. <article class="fact theorem-like" id="fact-1"><h6 class="heading">
+<span class="type">Fact</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span>
+</h6></article> This is not at all obvious from a superimposed graph.</p>
+<div class="sagecell-sage" id="sage-10"><script type="text/x-sage">var('x')
+f(x) = 2*sin(3*pi*x + pi/2)
+g(x) = sin(3*pi*x)
+pic = plot(f, color='red')
+pic += plot(g, color = 'green')
+show(pic)
+</script></div>
+<p id="p-169">But if we plot the sum, we get:</p>
+<div class="sagecell-sage" id="sage-11"><script type="text/x-sage">var('x')
+f(x) = 2*sin(3*pi*x + pi/2)
+g(x) = sin(3*pi*x)
+pic = plot(f + g, color='blue')
+show(pic)
+</script></div>
+<p id="p-170">Here the computation is massively simplified by the use of complex exponentials. Consider</p>
+<div class="displaymath">
+\begin{equation*}
+A_1 e^{i(2 \pi \nu + \phi_1)} + A_2 e^{i(2 \pi \nu + \phi_2)}.
+\end{equation*}
+</div>
+<p data-braille="continuation">Using basic exponential algebra, we can compute</p>
+<div class="displaymath">
+\begin{align*}
+\amp A_1 e^{i(2 \pi \nu + \phi_1)} + A_2 e^{i(2 \pi \nu + \phi_2)}\\
+\amp = e^{2 \pi i \nu t}\left(A_1 e^{i\phi_1} + A_2 e^{i\phi_2}\right).
+\end{align*}
+</div>
+<p data-braille="continuation">That is, the sum of two exponentials with the same frequency is another exponential of the same frequency (but with a new phase and amplitude).</p></section></section></div></main>
 </div>
 </body>
 </html>

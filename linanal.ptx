@@ -106,6 +106,7 @@
           \newcommand{\vec}[1]{{\bf #1}}
           \newcommand{\ps}{\displaystyle \sum_{n=0}^\infty a_n x^n}
           \newcommand{\psg}{\displaystyle \sum_{n=0}^\infty b_n x^n}
+          \newcommand{\hz}{\,\mathrm{Hz}}
         </macros>
     </docinfo>
 
@@ -854,11 +855,13 @@
               </theorem>
 
               <p>The reason that we require the roots not to differ by an integer is that if they do, the resulting solutions will not be linearly independent. We'll address that case in the next section. First, let's look at an example of finding Frobenius series solutions. It is useful to note the following derivatives of Frobenius series:
-                <md>
-                  <mrow>y(x) \amp= x^r \sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty a_n x^{n + r}</mrow>
-                  <mrow>y'(x) \amp= \sum_{n=0}^\infty (n+r) a_n x^{n + r - 1}</mrow>
-                  <mrow>y''(x) \amp= \sum_{n=0}^\infty (n+r)(n+r - 1) a_n x^{n + r - 2}.</mrow>
-                </md></p>
+                <me>
+                  y(x) \amp= x^r \sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty a_n x^{n + r}
+                </me>
+                  
+                <men xml:id="eq-frob-first">y'(x) \amp= \sum_{n=0}^\infty (n+r) a_n x^{n + r - 1}</men>
+                <men xml:id="eq-frob-second"> y''(x) \amp= \sum_{n=0}^\infty (n+r)(n+r - 1) a_n x^{n + r - 2}.</men>
+              </p>
 
               <example><title>Using recursion to find a Frobenius series</title>
               <p>Find two linearly independent solutions to the equation
@@ -996,12 +999,275 @@
             for some complex constant <m>\alpha</m>, which is called the <term>order</term> of the solutions arising from the associated equation. Bessel's equation and the associated solutions are a core technique in the analysis of the propagation of waves, for example.</p>
 
             <p>In general, we have to write the solutions to this equation in terms of integrals; that is, there are not closed form solutions. But since <xref ref="eq-bessel"/> has a regular singular point at <m>0</m>, in the case where <m>\alpha</m> is a nonnegative real constant, we can use Frobenius techniques to write series solutions.</p>
+
+            <p>Since <m>p(0) = 1</m> and <m>q(0) = -\alpha^2</m>, we get the indicial equation
+            <me>
+              r(r-1) + r - \alpha^2,
+            </me>
+            which has solutions <m>\pm \alpha</m>. As long as <m>2\alpha</m> is not an integer, we can find two Frobenius series solutions of the form
+            <me>
+              y(x) = x^r \sum_{n=0}^\infty a_n x^n,
+            </me>
+            and again it is useful to recall the derivative formulas <xref ref="eq-frob-first"/> and <xref ref="eq-frob-second"/>.</p>
+
+            <p>We proceed with our standard technique and recover a series solution from a recurrence relation. Substituting into the <xref ref="eq-bessel"/>, we get
+            <me>
+              \sum_{n=0}^\infty [(r + n)^2 - \alpha^2]a_n x^{n+r} + \sum_{n=2}^\infty a_{n-2} x^{n+r} = 0.
+            </me>
+            We can peel off the first two terms of the left sum. For <m>n=0</m>, we get the indicial equation. For <m>n = 1</m>, we get
+            <me>
+              [(r + 1)^2 - \alpha^2]a_1 = 0.
+            </me>
+            For <m>n \geq 2</m>, we get the recurrence relation
+            <me>
+              [(n+r)^2 - \alpha^2]a_n = a_{n -2}.
+            </me></p>
+
+            <p>To construct the first solution, consider the root <m>r = \alpha</m>. The recurrence relation becomes
+            <me>
+              a_n = -\frac{1}{n(2\alpha + n)} a_{n-2}.
+            </me>
+            Since the gap between the terms in the relation is two, there will be two families of coefficients. Since <m>a_1 = 0</m>, it must be that <m>a_3, a_5, \ldots = 0</m>. On the other hand, with a little work we get that the even terms are characterized by
+            <me>
+              a_{2k} = \frac{(-1)^k}{2 \cdot 4 \ldots \cdot (2k) \cdot (2\alpha + 2) \ldots \cdot (2 \alpha + 2k)} a_0,
+            </me>
+            which is a bit of a bear. Next, we'll try to reduce this into a more palatable form. First, we can pull out a whole pile of 2s to get something a bit more condensed, and a form that might help guide a useful choice for <m>a_0</m>.
+            <me>
+              a_{2k} = \frac{(-1)^k}{2^{2k} k! (\alpha + 1) \cdots (\alpha + k)} a_0, k = 1, 2, \ldots.
+            </me>
+            Then we have a Frobenius series solution to <xref ref="eq-bessel"/> of the form
+            <men xml:id="eq-bessel-series">
+              y_1(x) = a_0 x^\alpha \left[1 + \frac{(-1)^k}{2^{2k} k! (\alpha + 1) \cdots (\alpha + k)} x^{2k}\right].
+              </men></p>
+
           </subsection>
+
+          <subsection><title>Bessel functions of the first kind</title>
+            <p>When <m>\alpha = N</m> is an integer, the formula collapses even further if we make a clever choice for the arbitrary constant <m>a_0</m>. Let
+            <me>
+              a_0 = \frac{!}{N!2^N}.
+            </me>
+            Then the solution is denoted <m>J_N(x)</m> and is called the <term>Bessel function of the first kind of order <m>N</m></term> and has the form
+            <me>
+              J_N(x) = \sum_{k=0}^\infty \frac{(-1)^k}{k!(N + k)!} \left(\frac{x}{2}\right)^{2k + N}.
+            </me></p>
+
+            <p>The following code uses prebuilt libraries to construct and plot the first few examples of <m>J_N</m></p>
+
+            <sage>
+              <input>
+                var('x')
+                g = plot(bessel_J(0, x), (0,50), color = 'red')
+                g += plot(bessel_J(1, x), (0,50), color = 'blue')
+                g += plot(bessel_J(2,x), (0,50), color = 'green')
+                show(g)
+              </input>
+            </sage>
+
+            <p>The graphs above should suggest <em>why</em> these functions are useful at modeling wave propagation - each function oscillates with decreasing amplitude and has an infinite number of zeros on <m>(0,\infty)</m>.</p>
+
+            <p>To deal with the case where <m>\alpha \in (0,\infty)</m> is not an integer, we need to introduce a generalization of the factorial function called the <term><url href="https://en.wikipedia.org/wiki/Gamma_function">gamma function</url></term>, one of the most famous special functions in mathematics. The basic idea of the gamma function is to <q>fill in the spaces</q> between the factorials with a nice, smooth function that retains the special properties of the factorial function (that is, a nice function <m>y</m> for which <m>y(x) = x y(x-1)</m>). It turns out that the best way to do that is with a function defined in terms of an integral.</p>
+
+            <definition xml:id="def-gamma-function">
+              <p>The gamma function <m>\Gamma: (0, \infty) \to \R</m> is defined by the integral formula
+              <men xml:id="eq-gamma-prop">
+                \Gamma(x) = \int_0^\infty t^{x-1} e^{-t} \, dt.
+              </men>
+              </p>
+            </definition>
+
+            <p>The gamma function is actually defined on all complex numbers outside of the negative integers, but we do not need that fact here. </p>
+
+            <theorem xml:id="thm-gamma-factorial">
+              <p>For <m>x > 0</m>, 
+              <me>
+                \Gamma(x + 1) = (x + 1) \Gamma(x).
+              </me>
+              </p>
+            </theorem>
+
+            <proof>
+              <p>This is an immediate consequence of integration by parts.
+                <md>
+                  <mrow>\Gamma(x + 1) \amp= \int_0^\infty t^{x} e^{-t} \, dt</mrow>
+                  <mrow> \amp= \left[-t^{x} e^{-t}\right]_0^\infty + x \int_0^\infty t^{x - 1} e^{-t} \, dt</mrow>
+                  <mrow>\amp= x \Gamma(x)</mrow>.
+                </md>
+              </p>
+            </proof>
+
+            <p>If we had a starting point, we could show that the gamma function generates the factorials. Fortunately, it is very easy to show that
+              <me>
+                \Gamma(1) = \int_0^\infty e^{-t} \, dt = 1.
+              </me>
+              Then induction on <xref ref="eq-gamma-prop"/> gets us
+              <me>
+                \Gamma(2) = 2\Gamma(1) = 2!, \,\,\, \Gamma(3) = 3\Gamma(2) = 3!,
+              </me>
+              and in general that for a positive integer <m>N</m> that
+              <me>
+                \Gamma(N) = N!.
+              </me>
+            </p>
+
+            <p>At the same time, we can get the factorial-like formula
+              <men xml:id="eq-gamma-factorial-like">
+                \Gamma(x + k + 1) = [(x+1)(x+2)\cdots(x+k)] \Gamma(x).
+              </men></p>
+
+            <p>Now we can extend the gamma function to negative numbers that aren't integers by using the relation
+              <men xml:id="eq-gamma-extension">
+                \Gamma(x) = \frac{\Gamma(x+1)}{x}
+              </men>
+            If <m>x \in (-1,0)</m>, then <m>x + 1 \in (0,1)</m>, and so for <m>x \in (-1,0)</m> we use <xref ref="eq-gamma-extension"/> as the definition of <m>\Gamma(x)</m>. We can continue in this way inductively: if <m>x \in (-2,-1)</m>, then <m>x+ 1 \in (-1,0)</m>, which is now defined, and again we use formula <xref ref="eq-gamma-extension"/>. The resulting function is continuous off the negative integers and has the graph below.</p>
+
+            <sage>
+              <input>
+                var('x')
+                plot(gamma(x), (-5,5), detect_poles='true', ymin=-5, ymax = 5)
+              </input>
+            </sage>
+
+            <p>The gamma function allows us to define the Bessel functions for non-integer orders. First, choose
+            <me>
+              a_0 = \frac{1}{2^\alpha \Gamma(\alpha + 1)}
+            </me>
+            and plug into <xref ref="eq-bessel-series"/> to get
+            <men xml:id="eq-bessel-first">
+              J_\alpha(x) = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k+1) \, \Gamma(\alpha + k + 1)} \left(\frac{x}{2}\right)^{2k + \alpha},
+            </men>
+            which by the definition of <m>\Gamma</m> reduces to <m>J_N(x)</m> when <m>N</m> is an integer.</p>
+          </subsection>
+
+          <subsection><title>Bessel functions of the second kind</title>
+
+          <p>Because the differential equation <xref ref="eq-bessel"/> has lots of solutions, there are many ways to write down a pair of linearly independent functions that solve the equation. The function that we will consider here, we choose for convenience by convention of physicists and engineers, but there are several equivalent ways of formulating the general solution. First, note that as long as <m>2\alpha</m> isn't an integer, the second root to the indicial equation, <m>r = -\alpha</m> will also have an associated and linearly independent solution. It is straightforward that we can just replace <m>\alpha</m> with <m>-\alpha</m> in <xref ref="eq-bessel-first"/> to get
+          <me>
+            J_{-\alpha} = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k + 1) \, \Gamma(k - \alpha + 1)} \left(\frac{x}{2}\right)^{2k - \alpha}
+          </me>
+          and a general solution
+          <me>
+            y(x) = c_1 J_\alpha(x) + c_2 J_{-\alpha}(x).
+          </me>
+          In practice, we don't use <m>J_{-\alpha}</m> as the second solution, but rather a linear combination of <m>J_{\alpha}</m> and <m>J_{-\alpha}</m>. Thus we define the <term>Bessel function of the second kind of order <m>\alpha</m></term> by 
+          <me>
+            Y_\alpha(x) = \frac{J_\alpha(x) \cos \alpha \pi - J_{-\alpha}(x)}{\sin \alpha \pi}.</me>
+            The function is construced this way because it extends naturally to the case where <m>\alpha</m> is an integer, avoiding the complications of the reduction of order technique needed to derive the second solution from the first in the <m>\alpha</m> is an integer case. Without doing the computations, it is enough to know that if <m>\alpha = n</m>, then we can define
+            <me>
+              Y_n(x) = \lim_{\alpha \to n} \left[\frac{J_\alpha(x) \cos \alpha \pi - J_{-\alpha}(x)}{\sin \alpha \pi}\right]
+            </me>
+            and that this sum can be computed.</p>
+
+            <p>Thus the general solution to Bessel's equation is
+              <me>
+                y(x) = c_1 J_\alpha(x) + c_2 Y_\alpha(x)</me>
+              for <m>\alpha \in (0,\infty)</m>.
+            </p>
+
+            <sage>
+              <input>
+                var('x')
+                g = plot(bessel_Y(0, x), (0,50), color = 'red')
+                g += plot(bessel_Y(1, x), (0,50), color = 'blue')
+                g += plot(bessel_Y(2,x), (0,50), color = 'green')
+                show(g)
+              </input>
+            </sage>
+
+            <p>Notice that the <m>Y_\alpha</m> are unbounded at <m>x = 0</m>, which is typically not a desired characteristic in a physical problem.</p>
+          </subsection>
+
+          <subsection><title>Bessel-Fourier series</title>
+          <p>We've already seen that Legendre polynomials from an orthgonal basis for the <m>C^1</m> functions on a finite interval with respect to the inner product
+          <me>
+            \ip{f}{g} = \int f(x) g(x) \, dx.
+          </me>
+          It turns out that Bessel functions can be used to form a different orthogonal system of functions that serve as a basis for the <m>C^1</m> functions (one of of an infinite family), but with a slightly different inner product. In fact, just one function <m>J_\alpha</m> can be used to generate the basis (where the choice of <m>\alpha</m> lets us describe functions in terms of a solution to a particular physical scenario).</p>
+
+          <p>The graphs of <m>J_\alpha</m> should be evidence that for a given <m>\alpha</m>, <m>J_\alpha</m> has infinite zeros (as it wiggles back and forth across the <m>x</m>-axis). For a fixed <m>\alpha</m>, let <m>\la_{\alpha, n}</m> denote the sequence of positive zeros of <m>J_\alpha</m>.</p>
+
+          <p>To construct an orthonormal family, we'll need to use a modification of the standard inner product by introducing a <term>weight function</term>. One way of thinking about the standard inner product <m>x \cdot y = \sum x_i y_i</m> or <m>\ip{f}{g} = \int fg</m> is that we give all terms equal importance. But there's no reason that we have to do that. A weight function <m>w(x) \geq 0</m> essentially turns an inner product into a weighted average instead of a standard average. On <m>\R^n</m>, a weighted inner product has the form <m>x \cdot y = \sum x_i y_i w(i)</m>. On function spaces, we have the <term>weighted inner product with respect to <m>w</m></term> which is given by
+          <me>
+            \ip{f}{g} = \int_0^1 f(x)g(x)w(x)\, dx.
+          </me>
+          We do this because we change the geomerty of the space when we use a new inner product. New vectors will be orthogonal. We will choose the weight function <m>w(x) = x</m>, and we get the following fact about the family <m>J_\alpha(\la_{\alpha,n}x)</m>.</p>
+
+          <proposition>
+            <p>Let <m>\alpha</m> be a fixed parameter, and let <m>\la_{\alpha, n}</m> denote the sequence of positive zeros of the Bessel function of the first kind <m>J_\alpha</m>.</p>
+
+            <p>Then with respect to the weighted inner product
+              <me>
+                \ip{f}{g} = \int_0^1 xf(x)g(x)\, dx
+              </me>
+              the family of functions given by
+              <me>
+                \{J_\alpha(\la_{\alpha,n} x)\}_{n=1}^\infty
+              </me>
+              is an orthogonal set of vectors in <m>C^1[0,1]</m>.
+            </p>
+          </proposition>
+
+          <p>What we're really saying here is that for any <m>n\neq m</m> that
+          <me>
+            \ip{J_\alpha(\la_{\alpha,n}x)}{J_\alpha(\la_{\alpha,m}x)} = \int_0^1 x J_\alpha(\la_{\alpha,n}) J_\alpha(\la_{\alpha,m}x) \, dx = 0.
+          </me>
+          We can also show (with quite a bit of elbow grease) that 
+          <me>
+            \norm{J_\alpha(\la_{\alpha,n}x)} = \frac{1}{2} \left[ J_{\alpha + 1}(\la_{\alpha,n})\right]^2.
+          </me></p>
+
+          <p>Even better, the family <m>J_\alpha(\la_{\alpha,n}x)</m> turns out to be a basis for <m>C^1</m>, and so we can express any <m>C^1</m> function in terms of a series of Bessel functions.</p>
+
+          <theorem xml:id="thm-fourier-bessel"><title>Fourier-Bessel expansion</title>
+            <p>Suppose that <m>f \in C^1[0,1]</m>. Then for <m>x \in [0,1]</m>,
+            <me>
+              f(x) = a_1 J_\alpha(\la_{\alpha,1}x) + a_2 J_\alpha(\la_{\alpha,2}x) + \ldots = \sum_{n = 1}^\infty a_n J_\alpha (\la_{\alpha, n} x),
+            </me>
+            where the coefficients <m>a_i</m> are given by the projection formula
+            <me>
+              a_i = \frac{\ip{f}{J_{\alpha}(\la_{\alpha,i}x)}}{\norm{J_{\alpha}(\la_{\alpha,i}x)}^2} = \frac{2}{\left[ J_{\alpha + 1}(\la_{\alpha,i})\right]^2} \int_0^1 x f(x) J_\alpha(\la_{\alpha, i}x)\, dx.
+              </me></p>
+          </theorem>
+
+          <p>Again, the proof of convergence of these types of series is beyond the scope of the course and more suited to a course in real analysis or partial differential equations. We keep emphasizing the vector notation not just to impress with our ability to assemble huge blocks of mathematics, but to point out that all we're really doing here is linear algebra with fancier vectors. </p>
+        </subsection>
+
         </section>
 
 
         <section xml:id="ch-series-7">
             <title>Series as vectors (an introduction to <m>L^2</m>)</title>
+            <p>One of the major themes of this section is that functions are secretly vectors. Even better, functions with some level of regularity are vectors in an inner product space, which means that we can use basic ideas from linear algebra to understand them (once we know which space they are in). The key idea in all of this is that the integral is really just an infinite sum indexed by the input <m>x</m>, and so the dot product is really just a finite dimensional version of an integral (in fact, there are areas of math where this is made explicit, as in probability theory). </p>
+
+            <p>With Legendre polynomials and Bessel functions, we've demonstrated that <m>C^1</m> functions live inside an infinite dimensional inner product space. Just as in finite dimensional linear algebra, we used the orthogonal expansion theorem to write <m>f</m> as
+            <me>
+              f(x) = \sum \frac{\ip{f(x)}{b_n(x)}}{\ip{b_n(x)}{b_n(x)}} b_n(x)
+            </me>
+            for some orthogonal basis <m>b_n</m>. We pick a set of basis function based on the particular problem we are trying to understand. For example, if we're doing numerical estimation of a function, we can choose <m>b_n</m> to be the Legendre polynomials and get better approximations that the basic Taylor series. If we're studying functions acting in a system associated with a Bessel equation, we can express the function in terms of the solutions to that system to understand how the wave behavior is driving the function.</p>
+
+            <p>The theoretical backdrop for all of this is the theory of <term>Hilbert space</term>, which is where questions of convergence are first addessed. One of the most important Hilbert spaces is called <m>L^2[a,b]</m> - these are the functions <m>f</m> defined on an interval <m>[a,b]</m> with finite energy. A function is in <m>L^2</m> if 
+            <me>
+              \sqrt{\int_a^b f(x)^2 \, dx} \lt \infty
+            </me>
+            (where <m>dx</m> is a more powerful type of differential called <term>Lebesgue measure</term>). But this is precisely the inner product we considered with the Legendre polynomials:
+            <me>
+              f \cdot g = \ip{f}{g} = \sqrt{\int_a^b f(x)g(x) \, dx}.
+            </me></p>
+
+            <p>Taylor polynomials and Legendre polynomials are outstanding bases to use for <m>L^2</m> if we're interested in looking at local behavior of a function (say zeros or extreme points). But lots of other functions live in <m>L^2</m> that don't have nice behavior that we might be interested in looking at. For example, we might have an equation that models a circuit, and we want to feed in a square wave to see what the response might be.</p>
+
+            <sage>
+              <input>
+                var('x')
+                f1(x) = 1
+                f2(x) = 0
+                f(x) = piecewise([((0,1),f1),((1,2),f2), ((2,3), f1)])
+                plot(f, (0,3))
+              </input>
+            </sage>
+
+            <p>Now, we can come up with a Legendre polynomial expansion for this function (at least on the piecewise bits), but it isn't going to really capture what's interesting about the square wave - a square wave is <term>periodic</term>. If only there was a basis of functions for <m>L^2</m> that was orthogonal and periodic and that could be used to model functions like the square wave. Such a basis would be extremely useful for solving differential equations involving oscillations. If only....
+          </p>
         </section>
     </chapter>
 
@@ -1009,6 +1275,255 @@
       <title>All things Fourier</title>
       <section>
         <title>Periodicity</title>
+        <p>As hinted at in the prior section, our concern for this chapter will be to study functions that are <term>periodic</term>, that is, functions that repeat their behavior after a fixed change in the input variable (called the <term>period</term> of the function). Periodic functions are some of the most important in the physical sciences, engineering, and mathematics. We're setting the stage for your eventual adventures in partial differential equations, and so we need to treat two kinds of input variables, space and time. A typical function we might consider could look something like <m>f(x, t) = y</m>, where the position <m>x</m> and time <m>t</m> both determine the behavior of the output <m>y</m>.</p>
+
+        <p>For now, we'll restrict our attention to functions of one variable. A function <m>f(t)</m> is <term>periodic of period <m>T</m></term> if there is some constant <m>T</m> so that <me>f(t) = f(t + T)</me> for all <m>t</m>. Of course, if one such <m>T</m> exists, many do. That is, any integer multiple of the period is also a period.  (For example, <m>\cos t = \cos (t + 2n\pi)</m> for every integer <m>n</m>.) The smallest such <m>T</m> for which <m>f(t) = f(t + T)</m> is called the fundamental period.</p>
+
+        <p>One iteration of the function over a period is called a <term>cycle</term>. The number of cycles per unit input is referred to in earlier courses as the frequency of the functions, but this isn't really a correct idea unless we're talking about a simple sine or cosine. Consider the function
+        <me>
+          f(t) = \cos 2\pi t + \frac{2}{3} \cos 6\pi t.
+        </me>
+        The periods of the individual summands are 1 and 1/3 but the period of the entire function is 1.</p>
+
+        <sage>
+          <input>
+            var('t')
+            f(t) = cos(2*pi*t) + 2/3*cos(6*pi*t)
+            plot(f, (-3,3))
+          </input>
+        </sage>
+
+        <p>While the period of <m>f</m> is 1, it doesn't really make sense to talk about the <em>frequency</em> of <m>f</m> as a single number, because <m>f</m> seems to carry two frequencies, one from each of the constituent cosines. Naturally, we might be led to the naive conclusion that any sum of period functions is periodic, but this can't be true. Functions with irrational periods make this impossible. Consider the function
+        <m> g(t) = \cos t + \sin \sqrt{2} t</m>. No integer multiple of <m>\sqrt{2}</m> will ever coincide with an integer multiple of <m>1</m>, and so these functions will never coincide at the end of a cycle. (In fact, the graph of this function is quite chaotic.)</p>
+
+        <sage>
+          <input>
+            var('t')
+            f(t) = cos(sqrt(2)*t) + cos(t)
+            plot(f, (-60,60))
+          </input>
+        </sage>
+
+        <p>On the other hand, it's pretty easy to show that any two functions with rational periods must eventually coincide.</p>
+
+        <exercise>
+          Suppose that <m>f</m> has rational period <m>T</m> and <m>g</m> has rational period <m>S</m>. Find the period of the function <m>f + g</m>.
+        </exercise>
+
+        <p>The classical example we see over and over again of time periodic systems is <em>harmonic oscillation</em>. We discover that the state of a harmonic oscillator is given by a function
+        <me>
+          x(t) = A \sin(2 \pi \nu t + \phi)
+        </me>
+        for amplitude <m>A</m>, frequency <m>\nu</m>, and phase <m>\phi</m>. The period of the function is <m>1/\nu</m> (which you should show by direct computation).</p>
+
+        <p>For spatial periodicity, the classical problem is the distribution of heat on a circular ring. A point on the ring is designated by an angle <m>\theta</m>. Space periodicity comes from the fact that for any function that depends on the position on the ring <m>f(\theta)</m>, it will be the case that <m>f(\theta) = f(\theta + 2\pi)</m>. The problem is to give some initial distribution of heat on the ring. In the long run as <m>t\to\infty</m>, we expect the ring to be evenly distributed (constant for all <m>\theta</m>). So how can we write down the short term distributions?</p>
+
+        <p>Fourier's idea was to try to model the answer with a sum of sines:
+          <me>T(\theta, t) = \sum_{n=1}^\infty A_n(t) \sin(n \theta + \phi_n).</me>
+          This idea basically launched the development of the language of modern physics and engineering.</p>
+
+        <p>A term <m>\sin(n\theta + \phi)</m> is called a <term>harmonic</term> (from the mathematics of music). In the same way that a musical chord is made up of several harmonics combined into a whole, so too is the function <m>T(\theta,t)</m> made up of harmonics that build the complete function. As weird as it seems, in some sense we're going to treat physical systems like music and try to pull the solutions apart in terms of their consituent notes.</p>
+      </section>
+      <section>
+        <title>Complex exponentials and trig functions</title>
+        <subsection><title>Complex numbers and arithmetic</title>
+        <p>I am a complex analyst by trade, so I will assert that the complex numbers are really the only way to go if you want to do mathematical analysis. The use of complex numbers and functions to represent real systems is common convention for several reasons. First, the math is WAY easier in the complex setting. Basically, without delving into complex analysis, we're going to be cheating by thinking of functions as complex-valued with real inputs.</p>
+
+        <p>First and foremost, I am a mathematician, not an engineer, so I will use the symbol <m>i</m> to represent the terribly named imaginary unit
+        <me>
+          i = \sqrt{-1}.
+        </me>
+        Feel free to use <m>j</m> if it makes your brain happy.</p>
+
+        <p>A complex number is a quantity
+          <me>z = x + iy</me>
+          where <m>x, y</m> are real numbers. <m>x</m> is called the <term>real part</term> of <m>z</m> and is written <m>x = \RE z</m>. Likewise, <m>y</m> is called the <term>imaginary part</term> of <m>z</m> (yes, the imaginary part is real) and is written <m>y = \IM z</m>. Notice that this means that we can think of the real numbers as living inside the complex numbers (it's the set with <m>y = 0</m>).</p>
+
+          <p>You should think of the complex numbers as essentially having the same structural features as the real numbers. The operations are defined on the real and imaginary parts, with the additional feature that <m>i^2 = -1</m>. Say that <m>z = x + iy</m> and <m>w = a + ib</m>.
+          <ul>
+          <li>Addition: <me>z + w =  (x + a) + i(y + b)</me></li>
+          <li>Multiplication <me>zw = (a + ib)(x + iy) = (ax - by) + i(bx + ay)</me></li>
+          <li>Division: <me>\frac{z}{w} = \frac{x + iy}{a + ib} = \frac{(x + iy)(a - ib)}{(a + ib)(a - ib)} = \frac{(ax + by)}{a^2 + b^2} + i \frac{ay - bx}{a^2 + b^2}</me></li>
+          </ul></p>
+
+          <p>If <m>z = x + iy</m> then the <term>complex conjugate</term> of <m>z</m> is
+          <me>
+            \cc{z} = x - iy.
+          </me>
+          Complex conjugates follow the following <q>distribution</q> like rules:
+          <me>
+            \cc{z + w} = \cc{z} + \cc{w}, \,\, \cc{zw} = \cc{z} \cc{w}, \,\, \cc{\cc{z}} =z.
+          </me>
+          With complex conjugates, it is very easy to write formulas for the real and imaginary part of a complex number.
+          <me>
+            \RE z = \frac{z + \cc{z}}{2}, \,\,\, \IM z = \frac{z - \cc{z}}{2i}
+          </me></p>
+
+          <p>Complex conjugates are very important in calculus and matrix settings, so we have an alternative notation that we apply to more complicated objects: <m>\cc{z} = z\ad</m>. Because integrals are limits of finite sums, integration respects complex conjugation and we write
+          <me>
+            \left(\int f(t)g(t) \, dt \right)\ad = \int f(t)\ad g(t)\ad \, dt.
+          </me></p>
+
+          <p>A natural way to think of a complex number is as a vector, with the real part representing the <q><m>x</m>-coordinate</q> and the imaginary part the <q><m>y</m></q>. Because of the way that complex conjugates are defined, we can compute the norm or magnitude of a complex number by
+          <me>
+            \abs{z} = \sqrt{x^2 + y^2} = \sqrt{z \cc{z}}.
+          </me>
+          In practice, it is useful to write the above expression as <m>\abs{z}^2 = z \cc{z}</m>.</p>
+
+          <theorem><title>Parallelogram identity</title>
+          <p>Let <m>z, w</m> be complex numbers. Then
+          <me>
+            \abs{z + w}^2 + \abs{z - w}^2 = 2(\abs{z}^2 + \abs{w}^2).
+          </me></p>
+        </theorem>
+
+        <p>Another useful related property is
+        <me>
+          \abs{z + w}^2 = \abs{z}^2 + 2\RE z\cc{w} + \abs{w}^2.
+        </me></p>
+
+        <p>Finally, just as a vector in <m>\R^2</m> can be thought of in both Cartesian and polar forms, so too can a complex number. Given <m>z = x + iy</m>, the length of the vector can be written <m>r = \abs{z} = \sqrt{x^2 + y^2}</m> and the angle from the positive real axis satisifies <m>\tan \theta = \frac{y}{x}</m>. The angle <m>\theta</m> is called the <term>argument</term> of the complex number and is sometimes written <m>\arg z</m>. First note that this means that the complex numbers of radius 1 coincide precisely with the unit circle. Since <m>x = r \cos \theta</m> and <m>y = r \sin \theta</m>, we can write
+        <me>
+          z = r\cos\theta + i r \sin \theta,
+        </me>
+        though we're quickly going to get a more useful form. The thing to note is that complex numbers naturally encode and support the trig functions that represent rotations. As complicated as complex numbers might seem, this is the major theme of our use of them: <em>complex numbers are rotations of real numbers</em>.</p>
+      </subsection>
+
+        <subsection><title>Complex exponentials and Euler's formula</title>
+        <p>The most important complex function is the complex exponential <m>f(z) = e^z</m>.  Given a Taylor series with a positive interval of convergence, we can extend the Taylor series formula to complex numbers simply by plugging in complex numbers. The set of convergence will be a disk with diameter equivalent to the real interval of convergence. Hence, we make the definition
+        <me>
+          e^z = \sum_{n=0}^\infty \frac{z^n}{n!},
+        </me>
+        which converges for all <m>z \in \C</m>. It is an easy exercise (do it!) to show that <me>\cc{e^z} = e^{\cc{z}}.</me></p>
+
+        <p>As is the case in one variable, <m>e^z</m> is the unique function that is its own derivative. We will take on authority that the complex exponential satisfies the usual algebraic properties (as defining the complex logarithm is more appropriately done in a complex analysis course):
+        <md>
+          <mrow> e^{z + w} \amp= e^z + e^w</mrow>
+          <mrow> {e^z}^w \amp e^{zw}</mrow>
+        </md></p>
+
+        <p>Using the properties of exponential functions, we can write
+          <me>
+            e^z = e^{x + iy} = e^x e^{iy}.
+          </me>
+          This doesn't seem like we've gained much, but something magical happens with <m>e^{iy}</m>. When the power of a complex exponential is purely imaginary, it corresponds to a point on the unit circle! That is,
+          <men xml:id="eq-cis">
+            e^{iy} = \cos y + i \sin y,
+          </men>
+          which is an almost unimaginably useful formula called <term>Euler's formula</term>. You might suspect such a relationship should hold given that the Taylor series for sine and cosine <em>almost</em> look like they add to <m>e^x</m> in the real case, but the alternating signs are wrong. In the complex case, this relation holds.</p>
+
+        <p>What this means is that complex multiplication and division (and hence exponentiation) can be rewritten in form that is tractable. If <m>z_1 = r_1 e^{i\theta_1}, z_2 = r_2 e^{i\theta_2}</m>, then
+        <me>
+          z_1 z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)},
+        </me>
+        and
+        <me> \frac{z_1}{z_2} = \frac{r_1}{r_2} e^{i \theta_1 - \theta_2}.</me>
+        It's easy to miss how weird and useful this idea is. Essentially, we've come up with a way to multiply vectors and produce a vector. </p>
+
+        <p>Since <xref ref="eq-cis"/> expresses <m>e^{i\theta}</m> in terms of sine and cosine, we can reverse this relation to define sine and cosine in terms of complex exponentials.
+        <me> \cos \theta = \frac{e^{i\theta} + e^{-i\theta}}{2}, \,\,\, \sin \theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}.</me></p>
+
+        <p>One of the themes of this course is that we can decompose functions into pieces that have useful properties. One way that you might not have seen before is to pull a function apart into symmetric pieces. A function is called <term>even</term> if <m>f(x) = f(-x)</m> (corresponding to symmetry about the <m>y</m>-axis. A function is called <term>odd</term> if <m>f(x) = -f(-x)</m> (corresponding to symmetry about the origin). We can build even and odd functions out of any function in the following way:
+        <me>
+          f_{even}(x) = \frac{f(x) + f(-x)}{2}, \,\,\, f_{odd}(x) = \frac{f(x) - f(-x)}{2}.
+        </me></p>
+
+        <exercise>
+          Show that <m>f_{even}</m> is even and that <m>f_{odd}</m> is odd, justifying the notation.
+        </exercise>
+
+        <p><m>f_{even}</m> and <m>f_{odd}</m> decompose <em>any</em> function into symmertic pieces, as
+        <me>
+          f_{even}(x) + f_{odd}(x) = \frac{f(x) + f(-x)}{2} + \frac{f(x) - f(-x)}{2} = f(x).
+        </me>
+        It turns out that the even and odd pieces of the complex exponential are the trig functions.
+        <me>
+          \frac{e^{i\theta} + e^{-i\theta}}{2} = \cos \theta,
+        </me>
+        and
+        <me>
+          \frac{e^{i\theta} - e^{-i\theta}}{2} = i \sin \theta.
+        </me></p>
+      </subsection>
+
+      <subsection><title>What complex exponentials mean and how to use them</title>
+
+        <p>Typically, we're going to be working with a real parameter <m>t</m>. So define the function
+          <me>
+            f(t) = e^{it} = \cos t + i \sin t.
+          </me>
+        As <m>t</m> moves along in time, what is <m>f</m> doing? If we think about the complex numbers as vectors (that is, <m>f(t) = (\RE f(t), \IM f(t))</m>, we can think of <m>f</m> as a parametric function where <m>x(t) = \cos t</m> and <m>y(t) = \sin t</m>. Then as <m>t</m> increases, the graph of <m>f</m> traces out the unit circle, rotating in the counterclockwise direction. Likewise, negative complex exponentials trace out the unit circle but in the clockwise direction. One complete traversal of the circle takes place as <m>t</m> goes from <m>0</m> to <m>2 \pi</m>.</p>
+
+        <p>It is typical practice in applications to work with integer values for frequency, and so in engineering (and general Fourier analysis), the convention is to use as the basic exponential relation
+          <me>
+            e^{2\pi i t} = \cos 2\pi t + i \sin 2\pi t,
+          </me>
+        as this gives a function with frequency <m>1</m> (that is, we complete one loop around the unit circle for <m>t \in [0,1]</m>). In other words, <m>e^{2\pi i t}</m> has frequency <m>1 \hz</m>. More generally, 
+        <me>
+          e^{2\pi n i t} = \cos{2 \pi n t} + i \sin 2\pi n t</me>
+        has frequency <m>n \hz</m>. </p>
+
+        <p>Notice that <m>e^{-2\pi n i t}</m> also has frequency <m>n \hz</m>, but travels in the opposite direction. This will be an important theme in Fourier analysis - oscillations of a given frequency have <em>two</em> components, propagating in opposite directions.</p>
+
+        <p>Complex exponentials are vastly easier to work with than the sinusoids. Recall that the generic sine function is
+          <me>
+            f(t) = A \sin(2 \pi \nu t + \phi)
+          </me>
+        with frequency <m>\nu</m>, amplitude <m>A</m>, and phase <m>\phi</m>. The complex exponential with the same information is
+          <me>
+            g(t) = A e^{i(2\pi \nu t + \phi)}
+          </me>
+          which can be split into
+          <me>
+            g(t) = Ae^{i\phi} e^{2 \pi \nu u t}.
+          </me>
+        Notice that
+        <me>
+          \abs{Ae^{i\phi} e^{2 \pi \nu u t}} = \abs{A} = A
+        </me>
+        and that <m>e^{i\phi}</m> describes a starting point on the unit circle.
+        </p>
+
+        <p>Finally, we'll come to a fact that you may have seen in previous courses, though usually without explanation. 
+          <fact>
+            The sum of two sinusoidal functions with the same frequency is a single sinusoidal function of that frequency.
+          </fact>
+        This is not at all obvious from a superimposed graph.</p>
+
+        <sage>
+          <input>
+            var('x')
+            f(x) = 2*sin(3*pi*x + pi/2)
+            g(x) = sin(3*pi*x)
+            pic = plot(f, color='red')
+            pic += plot(g, color = 'green')
+            show(pic)
+          </input>
+        </sage>
+
+        <p>But if we plot the sum, we get:</p>
+
+        <sage>
+          <input>
+            var('x')
+            f(x) = 2*sin(3*pi*x + pi/2)
+            g(x) = sin(3*pi*x)
+            pic = plot(f + g, color='blue')
+            show(pic)
+          </input>
+        </sage>
+
+        <p>Here the computation is massively simplified by the use of complex exponentials. Consider
+          <me>
+            A_1 e^{i(2 \pi \nu + \phi_1)} + A_2 e^{i(2 \pi \nu + \phi_2)}.
+          </me>
+          Using basic exponential algebra, we can compute
+          <md>
+            <mrow>\amp A_1 e^{i(2 \pi \nu + \phi_1)} + A_2 e^{i(2 \pi \nu + \phi_2)}</mrow>
+            <mrow> \amp = e^{2 \pi i \nu t}\left(A_1 e^{i\phi_1} + A_2 e^{i\phi_2}\right).</mrow>
+          </md>
+          That is, the sum of two exponentials with the same frequency is another exponential of the same frequency (but with a new phase and amplitude).</p>
+      </subsection>
       </section>
       <section>
         <title>Sums of periodic functions</title>

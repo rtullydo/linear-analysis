@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2020-12-22T16:55:38-08:00       *-->
+<!--*       on 2020-12-30T13:12:04-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -43,7 +43,15 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Sage)'});
+});
+</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
 </script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
 <link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
@@ -159,6 +167,7 @@ MathJax.Hub.Config({
   \newcommand{\vec}[1]{{\bf #1}}
   \newcommand{\ps}{\displaystyle \sum_{n=0}^\infty a_n x^n}
   \newcommand{\psg}{\displaystyle \sum_{n=0}^\infty b_n x^n}
+  \newcommand{\hz}{\,\mathrm{Hz}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -194,13 +203,14 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="chapter-2.html" data-scroll="chapter-2"><span class="codenumber">2</span> <span class="title">All things Fourier</span></a><ul>
 <li><a href="section-8.html" data-scroll="section-8">Periodicity</a></li>
-<li><a href="section-9.html" data-scroll="section-9">Sums of periodic functions</a></li>
-<li><a href="section-10.html" data-scroll="section-10">Questions of convergence</a></li>
-<li><a href="section-11.html" data-scroll="section-11">First applications</a></li>
-<li><a href="section-12.html" data-scroll="section-12">Fourier series and linear algebra</a></li>
-<li><a href="section-13.html" data-scroll="section-13">The Fourier transform</a></li>
-<li><a href="section-14.html" data-scroll="section-14">Convolution</a></li>
-<li><a href="section-15.html" data-scroll="section-15">Applications of convolution</a></li>
+<li><a href="section-9.html" data-scroll="section-9">Complex exponentials and trig functions</a></li>
+<li><a href="section-10.html" data-scroll="section-10">Sums of periodic functions</a></li>
+<li><a href="section-11.html" data-scroll="section-11">Questions of convergence</a></li>
+<li><a href="section-12.html" data-scroll="section-12">First applications</a></li>
+<li><a href="section-13.html" data-scroll="section-13">Fourier series and linear algebra</a></li>
+<li><a href="section-14.html" data-scroll="section-14">The Fourier transform</a></li>
+<li><a href="section-15.html" data-scroll="section-15">Convolution</a></li>
+<li><a href="section-16.html" data-scroll="section-16">Applications of convolution</a></li>
 </ul>
 </li>
 <li class="link">
@@ -219,7 +229,35 @@ MathJax.Hub.Config({
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch-series-7"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.7</span> <span class="title">Series as vectors (an introduction to \(L^2\))</span>
-</h2></section></div></main>
+</h2>
+<p id="p-133">One of the major themes of this section is that functions are secretly vectors. Even better, functions with some level of regularity are vectors in an inner product space, which means that we can use basic ideas from linear algebra to understand them (once we know which space they are in). The key idea in all of this is that the integral is really just an infinite sum indexed by the input \(x\text{,}\) and so the dot product is really just a finite dimensional version of an integral (in fact, there are areas of math where this is made explicit, as in probability theory).</p>
+<p id="p-134">With Legendre polynomials and Bessel functions, we've demonstrated that \(C^1\) functions live inside an infinite dimensional inner product space. Just as in finite dimensional linear algebra, we used the orthogonal expansion theorem to write \(f\) as</p>
+<div class="displaymath">
+\begin{equation*}
+f(x) = \sum \frac{\ip{f(x)}{b_n(x)}}{\ip{b_n(x)}{b_n(x)}} b_n(x)
+\end{equation*}
+</div>
+<p data-braille="continuation">for some orthogonal basis \(b_n\text{.}\) We pick a set of basis function based on the particular problem we are trying to understand. For example, if we're doing numerical estimation of a function, we can choose \(b_n\) to be the Legendre polynomials and get better approximations that the basic Taylor series. If we're studying functions acting in a system associated with a Bessel equation, we can express the function in terms of the solutions to that system to understand how the wave behavior is driving the function.</p>
+<p id="p-135">The theoretical backdrop for all of this is the theory of <dfn class="terminology">Hilbert space</dfn>, which is where questions of convergence are first addessed. One of the most important Hilbert spaces is called \(L^2[a,b]\) - these are the functions \(f\) defined on an interval \([a,b]\) with finite energy. A function is in \(L^2\) if</p>
+<div class="displaymath">
+\begin{equation*}
+\sqrt{\int_a^b f(x)^2 \, dx} \lt \infty
+\end{equation*}
+</div>
+<p data-braille="continuation">(where \(dx\) is a more powerful type of differential called <dfn class="terminology">Lebesgue measure</dfn>). But this is precisely the inner product we considered with the Legendre polynomials:</p>
+<div class="displaymath">
+\begin{equation*}
+f \cdot g = \ip{f}{g} = \sqrt{\int_a^b f(x)g(x) \, dx}.
+\end{equation*}
+</div>
+<p id="p-136">Taylor polynomials and Legendre polynomials are outstanding bases to use for \(L^2\) if we're interested in looking at local behavior of a function (say zeros or extreme points). But lots of other functions live in \(L^2\) that don't have nice behavior that we might be interested in looking at. For example, we might have an equation that models a circuit, and we want to feed in a square wave to see what the response might be.</p>
+<div class="sagecell-sage" id="sage-7"><script type="text/x-sage">var('x')
+f1(x) = 1
+f2(x) = 0
+f(x) = piecewise([((0,1),f1),((1,2),f2), ((2,3), f1)])
+plot(f, (0,3))
+</script></div>
+<p id="p-137">Now, we can come up with a Legendre polynomial expansion for this function (at least on the piecewise bits), but it isn't going to really capture what's interesting about the square wave - a square wave is <dfn class="terminology">periodic</dfn>. If only there was a basis of functions for \(L^2\) that was orthogonal and periodic and that could be used to model functions like the square wave. Such a basis would be extremely useful for solving differential equations involving oscillations. If only....</p></section></div></main>
 </div>
 </body>
 </html>

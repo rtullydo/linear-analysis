@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2020-12-22T16:55:40-08:00       *-->
+<!--*       on 2020-12-30T13:12:07-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,32 +15,31 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>One of the most important properties of the integral is that it acts linearly on the integrand. That is, for constants \(a,b\) and integrable functions \(f,g\text{,}\) we have</p>
+<p>Because the differential equation <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 1.6.1">(1.6.1)</a> has lots of solutions, there are many ways to write down a pair of linearly independent functions that solve the equation. The function that we will consider here, we choose for convenience by convention of physicists and engineers, but there are several equivalent ways of formulating the general solution. First, note that as long as \(2\alpha\) isn't an integer, the second root to the indicial equation, \(r = -\alpha\) will also have an associated and linearly independent solution. It is straightforward that we can just replace \(\alpha\) with \(-\alpha\) in <a class="xref" data-knowl="./knowl/eq-bessel-first.html" title="Equation 1.6.6">(1.6.6)</a> to get</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\int af + bg = a\int f + b \int g.
+J_{-\alpha} = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k + 1) \, \Gamma(k - \alpha + 1)} \left(\frac{x}{2}\right)^{2k - \alpha}
 \end{equation*}
 </div>
-<p data-braille="continuation">Because the integral is linear, often operations that are defined in terms of integrals are also linear. This is the case with the Laplace transform as long as it converges, since</p>
+<p data-braille="continuation">and a general solution</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-\mathcal{L}[af(t) + bg(t)] \amp= \int_0^\infty e^{-st}(a f(t) + b g(t)) \, dt\\
-\amp= a \int_0^\infty e^{-st}f(t) \, dt + b \int_0^\infty e^{-st} g(t) \, dt\\
-\amp = a \mathcal{L}[f(t)] + b \mathcal{L}[g(t)]
-\end{align*}
+\begin{equation*}
+y(x) = c_1 J_\alpha(x) + c_2 J_{-\alpha}(x).
+\end{equation*}
 </div>
-<p data-braille="continuation">This often gets recorded as the equivalent conditions</p>
+<p data-braille="continuation">In practice, we don't use \(J_{-\alpha}\) as the second solution, but rather a linear combination of \(J_{\alpha}\) and \(J_{-\alpha}\text{.}\) Thus we define the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Bessel function of the second kind of order \(\alpha\)</dfn> by</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation}
-\mathcal{L}[f+g] = \mathcal{L}[f] + \mathcal{L}[g]\tag{3.2.1}
-\end{equation}
+\begin{equation*}
+Y_\alpha(x) = \frac{J_\alpha(x) \cos \alpha \pi - J_{-\alpha}(x)}{\sin \alpha \pi}.
+\end{equation*}
 </div>
-<p data-braille="continuation">and</p>
+<p data-braille="continuation">The function is construced this way because it extends naturally to the case where \(\alpha\) is an integer, avoiding the complications of the reduction of order technique needed to derive the second solution from the first in the \(\alpha\) is an integer case. Without doing the computations, it is enough to know that if \(\alpha = n\text{,}\) then we can define</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation}
-\mathcal{L}[cf] = c \mathcal{L}[f].\tag{3.2.2}
-\end{equation}
+\begin{equation*}
+Y_n(x) = \lim_{\alpha \to n} \left[\frac{J_\alpha(x) \cos \alpha \pi - J_{-\alpha}(x)}{\sin \alpha \pi}\right]
+\end{equation*}
 </div>
-<span class="incontext"><a href="ch-laplace-2.html#p-121">in-context</a></span>
+<p data-braille="continuation">and that this sum can be computed.</p>
+<span class="incontext"><a href="ch-series-6.html#p-121">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2020-12-22T16:55:40-08:00       *-->
+<!--*       on 2020-12-30T13:12:07-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,30 +15,30 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>To solve the homogeneous equation</p>
+<p>To construct the first solution, consider the root \(r = \alpha\text{.}\) The recurrence relation becomes</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-y'' + 3y' + 2y = 0,
+a_n = -\frac{1}{n(2\alpha + n)} a_{n-2}.
 \end{equation*}
 </div>
-<p data-braille="continuation">we first consider the characteristic equation</p>
+<p data-braille="continuation">Since the gap between the terms in the relation is two, there will be two families of coefficients. Since \(a_1 = 0\text{,}\) it must be that \(a_3, a_5, \ldots = 0\text{.}\) On the other hand, with a little work we get that the even terms are characterized by</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-m^2 + 3m + 2 = 0
+a_{2k} = \frac{(-1)^k}{2 \cdot 4 \ldots \cdot (2k) \cdot (2\alpha + 2) \ldots \cdot (2 \alpha + 2k)} a_0,
 \end{equation*}
 </div>
-<p data-braille="continuation">which factors as</p>
+<p data-braille="continuation">which is a bit of a bear. Next, we'll try to reduce this into a more palatable form. First, we can pull out a whole pile of 2s to get something a bit more condensed, and a form that might help guide a useful choice for \(a_0\text{.}\)</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-(m+2)(m+1) = 0
+a_{2k} = \frac{(-1)^k}{2^{2k} k! (\alpha + 1) \cdots (\alpha + k)} a_0, k = 1, 2, \ldots.
 \end{equation*}
 </div>
-<p data-braille="continuation">with solutions \(m = -2, m=-1\text{.}\) Then the principle of superposition tells us that the homogeneous solution is</p>
+<p data-braille="continuation">Then we have a Frobenius series solution to <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 1.6.1">(1.6.1)</a> of the form</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-y_h = c_1 e^{-2x} + c_2 e^{-x}.
-\end{equation*}
+\begin{equation}
+y_1(x) = a_0 x^\alpha \left[1 + \frac{(-1)^k}{2^{2k} k! (\alpha + 1) \cdots (\alpha + k)} x^{2k}\right].\tag{1.6.2}
+\end{equation}
 </div>
-<span class="incontext"><a href="ch-laplace-1.html#p-108">in-context</a></span>
+<span class="incontext"><a href="ch-series-6.html#p-108">in-context</a></span>
 </body>
 </html>

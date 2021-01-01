@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2020-12-22T16:55:40-08:00       *-->
+<!--*       on 2020-12-30T13:12:07-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,13 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p xmlns:svg="http://www.w3.org/2000/svg">The most important quality of the Laplace transform is that it can be used on functions that are piecewise continuous. In physical situations, this correponds to forcing functions that change at points of time. For example, a continuously applied constant force could suddenly become a harmonic force modeled by a trig function at some time, and then at a later time, the force could disappear. Functions that change definitions, but which remain continuous in between those points of change are called <dfn class="terminology">piecewise continuous functions</dfn>.</p>
-<span class="incontext"><a href="ch-laplace-2.html#p-126">in-context</a></span>
+<p>To construct an orthonormal family, we'll need to use a modification of the standard inner product by introducing a <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">weight function</dfn>. One way of thinking about the standard inner product \(x \cdot y = \sum x_i y_i\) or \(\ip{f}{g} = \int fg\) is that we give all terms equal importance. But there's no reason that we have to do that. A weight function \(w(x) \geq 0\) essentially turns an inner product into a weighted average instead of a standard average. On \(\R^n\text{,}\) a weighted inner product has the form \(x \cdot y = \sum x_i y_i w(i)\text{.}\) On function spaces, we have the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">weighted inner product with respect to \(w\)</dfn> which is given by</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\ip{f}{g} = \int_0^1 f(x)g(x)w(x)\, dx.
+\end{equation*}
+</div>
+<p data-braille="continuation">We do this because we change the geomerty of the space when we use a new inner product. New vectors will be orthogonal. We will choose the weight function \(w(x) = x\text{,}\) and we get the following fact about the family \(J_\alpha(\la_{\alpha,n}x)\text{.}\)</p>
+<span class="incontext"><a href="ch-series-6.html#p-126">in-context</a></span>
 </body>
 </html>

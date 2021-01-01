@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2020-12-22T16:55:40-08:00       *-->
+<!--*       on 2020-12-30T13:12:07-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,20 +15,13 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Our final introductory example concerns the basic trig function \(f(t) = \cos bt\text{.}\) (We can use parts here or just note that</p>
+<p>Now we can extend the gamma function to negative numbers that aren't integers by using the relation</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\int e^{at}\cos{bt} \, dt= \frac{e^{at}}{a^2 + b^2}(a\cos bt + b \sin bt)
-\end{equation*}
+\begin{equation}
+\Gamma(x) = \frac{\Gamma(x+1)}{x}\tag{1.6.5}
+\end{equation}
 </div>
-<p data-braille="continuation">which is a standard table integral.) Then,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-\mathcal{L}[\cos bt] \amp= \int_0^\infty \cos bt \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-st} \cos bt  \, dt\\
-\amp= \lim_{B \to \infty} \left[ \frac{e^{-st}}{s^2 + b^2} (-s\cos bt + b \sin bt)\right]\bigg\rvert_0^B\\
-\amp= \frac{s}{s^2 + b^2}
-\end{align*}
-</div>
-<span class="incontext"><a href="ch-laplace-2.html#p-119">in-context</a></span>
+<p data-braille="continuation">If \(x \in (-1,0)\text{,}\) then \(x + 1 \in (0,1)\text{,}\) and so for \(x \in (-1,0)\) we use <a class="xref" data-knowl="./knowl/eq-gamma-extension.html" title="Equation 1.6.5">(1.6.5)</a> as the definition of \(\Gamma(x)\text{.}\) We can continue in this way inductively: if \(x \in (-2,-1)\text{,}\) then \(x+ 1 \in (-1,0)\text{,}\) which is now defined, and again we use formula <a class="xref" data-knowl="./knowl/eq-gamma-extension.html" title="Equation 1.6.5">(1.6.5)</a>. The resulting function is continuous off the negative integers and has the graph below.</p>
+<span class="incontext"><a href="ch-series-6.html#p-119">in-context</a></span>
 </body>
 </html>

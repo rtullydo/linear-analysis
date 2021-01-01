@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2020-12-22T16:55:38-08:00       *-->
+<!--*       on 2020-12-30T13:12:04-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -43,7 +43,15 @@ MathJax.Hub.Config({
         mtextFontInherit: true,
     },
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Sage)'});
+});
+</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
 </script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
 <link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
@@ -159,6 +167,7 @@ MathJax.Hub.Config({
   \newcommand{\vec}[1]{{\bf #1}}
   \newcommand{\ps}{\displaystyle \sum_{n=0}^\infty a_n x^n}
   \newcommand{\psg}{\displaystyle \sum_{n=0}^\infty b_n x^n}
+  \newcommand{\hz}{\,\mathrm{Hz}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -194,13 +203,14 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="chapter-2.html" data-scroll="chapter-2"><span class="codenumber">2</span> <span class="title">All things Fourier</span></a><ul>
 <li><a href="section-8.html" data-scroll="section-8" class="active">Periodicity</a></li>
-<li><a href="section-9.html" data-scroll="section-9">Sums of periodic functions</a></li>
-<li><a href="section-10.html" data-scroll="section-10">Questions of convergence</a></li>
-<li><a href="section-11.html" data-scroll="section-11">First applications</a></li>
-<li><a href="section-12.html" data-scroll="section-12">Fourier series and linear algebra</a></li>
-<li><a href="section-13.html" data-scroll="section-13">The Fourier transform</a></li>
-<li><a href="section-14.html" data-scroll="section-14">Convolution</a></li>
-<li><a href="section-15.html" data-scroll="section-15">Applications of convolution</a></li>
+<li><a href="section-9.html" data-scroll="section-9">Complex exponentials and trig functions</a></li>
+<li><a href="section-10.html" data-scroll="section-10">Sums of periodic functions</a></li>
+<li><a href="section-11.html" data-scroll="section-11">Questions of convergence</a></li>
+<li><a href="section-12.html" data-scroll="section-12">First applications</a></li>
+<li><a href="section-13.html" data-scroll="section-13">Fourier series and linear algebra</a></li>
+<li><a href="section-14.html" data-scroll="section-14">The Fourier transform</a></li>
+<li><a href="section-15.html" data-scroll="section-15">Convolution</a></li>
+<li><a href="section-16.html" data-scroll="section-16">Applications of convolution</a></li>
 </ul>
 </li>
 <li class="link">
@@ -219,7 +229,51 @@ MathJax.Hub.Config({
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-8"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.1</span> <span class="title">Periodicity</span>
-</h2></section></div></main>
+</h2>
+<p id="p-138">As hinted at in the prior section, our concern for this chapter will be to study functions that are <dfn class="terminology">periodic</dfn>, that is, functions that repeat their behavior after a fixed change in the input variable (called the <dfn class="terminology">period</dfn> of the function). Periodic functions are some of the most important in the physical sciences, engineering, and mathematics. We're setting the stage for your eventual adventures in partial differential equations, and so we need to treat two kinds of input variables, space and time. A typical function we might consider could look something like \(f(x, t) = y\text{,}\) where the position \(x\) and time \(t\) both determine the behavior of the output \(y\text{.}\)</p>
+<p id="p-139">For now, we'll restrict our attention to functions of one variable. A function \(f(t)\) is <dfn class="terminology">periodic of period \(T\)</dfn> if there is some constant \(T\) so that</p>
+<div class="displaymath">
+\begin{equation*}
+f(t) = f(t + T)
+\end{equation*}
+</div>
+<p data-braille="continuation">for all \(t\text{.}\) Of course, if one such \(T\) exists, many do. That is, any integer multiple of the period is also a period.  (For example, \(\cos t = \cos (t + 2n\pi)\) for every integer \(n\text{.}\)) The smallest such \(T\) for which \(f(t) = f(t + T)\) is called the fundamental period.</p>
+<p id="p-140">One iteration of the function over a period is called a <dfn class="terminology">cycle</dfn>. The number of cycles per unit input is referred to in earlier courses as the frequency of the functions, but this isn't really a correct idea unless we're talking about a simple sine or cosine. Consider the function</p>
+<div class="displaymath">
+\begin{equation*}
+f(t) = \cos 2\pi t + \frac{2}{3} \cos 6\pi t.
+\end{equation*}
+</div>
+<p data-braille="continuation">The periods of the individual summands are 1 and 1/3 but the period of the entire function is 1.</p>
+<div class="sagecell-sage" id="sage-8"><script type="text/x-sage">var('t')
+f(t) = cos(2*pi*t) + 2/3*cos(6*pi*t)
+plot(f, (-3,3))
+</script></div>
+<p id="p-141">While the period of \(f\) is 1, it doesn't really make sense to talk about the <em class="emphasis">frequency</em> of \(f\) as a single number, because \(f\) seems to carry two frequencies, one from each of the constituent cosines. Naturally, we might be led to the naive conclusion that any sum of period functions is periodic, but this can't be true. Functions with irrational periods make this impossible. Consider the function \(g(t) = \cos t + \sin \sqrt{2} t\text{.}\) No integer multiple of \(\sqrt{2}\) will ever coincide with an integer multiple of \(1\text{,}\) and so these functions will never coincide at the end of a cycle. (In fact, the graph of this function is quite chaotic.)</p>
+<div class="sagecell-sage" id="sage-9"><script type="text/x-sage">var('t')
+f(t) = cos(sqrt(2)*t) + cos(t)
+plot(f, (-60,60))
+</script></div>
+<p id="p-142">On the other hand, it's pretty easy to show that any two functions with rational periods must eventually coincide.</p>
+<article class="exercise exercise-like" id="exercise-2"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-2"><h6 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like">\(f\)\(T\)\(g\)\(S\)\(f + g\)</article></div>
+<p id="p-143">The classical example we see over and over again of time periodic systems is <em class="emphasis">harmonic oscillation</em>. We discover that the state of a harmonic oscillator is given by a function</p>
+<div class="displaymath">
+\begin{equation*}
+x(t) = A \sin(2 \pi \nu t + \phi)
+\end{equation*}
+</div>
+<p data-braille="continuation">for amplitude \(A\text{,}\) frequency \(\nu\text{,}\) and phase \(\phi\text{.}\) The period of the function is \(1/\nu\) (which you should show by direct computation).</p>
+<p id="p-144">For spatial periodicity, the classical problem is the distribution of heat on a circular ring. A point on the ring is designated by an angle \(\theta\text{.}\) Space periodicity comes from the fact that for any function that depends on the position on the ring \(f(\theta)\text{,}\) it will be the case that \(f(\theta) = f(\theta + 2\pi)\text{.}\) The problem is to give some initial distribution of heat on the ring. In the long run as \(t\to\infty\text{,}\) we expect the ring to be evenly distributed (constant for all \(\theta\)). So how can we write down the short term distributions?</p>
+<p id="p-145">Fourier's idea was to try to model the answer with a sum of sines:</p>
+<div class="displaymath">
+\begin{equation*}
+T(\theta, t) = \sum_{n=1}^\infty A_n(t) \sin(n \theta + \phi_n).
+\end{equation*}
+</div>
+<p data-braille="continuation">This idea basically launched the development of the language of modern physics and engineering.</p>
+<p id="p-146">A term \(\sin(n\theta + \phi)\) is called a <dfn class="terminology">harmonic</dfn> (from the mathematics of music). In the same way that a musical chord is made up of several harmonics combined into a whole, so too is the function \(T(\theta,t)\) made up of harmonics that build the complete function. As weird as it seems, in some sense we're going to treat physical systems like music and try to pull the solutions apart in terms of their consituent notes.</p></section></div></main>
 </div>
 </body>
 </html>
