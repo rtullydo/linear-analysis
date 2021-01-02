@@ -856,11 +856,11 @@
 
               <p>The reason that we require the roots not to differ by an integer is that if they do, the resulting solutions will not be linearly independent. We'll address that case in the next section. First, let's look at an example of finding Frobenius series solutions. It is useful to note the following derivatives of Frobenius series:
                 <me>
-                  y(x) \amp= x^r \sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty a_n x^{n + r}
+                  y(x) = x^r \sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty a_n x^{n + r}
                 </me>
                   
-                <men xml:id="eq-frob-first">y'(x) \amp= \sum_{n=0}^\infty (n+r) a_n x^{n + r - 1}</men>
-                <men xml:id="eq-frob-second"> y''(x) \amp= \sum_{n=0}^\infty (n+r)(n+r - 1) a_n x^{n + r - 2}.</men>
+                <men xml:id="eq-frob-first">y'(x) = \sum_{n=0}^\infty (n+r) a_n x^{n + r - 1}</men>
+                <men xml:id="eq-frob-second"> y''(x) = \sum_{n=0}^\infty (n+r)(n+r - 1) a_n x^{n + r - 2}.</men>
               </p>
 
               <example><title>Using recursion to find a Frobenius series</title>
