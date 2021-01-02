@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-01T17:46:10-08:00       *-->
+<!--*       on 2021-01-02T14:01:30-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,19 +15,18 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>What this means is that complex multiplication and division (and hence exponentiation) can be rewritten in form that is tractable. If \(z_1 = r_1 e^{i\theta_1}, z_2 = r_2 e^{i\theta_2}\text{,}\) then</p>
+<p>What we're really saying here is that for any \(n\neq m\) that</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-z_1 z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)},
+\ip{J_\alpha(\la_{\alpha,n}x)}{J_\alpha(\la_{\alpha,m}x)} = \int_0^1 x J_\alpha(\la_{\alpha,n}) J_\alpha(\la_{\alpha,m}x) \, dx = 0.
 \end{equation*}
 </div>
-<p data-braille="continuation">and</p>
+<p data-braille="continuation">We can also show (with quite a bit of elbow grease) that</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\frac{z_1}{z_2} = \frac{r_1}{r_2} e^{i \theta_1 - \theta_2}.
+\norm{J_\alpha(\la_{\alpha,n}x)} = \frac{1}{2} \left[ J_{\alpha + 1}(\la_{\alpha,n})\right]^2.
 \end{equation*}
 </div>
-<p data-braille="continuation">It's easy to miss how weird and useful this idea is. Essentially, we've come up with a way to multiply vectors and produce a vector.</p>
-<span class="incontext"><a href="section-9.html#p-160">in-context</a></span>
+<span class="incontext"><a href="ch-series-6.html#p-160">in-context</a></span>
 </body>
 </html>

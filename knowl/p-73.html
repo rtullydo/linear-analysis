@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-01T17:46:09-08:00       *-->
+<!--*       on 2021-01-02T14:01:28-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,18 +15,36 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Suppose that \(f, f'\) are continuous on \((-1,1)\text{.}\) Then \(f\) has a Legendre series expansion on \((-1,1)\) given by</p>
+<p>On taking derivatives and plugging into the differential equation, we get</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-f(x) = \sum_{i=1}^\infty a_i P_i(x)
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} + \ps = 0.
 \end{equation*}
 </div>
-<p data-braille="continuation">where each \(a_i\) is given by the vector projection</p>
+<p data-braille="continuation">We want to combine these into a single sum and use a recurrence relation to find the solutions, but we need the terms and the index ranges to match. If we shift the index on the first sum by letting \(n - 2 \to n \text{,}\) we get</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-a_i = \frac{\ip{f}{P_i}}{\norm{P_i}^2} = \frac{2i + 1}{2} \int_{-1}^1 f(x)P_i(x)\, dx.
+\sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} + \ps = 0.
 \end{equation*}
 </div>
-<span class="incontext"><a href="ch-series-3.html#p-73">in-context</a></span>
+<p data-braille="continuation">Now we can combine the series to get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=0}^\infty \left[(n+2)(n+1) a_{n+2} + a_n\right]x^n = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">which gives the family of coefficient equations</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+(n+2)(n+1)a_{n+2} + a_n = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">which is convenient to rearrange as</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_{n+2} = -\frac{1}{(n+2)(n+1)} a_n, \,\,\, n = 0, 1, 2, \ldots
+\end{equation*}
+</div>
+<span class="incontext"><a href="ch-series-2.html#p-73">in-context</a></span>
 </body>
 </html>

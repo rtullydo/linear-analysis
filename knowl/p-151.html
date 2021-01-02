@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-01T17:46:10-08:00       *-->
+<!--*       on 2021-01-02T14:01:30-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,24 +15,19 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>If \(z = x + iy\) then the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">complex conjugate</dfn> of \(z\) is</p>
+<p>The gamma function allows us to define the Bessel functions for non-integer orders. First, choose</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\cc{z} = x - iy.
+a_0 = \frac{1}{2^\alpha \Gamma(\alpha + 1)}
 \end{equation*}
 </div>
-<p data-braille="continuation">Complex conjugates follow the following “distribution” like rules:</p>
+<p data-braille="continuation">and plug into <a class="xref" data-knowl="./knowl/eq-bessel-series.html" title="Equation 2.6.2">(2.6.2)</a> to get</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\cc{z + w} = \cc{z} + \cc{w}, \,\, \cc{zw} = \cc{z} \cc{w}, \,\, \cc{\cc{z}} =z.
-\end{equation*}
+\begin{equation}
+J_\alpha(x) = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k+1) \, \Gamma(\alpha + k + 1)} \left(\frac{x}{2}\right)^{2k + \alpha},\tag{2.6.6}
+\end{equation}
 </div>
-<p data-braille="continuation">With complex conjugates, it is very easy to write formulas for the real and imaginary part of a complex number.</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\RE z = \frac{z + \cc{z}}{2}, \,\,\, \IM z = \frac{z - \cc{z}}{2i}
-\end{equation*}
-</div>
-<span class="incontext"><a href="section-9.html#p-151">in-context</a></span>
+<p data-braille="continuation">which by the definition of \(\Gamma\) reduces to \(J_N(x)\) when \(N\) is an integer.</p>
+<span class="incontext"><a href="ch-series-6.html#p-151">in-context</a></span>
 </body>
 </html>

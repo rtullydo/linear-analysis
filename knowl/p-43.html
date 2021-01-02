@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-01T17:46:09-08:00       *-->
+<!--*       on 2021-01-02T14:01:28-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,15 +15,12 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Notice that we need two pieces of information to determine all of the information contained in this recursion: \(n = 0\) starts a chain that gives the coefficients for the even values of \(n\text{,}\) and \(n = 1\) starts a chain that gives that information for the odd values (corresponding to the two separate independent solutions). We consider each family separately.</p>
+<p>The beauty and utility in power series is that when they converge, they can be treated almost like giant polynomials. That is, we can perform algebra and calculs operations on convergent power series. To do so, first we can make a function out of a power series by restricting the domain to the interval of convergence (so that the function is well-defined). That is, if \(r\) is the radius of convergence for \(\ps\text{,}\) then we can define</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-n = 0\amp: a_2 = -\frac{1}{2 \cdot 1} a_0 = -\frac{1}{2!}a_0\\
-n = 2\amp: a_4 = -\frac{1}{4 \cdot 3} a_2 = \frac{1}{4 \cdot 3 \cdot 2 \cdot 1} a_0 = \frac{1}{4!} a_0\\
-n=4\amp: a_6 = -\frac{1}{6 \cdot 5} a_4 = -\frac{1}{6!} a_0.
-\end{align*}
+\begin{equation*}
+f(x) = \ps, \hspace{1cm} x \in (-r,r).
+\end{equation*}
 </div>
-<p data-braille="continuation">That is, the even terms seem to be of the form \(a_{2k} = \frac{(-1)^k}{(2k!)} a_0\text{.}\)</p>
-<span class="incontext"><a href="ch-series-2.html#p-43">in-context</a></span>
+<span class="incontext"><a href="ch-series-1.html#p-43">in-context</a></span>
 </body>
 </html>

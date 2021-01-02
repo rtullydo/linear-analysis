@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-01T17:46:10-08:00       *-->
+<!--*       on 2021-01-02T14:01:29-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,31 +15,25 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Because the differential equation <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 1.6.1">(1.6.1)</a> has lots of solutions, there are many ways to write down a pair of linearly independent functions that solve the equation. The function that we will consider here, we choose for convenience by convention of physicists and engineers, but there are several equivalent ways of formulating the general solution. First, note that as long as \(2\alpha\) isn't an integer, the second root to the indicial equation, \(r = -\alpha\) will also have an associated and linearly independent solution. It is straightforward that we can just replace \(\alpha\) with \(-\alpha\) in <a class="xref" data-knowl="./knowl/eq-bessel-first.html" title="Equation 1.6.6">(1.6.6)</a> to get</p>
+<p>That is, using this intuition, we can guess that for the equation</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-J_{-\alpha} = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k + 1) \, \Gamma(k - \alpha + 1)} \left(\frac{x}{2}\right)^{2k - \alpha}
+x^2 y'' +  x p(x) y' + q(x) y = 0,
 \end{equation*}
 </div>
-<p data-braille="continuation">and a general solution</p>
+<p data-braille="continuation">solutions will be of the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation}
+y(x) = x^r \sum_{n=0}^\infty a_n x^n, \,\,\,a_0 \neq 0\tag{2.4.2}
+\end{equation}
+</div>
+<p data-braille="continuation">where as before, \(r\) is a solution to the indicial equation</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-y(x) = c_1 J_\alpha(x) + c_2 J_{-\alpha}(x).
+r(r-1) + p_0 r + q_0 = 0.
 \end{equation*}
 </div>
-<p data-braille="continuation">In practice, we don't use \(J_{-\alpha}\) as the second solution, but rather a linear combination of \(J_{\alpha}\) and \(J_{-\alpha}\text{.}\) Thus we define the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Bessel function of the second kind of order \(\alpha\)</dfn> by</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-Y_\alpha(x) = \frac{J_\alpha(x) \cos \alpha \pi - J_{-\alpha}(x)}{\sin \alpha \pi}.
-\end{equation*}
-</div>
-<p data-braille="continuation">The function is construced this way because it extends naturally to the case where \(\alpha\) is an integer, avoiding the complications of the reduction of order technique needed to derive the second solution from the first in the \(\alpha\) is an integer case. Without doing the computations, it is enough to know that if \(\alpha = n\text{,}\) then we can define</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-Y_n(x) = \lim_{\alpha \to n} \left[\frac{J_\alpha(x) \cos \alpha \pi - J_{-\alpha}(x)}{\sin \alpha \pi}\right]
-\end{equation*}
-</div>
-<p data-braille="continuation">and that this sum can be computed.</p>
-<span class="incontext"><a href="ch-series-6.html#p-121">in-context</a></span>
+<p data-braille="continuation">This turns out to be the right idea, and series of the form <a class="xref" data-knowl="./knowl/eq-frob.html" title="Equation 2.4.2">(2.4.2)</a> are called <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Frobenius series</dfn>.</p>
+<span class="incontext"><a href="ch-series-4.html#p-121">in-context</a></span>
 </body>
 </html>

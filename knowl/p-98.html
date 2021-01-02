@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-01T17:46:10-08:00       *-->
+<!--*       on 2021-01-02T14:01:29-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,32 +15,18 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>\(r = 0\text{:}\) Here, we have a standard power series recursion</p>
+<p>The continuous functions on the interval \([-1,1]\) are denoted \(C^0[-1,1]\text{.}\) (We're using symmetric intervals in this case because the Legendre polynomials are even or odd.) This space is a (infinite dimensional) inner product space with the dot product defined as</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-a_n = \frac{1}{4n(n-1) + 3n} a_{n-1} = \frac{1}{n(4n - 1)} a_{n-1}
+f \cdot g = \ip{f}{g} = \int_{-1}^1 f(x) g(x) \, dx.
 \end{equation*}
 </div>
-<p data-braille="continuation">which gives</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-n \amp= 1: a_1 = \frac{1}{1 \cdot3 } a_0\\
-n\amp =2: a_2 = \frac{1}{2 \cdot 7}a_1 = \frac{1}{1 \cdot 3 \cdot 2 \cdot 7}a_0 = \frac{1}{2! (3 \cdot 7)}a_0\\
-n\amp = 3: a_3 = \frac{1}{3 \cdot 11} a_2 =  \frac{1}{3!(3 \cdot 7 \cdot 11)} a_0
-\end{align*}
-</div>
-<p data-braille="continuation">In general, this pattern looks something like</p>
+<p data-braille="continuation">Following the analogy with \(\R^n\text{,}\) we define two vectors in an inner product space to be <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">orthogonal</dfn> if \(\ip{f}{g} = 0\text{.}\) Beyond a notion of “angle”, the inner product also gives a way to measure length with the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">norm</dfn> defined in this case by</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-a_n = \frac{1}{n! (3 \cdot 7 \cdot \ldots \cdot (4n -1))} a_0
+\norm{f} = \sqrt{\ip{f}{f}} = \sqrt{\int_{-1}^1 f(x)^2 \, dx}.
 \end{equation*}
 </div>
-<p data-braille="continuation">Thus, the Frobenius series is</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-y_1(x) = a_0 x^0 \sum_{n=0}^\infty \frac{1}{n! (3 \cdot 7 \cdot \ldots \cdot (4n -1))} x^n, \,\,\, x \in (0, \infty).
-\end{equation*}
-</div>
-<span class="incontext"><a href="ch-series-4.html#p-98">in-context</a></span>
+<span class="incontext"><a href="ch-series-3.html#p-98">in-context</a></span>
 </body>
 </html>

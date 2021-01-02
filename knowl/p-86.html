@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-01T17:46:09-08:00       *-->
+<!--*       on 2021-01-02T14:01:29-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,25 +15,28 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Suppose that \(x = x_0\) is a regular singular point for the equation</p>
+<p>For the set of coefficients beginning with \(a_1\text{,}\) we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+n = 2\amp: a_4 = \frac{1}{4 \cdot 3} a_1 \\
+n = 5\amp: a_7 = \frac{1}{7 \cdot 6} a_4 = \frac{1}{7 \cdot 6 \cdot 4 \cdot3 } a_1 \\
+n=8\amp: a_10 = \frac{1}{10 \cdot 9} a_7 = \frac{1}{10 \cdot 9 \cdot 7 \cdot 6 \cdot 4 \cdot 3} a_1.
+\end{align*}
+</div>
+<p data-braille="continuation">Then the general solution to the equation is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-y'' + p(x)y' + q(x)y = 0.
+y = a_0 y_1(x) + a_1 y_2(x)
 \end{equation*}
 </div>
-<p data-braille="continuation">Essentially we can remove the singular behavior by multiplying through by \((x - x_0)^2\) to get an equation of the form</p>
+<p data-braille="continuation">where</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-(x - x_0)^2 y'' + (x-x_0)\hat{p}(x) y' + \hat{q}(x) y = 0
-\end{equation*}
+\begin{align*}
+y_1(x) \amp= 1 +  \frac{1}{3 \cdot 2} x^3 + \frac{1}{6 \cdot 5 \cdot 3\cdot 2} x^6 + \ldots\\
+y_2(x) \amp= x + \frac{1}{4 \cdot 3} x^4 + \frac{1}{7\cdot 6 \cdot 4 \cdot 3}x^7 + \ldots
+\end{align*}
 </div>
-<p data-braille="continuation">where \(\hat{p} = (x-x_0)p(x), \hat{q} = (x - x_0)^2 q(x)\) are analytic at \(x_0\text{.}\) Going one step further, we can make the substitution \(u = x - x_0\text{,}\) which moves the regular singular point to \(x=0\text{,}\) and so we can restrict our attention to equations of the form</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-x^2 + x p(x) y' + q(x) y = 0
-\end{equation*}
-</div>
-<p data-braille="continuation">where \(p, q\) are analytic at \(0\text{.}\) (We've essentially just pulled the singular behavior out of the coefficient functions to make it easier to analyze.)</p>
-<span class="incontext"><a href="ch-series-4.html#p-86">in-context</a></span>
+<p data-braille="continuation">These power series are convergent everywhere, obviously linearly independent, and unfortunately have no closed form; that is, series representations is the best that we can do.</p>
+<span class="incontext"><a href="ch-series-2.html#p-86">in-context</a></span>
 </body>
 </html>

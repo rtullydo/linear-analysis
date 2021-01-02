@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-01T17:46:07-08:00       *-->
+<!--*       on 2021-01-02T14:01:26-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -190,7 +190,13 @@ MathJax.Hub.Config({
 <nav id="toc"><ul>
 <li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
-<a href="ch-series.html" data-scroll="ch-series"><span class="codenumber">1</span> <span class="title">Series solutions</span></a><ul>
+<a href="ch-0.html" data-scroll="ch-0"><span class="codenumber">1</span> <span class="title">What you should know</span></a><ul>
+<li><a href="section-1.html" data-scroll="section-1">Introduction</a></li>
+<li><a href="section-2.html" data-scroll="section-2">Linear algebra</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch-series.html" data-scroll="ch-series"><span class="codenumber">2</span> <span class="title">Series solutions</span></a><ul>
 <li><a href="ch-series-1.html" data-scroll="ch-series-1">Power series</a></li>
 <li><a href="ch-series-2.html" data-scroll="ch-series-2">Series solutions at ordinary points</a></li>
 <li><a href="ch-series-3.html" data-scroll="ch-series-3" class="active">Legrendre series</a></li>
@@ -201,20 +207,20 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-2.html" data-scroll="chapter-2"><span class="codenumber">2</span> <span class="title">All things Fourier</span></a><ul>
-<li><a href="section-8.html" data-scroll="section-8">Periodicity</a></li>
-<li><a href="section-9.html" data-scroll="section-9">Complex exponentials and trig functions</a></li>
-<li><a href="section-10.html" data-scroll="section-10">Sums of periodic functions</a></li>
-<li><a href="section-11.html" data-scroll="section-11">Questions of convergence</a></li>
-<li><a href="section-12.html" data-scroll="section-12">First applications</a></li>
-<li><a href="section-13.html" data-scroll="section-13">Fourier series and linear algebra</a></li>
-<li><a href="section-14.html" data-scroll="section-14">The Fourier transform</a></li>
-<li><a href="section-15.html" data-scroll="section-15">Convolution</a></li>
-<li><a href="section-16.html" data-scroll="section-16">Applications of convolution</a></li>
+<a href="chapter-3.html" data-scroll="chapter-3"><span class="codenumber">3</span> <span class="title">All things Fourier</span></a><ul>
+<li><a href="section-10.html" data-scroll="section-10">Periodicity</a></li>
+<li><a href="section-11.html" data-scroll="section-11">Complex exponentials and trig functions</a></li>
+<li><a href="section-12.html" data-scroll="section-12">Sums of periodic functions</a></li>
+<li><a href="section-13.html" data-scroll="section-13">Questions of convergence</a></li>
+<li><a href="section-14.html" data-scroll="section-14">First applications</a></li>
+<li><a href="section-15.html" data-scroll="section-15">Fourier series and linear algebra</a></li>
+<li><a href="section-16.html" data-scroll="section-16">The Fourier transform</a></li>
+<li><a href="section-17.html" data-scroll="section-17">Convolution</a></li>
+<li><a href="section-18.html" data-scroll="section-18">Applications of convolution</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="ch-laplace.html" data-scroll="ch-laplace"><span class="codenumber">3</span> <span class="title">The Laplace Transform</span></a><ul>
+<a href="ch-laplace.html" data-scroll="ch-laplace"><span class="codenumber">4</span> <span class="title">The Laplace Transform</span></a><ul>
 <li><a href="ch-laplace-1.html" data-scroll="ch-laplace-1">Motivation for transform methods</a></li>
 <li><a href="ch-laplace-2.html" data-scroll="ch-laplace-2">The Laplace Transform</a></li>
 <li><a href="ch-laplace-3.html" data-scroll="ch-laplace-3">Periodic functions</a></li>
@@ -228,12 +234,12 @@ MathJax.Hub.Config({
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch-series-3"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">Legrendre series</span>
+<span class="type">Section</span> <span class="codenumber">2.3</span> <span class="title">Legrendre series</span>
 </h2>
-<section class="subsection" id="subsection-7"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.3.1</span> <span class="title">Legendre's equation</span>
+<section class="subsection" id="subsection-11"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.3.1</span> <span class="title">Legendre's equation</span>
 </h3>
-<p id="p-56">Physics and applied mathematics provide a wealth of differential equations, some of which are sufficiently common to carry special names, notably</p>
+<p id="p-87">Physics and applied mathematics provide a wealth of differential equations, some of which are sufficiently common to carry special names, notably</p>
 <div class="displaymath">
 \begin{gather*}
 (1 - x^2)y'' - 2x y' + c(c + 1)y = 0, \,\,\, \text{ (Legendre's equation)}\\
@@ -242,18 +248,18 @@ y'' - 2xy' + 2cy = 0, \,\,\, \text{ (Hermite's equation)}\\
 \end{gather*}
 </div>
 <p data-braille="continuation">where \(c\) is some parameter that can take on any real value. All of these equations have an ordinary point at \(x = 0\text{,}\) and so have series solutions of the form \(y = \ps\text{.}\) The solutions to these equations for different values of \(c\) have special properties, particularly when \(c\) is an integer.</p>
-<p id="p-57">In this section, we'll investigate the solutions and properties of the Legendre equation. First, note that the equation as written is not in our standard form. We'll need to rewrite it to get an estimate for the interval of convergence of our series solution (though it will be convenient to leave it in its original form when we attempt to solve it.) In the form</p>
+<p id="p-88">In this section, we'll investigate the solutions and properties of the Legendre equation. First, note that the equation as written is not in our standard form. We'll need to rewrite it to get an estimate for the interval of convergence of our series solution (though it will be convenient to leave it in its original form when we attempt to solve it.) In the form</p>
 <div class="displaymath">
 \begin{equation*}
 y'' - \frac{2x}{1 - x^2} y' + \frac{c(c+1)}{1 - x^2} y = 0,
 \end{equation*}
 </div>
 <p data-braille="continuation">we can see that \(p, q\) are analytic at the very least on the interval \((-1,1)\text{,}\) as the power series for \(\frac{1}{1- x^2}\) has radius of convergence \(1\text{.}\)</p>
-<p id="p-58">Armed with the knowledge that our solutions exist, we can follow the usual technique to derive the solutions.</p>
+<p id="p-89">Armed with the knowledge that our solutions exist, we can follow the usual technique to derive the solutions.</p>
 <article class="exercise exercise-like" id="exercise-1"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"><h6 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like"><p id="p-59">Derive the general solutions to the Legendre equation using recurrence relations.</p></article></div>
-<p id="p-60">In general, the solutions to Legendre's equation for a fixed constant \(c\) are of the form</p>
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like"><p id="p-90">Derive the general solutions to the Legendre equation using recurrence relations.</p></article></div>
+<p id="p-91">In general, the solutions to Legendre's equation for a fixed constant \(c\) are of the form</p>
 <div class="displaymath">
 \begin{equation*}
 y = y_1(x) + y_2(x)
@@ -267,10 +273,10 @@ y_1(x) \amp= a_0\left[1 - \frac{c(c+1)}{2}x^2 + \frac{(c-2)c(c+1)(c+3)}{4!} x^4\
 \\
 y_2(x) \amp= a_1\left[x - \frac{(c-1)(c+2)}{3!} x^3 + \frac{(c-3)(c-1)(c+2)(c+4)}{5!}x^5 + \ldots\right]
 \end{align*}
-</div></section><section class="subsection" id="subsection-8"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.3.2</span> <span class="title">Legendre polynomial</span>
+</div></section><section class="subsection" id="subsection-12"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.3.2</span> <span class="title">Legendre polynomial</span>
 </h3>
-<p id="p-61">It turns out that the most important case of the Legendre equation occurs when the constant \(c\) is an integer, which we emphasize by calling it \(c=N\text{.}\) In that case, the recursion that determines the solution to the equation is</p>
+<p id="p-92">It turns out that the most important case of the Legendre equation occurs when the constant \(c\) is an integer, which we emphasize by calling it \(c=N\text{.}\) In that case, the recursion that determines the solution to the equation is</p>
 <div class="displaymath">
 \begin{equation*}
 a_{n+2} = -\frac{n(n+1) - N(N+1)}{(n+1)(n+2)} a_n.
@@ -284,17 +290,17 @@ a_{N+2} = a_{N+4} = a_{N+6} = \ldots = 0.
 </div>
 <p data-braille="continuation">That is, either \(y_1\) or \(y_2\) is a finite power series - a polynomial - depending on if \(N\) is even or odd. These polynomials turn out to be quite useful.</p>
 <article class="definition definition-like" id="definition-5"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span>
 </h6>
-<p id="p-62">Let \(N\) be a nonnegative intger. The <dfn class="terminology">Legendre polynomial of degree \(N\)</dfn>, denoted \(P_N(x)\text{,}\) is the polynomial solution to</p>
+<p id="p-93">Let \(N\) be a nonnegative intger. The <dfn class="terminology">Legendre polynomial of degree \(N\)</dfn>, denoted \(P_N(x)\text{,}\) is the polynomial solution to</p>
 <div class="displaymath">
 \begin{equation*}
 (1- x^2) y'' - 2 x y' + N(N+1)y = 0,
 \end{equation*}
 </div>
 <p data-braille="continuation">normalized so that \(P_N(1) = 1\text{.}\)</p></article><article class="example example-like" id="example-8"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-8"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like"><p id="p-63">The first few Legendre polynomials are easy to write down. Remember that each polynomial is normalized to have \(P_N(1) = 1\text{.}\)</p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like"><p id="p-94">The first few Legendre polynomials are easy to write down. Remember that each polynomial is normalized to have \(P_N(1) = 1\text{.}\)</p>
 <div class="displaymath">
 \begin{align*}
 N \amp= 0:y_1(x) = a_0 \Rightarrow P_1(x) = 1.\\
@@ -302,20 +308,20 @@ N \amp= 1: y_2(x) = a_1 x \Rightarrow P_2(x) = x.\\
 N \amp= 2: y_1(x) = a_0(1 - 3x^2) \Rightarrow P_2(x) = \frac{1}{2}(3x^2 -1).  
 \end{align*}
 </div></article></div>
-<p id="p-64">For larger values of \(N\text{,}\) we need a better method to produce these polynomials. Fortunately for us, computer algebra systems have functions that produce these polynomials very quickly. (The following is in the mathematical language Sage. Similar functions exist in MATLAB, Mathematica, Octave, python, etc.)</p>
+<p id="p-95">For larger values of \(N\text{,}\) we need a better method to produce these polynomials. Fortunately for us, computer algebra systems have functions that produce these polynomials very quickly. (The following is in the mathematical language Sage. Similar functions exist in MATLAB, Mathematica, Octave, python, etc.)</p>
 <div class="sagecell-sage" id="sage-2"><script type="text/x-sage">var('x')
 legendre_P(2,x)
 </script></div>
-<p id="p-65">If we wish to proceeed by hand, there is an explicit formula for generating \(P_N(x)\) known as Rodrigues's formula:</p>
+<p id="p-96">If we wish to proceeed by hand, there is an explicit formula for generating \(P_N(x)\) known as Rodrigues's formula:</p>
 <div class="displaymath">
 \begin{equation*}
 P_N(x) = \frac{1}{2^N N!} \frac{d^N}{dx^N} (x^2 - 1)^N, \hspace{1cm} N = 0, 1, 2, \ldots
 \end{equation*}
-</div></section><section class="subsection" id="subsection-9"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.3.3</span> <span class="title">Legendre polynomials and vector spaces</span>
+</div></section><section class="subsection" id="subsection-13"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.3.3</span> <span class="title">Legendre polynomials and vector spaces</span>
 </h3>
-<p id="p-66">Here we reach an instance of one of the most important larger themes of mathematical analysis - we can view functions with nice properties as vectors sitting inside an infinite dimensional vector space. With certain modifications, these spaces act very similarly to the familiar Euclidean spaces \(\R^n\text{.}\) One of the most important features of vector spaces is that vectors can be decomposed into orthogonal pieces with respect to some inner product in terms of a basis. For example, we can think of the Taylor series for a function as expressing that function in terms of the vectors \(1, x, x^2, \ldots\text{,}\) where the coefficients \(\frac{f^{(n)}(a)}{n!}\) are really the coordinates of the vector.</p>
-<p id="p-67">The continuous functions on the interval \([-1,1]\) are denoted \(C^0[-1,1]\text{.}\) (We're using symmetric intervals in this case because the Legendre polynomials are even or odd.) This space is a (infinite dimensional) inner product space with the dot product defined as</p>
+<p id="p-97">Here we reach an instance of one of the most important larger themes of mathematical analysis - we can view functions with nice properties as vectors sitting inside an infinite dimensional vector space. With certain modifications, these spaces act very similarly to the familiar Euclidean spaces \(\R^n\text{.}\) One of the most important features of vector spaces is that vectors can be decomposed into orthogonal pieces with respect to some inner product in terms of a basis. For example, we can think of the Taylor series for a function as expressing that function in terms of the vectors \(1, x, x^2, \ldots\text{,}\) where the coefficients \(\frac{f^{(n)}(a)}{n!}\) are really the coordinates of the vector.</p>
+<p id="p-98">The continuous functions on the interval \([-1,1]\) are denoted \(C^0[-1,1]\text{.}\) (We're using symmetric intervals in this case because the Legendre polynomials are even or odd.) This space is a (infinite dimensional) inner product space with the dot product defined as</p>
 <div class="displaymath">
 \begin{equation*}
 f \cdot g = \ip{f}{g} = \int_{-1}^1 f(x) g(x) \, dx.
@@ -327,23 +333,23 @@ f \cdot g = \ip{f}{g} = \int_{-1}^1 f(x) g(x) \, dx.
 \norm{f} = \sqrt{\ip{f}{f}} = \sqrt{\int_{-1}^1 f(x)^2 \, dx}.
 \end{equation*}
 </div>
-<article class="theorem theorem-like" id="theorem-5"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span>
+<article class="theorem theorem-like" id="theorem-10"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.3.4</span><span class="period">.</span>
 </h6>
-<p id="p-68">The Legendre polynomials are mutually orthogonal; that is,</p>
+<p id="p-99">The Legendre polynomials are mutually orthogonal; that is,</p>
 <div class="displaymath">
 \begin{equation*}
 \ip{P_j}{P_k} = \int_{-1}^1 P_j(x) P_k(x) \, dx = 0 \text{ if } j \neq k.
 \end{equation*}
 </div>
-<p data-braille="continuation">Thus, the polynomials \(P_0, P_1, \ldots, P_n\) are an orthogonal basis for the space of polynomials of degree \(n\) or less.</p></article><article class="hiddenproof" id="proof-1"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><p id="p-69">See Annin, Goode, p. 744.</p></article></div>
-<p id="p-70">Furthermore, one can show that for a fixed integer \(j\) that</p>
+<p data-braille="continuation">Thus, the polynomials \(P_0, P_1, \ldots, P_n\) are an orthogonal basis for the space of polynomials of degree \(n\) or less.</p></article><article class="hiddenproof" id="proof-1"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><p id="p-100">See Annin, Goode, p. 744.</p></article></div>
+<p id="p-101">Furthermore, one can show that for a fixed integer \(j\) that</p>
 <div class="displaymath">
 \begin{equation*}
 \norm{P_j} = \sqrt{\frac{2}{2j+1}}.
 \end{equation*}
 </div>
-<p id="p-71">One of the most important properties of an orthgonal basis for an inner product space is that generic vectors can be decomposed into orthogonal pieces. Suppose that we have the set of Legendre polynomials \(P_0, \ldots, P_N\) as an orthogonal basis for the polynomials of degree \(N\) or less. Then we can compute the expansion of a polynomial in terms of Legendre polynomials by the formula</p>
+<p id="p-102">One of the most important properties of an orthgonal basis for an inner product space is that generic vectors can be decomposed into orthogonal pieces. Suppose that we have the set of Legendre polynomials \(P_0, \ldots, P_N\) as an orthogonal basis for the polynomials of degree \(N\) or less. Then we can compute the expansion of a polynomial in terms of Legendre polynomials by the formula</p>
 <div class="displaymath">
 \begin{equation*}
 p(x) = \sum_{i=0}^{N} a_i P_i = \sum_{i=0}^n \frac{\ip{p}{P_i}}{\norm{P_i}^2} P_i.
@@ -355,11 +361,11 @@ p(x) = \sum_{i=0}^{N} a_i P_i = \sum_{i=0}^n \frac{\ip{p}{P_i}}{\norm{P_i}^2} P_
 p(x) = \sum_{i=1}^N a_i P_i(x), \text{ where } a_i = \frac{2i+1}{2} \int_{-1}^1 p(x) P_i(x) \, dx.
 \end{equation*}
 </div>
-<p id="p-72">The real power of the expansion idea is that it holds for general functions, not just polynomials, under the additional assumption that \(f \in C^1(-1,1)\text{;}\) that is, both \(f, f'\) are continuous.</p>
-<article class="theorem theorem-like" id="theorem-6"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.3.5</span><span class="period">.</span>
+<p id="p-103">The real power of the expansion idea is that it holds for general functions, not just polynomials, under the additional assumption that \(f \in C^1(-1,1)\text{;}\) that is, both \(f, f'\) are continuous.</p>
+<article class="theorem theorem-like" id="theorem-11"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.3.5</span><span class="period">.</span>
 </h6>
-<p id="p-73">Suppose that \(f, f'\) are continuous on \((-1,1)\text{.}\) Then \(f\) has a Legendre series expansion on \((-1,1)\) given by</p>
+<p id="p-104">Suppose that \(f, f'\) are continuous on \((-1,1)\text{.}\) Then \(f\) has a Legendre series expansion on \((-1,1)\) given by</p>
 <div class="displaymath">
 \begin{equation*}
 f(x) = \sum_{i=1}^\infty a_i P_i(x)
@@ -370,11 +376,11 @@ f(x) = \sum_{i=1}^\infty a_i P_i(x)
 \begin{equation*}
 a_i = \frac{\ip{f}{P_i}}{\norm{P_i}^2} = \frac{2i + 1}{2} \int_{-1}^1 f(x)P_i(x)\, dx.
 \end{equation*}
-</div></article><p id="p-74">It is not at all obvious that an infinite series of functions should converge, nor what it means for a series of functions to converge to another function. Mathematicians wrestled with these ideas for more than a century establishing the basics of modern function theory. Proof of the theorem above will require you to consult an advanced textbook on spaces of functions. For now, accept the assertion that the theorem above does indeed have a proof and that mathematicians, physicists, and engineers have been using these sorts of ideas for far longer than they have been rigorously demonstrable.</p>
-<p id="p-75">You might wonder why we would prefer to work with Legendre series rather than the Taylor series that are so easy to compute - first, notice that Taylor series only exist for <em class="emphasis">analytic</em> functions, where here we have Legendre series for functions that are merely continuously differentiable. Secondly, it turns out that working numerically with Taylor approximations is actually pretty terrible. The term used in numerical analysis is <dfn class="terminology">ill-conditioned</dfn>. Legendre expansions are significantly more stable in computations. In many cases, Legendre series also converge to the function being approximated much more quickly than Taylor series, which we can illustrate with the following example.</p>
+</div></article><p id="p-105">It is not at all obvious that an infinite series of functions should converge, nor what it means for a series of functions to converge to another function. Mathematicians wrestled with these ideas for more than a century establishing the basics of modern function theory. Proof of the theorem above will require you to consult an advanced textbook on spaces of functions. For now, accept the assertion that the theorem above does indeed have a proof and that mathematicians, physicists, and engineers have been using these sorts of ideas for far longer than they have been rigorously demonstrable.</p>
+<p id="p-106">You might wonder why we would prefer to work with Legendre series rather than the Taylor series that are so easy to compute - first, notice that Taylor series only exist for <em class="emphasis">analytic</em> functions, where here we have Legendre series for functions that are merely continuously differentiable. Secondly, it turns out that working numerically with Taylor approximations is actually pretty terrible. The term used in numerical analysis is <dfn class="terminology">ill-conditioned</dfn>. Legendre expansions are significantly more stable in computations. In many cases, Legendre series also converge to the function being approximated much more quickly than Taylor series, which we can illustrate with the following example.</p>
 <article class="example example-like" id="example-9"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-9"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Taylor and Legendre approximation of \(\sin \pi x\text{.}\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><p id="p-76">The function \(\sin \pi x\) completes one period on the interval \((-1, 1)\) and obviously has a continuous derivative. The Taylor expansion of \(\sin \pi x\) to degree 5 is given by the formula</p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Taylor and Legendre approximation of \(\sin \pi x\text{.}\).</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><p id="p-107">The function \(\sin \pi x\) completes one period on the interval \((-1, 1)\) and obviously has a continuous derivative. The Taylor expansion of \(\sin \pi x\) to degree 5 is given by the formula</p>
 <div class="displaymath">
 \begin{equation*}
 T_5(x) = \pi x - \frac{\pi^3 x^3}{6} + \frac{\pi^5 x^5}{120}
@@ -388,7 +394,7 @@ a_3 \amp= \frac{2(3) + 1}{2} \int_{-1}^1 \frac{1}{2}(3x^2 - 1) \sin\pi x \, dx =
 a_5 \amp= \frac{2(5) + 1}{2} \int_{-1}^1 P_5(x) \, dx = \frac{11}{\pi^5} (945 - 105\pi^2 + \pi^4)
 \end{align*}
 </div>
-<p id="p-77">Let us compare these approximations.</p>
+<p id="p-108">Let us compare these approximations.</p>
 <div class="hidden-sagecell-sage" id="sage-3"><script type="text/x-sage">var ('x')
  f(x) = sin(x)
  g = plot(sin(pi*x), (-1,1))
@@ -401,7 +407,7 @@ a_5 \amp= \frac{2(5) + 1}{2} \int_{-1}^1 P_5(x) \, dx = \frac{11}{\pi^5} (945 - 
  g+= plot(T(x), (-1,1), color = 'green')
  show(g)
 </script></div>
-<p id="p-78">Notice how much deviation there is in the Taylor approximation towards the end of the interval, as compared to the Legendre approximation which even at 5th degree fits right into the sine function.</p></article></div></section></section></div></main>
+<p id="p-109">Notice how much deviation there is in the Taylor approximation towards the end of the interval, as compared to the Legendre approximation which even at 5th degree fits right into the sine function.</p></article></div></section></section></div></main>
 </div>
 </body>
 </html>

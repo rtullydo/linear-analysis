@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-01T17:46:07-08:00       *-->
+<!--*       on 2021-01-02T14:01:27-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -190,7 +190,13 @@ MathJax.Hub.Config({
 <nav id="toc"><ul>
 <li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Front Matter</span></a></li>
 <li class="link">
-<a href="ch-series.html" data-scroll="ch-series"><span class="codenumber">1</span> <span class="title">Series solutions</span></a><ul>
+<a href="ch-0.html" data-scroll="ch-0"><span class="codenumber">1</span> <span class="title">What you should know</span></a><ul>
+<li><a href="section-1.html" data-scroll="section-1">Introduction</a></li>
+<li><a href="section-2.html" data-scroll="section-2">Linear algebra</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch-series.html" data-scroll="ch-series"><span class="codenumber">2</span> <span class="title">Series solutions</span></a><ul>
 <li><a href="ch-series-1.html" data-scroll="ch-series-1">Power series</a></li>
 <li><a href="ch-series-2.html" data-scroll="ch-series-2">Series solutions at ordinary points</a></li>
 <li><a href="ch-series-3.html" data-scroll="ch-series-3">Legrendre series</a></li>
@@ -201,20 +207,20 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li class="link">
-<a href="chapter-2.html" data-scroll="chapter-2"><span class="codenumber">2</span> <span class="title">All things Fourier</span></a><ul>
-<li><a href="section-8.html" data-scroll="section-8">Periodicity</a></li>
-<li><a href="section-9.html" data-scroll="section-9">Complex exponentials and trig functions</a></li>
-<li><a href="section-10.html" data-scroll="section-10">Sums of periodic functions</a></li>
-<li><a href="section-11.html" data-scroll="section-11">Questions of convergence</a></li>
-<li><a href="section-12.html" data-scroll="section-12">First applications</a></li>
-<li><a href="section-13.html" data-scroll="section-13">Fourier series and linear algebra</a></li>
-<li><a href="section-14.html" data-scroll="section-14">The Fourier transform</a></li>
-<li><a href="section-15.html" data-scroll="section-15">Convolution</a></li>
-<li><a href="section-16.html" data-scroll="section-16">Applications of convolution</a></li>
+<a href="chapter-3.html" data-scroll="chapter-3"><span class="codenumber">3</span> <span class="title">All things Fourier</span></a><ul>
+<li><a href="section-10.html" data-scroll="section-10">Periodicity</a></li>
+<li><a href="section-11.html" data-scroll="section-11">Complex exponentials and trig functions</a></li>
+<li><a href="section-12.html" data-scroll="section-12">Sums of periodic functions</a></li>
+<li><a href="section-13.html" data-scroll="section-13">Questions of convergence</a></li>
+<li><a href="section-14.html" data-scroll="section-14">First applications</a></li>
+<li><a href="section-15.html" data-scroll="section-15">Fourier series and linear algebra</a></li>
+<li><a href="section-16.html" data-scroll="section-16">The Fourier transform</a></li>
+<li><a href="section-17.html" data-scroll="section-17">Convolution</a></li>
+<li><a href="section-18.html" data-scroll="section-18">Applications of convolution</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="ch-laplace.html" data-scroll="ch-laplace"><span class="codenumber">3</span> <span class="title">The Laplace Transform</span></a><ul>
+<a href="ch-laplace.html" data-scroll="ch-laplace"><span class="codenumber">4</span> <span class="title">The Laplace Transform</span></a><ul>
 <li><a href="ch-laplace-1.html" data-scroll="ch-laplace-1">Motivation for transform methods</a></li>
 <li><a href="ch-laplace-2.html" data-scroll="ch-laplace-2">The Laplace Transform</a></li>
 <li><a href="ch-laplace-3.html" data-scroll="ch-laplace-3">Periodic functions</a></li>
@@ -228,20 +234,20 @@ MathJax.Hub.Config({
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ch-series-6"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">1.6</span> <span class="title">Bessel equations</span>
+<span class="type">Section</span> <span class="codenumber">2.6</span> <span class="title">Bessel equations</span>
 </h2>
-<section class="subsection" id="subsection-14"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.6.1</span> <span class="title">Bessel's differential equation</span>
+<section class="subsection" id="subsection-18"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.6.1</span> <span class="title">Bessel's differential equation</span>
 </h3>
-<p id="p-104">One of the most important differential equations in applied mathematics and physical science is the <a class="external" href="https://en.wikipedia.org/wiki/Bessel_function" target="_blank">Bessel differential equation</a>, which has the form</p>
+<p id="p-135">One of the most important differential equations in applied mathematics and physical science is the <a class="external" href="https://en.wikipedia.org/wiki/Bessel_function" target="_blank">Bessel differential equation</a>, which has the form</p>
 <div class="displaymath">
 \begin{equation}
-x^2 y''+ x y' + (x^2 - \alpha^2) y = 0\label{eq-bessel}\tag{1.6.1}
+x^2 y''+ x y' + (x^2 - \alpha^2) y = 0\label{eq-bessel}\tag{2.6.1}
 \end{equation}
 </div>
 <p data-braille="continuation">for some complex constant \(\alpha\text{,}\) which is called the <dfn class="terminology">order</dfn> of the solutions arising from the associated equation. Bessel's equation and the associated solutions are a core technique in the analysis of the propagation of waves, for example.</p>
-<p id="p-105">In general, we have to write the solutions to this equation in terms of integrals; that is, there are not closed form solutions. But since <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 1.6.1">(1.6.1)</a> has a regular singular point at \(0\text{,}\) in the case where \(\alpha\) is a nonnegative real constant, we can use Frobenius techniques to write series solutions.</p>
-<p id="p-106">Since \(p(0) = 1\) and \(q(0) = -\alpha^2\text{,}\) we get the indicial equation</p>
+<p id="p-136">In general, we have to write the solutions to this equation in terms of integrals; that is, there are not closed form solutions. But since <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 2.6.1">(2.6.1)</a> has a regular singular point at \(0\text{,}\) in the case where \(\alpha\) is a nonnegative real constant, we can use Frobenius techniques to write series solutions.</p>
+<p id="p-137">Since \(p(0) = 1\) and \(q(0) = -\alpha^2\text{,}\) we get the indicial equation</p>
 <div class="displaymath">
 \begin{equation*}
 r(r-1) + r - \alpha^2,
@@ -253,8 +259,8 @@ r(r-1) + r - \alpha^2,
 y(x) = x^r \sum_{n=0}^\infty a_n x^n,
 \end{equation*}
 </div>
-<p data-braille="continuation">and again it is useful to recall the derivative formulas <a class="xref" data-knowl="./knowl/eq-frob-first.html" title="Equation 1.4.4">(1.4.4)</a> and <a class="xref" data-knowl="./knowl/eq-frob-second.html" title="Equation 1.4.5">(1.4.5)</a>.</p>
-<p id="p-107">We proceed with our standard technique and recover a series solution from a recurrence relation. Substituting into the <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 1.6.1">(1.6.1)</a>, we get</p>
+<p data-braille="continuation">and again it is useful to recall the derivative formulas <a class="xref" data-knowl="./knowl/eq-frob-first.html" title="Equation 2.4.4">(2.4.4)</a> and <a class="xref" data-knowl="./knowl/eq-frob-second.html" title="Equation 2.4.5">(2.4.5)</a>.</p>
+<p id="p-138">We proceed with our standard technique and recover a series solution from a recurrence relation. Substituting into the <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 2.6.1">(2.6.1)</a>, we get</p>
 <div class="displaymath">
 \begin{equation*}
 \sum_{n=0}^\infty [(r + n)^2 - \alpha^2]a_n x^{n+r} + \sum_{n=2}^\infty a_{n-2} x^{n+r} = 0.
@@ -272,7 +278,7 @@ y(x) = x^r \sum_{n=0}^\infty a_n x^n,
 [(n+r)^2 - \alpha^2]a_n = a_{n -2}.
 \end{equation*}
 </div>
-<p id="p-108">To construct the first solution, consider the root \(r = \alpha\text{.}\) The recurrence relation becomes</p>
+<p id="p-139">To construct the first solution, consider the root \(r = \alpha\text{.}\) The recurrence relation becomes</p>
 <div class="displaymath">
 \begin{equation*}
 a_n = -\frac{1}{n(2\alpha + n)} a_{n-2}.
@@ -290,15 +296,15 @@ a_{2k} = \frac{(-1)^k}{2 \cdot 4 \ldots \cdot (2k) \cdot (2\alpha + 2) \ldots \c
 a_{2k} = \frac{(-1)^k}{2^{2k} k! (\alpha + 1) \cdots (\alpha + k)} a_0, k = 1, 2, \ldots.
 \end{equation*}
 </div>
-<p data-braille="continuation">Then we have a Frobenius series solution to <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 1.6.1">(1.6.1)</a> of the form</p>
+<p data-braille="continuation">Then we have a Frobenius series solution to <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 2.6.1">(2.6.1)</a> of the form</p>
 <div class="displaymath">
 \begin{equation}
-y_1(x) = a_0 x^\alpha \left[1 + \frac{(-1)^k}{2^{2k} k! (\alpha + 1) \cdots (\alpha + k)} x^{2k}\right].\label{eq-bessel-series}\tag{1.6.2}
+y_1(x) = a_0 x^\alpha \left[1 + \frac{(-1)^k}{2^{2k} k! (\alpha + 1) \cdots (\alpha + k)} x^{2k}\right].\label{eq-bessel-series}\tag{2.6.2}
 \end{equation}
-</div></section><section class="subsection" id="subsection-15"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.6.2</span> <span class="title">Bessel functions of the first kind</span>
+</div></section><section class="subsection" id="subsection-19"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.6.2</span> <span class="title">Bessel functions of the first kind</span>
 </h3>
-<p id="p-109">When \(\alpha = N\) is an integer, the formula collapses even further if we make a clever choice for the arbitrary constant \(a_0\text{.}\) Let</p>
+<p id="p-140">When \(\alpha = N\) is an integer, the formula collapses even further if we make a clever choice for the arbitrary constant \(a_0\text{.}\) Let</p>
 <div class="displaymath">
 \begin{equation*}
 a_0 = \frac{!}{N!2^N}.
@@ -310,33 +316,33 @@ a_0 = \frac{!}{N!2^N}.
 J_N(x) = \sum_{k=0}^\infty \frac{(-1)^k}{k!(N + k)!} \left(\frac{x}{2}\right)^{2k + N}.
 \end{equation*}
 </div>
-<p id="p-110">The following code uses prebuilt libraries to construct and plot the first few examples of \(J_N\)</p>
+<p id="p-141">The following code uses prebuilt libraries to construct and plot the first few examples of \(J_N\)</p>
 <div class="sagecell-sage" id="sage-4"><script type="text/x-sage">var('x')
 g = plot(bessel_J(0, x), (0,50), color = 'red')
 g += plot(bessel_J(1, x), (0,50), color = 'blue')
 g += plot(bessel_J(2,x), (0,50), color = 'green')
 show(g)
 </script></div>
-<p id="p-111">The graphs above should suggest <em class="emphasis">why</em> these functions are useful at modeling wave propagation - each function oscillates with decreasing amplitude and has an infinite number of zeros on \((0,\infty)\text{.}\)</p>
-<p id="p-112">To deal with the case where \(\alpha \in (0,\infty)\) is not an integer, we need to introduce a generalization of the factorial function called the <dfn class="terminology"><a class="external" href="https://en.wikipedia.org/wiki/Gamma_function" target="_blank">gamma function</a></dfn>, one of the most famous special functions in mathematics. The basic idea of the gamma function is to “fill in the spaces” between the factorials with a nice, smooth function that retains the special properties of the factorial function (that is, a nice function \(y\) for which \(y(x) = x y(x-1)\)). It turns out that the best way to do that is with a function defined in terms of an integral.</p>
+<p id="p-142">The graphs above should suggest <em class="emphasis">why</em> these functions are useful at modeling wave propagation - each function oscillates with decreasing amplitude and has an infinite number of zeros on \((0,\infty)\text{.}\)</p>
+<p id="p-143">To deal with the case where \(\alpha \in (0,\infty)\) is not an integer, we need to introduce a generalization of the factorial function called the <dfn class="terminology"><a class="external" href="https://en.wikipedia.org/wiki/Gamma_function" target="_blank">gamma function</a></dfn>, one of the most famous special functions in mathematics. The basic idea of the gamma function is to “fill in the spaces” between the factorials with a nice, smooth function that retains the special properties of the factorial function (that is, a nice function \(y\) for which \(y(x) = x y(x-1)\)). It turns out that the best way to do that is with a function defined in terms of an integral.</p>
 <article class="definition definition-like" id="def-gamma-function"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.6.1</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.6.1</span><span class="period">.</span>
 </h6>
-<p id="p-113">The gamma function \(\Gamma: (0, \infty) \to \R\) is defined by the integral formula</p>
+<p id="p-144">The gamma function \(\Gamma: (0, \infty) \to \R\) is defined by the integral formula</p>
 <div class="displaymath">
 \begin{equation}
-\Gamma(x) = \int_0^\infty t^{x-1} e^{-t} \, dt.\label{eq-gamma-prop}\tag{1.6.3}
+\Gamma(x) = \int_0^\infty t^{x-1} e^{-t} \, dt.\label{eq-gamma-prop}\tag{2.6.3}
 \end{equation}
-</div></article><p id="p-114">The gamma function is actually defined on all complex numbers outside of the negative integers, but we do not need that fact here.</p>
+</div></article><p id="p-145">The gamma function is actually defined on all complex numbers outside of the negative integers, but we do not need that fact here.</p>
 <article class="theorem theorem-like" id="thm-gamma-factorial"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.6.2</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.6.2</span><span class="period">.</span>
 </h6>
-<p id="p-115">For \(x &gt; 0\text{,}\)</p>
+<p id="p-146">For \(x &gt; 0\text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 \Gamma(x + 1) = (x + 1) \Gamma(x).
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-2"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><p id="p-116">This is an immediate consequence of integration by parts.</p>
+</div></article><article class="hiddenproof" id="proof-2"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><p id="p-147">This is an immediate consequence of integration by parts.</p>
 <div class="displaymath">
 \begin{align*}
 \Gamma(x + 1) \amp= \int_0^\infty t^{x} e^{-t} \, dt\\
@@ -344,13 +350,13 @@ show(g)
 \amp= x \Gamma(x)
 \end{align*}
 </div></article></div>
-<p id="p-117">If we had a starting point, we could show that the gamma function generates the factorials. Fortunately, it is very easy to show that</p>
+<p id="p-148">If we had a starting point, we could show that the gamma function generates the factorials. Fortunately, it is very easy to show that</p>
 <div class="displaymath">
 \begin{equation*}
 \Gamma(1) = \int_0^\infty e^{-t} \, dt = 1.
 \end{equation*}
 </div>
-<p data-braille="continuation">Then induction on <a class="xref" data-knowl="./knowl/eq-gamma-prop.html" title="Equation 1.6.3">(1.6.3)</a> gets us</p>
+<p data-braille="continuation">Then induction on <a class="xref" data-knowl="./knowl/eq-gamma-prop.html" title="Equation 2.6.3">(2.6.3)</a> gets us</p>
 <div class="displaymath">
 \begin{equation*}
 \Gamma(2) = 2\Gamma(1) = 2!, \,\,\, \Gamma(3) = 3\Gamma(2) = 3!,
@@ -362,38 +368,38 @@ show(g)
 \Gamma(N) = N!.
 \end{equation*}
 </div>
-<p id="p-118">At the same time, we can get the factorial-like formula</p>
+<p id="p-149">At the same time, we can get the factorial-like formula</p>
 <div class="displaymath">
 \begin{equation}
-\Gamma(x + k + 1) = [(x+1)(x+2)\cdots(x+k)] \Gamma(x).\label{eq-gamma-factorial-like}\tag{1.6.4}
+\Gamma(x + k + 1) = [(x+1)(x+2)\cdots(x+k)] \Gamma(x).\label{eq-gamma-factorial-like}\tag{2.6.4}
 \end{equation}
 </div>
-<p id="p-119">Now we can extend the gamma function to negative numbers that aren't integers by using the relation</p>
+<p id="p-150">Now we can extend the gamma function to negative numbers that aren't integers by using the relation</p>
 <div class="displaymath">
 \begin{equation}
-\Gamma(x) = \frac{\Gamma(x+1)}{x}\label{eq-gamma-extension}\tag{1.6.5}
+\Gamma(x) = \frac{\Gamma(x+1)}{x}\label{eq-gamma-extension}\tag{2.6.5}
 \end{equation}
 </div>
-<p data-braille="continuation">If \(x \in (-1,0)\text{,}\) then \(x + 1 \in (0,1)\text{,}\) and so for \(x \in (-1,0)\) we use <a class="xref" data-knowl="./knowl/eq-gamma-extension.html" title="Equation 1.6.5">(1.6.5)</a> as the definition of \(\Gamma(x)\text{.}\) We can continue in this way inductively: if \(x \in (-2,-1)\text{,}\) then \(x+ 1 \in (-1,0)\text{,}\) which is now defined, and again we use formula <a class="xref" data-knowl="./knowl/eq-gamma-extension.html" title="Equation 1.6.5">(1.6.5)</a>. The resulting function is continuous off the negative integers and has the graph below.</p>
+<p data-braille="continuation">If \(x \in (-1,0)\text{,}\) then \(x + 1 \in (0,1)\text{,}\) and so for \(x \in (-1,0)\) we use <a class="xref" data-knowl="./knowl/eq-gamma-extension.html" title="Equation 2.6.5">(2.6.5)</a> as the definition of \(\Gamma(x)\text{.}\) We can continue in this way inductively: if \(x \in (-2,-1)\text{,}\) then \(x+ 1 \in (-1,0)\text{,}\) which is now defined, and again we use formula <a class="xref" data-knowl="./knowl/eq-gamma-extension.html" title="Equation 2.6.5">(2.6.5)</a>. The resulting function is continuous off the negative integers and has the graph below.</p>
 <div class="sagecell-sage" id="sage-5"><script type="text/x-sage">var('x')
 plot(gamma(x), (-5,5), detect_poles='true', ymin=-5, ymax = 5)
 </script></div>
-<p id="p-120">The gamma function allows us to define the Bessel functions for non-integer orders. First, choose</p>
+<p id="p-151">The gamma function allows us to define the Bessel functions for non-integer orders. First, choose</p>
 <div class="displaymath">
 \begin{equation*}
 a_0 = \frac{1}{2^\alpha \Gamma(\alpha + 1)}
 \end{equation*}
 </div>
-<p data-braille="continuation">and plug into <a class="xref" data-knowl="./knowl/eq-bessel-series.html" title="Equation 1.6.2">(1.6.2)</a> to get</p>
+<p data-braille="continuation">and plug into <a class="xref" data-knowl="./knowl/eq-bessel-series.html" title="Equation 2.6.2">(2.6.2)</a> to get</p>
 <div class="displaymath">
 \begin{equation}
-J_\alpha(x) = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k+1) \, \Gamma(\alpha + k + 1)} \left(\frac{x}{2}\right)^{2k + \alpha},\label{eq-bessel-first}\tag{1.6.6}
+J_\alpha(x) = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k+1) \, \Gamma(\alpha + k + 1)} \left(\frac{x}{2}\right)^{2k + \alpha},\label{eq-bessel-first}\tag{2.6.6}
 \end{equation}
 </div>
-<p data-braille="continuation">which by the definition of \(\Gamma\) reduces to \(J_N(x)\) when \(N\) is an integer.</p></section><section class="subsection" id="subsection-16"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.6.3</span> <span class="title">Bessel functions of the second kind</span>
+<p data-braille="continuation">which by the definition of \(\Gamma\) reduces to \(J_N(x)\) when \(N\) is an integer.</p></section><section class="subsection" id="subsection-20"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.6.3</span> <span class="title">Bessel functions of the second kind</span>
 </h3>
-<p id="p-121">Because the differential equation <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 1.6.1">(1.6.1)</a> has lots of solutions, there are many ways to write down a pair of linearly independent functions that solve the equation. The function that we will consider here, we choose for convenience by convention of physicists and engineers, but there are several equivalent ways of formulating the general solution. First, note that as long as \(2\alpha\) isn't an integer, the second root to the indicial equation, \(r = -\alpha\) will also have an associated and linearly independent solution. It is straightforward that we can just replace \(\alpha\) with \(-\alpha\) in <a class="xref" data-knowl="./knowl/eq-bessel-first.html" title="Equation 1.6.6">(1.6.6)</a> to get</p>
+<p id="p-152">Because the differential equation <a class="xref" data-knowl="./knowl/eq-bessel.html" title="Equation 2.6.1">(2.6.1)</a> has lots of solutions, there are many ways to write down a pair of linearly independent functions that solve the equation. The function that we will consider here, we choose for convenience by convention of physicists and engineers, but there are several equivalent ways of formulating the general solution. First, note that as long as \(2\alpha\) isn't an integer, the second root to the indicial equation, \(r = -\alpha\) will also have an associated and linearly independent solution. It is straightforward that we can just replace \(\alpha\) with \(-\alpha\) in <a class="xref" data-knowl="./knowl/eq-bessel-first.html" title="Equation 2.6.6">(2.6.6)</a> to get</p>
 <div class="displaymath">
 \begin{equation*}
 J_{-\alpha} = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k + 1) \, \Gamma(k - \alpha + 1)} \left(\frac{x}{2}\right)^{2k - \alpha}
@@ -418,7 +424,7 @@ Y_n(x) = \lim_{\alpha \to n} \left[\frac{J_\alpha(x) \cos \alpha \pi - J_{-\alph
 \end{equation*}
 </div>
 <p data-braille="continuation">and that this sum can be computed.</p>
-<p id="p-122">Thus the general solution to Bessel's equation is</p>
+<p id="p-153">Thus the general solution to Bessel's equation is</p>
 <div class="displaymath">
 \begin{equation*}
 y(x) = c_1 J_\alpha(x) + c_2 Y_\alpha(x)
@@ -431,18 +437,18 @@ g += plot(bessel_Y(1, x), (0,50), color = 'blue')
 g += plot(bessel_Y(2,x), (0,50), color = 'green')
 show(g)
 </script></div>
-<p id="p-123">Notice that the \(Y_\alpha\) are unbounded at \(x = 0\text{,}\) which is typically not a desired characteristic in a physical problem.</p></section><section class="subsection" id="subsection-17"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.6.4</span> <span class="title">Bessel-Fourier series</span>
+<p id="p-154">Notice that the \(Y_\alpha\) are unbounded at \(x = 0\text{,}\) which is typically not a desired characteristic in a physical problem.</p></section><section class="subsection" id="subsection-21"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.6.4</span> <span class="title">Bessel-Fourier series</span>
 </h3>
-<p id="p-124">We've already seen that Legendre polynomials from an orthgonal basis for the \(C^1\) functions on a finite interval with respect to the inner product</p>
+<p id="p-155">We've already seen that Legendre polynomials from an orthgonal basis for the \(C^1\) functions on a finite interval with respect to the inner product</p>
 <div class="displaymath">
 \begin{equation*}
 \ip{f}{g} = \int f(x) g(x) \, dx.
 \end{equation*}
 </div>
 <p data-braille="continuation">It turns out that Bessel functions can be used to form a different orthogonal system of functions that serve as a basis for the \(C^1\) functions (one of of an infinite family), but with a slightly different inner product. In fact, just one function \(J_\alpha\) can be used to generate the basis (where the choice of \(\alpha\) lets us describe functions in terms of a solution to a particular physical scenario).</p>
-<p id="p-125">The graphs of \(J_\alpha\) should be evidence that for a given \(\alpha\text{,}\) \(J_\alpha\) has infinite zeros (as it wiggles back and forth across the \(x\)-axis). For a fixed \(\alpha\text{,}\) let \(\la_{\alpha, n}\) denote the sequence of positive zeros of \(J_\alpha\text{.}\)</p>
-<p id="p-126">To construct an orthonormal family, we'll need to use a modification of the standard inner product by introducing a <dfn class="terminology">weight function</dfn>. One way of thinking about the standard inner product \(x \cdot y = \sum x_i y_i\) or \(\ip{f}{g} = \int fg\) is that we give all terms equal importance. But there's no reason that we have to do that. A weight function \(w(x) \geq 0\) essentially turns an inner product into a weighted average instead of a standard average. On \(\R^n\text{,}\) a weighted inner product has the form \(x \cdot y = \sum x_i y_i w(i)\text{.}\) On function spaces, we have the <dfn class="terminology">weighted inner product with respect to \(w\)</dfn> which is given by</p>
+<p id="p-156">The graphs of \(J_\alpha\) should be evidence that for a given \(\alpha\text{,}\) \(J_\alpha\) has infinite zeros (as it wiggles back and forth across the \(x\)-axis). For a fixed \(\alpha\text{,}\) let \(\la_{\alpha, n}\) denote the sequence of positive zeros of \(J_\alpha\text{.}\)</p>
+<p id="p-157">To construct an orthonormal family, we'll need to use a modification of the standard inner product by introducing a <dfn class="terminology">weight function</dfn>. One way of thinking about the standard inner product \(x \cdot y = \sum x_i y_i\) or \(\ip{f}{g} = \int fg\) is that we give all terms equal importance. But there's no reason that we have to do that. A weight function \(w(x) \geq 0\) essentially turns an inner product into a weighted average instead of a standard average. On \(\R^n\text{,}\) a weighted inner product has the form \(x \cdot y = \sum x_i y_i w(i)\text{.}\) On function spaces, we have the <dfn class="terminology">weighted inner product with respect to \(w\)</dfn> which is given by</p>
 <div class="displaymath">
 \begin{equation*}
 \ip{f}{g} = \int_0^1 f(x)g(x)w(x)\, dx.
@@ -450,10 +456,10 @@ show(g)
 </div>
 <p data-braille="continuation">We do this because we change the geomerty of the space when we use a new inner product. New vectors will be orthogonal. We will choose the weight function \(w(x) = x\text{,}\) and we get the following fact about the family \(J_\alpha(\la_{\alpha,n}x)\text{.}\)</p>
 <article class="proposition theorem-like" id="proposition-1"><h6 class="heading">
-<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.6.3</span><span class="period">.</span>
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.6.3</span><span class="period">.</span>
 </h6>
-<p id="p-127">Let \(\alpha\) be a fixed parameter, and let \(\la_{\alpha, n}\) denote the sequence of positive zeros of the Bessel function of the first kind \(J_\alpha\text{.}\)</p>
-<p id="p-128">Then with respect to the weighted inner product</p>
+<p id="p-158">Let \(\alpha\) be a fixed parameter, and let \(\la_{\alpha, n}\) denote the sequence of positive zeros of the Bessel function of the first kind \(J_\alpha\text{.}\)</p>
+<p id="p-159">Then with respect to the weighted inner product</p>
 <div class="displaymath">
 \begin{equation*}
 \ip{f}{g} = \int_0^1 xf(x)g(x)\, dx
@@ -465,7 +471,7 @@ show(g)
 \{J_\alpha(\la_{\alpha,n} x)\}_{n=1}^\infty
 \end{equation*}
 </div>
-<p data-braille="continuation">is an orthogonal set of vectors in \(C^1[0,1]\text{.}\)</p></article><p id="p-129">What we're really saying here is that for any \(n\neq m\) that</p>
+<p data-braille="continuation">is an orthogonal set of vectors in \(C^1[0,1]\text{.}\)</p></article><p id="p-160">What we're really saying here is that for any \(n\neq m\) that</p>
 <div class="displaymath">
 \begin{equation*}
 \ip{J_\alpha(\la_{\alpha,n}x)}{J_\alpha(\la_{\alpha,m}x)} = \int_0^1 x J_\alpha(\la_{\alpha,n}) J_\alpha(\la_{\alpha,m}x) \, dx = 0.
@@ -477,11 +483,11 @@ show(g)
 \norm{J_\alpha(\la_{\alpha,n}x)} = \frac{1}{2} \left[ J_{\alpha + 1}(\la_{\alpha,n})\right]^2.
 \end{equation*}
 </div>
-<p id="p-130">Even better, the family \(J_\alpha(\la_{\alpha,n}x)\) turns out to be a basis for \(C^1\text{,}\) and so we can express any \(C^1\) function in terms of a series of Bessel functions.</p>
+<p id="p-161">Even better, the family \(J_\alpha(\la_{\alpha,n}x)\) turns out to be a basis for \(C^1\text{,}\) and so we can express any \(C^1\) function in terms of a series of Bessel functions.</p>
 <article class="theorem theorem-like" id="thm-fourier-bessel"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.6.4</span><span class="period">.</span><span class="space"> </span><span class="title">Fourier-Bessel expansion.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.6.4</span><span class="period">.</span><span class="space"> </span><span class="title">Fourier-Bessel expansion.</span>
 </h6>
-<p id="p-131">Suppose that \(f \in C^1[0,1]\text{.}\) Then for \(x \in [0,1]\text{,}\)</p>
+<p id="p-162">Suppose that \(f \in C^1[0,1]\text{.}\) Then for \(x \in [0,1]\text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 f(x) = a_1 J_\alpha(\la_{\alpha,1}x) + a_2 J_\alpha(\la_{\alpha,2}x) + \ldots = \sum_{n = 1}^\infty a_n J_\alpha (\la_{\alpha, n} x),
@@ -492,7 +498,7 @@ f(x) = a_1 J_\alpha(\la_{\alpha,1}x) + a_2 J_\alpha(\la_{\alpha,2}x) + \ldots = 
 \begin{equation*}
 a_i = \frac{\ip{f}{J_{\alpha}(\la_{\alpha,i}x)}}{\norm{J_{\alpha}(\la_{\alpha,i}x)}^2} = \frac{2}{\left[ J_{\alpha + 1}(\la_{\alpha,i})\right]^2} \int_0^1 x f(x) J_\alpha(\la_{\alpha, i}x)\, dx.
 \end{equation*}
-</div></article><p id="p-132">Again, the proof of convergence of these types of series is beyond the scope of the course and more suited to a course in real analysis or partial differential equations. We keep emphasizing the vector notation not just to impress with our ability to assemble huge blocks of mathematics, but to point out that all we're really doing here is linear algebra with fancier vectors.</p></section></section></div></main>
+</div></article><p id="p-163">Again, the proof of convergence of these types of series is beyond the scope of the course and more suited to a course in real analysis or partial differential equations. We keep emphasizing the vector notation not just to impress with our ability to assemble huge blocks of mathematics, but to point out that all we're really doing here is linear algebra with fancier vectors.</p></section></section></div></main>
 </div>
 </body>
 </html>

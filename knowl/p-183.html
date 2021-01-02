@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-01T17:46:11-08:00       *-->
+<!--*       on 2021-01-02T14:01:30-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,15 +15,12 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Now consider the exponential function \(e^{at}\) for some constant \(a\text{.}\)</p>
+<p>Complex conjugates are very important in calculus and matrix settings, so we have an alternative notation that we apply to more complicated objects: \(\cc{z} = z\ad\text{.}\) Because integrals are limits of finite sums, integration respects complex conjugation and we write</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-\mathcal{L}[e^{at}] \amp= \int_0^\infty e^{at} \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-(s - a)t} \, dt\\
-\amp = \lim_{B\to\infty} \frac{-1}{s-a} e^{-(s-a)t} \bigg\rvert_0^B\\
-\amp= \frac{-1}{s - a} \lim_{B \to \infty} e^{-(s-a)B} - 1 = \frac{1}{s-a}
-\end{align*}
+\begin{equation*}
+\left(\int f(t)g(t) \, dt \right)\ad = \int f(t)\ad g(t)\ad \, dt.
+\end{equation*}
 </div>
-<p data-braille="continuation">as long as \(s &gt; a\text{.}\)</p>
-<span class="incontext"><a href="ch-laplace-2.html#p-183">in-context</a></span>
+<span class="incontext"><a href="section-11.html#p-183">in-context</a></span>
 </body>
 </html>
