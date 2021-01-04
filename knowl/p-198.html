@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:01:30-08:00       *-->
+<!--*       on 2021-01-02T14:50:04-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,31 +15,13 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Complex exponentials are vastly easier to work with than the sinusoids. Recall that the generic sine function is</p>
+<p>Typically, we're going to be working with a real parameter \(t\text{.}\) So define the function</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-f(t) = A \sin(2 \pi \nu t + \phi)
+f(t) = e^{it} = \cos t + i \sin t.
 \end{equation*}
 </div>
-<p data-braille="continuation">with frequency \(\nu\text{,}\) amplitude \(A\text{,}\) and phase \(\phi\text{.}\) The complex exponential with the same information is</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-g(t) = A e^{i(2\pi \nu t + \phi)}
-\end{equation*}
-</div>
-<p data-braille="continuation">which can be split into</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-g(t) = Ae^{i\phi} e^{2 \pi \nu u t}.
-\end{equation*}
-</div>
-<p data-braille="continuation">Notice that</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\abs{Ae^{i\phi} e^{2 \pi \nu u t}} = \abs{A} = A
-\end{equation*}
-</div>
-<p data-braille="continuation">and that \(e^{i\phi}\) describes a starting point on the unit circle.</p>
-<span class="incontext"><a href="section-11.html#p-198">in-context</a></span>
+<p data-braille="continuation">As \(t\) moves along in time, what is \(f\) doing? If we think about the complex numbers as vectors (that is, \(f(t) = (\RE f(t), \IM f(t))\text{,}\) we can think of \(f\) as a parametric function where \(x(t) = \cos t\) and \(y(t) = \sin t\text{.}\) Then as \(t\) increases, the graph of \(f\) traces out the unit circle, rotating in the counterclockwise direction. Likewise, negative complex exponentials trace out the unit circle but in the clockwise direction. One complete traversal of the circle takes place as \(t\) goes from \(0\) to \(2 \pi\text{.}\)</p>
+<span class="incontext"><a href="section-12.html#p-198">in-context</a></span>
 </body>
 </html>

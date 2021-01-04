@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:01:27-08:00       *-->
+<!--*       on 2021-01-02T14:50:01-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -184,7 +184,8 @@ MathJax.Hub.Config({
 <li class="link">
 <a href="ch-0.html" data-scroll="ch-0"><span class="codenumber">1</span> <span class="title">What you should know</span></a><ul>
 <li><a href="section-1.html" data-scroll="section-1">Introduction</a></li>
-<li><a href="section-2.html" data-scroll="section-2">Linear algebra</a></li>
+<li><a href="section-2.html" data-scroll="section-2">Calculus</a></li>
+<li><a href="section-3.html" data-scroll="section-3">Linear algebra</a></li>
 </ul>
 </li>
 <li class="link">
@@ -200,15 +201,15 @@ MathJax.Hub.Config({
 </li>
 <li class="link">
 <a href="chapter-3.html" data-scroll="chapter-3"><span class="codenumber">3</span> <span class="title">All things Fourier</span></a><ul>
-<li><a href="section-10.html" data-scroll="section-10">Periodicity</a></li>
-<li><a href="section-11.html" data-scroll="section-11">Complex exponentials and trig functions</a></li>
-<li><a href="section-12.html" data-scroll="section-12">Sums of periodic functions</a></li>
-<li><a href="section-13.html" data-scroll="section-13">Questions of convergence</a></li>
-<li><a href="section-14.html" data-scroll="section-14">First applications</a></li>
-<li><a href="section-15.html" data-scroll="section-15">Fourier series and linear algebra</a></li>
-<li><a href="section-16.html" data-scroll="section-16">The Fourier transform</a></li>
-<li><a href="section-17.html" data-scroll="section-17">Convolution</a></li>
-<li><a href="section-18.html" data-scroll="section-18">Applications of convolution</a></li>
+<li><a href="section-11.html" data-scroll="section-11">Periodicity</a></li>
+<li><a href="section-12.html" data-scroll="section-12">Complex exponentials and trig functions</a></li>
+<li><a href="section-13.html" data-scroll="section-13">Sums of periodic functions</a></li>
+<li><a href="section-14.html" data-scroll="section-14">Questions of convergence</a></li>
+<li><a href="section-15.html" data-scroll="section-15">First applications</a></li>
+<li><a href="section-16.html" data-scroll="section-16">Fourier series and linear algebra</a></li>
+<li><a href="section-17.html" data-scroll="section-17">The Fourier transform</a></li>
+<li><a href="section-18.html" data-scroll="section-18">Convolution</a></li>
+<li><a href="section-19.html" data-scroll="section-19">Applications of convolution</a></li>
 </ul>
 </li>
 <li class="link">
@@ -231,19 +232,19 @@ MathJax.Hub.Config({
 <section class="subsection" id="subsection-25"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.2.1</span> <span class="title">Definition of the Laplace Transform</span>
 </h3>
-<p id="p-207">Our first transform method is the <dfn class="terminology">Laplace transform</dfn>, which takes a function \(f:[0,\infty) \to \R\) and produces a function of a new variable \(F(s)\text{.}\)</p>
+<p id="p-210">Our first transform method is the <dfn class="terminology">Laplace transform</dfn>, which takes a function \(f:[0,\infty) \to \R\) and produces a function of a new variable \(F(s)\text{.}\)</p>
 <article class="definition definition-like" id="def-laplace"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
 </h6>
-<p id="p-208">Let \(f\) be a function on \([0,\infty)\text{.}\) The Laplace transform of \(f\) is defined by the integral operator</p>
+<p id="p-211">Let \(f\) be a function on \([0,\infty)\text{.}\) The Laplace transform of \(f\) is defined by the integral operator</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}[f] = \int_0^\infty f(t) e^{-st} \, dt = F(s).
 \end{equation*}
-</div></article><p id="p-209">Before we get into when we can use the Laplace transform and why it is so powerful, we'll start with some examples of computing the transforms of some basic functions.</p>
+</div></article><p id="p-212">Before we get into when we can use the Laplace transform and why it is so powerful, we'll start with some examples of computing the transforms of some basic functions.</p>
 <article class="example example-like" id="example-13"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-13"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">\(f(t) = 1\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-13"><article class="example example-like"><p id="p-210">We'll start by computing the Laplace transform of \(f(t) = 1\text{.}\) Recall that when we're dealing with improper integrals (with limits at \(\infty\) in this case), we need to consider the integral as shorthand for a limit.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-13"><article class="example example-like"><p id="p-213">We'll start by computing the Laplace transform of \(f(t) = 1\text{.}\) Recall that when we're dealing with improper integrals (with limits at \(\infty\) in this case), we need to consider the integral as shorthand for a limit.</p>
 <div class="displaymath">
 \begin{align*}
 L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-st} \, dt\\
@@ -252,10 +253,10 @@ L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e
 \amp = \frac{1}{s}.
 \end{align*}
 </div>
-<p id="p-211">So \(\mathcal{L}[1] = \frac{1}{s}\text{,}\) as long as \(s &gt;0\) (or the improper integral fails to converge, a condition that will usually apply).</p></article></div>
+<p id="p-214">So \(\mathcal{L}[1] = \frac{1}{s}\text{,}\) as long as \(s &gt;0\) (or the improper integral fails to converge, a condition that will usually apply).</p></article></div>
 <article class="example example-like" id="example-14"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-14"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">\(f(t) = t\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-14"><article class="example example-like"><p id="p-212">Now let's look at \(f(t) = t\text{,}\) which will require integration by parts.</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-14"><article class="example example-like"><p id="p-215">Now let's look at \(f(t) = t\text{,}\) which will require integration by parts.</p>
 <div class="displaymath">
 \begin{align*}
 \mathcal{L}{t} \amp= \int_0^\infty t \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B t e^{-st} \, dt\\
@@ -267,7 +268,7 @@ L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e
 <p data-braille="continuation">so long as \(s &gt; 0\text{.}\) (Note that it is very easy so show that as \(B \to \infty\text{,}\) we get \(\frac{-B}{s}e^{-sB} \to 0\) by L'Hospital's rule.)</p></article></div>
 <article class="exercise exercise-like" id="exercise-4"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-4"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><p id="p-213">Use the same idea as the previous example to show that</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><p id="p-216">Use the same idea as the previous example to show that</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}[t^n] = \frac{n!}{s^{n+1}}, \hspace{1cm} s &gt; 0
@@ -276,7 +277,7 @@ L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e
 <p data-braille="continuation">for any positive integer \(n\text{.}\)</p></article></div>
 <article class="example example-like" id="example-15"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-15"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">\(f(t) = e^{at}\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-15"><article class="example example-like"><p id="p-214">Now consider the exponential function \(e^{at}\) for some constant \(a\text{.}\)</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-15"><article class="example example-like"><p id="p-217">Now consider the exponential function \(e^{at}\) for some constant \(a\text{.}\)</p>
 <div class="displaymath">
 \begin{align*}
 \mathcal{L}[e^{at}] \amp= \int_0^\infty e^{at} \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-(s - a)t} \, dt\\
@@ -287,7 +288,7 @@ L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e
 <p data-braille="continuation">as long as \(s &gt; a\text{.}\)</p></article></div>
 <article class="example example-like" id="example-16"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-16"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">\(f(t) = \cos bt\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like"><p id="p-215">Our final introductory example concerns the basic trig function \(f(t) = \cos bt\text{.}\) (We can use parts here or just note that</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like"><p id="p-218">Our final introductory example concerns the basic trig function \(f(t) = \cos bt\text{.}\) (We can use parts here or just note that</p>
 <div class="displaymath">
 \begin{equation*}
 \int e^{at}\cos{bt} \, dt= \frac{e^{at}}{a^2 + b^2}(a\cos bt + b \sin bt)
@@ -303,7 +304,7 @@ L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e
 </div></article></div>
 <article class="exercise exercise-like" id="exercise-5"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-5"><h6 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">4.2.7</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-5"><article class="exercise exercise-like"><p id="p-216">Use a standard integral and the argument in the previous example to show that</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-5"><article class="exercise exercise-like"><p id="p-219">Use a standard integral and the argument in the previous example to show that</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{L}[\sin bt] = \frac{b}{s^2 + b^2}, \hspace{1cm} s &gt; 0.
@@ -311,7 +312,7 @@ L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e
 </div></article></div> Notice that at this point, we have constructed the Laplace transforms of the basic forms of forcing functions that we consider in the method of undetermined coefficients (which is no accident!).</section><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.2.2</span> <span class="title">Basic properties of the Laplace transform</span>
 </h3>
-<p id="p-217">One of the most important properties of the integral is that it acts linearly on the integrand. That is, for constants \(a,b\) and integrable functions \(f,g\text{,}\) we have</p>
+<p id="p-220">One of the most important properties of the integral is that it acts linearly on the integrand. That is, for constants \(a,b\) and integrable functions \(f,g\text{,}\) we have</p>
 <div class="displaymath">
 \begin{equation*}
 \int af + bg = a\int f + b \int g.
@@ -339,8 +340,8 @@ L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e
 </div>
 <article class="example example-like" id="example-17"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-17"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Laplace transform of a combination of functions.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like"><p id="p-218">Compute the Laplace transform of \(f(t) = t^2 + 3e^{2t} + \sin 3t\text{,}\) including the domain.</p>
-<p id="p-219">Linearity makes this easy, since</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like"><p id="p-221">Compute the Laplace transform of \(f(t) = t^2 + 3e^{2t} + \sin 3t\text{,}\) including the domain.</p>
+<p id="p-222">Linearity makes this easy, since</p>
 <div class="displaymath">
 \begin{align*}
 \mathcal{L}[2t^2 + 3e^{2t} + \sin 3t] \amp= \mathcal{L}[2t^2] + \mathcal{L}[3e^{2t}] + \mathcal{L}[\sin 3t]\\
@@ -348,16 +349,16 @@ L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e
 \amp= 2\frac{1}{s^2} + 3\frac{1}{s-2} + \frac{3}{s^2 + 9}, \hspace{1in} s &gt; 2.
 \end{align*}
 </div></article></div>
-<p id="p-220">Combined with the results from the previous discussion, we can now compute the transforms of a lot of the most important forcing functions that we consider when we learn constant coefficient linear equations. So far, it seems like we haven't gained much of an advantage, but the next section should make clear that the Laplace transform can handle functions far beyond what can be done with earlier methods. Also still open is the big question: <article class="question example-like" id="question-1"><a data-knowl="" class="id-ref question-knowl original" data-refid="hk-question-1"><h6 class="heading">
+<p id="p-223">Combined with the results from the previous discussion, we can now compute the transforms of a lot of the most important forcing functions that we consider when we learn constant coefficient linear equations. So far, it seems like we haven't gained much of an advantage, but the next section should make clear that the Laplace transform can handle functions far beyond what can be done with earlier methods. Also still open is the big question: <article class="question example-like" id="question-1"><a data-knowl="" class="id-ref question-knowl original" data-refid="hk-question-1"><h6 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.2.9</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-1"><article class="question example-like"><p id="p-221">How does the Laplace transform apply to differential equations?</p></article></div></p></section><section class="subsection" id="subsection-27"><h3 class="heading hide-type">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-question-1"><article class="question example-like"><p id="p-224">How does the Laplace transform apply to differential equations?</p></article></div></p></section><section class="subsection" id="subsection-27"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.2.3</span> <span class="title">Piecewise continuous functions</span>
 </h3>
-<p id="p-222">The most important quality of the Laplace transform is that it can be used on functions that are piecewise continuous. In physical situations, this correponds to forcing functions that change at points of time. For example, a continuously applied constant force could suddenly become a harmonic force modeled by a trig function at some time, and then at a later time, the force could disappear. Functions that change definitions, but which remain continuous in between those points of change are called <dfn class="terminology">piecewise continuous functions</dfn>.</p>
+<p id="p-225">The most important quality of the Laplace transform is that it can be used on functions that are piecewise continuous. In physical situations, this correponds to forcing functions that change at points of time. For example, a continuously applied constant force could suddenly become a harmonic force modeled by a trig function at some time, and then at a later time, the force could disappear. Functions that change definitions, but which remain continuous in between those points of change are called <dfn class="terminology">piecewise continuous functions</dfn>.</p>
 <article class="definition definition-like" id="def-piecewise"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.10</span><span class="period">.</span>
 </h6>
-<p id="p-223">A function \(f(t)\) is a piecewise continuous function on an interval \([a,b]\) if the interval can be divided up into finitely many subintervals \([a_i,a_{i+1}]\) so that</p>
+<p id="p-226">A function \(f(t)\) is a piecewise continuous function on an interval \([a,b]\) if the interval can be divided up into finitely many subintervals \([a_i,a_{i+1}]\) so that</p>
 <ol class="decimal">
 <li id="li-62">\(f\) is a continuous function when restricted to each \([a_i,a_{i+1}]\text{,}\) and</li>
 <li id="li-63">\(f\) does not possess a  vertical asymptote at any of the points \(a_i\) (that is, \(f\) approaches a finite limit at the end of each subinterval)</li>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:01:29-08:00       *-->
+<!--*       on 2021-01-02T14:50:03-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,32 +15,25 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>We can use the constant case to guide our method for more general coefficients. Suppose we have an equation with coefficient functions</p>
+<p>Suppose that \(x = x_0\) is a regular singular point for the equation</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-x^2 y'' + xp(x)y' + q(x) y = 0
+y'' + p(x)y' + q(x)y = 0.
 \end{equation*}
 </div>
-<p data-braille="continuation">with \(p,q\) analytic at \(0\text{.}\) Then we can assume that there is some positive radius of convergence \(R\) for which \(p, q\) both have convergent series expansions</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-p(x) \amp= p_0 + p_1 x + p_2 x^2 + \ldots\\
-q(x) \amp= q_0 + q_1 x + q_2 x^2 + \ldots
-\end{align*}
-</div>
-<p data-braille="continuation">We can plug these in to get the equation</p>
+<p data-braille="continuation">Essentially we can remove the singular behavior by multiplying through by \((x - x_0)^2\) to get an equation of the form</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-x^2 y'' + x\left(p_0 + p_1 x + p_2 x^2 + \ldots\right)y' + \left(q_0 + q_1 x + q_2 x^2 + \ldots \right)y = 0.
+(x - x_0)^2 y'' + (x-x_0)\hat{p}(x) y' + \hat{q}(x) y = 0
 \end{equation*}
 </div>
-<p data-braille="continuation">Now we have to make a guess. Notice that if \(x\) is very small, then \(p(x) \approx p_0\) and \(q(x) \approx q_0\text{,}\) which means that near 0, the equation is approximately the Cauchy-Euler equation:</p>
+<p data-braille="continuation">where \(\hat{p} = (x-x_0)p(x), \hat{q} = (x - x_0)^2 q(x)\) are analytic at \(x_0\text{.}\) Going one step further, we can make the substitution \(u = x - x_0\text{,}\) which moves the regular singular point to \(x=0\text{,}\) and so we can restrict our attention to equations of the form</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-x^2 y'' + x\left(p_0 + p_1 x + p_2 x^2 + \ldots\right)y' + \left(q_0 + q_1 x + q_2 x^2 + \ldots \right)y \approx x^2 y'' + p_0 x y' + q_0 y = 0.
+x^2 + x p(x) y' + q(x) y = 0
 \end{equation*}
 </div>
-<p data-braille="continuation">So we guess that the form of the series solution includes a term \(x^r\) that describes the behavior of the function near \(x = 0\) in \((0,R)\) (where we're looking at a Cauchy-Euler equation) and a piece in terms of a power series that picks up the behavior away from \(0\text{.}\)</p>
+<p data-braille="continuation">where \(p, q\) are analytic at \(0\text{.}\) (We've essentially just pulled the singular behavior out of the coefficient functions to make it easier to analyze.)</p>
 <span class="incontext"><a href="ch-series-4.html#p-120">in-context</a></span>
 </body>
 </html>

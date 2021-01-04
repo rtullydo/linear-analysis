@@ -155,7 +155,32 @@
         <p>You don't need to be an expert, but having seen and used these ideas in the past is going to make this course quite a bit more interesting and productive.</p>
         </section>
 
-        <section><title>Linear algebra</title>
+      <section><title>Calculus</title>
+      <p>The first of the basic ideas we're going to need is <term>improper integration</term>, which is a fancy way of saying an integral with infinity as a limit. Do not be fooled by the notation
+      <me>
+        \int_a^\infty f(x) \, dx.
+      </me>
+      Infinity is not a number, and the notation for improper integrals is merely shorthand for a limit (this is a recurring theme with infinity). That is, we say that an improper integral in infinity <term>converges</term> if
+      <me>
+        \int_a^\infty f(x) \, dx = \lim_{N \to \infty} \int_a^N f(x) \, dx \text{ exists and is finite}.
+      </me>
+      <em>DO NOT</em> treat infinity like a number.</p>
+
+      <p>An infinite series is also a limit. (The clue is that infinity is present in the symbol). That is,
+        <me>
+          \sum_{n=0}^\infty a_n = \lim_{N \to \infty} \sum_{n=a}^N a_n.
+        </me>
+      This is sometimes called the <q>limit of partial sums</q>. An infinite series exists if the limit of partial sums exists and is finite.    An infinite series <m>\sum a_n</m> is said to <term>converge absolutely</term> if <m>\sum \abs{a_n}</m> is a convergent series.</p>
+
+      <p>You learned many ways of determining when an infinite series converges in calculus. The most important test for us in this course is the <term>ratio test</term>, which states that a series converges (absolutely) if
+      <me>
+      \lim_{n \to \infty} \abs{\frac{a_{n+1}}{a_n}} \lt \infty.
+      </me>
+   
+      </p>
+      </section>
+
+         <section><title>Linear algebra</title>
           <subsection xml:id="sec-intro-1"><title>Motivation</title>
             <p>One of the most profound ideas of linear algebra is that <em>any finite dimensional vector space over <m>\R</m> or <m>\C</m> is secretly <m>\R^n</m> or <m>\C^n</m></em>. This insight allows us to reduce the study of vector spaces and the maps between them to the study of matrices.</p>
 

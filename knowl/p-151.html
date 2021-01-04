@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:01:30-08:00       *-->
+<!--*       on 2021-01-02T14:50:03-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,19 +15,24 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>The gamma function allows us to define the Bessel functions for non-integer orders. First, choose</p>
+<p>If we had a starting point, we could show that the gamma function generates the factorials. Fortunately, it is very easy to show that</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-a_0 = \frac{1}{2^\alpha \Gamma(\alpha + 1)}
+\Gamma(1) = \int_0^\infty e^{-t} \, dt = 1.
 \end{equation*}
 </div>
-<p data-braille="continuation">and plug into <a class="xref" data-knowl="./knowl/eq-bessel-series.html" title="Equation 2.6.2">(2.6.2)</a> to get</p>
+<p data-braille="continuation">Then induction on <a class="xref" data-knowl="./knowl/eq-gamma-prop.html" title="Equation 2.6.3">(2.6.3)</a> gets us</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation}
-J_\alpha(x) = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k+1) \, \Gamma(\alpha + k + 1)} \left(\frac{x}{2}\right)^{2k + \alpha},\tag{2.6.6}
-\end{equation}
+\begin{equation*}
+\Gamma(2) = 2\Gamma(1) = 2!, \,\,\, \Gamma(3) = 3\Gamma(2) = 3!,
+\end{equation*}
 </div>
-<p data-braille="continuation">which by the definition of \(\Gamma\) reduces to \(J_N(x)\) when \(N\) is an integer.</p>
+<p data-braille="continuation">and in general that for a positive integer \(N\) that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\Gamma(N) = N!.
+\end{equation*}
+</div>
 <span class="incontext"><a href="ch-series-6.html#p-151">in-context</a></span>
 </body>
 </html>

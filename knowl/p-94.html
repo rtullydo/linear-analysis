@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:01:29-08:00       *-->
+<!--*       on 2021-01-02T14:50:03-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,12 +15,19 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>The first few Legendre polynomials are easy to write down. Remember that each polynomial is normalized to have \(P_N(1) = 1\text{.}\)</p>
+<p>In general, the solutions to Legendre's equation for a fixed constant \(c\) are of the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y = y_1(x) + y_2(x)
+\end{equation*}
+</div>
+<p data-braille="continuation">with</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-N \amp= 0:y_1(x) = a_0 \Rightarrow P_1(x) = 1.\\
-N \amp= 1: y_2(x) = a_1 x \Rightarrow P_2(x) = x.\\
-N \amp= 2: y_1(x) = a_0(1 - 3x^2) \Rightarrow P_2(x) = \frac{1}{2}(3x^2 -1).  
+y_1(x) \amp= a_0\left[1 - \frac{c(c+1)}{2}x^2 + \frac{(c-2)c(c+1)(c+3)}{4!} x^4\right. \\
+\amp\left.\hspace{1in} - \frac{(c-4)(c-2)c(c+1)(c+3)(c+5)}{6!} x^6 +\ldots\right]\\
+\\
+y_2(x) \amp= a_1\left[x - \frac{(c-1)(c+2)}{3!} x^3 + \frac{(c-3)(c-1)(c+2)(c+4)}{5!}x^5 + \ldots\right]
 \end{align*}
 </div>
 <span class="incontext"><a href="ch-series-3.html#p-94">in-context</a></span>

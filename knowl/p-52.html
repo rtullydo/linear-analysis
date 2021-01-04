@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:01:28-08:00       *-->
+<!--*       on 2021-01-02T14:50:02-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,20 +15,31 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Just like algebra, we can perform calculus on power series in the obvious way (treating them like giant polynomials). Suppose that \(f\) is defined by a power series with domain equal to the interval of convergence, so that</p>
+<p>First, to combine power series, we'll need both the powers of the like terms to match, and the series to have the same number of terms. Notice that if we replace \(n \rightarrow n + 1\) in the second series, and we change the range of the index accordingly, we get</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-f(x) = \ps, \,\,\, \abs{x} \lt r.
+\sum_{n=1}^\infty n a_n x^n - \sum_{n=1}^\infty a_{n-1} x^{n} = 0.
 \end{equation*}
 </div>
-<p data-braille="continuation">Then we can differentiate \(f\) term by term to any order of derivative (after all, we're never going to run out of \(x\)es):</p>
+<p data-braille="continuation">As the powers of the corresponding terms match, and the range of indicies match, we can combine the series using addition to get</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-f'(x) \amp= \sum_{n=1}^\infty n a_n x^{n-1}\\
-f''(x) \amp = \sum_{n=2}^\infty n(n-1) a_n x^{n-2}
-\end{align*}
+\begin{equation*}
+\sum_{n=1}^\infty (na_n - a_{n-1}) x^n = 0.
+\end{equation*}
 </div>
-<p data-braille="continuation">and so on. Power series can also be integrated, which is straightforward to write a formula for. (You might consider doing it as an exercise.)</p>
+<p data-braille="continuation">Because a convergent power series can only be equal to zero if the coefficients are all zero, we get the recurrence relation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+na_n - a_{n-1}  = 0, \hspace{1cm} n = 1, 2, 3, \ldots,
+\end{equation*}
+</div>
+<p data-braille="continuation">which can be written</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_n = \frac{1}{n} a_{n-1}, \hspace{1cm} n = 1, 2, 3 \ldots.
+\end{equation*}
+</div>
+<p data-braille="continuation">This gives a family of equations that we can use to find each coefficient in terms of \(a_0\) and eventually guess a formula that won't require us to work recursively.</p>
 <span class="incontext"><a href="ch-series-1.html#p-52">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:01:29-08:00       *-->
+<!--*       on 2021-01-02T14:50:03-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,21 +15,13 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>In general, the solutions to Legendre's equation for a fixed constant \(c\) are of the form</p>
+<p>In this section, we'll investigate the solutions and properties of the Legendre equation. First, note that the equation as written is not in our standard form. We'll need to rewrite it to get an estimate for the interval of convergence of our series solution (though it will be convenient to leave it in its original form when we attempt to solve it.) In the form</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-y = y_1(x) + y_2(x)
+y'' - \frac{2x}{1 - x^2} y' + \frac{c(c+1)}{1 - x^2} y = 0,
 \end{equation*}
 </div>
-<p data-braille="continuation">with</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-y_1(x) \amp= a_0\left[1 - \frac{c(c+1)}{2}x^2 + \frac{(c-2)c(c+1)(c+3)}{4!} x^4\right. \\
-\amp\left.\hspace{1in} - \frac{(c-4)(c-2)c(c+1)(c+3)(c+5)}{6!} x^6 +\ldots\right]\\
-\\
-y_2(x) \amp= a_1\left[x - \frac{(c-1)(c+2)}{3!} x^3 + \frac{(c-3)(c-1)(c+2)(c+4)}{5!}x^5 + \ldots\right]
-\end{align*}
-</div>
+<p data-braille="continuation">we can see that \(p, q\) are analytic at the very least on the interval \((-1,1)\text{,}\) as the power series for \(\frac{1}{1- x^2}\) has radius of convergence \(1\text{.}\)</p>
 <span class="incontext"><a href="ch-series-3.html#p-91">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:01:29-08:00       *-->
+<!--*       on 2021-01-02T14:50:03-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,10 +15,16 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Furthermore, one can show that for a fixed integer \(j\) that</p>
+<p>The continuous functions on the interval \([-1,1]\) are denoted \(C^0[-1,1]\text{.}\) (We're using symmetric intervals in this case because the Legendre polynomials are even or odd.) This space is a (infinite dimensional) inner product space with the dot product defined as</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\norm{P_j} = \sqrt{\frac{2}{2j+1}}.
+f \cdot g = \ip{f}{g} = \int_{-1}^1 f(x) g(x) \, dx.
+\end{equation*}
+</div>
+<p data-braille="continuation">Following the analogy with \(\R^n\text{,}\) we define two vectors in an inner product space to be <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">orthogonal</dfn> if \(\ip{f}{g} = 0\text{.}\) Beyond a notion of “angle”, the inner product also gives a way to measure length with the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">norm</dfn> defined in this case by</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\norm{f} = \sqrt{\ip{f}{f}} = \sqrt{\int_{-1}^1 f(x)^2 \, dx}.
 \end{equation*}
 </div>
 <span class="incontext"><a href="ch-series-3.html#p-101">in-context</a></span>

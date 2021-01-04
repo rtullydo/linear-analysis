@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:01:28-08:00       *-->
+<!--*       on 2021-01-02T14:50:01-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,18 +15,19 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>The <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">dot product</dfn> of two vectors in \(\C^n\) is</p>
+<p>Let \(P_n\) denote the space of polynomials of degree \(\leq n\text{.}\) Consider the map \(D: P_3 \to P_2\) defined by</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation}
-x \cdot y = \sum_{i=1}^n \cc y_i x_i.\tag{1.2.1}
-\end{equation}
+\begin{equation*}
+D(a_0 + a_1 t + a_2 t^2 + a_3 t^3) = a_1 + 2 a_2 t + 3 a_3 t^2.
+\end{equation*}
 </div>
-<p data-braille="continuation">Standard notation for the dot product is \(\ip{x}{y}\) and in \(\C^n\) is equivalent to \(y\ad x\text{,}\) where \(\ad\) designates the conjugate transpose of a matrix. The dot product has the following properties:</p>
-<ol class="decimal">
-<li>\(\displaystyle \ip{x}{y} = \cc{\ip{y}{x}} \hspace{.2in} \text{conjugate symmetry}\)</li>
-<li>\(\displaystyle \ip{x + y}{z} = \ip{x}{y} + \ip{y}{z} \hspace{.2in} \text{linearity in the first term}\)</li>
-<li>\(\displaystyle \ip{x}{x} \geq 0 \hspace{.2in} \text{non-negativity}\)</li>
-</ol>
-<span class="incontext"><a href="section-2.html#p-13">in-context</a></span>
+<p data-braille="continuation">That is, \(D\) is the map that takes the derivative of a polynomial. It isn't hard to use the standard basis for \(P_n\) to get the matrix representation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+D(p) = \bbm 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \amp 3 \ebm \bbm a_0 \\ a_1 \\ a_2 \\ a_3 \ebm
+\end{equation*}
+</div>
+<p data-braille="continuation">for the action of \(D\) on \(P_3\text{.}\)</p>
+<span class="incontext"><a href="section-3.html#p-13">in-context</a></span>
 </body>
 </html>

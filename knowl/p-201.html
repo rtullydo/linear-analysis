@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:01:30-08:00       *-->
+<!--*       on 2021-01-02T14:50:04-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,20 +15,31 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Here the computation is massively simplified by the use of complex exponentials. Consider</p>
+<p>Complex exponentials are vastly easier to work with than the sinusoids. Recall that the generic sine function is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-A_1 e^{i(2 \pi \nu + \phi_1)} + A_2 e^{i(2 \pi \nu + \phi_2)}.
+f(t) = A \sin(2 \pi \nu t + \phi)
 \end{equation*}
 </div>
-<p data-braille="continuation">Using basic exponential algebra, we can compute</p>
+<p data-braille="continuation">with frequency \(\nu\text{,}\) amplitude \(A\text{,}\) and phase \(\phi\text{.}\) The complex exponential with the same information is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-\amp A_1 e^{i(2 \pi \nu + \phi_1)} + A_2 e^{i(2 \pi \nu + \phi_2)}\\
-\amp = e^{2 \pi i \nu t}\left(A_1 e^{i\phi_1} + A_2 e^{i\phi_2}\right).
-\end{align*}
+\begin{equation*}
+g(t) = A e^{i(2\pi \nu t + \phi)}
+\end{equation*}
 </div>
-<p data-braille="continuation">That is, the sum of two exponentials with the same frequency is another exponential of the same frequency (but with a new phase and amplitude).</p>
-<span class="incontext"><a href="section-11.html#p-201">in-context</a></span>
+<p data-braille="continuation">which can be split into</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+g(t) = Ae^{i\phi} e^{2 \pi \nu u t}.
+\end{equation*}
+</div>
+<p data-braille="continuation">Notice that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\abs{Ae^{i\phi} e^{2 \pi \nu u t}} = \abs{A} = A
+\end{equation*}
+</div>
+<p data-braille="continuation">and that \(e^{i\phi}\) describes a starting point on the unit circle.</p>
+<span class="incontext"><a href="section-12.html#p-201">in-context</a></span>
 </body>
 </html>
