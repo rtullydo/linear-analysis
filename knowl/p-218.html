@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:50:04-08:00       *-->
+<!--*       on 2021-01-05T14:14:52-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,20 +15,15 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Our final introductory example concerns the basic trig function \(f(t) = \cos bt\text{.}\) (We can use parts here or just note that</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\int e^{at}\cos{bt} \, dt= \frac{e^{at}}{a^2 + b^2}(a\cos bt + b \sin bt)
-\end{equation*}
-</div>
-<p data-braille="continuation">which is a standard table integral.) Then,</p>
+<p>Now consider the exponential function \(e^{at}\) for some constant \(a\text{.}\)</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\mathcal{L}[\cos bt] \amp= \int_0^\infty \cos bt \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-st} \cos bt  \, dt\\
-\amp= \lim_{B \to \infty} \left[ \frac{e^{-st}}{s^2 + b^2} (-s\cos bt + b \sin bt)\right]\bigg\rvert_0^B\\
-\amp= \frac{s}{s^2 + b^2}
+\mathcal{L}[e^{at}] \amp= \int_0^\infty e^{at} \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-(s - a)t} \, dt\\
+\amp = \lim_{B\to\infty} \frac{-1}{s-a} e^{-(s-a)t} \bigg\rvert_0^B\\
+\amp= \frac{-1}{s - a} \lim_{B \to \infty} e^{-(s-a)B} - 1 = \frac{1}{s-a}
 \end{align*}
 </div>
+<p data-braille="continuation">as long as \(s &gt; a\text{.}\)</p>
 <span class="incontext"><a href="ch-laplace-2.html#p-218">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:50:04-08:00       *-->
+<!--*       on 2021-01-05T14:14:51-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,13 +15,13 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>One iteration of the function over a period is called a <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">cycle</dfn>. The number of cycles per unit input is referred to in earlier courses as the frequency of the functions, but this isn't really a correct idea unless we're talking about a simple sine or cosine. Consider the function</p>
+<p>With Legendre polynomials and Bessel functions, we've demonstrated that \(C^1\) functions live inside an infinite dimensional inner product space. Just as in finite dimensional linear algebra, we used the orthogonal expansion theorem to write \(f\) as</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-f(t) = \cos 2\pi t + \frac{2}{3} \cos 6\pi t.
+f(x) = \sum \frac{\ip{f(x)}{b_n(x)}}{\ip{b_n(x)}{b_n(x)}} b_n(x)
 \end{equation*}
 </div>
-<p data-braille="continuation">The periods of the individual summands are 1 and 1/3 but the period of the entire function is 1.</p>
-<span class="incontext"><a href="section-11.html#p-174">in-context</a></span>
+<p data-braille="continuation">for some orthogonal basis \(b_n\text{.}\) We pick a set of basis function based on the particular problem we are trying to understand. For example, if we're doing numerical estimation of a function, we can choose \(b_n\) to be the Legendre polynomials and get better approximations that the basic Taylor series. If we're studying functions acting in a system associated with a Bessel equation, we can express the function in terms of the solutions to that system to understand how the wave behavior is driving the function.</p>
+<span class="incontext"><a href="ch-series-7.html#p-174">in-context</a></span>
 </body>
 </html>

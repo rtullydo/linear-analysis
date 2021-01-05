@@ -393,6 +393,50 @@
       </theorem></subsection>
 
     </section>
+
+    <section><title>Differential Equations</title>
+
+    <p>A homogeneous second order linear differential equation is of the form
+      <me>
+        y'' + p(x) y' + q(x) y = 0.
+      </me></p>
+
+    <p>The most important differential equations of this type are <term>linear constant coefficient differential equations</term>, usually introduced in the second order. For example,
+        <me> y'' + 3 y' + 2 y = \cos x</me>
+        is such an equation. More generally, these equations have the form 
+        <me> a_n y^{(n)}(x) + \ldots + a_1 y'(x) + a_0 y(x) = f(x).</me> (This can be written <me>\mathcal{F}(y) = f(x)</me> where <m>\mathcal{F}</m> is the operator that takes <m>y</m> to the differential expression on the left hand side.)
+        These equations are important because they are the general equations that describe harmonic motions - vibration, oscillation, and rotations.</p>
+
+        <p>The method of solution we develop in earlier courses is to find the solution by working in steps. First, we solve the associated <term>homogeneous equation</term> in order to identify any functions that are sent to the zero function by the differential operator. This is called the <term>homogeneous solution</term> <m>y_h</m>. To do so, we use the method of the characteristic equation or the method of annihilators. In either case, we have to factor potentially high degree polynomials.</p>
+
+        <example>
+            <p>To solve the homogeneous equation
+                <me>
+                y'' + 3y' + 2y = 0,
+                </me>
+            we first consider the characteristic equation
+                <me>
+                    m^2 + 3m + 2 = 0
+                </me>
+            which factors as 
+                <me>
+                    (m+2)(m+1) = 0
+                </me>
+            with solutions <m>m = -2, m=-1</m>. Then the principle of superposition tells us that the homogeneous solution is
+                <me>
+                    y_h = c_1 e^{-2x} + c_2 e^{-x}.
+                </me></p>
+        </example>
+
+        <p>Now, for the second step, we need to find a <term>particular solution</term> that we can feed into the differential equation so that <m>\mathcal{F}(y_p) = f(x)</m>. We learn several methods for this in first courses that consider differential equations, usually including the method of undetermined coefficients and the method of variation of parameters. In both cases, we're limited to either forcing functions nice enough that we can guess the form of the solution (in the case of undetermined coefficients) or functions that we can integrate (in the case of variation of parameters). However, in physical systems we often want to consider driving or forcing functions <m>f(x)</m> that represent physical conditions that don't have nice integrals: for example, switches that turn on and off, or impulses that are applied to the system instantaneously (such as a strike). While the methods above can be adapted to deal with these, it is easier to <term>transform</term> the problem into a different mathematical setup that will simplify the process of dealing with these common physical situations.</p>
+
+        <p>The model problem to keep in mind is the following mass-spring type setup:
+            <me>
+                y'' + ay ' + by = F
+            </me>
+            where <m>F</m> might switch on and off or act on the system instantaneously (and so cannot be a continuous function). By transforming the problem into an equivalent domain, we can deal with these fundamental situations very easily.
+        </p>
+        </section>
     </chapter>
 
     <chapter xml:id="ch-series">
@@ -973,17 +1017,17 @@
                 <p>Let us compare these approximations.</p>
                 <sage>
                   <input>
-                   var ('x')
-                    f(x) = sin(x)
-                    g = plot(sin(pi*x), (-1,1))
-                    P1 = legendre_P(1, x)
-                    P3 = legendre_P(3, x)
-                    P5 = legendre_P(5, x)
-                    P(x) = 3/pi * P1 + 7/pi**3*(pi**2 - 15)*P3 + 11/pi**5*(945 - 105*pi**2 + pi**4)*P5
-                    g+= plot(P(x), (-1,1), color='red')
-                    T(x) = pi*x - pi**3*x**3/6 + pi**5*x**5/120
-                    g+= plot(T(x), (-1,1), color = 'green')
-                    show(g)
+                  var ('x')
+                  f(x) = sin(x)
+                  g = plot(sin(pi*x), (-1,1))
+                  P1 = legendre_P(1, x)
+                  P3 = legendre_P(3, x)
+                  P5 = legendre_P(5, x)
+                  P(x) = 3/pi * P1 + 7/pi**3*(pi**2 - 15)*P3 + 11/pi**5*(945 - 105*pi**2 + pi**4)*P5
+                  g+= plot(P(x), (-1,1), color='red')
+                  T(x) = pi*x - pi**3*x**3/6 + pi**5*x**5/120
+                  g+= plot(T(x), (-1,1), color = 'green')
+                  show(g)
                   </input>
                 </sage>
 
@@ -1822,44 +1866,7 @@
 
     <chapter xml:id="ch-laplace">
       <title>The Laplace Transform</title>
-      <section xml:id="ch-laplace-1">
-        <title>Motivation for transform methods</title>
-        <p>The most important differential equations are <term>linear constant coefficient differential equations</term>, usually introduced in the second order. For example,
-        <me> y'' + 3 y' + 2 y = \cos x</me>
-        is such an equation. More generally, these equations have the form 
-        <me> a_n y^{(n)}(x) + \ldots + a_1 y'(x) + a_0 y(x) = f(x).</me> (This can be written <me>\mathcal{F}(y) = f(x)</me> where <m>\mathcal{F}</m> is the operator that takes <m>y</m> to the differential expression on the left hand side.)
-        These equations are important because they are the general equations that describe harmonic motions - vibration, oscillation, and rotations.</p>
 
-        <p>The method of solution we develop in earlier courses is to find the solution by working in steps. First, we solve the associated <term>homogeneous equation</term> in order to identify any functions that are sent to the zero function by the differential operator. This is called the <term>homogeneous solution</term> <m>y_h</m>. To do so, we use the method of the characteristic equation or the method of annihilators. In either case, we have to factor potentially high degree polynomials.</p>
-
-        <example>
-            <p>To solve the homogeneous equation
-                <me>
-                y'' + 3y' + 2y = 0,
-                </me>
-            we first consider the characteristic equation
-                <me>
-                    m^2 + 3m + 2 = 0
-                </me>
-            which factors as 
-                <me>
-                    (m+2)(m+1) = 0
-                </me>
-            with solutions <m>m = -2, m=-1</m>. Then the principle of superposition tells us that the homogeneous solution is
-                <me>
-                    y_h = c_1 e^{-2x} + c_2 e^{-x}.
-                </me></p>
-        </example>
-
-        <p>Now, for the second step, we need to find a <term>particular solution</term> that we can feed into the differential equation so that <m>\mathcal{F}(y_p) = f(x)</m>. We learn several methods for this in first courses that consider differential equations, usually including the method of undetermined coefficients and the method of variation of parameters. In both cases, we're limited to either forcing functions nice enough that we can guess the form of the solution (in the case of undetermined coefficients) or functions that we can integrate (in the case of variation of parameters). However, in physical systems we often want to consider driving or forcing functions <m>f(x)</m> that represent physical conditions that don't have nice integrals: for example, switches that turn on and off, or impulses that are applied to the system instantaneously (such as a strike). While the methods above can be adapted to deal with these, it is easier to <term>transform</term> the problem into a different mathematical setup that will simplify the process of dealing with these common physical situations.</p>
-
-        <p>The model problem to keep in mind is the following mass-spring type setup:
-            <me>
-                y'' + ay ' + by = F
-            </me>
-            where <m>F</m> might switch on and off or act on the system instantaneously (and so cannot be a continuous function). By transforming the problem into an equivalent domain, we can deal with these fundamental situations very easily.
-        </p>
-        </section>
 
         <section xml:id="ch-laplace-2">
             <title>The Laplace Transform</title>

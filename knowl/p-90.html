@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:50:03-08:00       *-->
+<!--*       on 2021-01-05T14:14:50-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,15 +15,19 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Physics and applied mathematics provide a wealth of differential equations, some of which are sufficiently common to carry special names, notably</p>
+<p>Let \(p, q\) be analytic functions on some common interval \(\abs{x - x_0} \lt r\) centered at \(x_0\text{.}\) Then the general solution to the second order differential equation</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{gather*}
-(1 - x^2)y'' - 2x y' + c(c + 1)y = 0, \,\,\, \text{ (Legendre's equation)}\\
-y'' - 2xy' + 2cy = 0, \,\,\, \text{ (Hermite's equation)}\\
-(1 - x^2) y'' - xy' + c^2 y = 0 \,\,\, \text{ (Chebyshev's equation)}
-\end{gather*}
+\begin{equation*}
+y'' + p y' + q y = 0
+\end{equation*}
 </div>
-<p data-braille="continuation">where \(c\) is some parameter that can take on any real value. All of these equations have an ordinary point at \(x = 0\text{,}\) and so have series solutions of the form \(y = \ps\text{.}\) The solutions to these equations for different values of \(c\) have special properties, particularly when \(c\) is an integer.</p>
-<span class="incontext"><a href="ch-series-3.html#p-90">in-context</a></span>
+<p data-braille="continuation">can be represented as power series centered at \(x_0\) on the same interval. The coefficients in the series can be described in terms of the initial data \(a_0, a_1\text{,}\) and the general solution can be rearranged into the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y = a_0 y_1 + a_1 y_2
+\end{equation*}
+</div>
+<p data-braille="continuation">where \(y_1, y_2\) are linearly independent.</p>
+<span class="incontext"><a href="ch-series-2.html#p-90">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:50:03-08:00       *-->
+<!--*       on 2021-01-05T14:14:51-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,16 +15,10 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>One of the most important properties of an orthgonal basis for an inner product space is that generic vectors can be decomposed into orthogonal pieces. Suppose that we have the set of Legendre polynomials \(P_0, \ldots, P_N\) as an orthogonal basis for the polynomials of degree \(N\) or less. Then we can compute the expansion of a polynomial in terms of Legendre polynomials by the formula</p>
+<p>If we wish to proceeed by hand, there is an explicit formula for generating \(P_N(x)\) known as Rodrigues's formula:</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-p(x) = \sum_{i=0}^{N} a_i P_i = \sum_{i=0}^n \frac{\ip{p}{P_i}}{\norm{P_i}^2} P_i.
-\end{equation*}
-</div>
-<p data-braille="continuation">This should look familiar, as we are finding the coefficients \(a_i\) by using the vector projection formula \(\proj_v u = \frac{u\cdot v}{\norm{v}^2} u\text{.}\) Since we know that \(\norm{P_i}^2 = \frac{2}{2i + 1}\text{,}\) we get the specific expansion</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-p(x) = \sum_{i=1}^N a_i P_i(x), \text{ where } a_i = \frac{2i+1}{2} \int_{-1}^1 p(x) P_i(x) \, dx.
+P_N(x) = \frac{1}{2^N N!} \frac{d^N}{dx^N} (x^2 - 1)^N, \hspace{1cm} N = 0, 1, 2, \ldots
 \end{equation*}
 </div>
 <span class="incontext"><a href="ch-series-3.html#p-105">in-context</a></span>

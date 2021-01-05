@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:50:00-08:00       *-->
+<!--*       on 2021-01-05T14:14:48-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -186,6 +186,7 @@ MathJax.Hub.Config({
 <li><a href="section-1.html" data-scroll="section-1">Introduction</a></li>
 <li><a href="section-2.html" data-scroll="section-2">Calculus</a></li>
 <li><a href="section-3.html" data-scroll="section-3">Linear algebra</a></li>
+<li><a href="section-4.html" data-scroll="section-4">Differential Equations</a></li>
 </ul>
 </li>
 <li class="link">
@@ -201,20 +202,19 @@ MathJax.Hub.Config({
 </li>
 <li class="link">
 <a href="chapter-3.html" data-scroll="chapter-3"><span class="codenumber">3</span> <span class="title">All things Fourier</span></a><ul>
-<li><a href="section-11.html" data-scroll="section-11">Periodicity</a></li>
-<li><a href="section-12.html" data-scroll="section-12">Complex exponentials and trig functions</a></li>
-<li><a href="section-13.html" data-scroll="section-13">Sums of periodic functions</a></li>
-<li><a href="section-14.html" data-scroll="section-14">Questions of convergence</a></li>
-<li><a href="section-15.html" data-scroll="section-15">First applications</a></li>
-<li><a href="section-16.html" data-scroll="section-16">Fourier series and linear algebra</a></li>
-<li><a href="section-17.html" data-scroll="section-17">The Fourier transform</a></li>
-<li><a href="section-18.html" data-scroll="section-18">Convolution</a></li>
-<li><a href="section-19.html" data-scroll="section-19">Applications of convolution</a></li>
+<li><a href="section-12.html" data-scroll="section-12">Periodicity</a></li>
+<li><a href="section-13.html" data-scroll="section-13">Complex exponentials and trig functions</a></li>
+<li><a href="section-14.html" data-scroll="section-14">Sums of periodic functions</a></li>
+<li><a href="section-15.html" data-scroll="section-15">Questions of convergence</a></li>
+<li><a href="section-16.html" data-scroll="section-16">First applications</a></li>
+<li><a href="section-17.html" data-scroll="section-17">Fourier series and linear algebra</a></li>
+<li><a href="section-18.html" data-scroll="section-18">The Fourier transform</a></li>
+<li><a href="section-19.html" data-scroll="section-19">Convolution</a></li>
+<li><a href="section-20.html" data-scroll="section-20">Applications of convolution</a></li>
 </ul>
 </li>
 <li class="link">
 <a href="ch-laplace.html" data-scroll="ch-laplace"><span class="codenumber">4</span> <span class="title">The Laplace Transform</span></a><ul>
-<li><a href="ch-laplace-1.html" data-scroll="ch-laplace-1">Motivation for transform methods</a></li>
 <li><a href="ch-laplace-2.html" data-scroll="ch-laplace-2">The Laplace Transform</a></li>
 <li><a href="ch-laplace-3.html" data-scroll="ch-laplace-3">Periodic functions</a></li>
 <li><a href="ch-laplace-4.html" data-scroll="ch-laplace-4">The Laplace transform of derivatives</a></li>
@@ -232,17 +232,17 @@ MathJax.Hub.Config({
 <section class="subsection" id="subsection-14"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.1</span> <span class="title">Types of singular points</span>
 </h3>
-<p id="p-113">So far, we've looked at differential equations at ordinary points, specifically</p>
+<p id="p-119">So far, we've looked at differential equations at ordinary points, specifically</p>
 <div class="displaymath">
 \begin{equation*}
 y'' + p(x)y' + q(x)y = 0.
 \end{equation*}
 </div>
-<p data-braille="continuation">That is, we've assumed that analytic solutions exist and proceeded with power series methods. However, a major area of interest in many applied settings is what happens at points where <p id="p-114">p</p> and \(q\) fail to be analytic. These <dfn class="terminology">singular points</dfn> are often very important to consider when analyzing a system. (You may need to know what happens to the behavior of the system as the input approaches a singular point.)</p>
+<p data-braille="continuation">That is, we've assumed that analytic solutions exist and proceeded with power series methods. However, a major area of interest in many applied settings is what happens at points where <p id="p-120">p</p> and \(q\) fail to be analytic. These <dfn class="terminology">singular points</dfn> are often very important to consider when analyzing a system. (You may need to know what happens to the behavior of the system as the input approaches a singular point.)</p>
 <article class="definition definition-like" id="def-singular-point"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span>
 </h6>
-<p id="p-115">A point \(x = x_0\) is a <dfn class="terminology">regular singular point</dfn> of the equation</p>
+<p id="p-121">A point \(x = x_0\) is a <dfn class="terminology">regular singular point</dfn> of the equation</p>
 <div class="displaymath">
 \begin{equation*}
 y'' + p(x)y' + q(x) y= 0
@@ -257,23 +257,23 @@ y'' + p(x)y' + q(x) y= 0
 \end{equation*}
 </div>are analytic at \(x = x_0\)</li>
 </ol>
-<p data-braille="continuation">A singular point that does not satisfy these conditions is called an <dfn class="terminology">irregular singular point</dfn>.</p></article><p id="p-116">To give you some terminology (and a connection with complex analysis), a function \(f(x)\) for which \(f(x)(x = x_0)^n\) is analytic at \(x_0\) for \(n = N\) but singular at \(x_0\) for \(n \lt N\) is said to have a <dfn class="terminology">pole of order \(N\) at \(x_0\)</dfn>. The point of the definition above is that for a second order equation, essentially the worst singular behavior we can have and still work with series directly is second order poles. Similar statements apply to higher order equations.</p>
-<article class="example example-like" id="example-10"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-10"><h6 class="heading">
+<p data-braille="continuation">A singular point that does not satisfy these conditions is called an <dfn class="terminology">irregular singular point</dfn>.</p></article><p id="p-122">To give you some terminology (and a connection with complex analysis), a function \(f(x)\) for which \(f(x)(x = x_0)^n\) is analytic at \(x_0\) for \(n = N\) but singular at \(x_0\) for \(n \lt N\) is said to have a <dfn class="terminology">pole of order \(N\) at \(x_0\)</dfn>. The point of the definition above is that for a second order equation, essentially the worst singular behavior we can have and still work with series directly is second order poles. Similar statements apply to higher order equations.</p>
+<article class="example example-like" id="example-11"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-11"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Classifying points.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like"><p id="p-117">Classify the points of the equation</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-11"><article class="example example-like"><p id="p-123">Classify the points of the equation</p>
 <div class="displaymath">
 \begin{equation*}
 y'' + \frac{1}{x(x-1)^2}y' + \frac{x}{x(x-1)^3} y = 0
 \end{equation*}
 </div>
-<p id="p-118">The equation clearly has singularities at \(x = 0, 1\text{.}\) For \(x = 0\text{,}\)</p>
+<p id="p-124">The equation clearly has singularities at \(x = 0, 1\text{.}\) For \(x = 0\text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 \hat{p}(x) = x p(x) = \frac{1}{x - 1}, \hspace{1cm} \hat{q}(x) = xq(x) \frac{1}{(x-1)^3},
 \end{equation*}
 </div>
 <p data-braille="continuation">both of which are analytic at \(x = 0\text{.}\) Thus, \(x =0\) is a regular singular point.</p>
-<p id="p-119">On the other hand, at \(x = 1\text{,}\) we have</p>
+<p id="p-125">On the other hand, at \(x = 1\text{,}\) we have</p>
 <div class="displaymath">
 \begin{equation*}
 \hat{p}(x) = (x - 1) p(x) = \frac{1}{x(x-1)},
@@ -282,7 +282,7 @@ y'' + \frac{1}{x(x-1)^2}y' + \frac{x}{x(x-1)^3} y = 0
 <p data-braille="continuation">which is singular at \(x = 1\text{.}\) Thus, \(x =1\) is an irregular singular point.</p></article></div></section><section class="subsection" id="subsection-15"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.2</span> <span class="title">Series solutions at regular singular points</span>
 </h3>
-<p id="p-120">Suppose that \(x = x_0\) is a regular singular point for the equation</p>
+<p id="p-126">Suppose that \(x = x_0\) is a regular singular point for the equation</p>
 <div class="displaymath">
 \begin{equation*}
 y'' + p(x)y' + q(x)y = 0.
@@ -301,11 +301,11 @@ x^2 + x p(x) y' + q(x) y = 0
 \end{equation*}
 </div>
 <p data-braille="continuation">where \(p, q\) are analytic at \(0\text{.}\) (We've essentially just pulled the singular behavior out of the coefficient functions to make it easier to analyze.)</p>
-<p id="p-121">The most elementary equation in this family is the Cauchy-Euler equation, where \(p, q\) are just constants \(p_0, q_0\text{.}\) In that case, we have a second order linear constant coefficient homogeneous equation, which we can solve using the method of the indicial equation.</p>
+<p id="p-127">The most elementary equation in this family is the Cauchy-Euler equation, where \(p, q\) are just constants \(p_0, q_0\text{.}\) In that case, we have a second order linear constant coefficient homogeneous equation, which we can solve using the method of the indicial equation.</p>
 <article class="theorem theorem-like" id="theorem-12"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="period">.</span>
 </h6>
-<p id="p-122">Suppose we have a Cauchy-Euler equation</p>
+<p id="p-128">Suppose we have a Cauchy-Euler equation</p>
 <div class="displaymath">
 \begin{equation*}
 x^2 y'' + x p_0 y' + q_0 y = 0.
@@ -316,7 +316,7 @@ x^2 y'' + x p_0 y' + q_0 y = 0.
 \begin{equation}
 r(r-1) + p_0 r + q_0 = 0\label{eq-indicial}\tag{2.4.1}
 \end{equation}
-</div></article><p id="p-123">We can use the constant case to guide our method for more general coefficients. Suppose we have an equation with coefficient functions</p>
+</div></article><p id="p-129">We can use the constant case to guide our method for more general coefficients. Suppose we have an equation with coefficient functions</p>
 <div class="displaymath">
 \begin{equation*}
 x^2 y'' + xp(x)y' + q(x) y = 0
@@ -342,7 +342,7 @@ x^2 y'' + x\left(p_0 + p_1 x + p_2 x^2 + \ldots\right)y' + \left(q_0 + q_1 x + q
 \end{equation*}
 </div>
 <p data-braille="continuation">So we guess that the form of the series solution includes a term \(x^r\) that describes the behavior of the function near \(x = 0\) in \((0,R)\) (where we're looking at a Cauchy-Euler equation) and a piece in terms of a power series that picks up the behavior away from \(0\text{.}\)</p>
-<p id="p-124">That is, using this intuition, we can guess that for the equation</p>
+<p id="p-130">That is, using this intuition, we can guess that for the equation</p>
 <div class="displaymath">
 \begin{equation*}
 x^2 y'' +  x p(x) y' + q(x) y = 0,
@@ -364,26 +364,26 @@ r(r-1) + p_0 r + q_0 = 0.
 <article class="theorem theorem-like" id="thm-frob-real-distinct"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span>
 </h6>
-<p id="p-125">For \(x &gt; 0\text{,}\) suppose that</p>
+<p id="p-131">For \(x &gt; 0\text{,}\) suppose that</p>
 <div class="displaymath">
 \begin{equation}
 x^2 y'' + xp(x)y' + q(x)y = 0\label{eq-reg-sing}\tag{2.4.3}
 \end{equation}
 </div>
 <p data-braille="continuation">and that \(p, q\) are analytic at 0 with a mutual radius of convergence \(R\text{.}\) Write \(p(x) = \sum p_n x^n, q(x) = \sum q_n x^n\text{.}\) Let \(r_1, r_2\) be roots of the indicial equation <a class="xref" data-knowl="./knowl/eq-indicial.html" title="Equation 2.4.1">(2.4.1)</a>, and assume that \(r_1 \geq r_2\) if the roots are real.</p>
-<p id="p-126">Then <a class="xref" data-knowl="./knowl/eq-reg-sing.html" title="Equation 2.4.3">(2.4.3)</a> has a Frobenius series solution of the form</p>
+<p id="p-132">Then <a class="xref" data-knowl="./knowl/eq-reg-sing.html" title="Equation 2.4.3">(2.4.3)</a> has a Frobenius series solution of the form</p>
 <div class="displaymath">
 \begin{equation*}
 y_1(x) = x^{r_1} \sum_{n=0}^\infty a_n x^n, \,\,\, a_0 \neq 0
 \end{equation*}
 </div>
 <p data-braille="continuation">which converges at least on \((0,R)\text{.}\)</p>
-<p id="p-127">If \(r_1, r_2\) are distinct and do not differ by an integer, then there exists a second linearly independent Frobenius series solution of the form</p>
+<p id="p-133">If \(r_1, r_2\) are distinct and do not differ by an integer, then there exists a second linearly independent Frobenius series solution of the form</p>
 <div class="displaymath">
 \begin{equation*}
 y_2(x) = x^{r_2} \sum_{n=0}^\infty b_n x^n, \,\,\, b_0 \neq 0.
 \end{equation*}
-</div></article><p id="p-128">The reason that we require the roots not to differ by an integer is that if they do, the resulting solutions will not be linearly independent. We'll address that case in the next section. First, let's look at an example of finding Frobenius series solutions. It is useful to note the following derivatives of Frobenius series:</p>
+</div></article><p id="p-134">The reason that we require the roots not to differ by an integer is that if they do, the resulting solutions will not be linearly independent. We'll address that case in the next section. First, let's look at an example of finding Frobenius series solutions. It is useful to note the following derivatives of Frobenius series:</p>
 <div class="displaymath">
 \begin{equation*}
 y(x) = x^r \sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty a_n x^{n + r}
@@ -399,15 +399,15 @@ y'(x) = \sum_{n=0}^\infty (n+r) a_n x^{n + r - 1}\label{eq-frob-first}\tag{2.4.4
 y''(x) = \sum_{n=0}^\infty (n+r)(n+r - 1) a_n x^{n + r - 2}.\label{eq-frob-second}\tag{2.4.5}
 \end{equation}
 </div>
-<article class="example example-like" id="example-11"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-11"><h6 class="heading">
+<article class="example example-like" id="example-12"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-12"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Using recursion to find a Frobenius series.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-11"><article class="example example-like"><p id="p-129">Find two linearly independent solutions to the equation</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like"><p id="p-135">Find two linearly independent solutions to the equation</p>
 <div class="displaymath">
 \begin{equation}
 4x^2 y'' + 3 x y' + xy = 0.\label{ex-frob}\tag{2.4.6}
 \end{equation}
 </div>
-<p id="p-130">To check the form of the solutions, we'll put the problem into standard form -</p>
+<p id="p-136">To check the form of the solutions, we'll put the problem into standard form -</p>
 <div class="displaymath">
 \begin{equation*}
 x^2 y'' + x (\frac{3}{4}) y' + x y = 0,
@@ -425,7 +425,7 @@ r(r-1) + \frac{3}{4} r + 0 = 0
 y_1(x) = \sum_{n=0}^\infty a_n x^n, \,\,\, y_2(x) = x^{1/4} \sum_{n=0}^\infty b_n x^n.
 \end{equation*}
 </div>
-<p id="p-131">Plugging in the expressions for the series derivatives, we get</p>
+<p id="p-137">Plugging in the expressions for the series derivatives, we get</p>
 <div class="displaymath">
 \begin{align*}
 0 \amp = 4x^2 \sum_{n=0}^\infty (n+r)(n+r - 1) a_n x^{n + r - 2} + 3 x \sum_{n=0}^\infty (n+r) a_n x^{n + r - 1} + x \sum_{n=0}^\infty a_n x^{n + r}\\
@@ -452,7 +452,7 @@ a_n = \frac{1}{4(n+r)(n+r - 1) + 3(n+ r)} a_{n-1}
 \end{equation*}
 </div>
 <p data-braille="continuation">Now we can use the values of \(r\) that we determined before to write the Frobenius series for each value.</p>
-<p id="p-132">\(r = 0\text{:}\) Here, we have a standard power series recursion</p>
+<p id="p-138">\(r = 0\text{:}\) Here, we have a standard power series recursion</p>
 <div class="displaymath">
 \begin{equation*}
 a_n = \frac{1}{4n(n-1) + 3n} a_{n-1} = \frac{1}{n(4n - 1)} a_{n-1}
@@ -478,7 +478,7 @@ a_n = \frac{1}{n! (3 \cdot 7 \cdot \ldots \cdot (4n -1))} a_0
 y_1(x) = a_0 x^0 \sum_{n=0}^\infty \frac{1}{n! (3 \cdot 7 \cdot \ldots \cdot (4n -1))} x^n, \,\,\, x \in (0, \infty).
 \end{equation*}
 </div>
-<p id="p-133">\(r = \frac{1}{4}\text{:}\) We'll use \(b_i\) to denote the coefficients of the second solution. Plugging in \(r\text{,}\) we get the recursion</p>
+<p id="p-139">\(r = \frac{1}{4}\text{:}\) We'll use \(b_i\) to denote the coefficients of the second solution. Plugging in \(r\text{,}\) we get the recursion</p>
 <div class="displaymath">
 \begin{align*}
 a_n \amp= \frac{1}{4(n+\frac{1}{4})(n+\frac{1}{4} - 1) + 3(n+ \frac{1}{4})} a_{n-1}\\

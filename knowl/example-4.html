@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:50:02-08:00       *-->
+<!--*       on 2021-01-05T14:14:50-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,14 +15,67 @@
 </head>
 <body>
 <article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Radius of convergence for a rational function.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a recurrence relation.</span>
 </h6>
-<p>Compute the radius of convergence of the power series centered at \(x = 0\) of</p>
+<p>Assume that the coefficients in the power series</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-f(x) = \frac{x^2}{(x +3)(x^2 + 3)}.
+f(x) = \ps
 \end{equation*}
 </div>
-<p xmlns:svg="http://www.w3.org/2000/svg">The zeroes of \(q\) are \(x_1= -3, x_2 = i\sqrt{3}, x_3 = -i\sqrt{3}\text{.}\) Using the distance formula, we can compute that the distances to the origin are \(d_1 = 3, d_2 = \sqrt{3}, d_3 = \sqrt{3}\text{,}\) and so the radius of convergence is \(r = \sqrt{3}\text{.}\)</p></article><span class="incontext"><a href="ch-series-1.html#example-4">in-context</a></span>
+<p data-braille="continuation">satisfy the equation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=1}^\infty n a_n x^n - \sum_{n=0}^\infty a_n x^{n+1} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Find a formula that gives any \(a_n\) in terms of \(a_0\text{.}\)</p>
+<p>First, to combine power series, we'll need both the powers of the like terms to match, and the series to have the same number of terms. Notice that if we replace \(n \rightarrow n + 1\) in the second series, and we change the range of the index accordingly, we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=1}^\infty n a_n x^n - \sum_{n=1}^\infty a_{n-1} x^{n} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">As the powers of the corresponding terms match, and the range of indicies match, we can combine the series using addition to get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=1}^\infty (na_n - a_{n-1}) x^n = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Because a convergent power series can only be equal to zero if the coefficients are all zero, we get the recurrence relation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+na_n - a_{n-1}  = 0, \hspace{1cm} n = 1, 2, 3, \ldots,
+\end{equation*}
+</div>
+<p data-braille="continuation">which can be written</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_n = \frac{1}{n} a_{n-1}, \hspace{1cm} n = 1, 2, 3 \ldots.
+\end{equation*}
+</div>
+<p data-braille="continuation">This gives a family of equations that we can use to find each coefficient in terms of \(a_0\) and eventually guess a formula that won't require us to work recursively.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\amp n = 1: \,\,\, a_1 = a_0.\\
+\amp n = 2: \,\,\, a_2 = \frac{1}{2}a_1 = \frac{1}{2} a_0.\\
+\amp n = 3: \,\,\, a_3 = \frac{1}{3}a_2 = \frac{1}{3\cdot 2} a_0.\\
+\amp n = 4: \,\,\, a_4 = \frac{1}{4}a_3 = \frac{1}{4\cdot 3 \cdot 2} a_0.
+\end{align*}
+</div>
+<p>We can guess that the general formula for \(a_n\) is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_n = \frac{1}{n!} a_0.
+\end{equation*}
+</div>
+<p data-braille="continuation">(Notice that I haven't claimed to have proved this, because that would require mathematical induction. For our purposes in this course, if a pattern looks to hold, we will assume that it continues indefinitely.)</p>
+<p>Under the assumption that our formula for \(a_n\) holds for all \(n\text{,}\) we can say</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+f(x) = a_0 \sum_{n=0}^\infty \frac{1}{n!} x^n,
+\end{equation*}
+</div>
+<p data-braille="continuation">which you might notice is the Taylor series at 0 for the function \(f(x) = a_0 e^x\text{.}\)</p></article><span class="incontext"><a href="ch-series-1.html#example-4">in-context</a></span>
 </body>
 </html>

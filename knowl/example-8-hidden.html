@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:50:03-08:00       *-->
+<!--*       on 2021-01-05T14:14:50-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -12,13 +12,95 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Sage)'});
+});
+</script>
 </head>
-<body><article class="example example-like"><p>The first few Legendre polynomials are easy to write down. Remember that each polynomial is normalized to have \(P_N(1) = 1\text{.}\)</p>
+<body><article class="example example-like"><p>Solve the equation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y'' - x y = 0.
+\end{equation*}
+</div>
+<p>Since \(p = 0\) and \(q = x\text{,}\) every point is an ordinary point. So we assume that a series solution exists of the form \(y = \ps\text{.}\) Plugging into the equation, we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} - x \ps = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Multiplying through, we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} - \sum_{n = 0}^\infty a_n x^{n+1} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">First, we'll make the powers match, then we'll shift indicies as necessary.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} - \sum_{n = 1}^\infty a_{n-1} x^{n} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Now that the powers of \(x\) match, the easiest way to make the index ranges match is to pop the first term off of the first sum.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+2a_2 + \sum_{n=1}^\infty (n+2)(n+1) a_{n+2} x^{n} - \sum_{n = 1}^\infty a_{n-1} x^{n} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Before we combine, notice that right away we can see that \(a_2 = 0\text{.}\) This is going to have an interesting effect on the resulting series.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+2a_2 + \sum_{n=1}^\infty \left[(n+2)(n+1) a_{n+2} - a_{n-1} \right] x^n = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Setting the coefficients to be 0, we get the family of relations</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_{n+2} = \frac{1}{(n+2)(n+1)} a_{n-1}.
+\end{equation*}
+</div>
+<p data-braille="continuation">Because there is a separation of three index elements between the terms in the recursion, there will be three families of equations. Immediately, we can see that because \(a_2 = 0\text{,}\) the recursion imples that \(a_5, a_8, a_{11}, \ldots = 0\) as well. (From the theorem, we know that we should be able to get all the information we need in terms of \(a_0\) and \(a_1\text{.}\))</p>
+<p>For the set of coefficients beginning with \(a_0\text{,}\) we have</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-N \amp= 0:y_1(x) = a_0 \Rightarrow P_1(x) = 1.\\
-N \amp= 1: y_2(x) = a_1 x \Rightarrow P_2(x) = x.\\
-N \amp= 2: y_1(x) = a_0(1 - 3x^2) \Rightarrow P_2(x) = \frac{1}{2}(3x^2 -1).  
+n = 1\amp: a_3 = \frac{1}{3 \cdot 2} a_0\\
+n = 4\amp: a_6 = \frac{1}{6 \cdot 5} a_3 = \frac{1}{6 \cdot 5 \cdot 3 \cdot 2} a_0\\
+n=7\amp: a_9 = \frac{1}{9 \cdot 8} a_6 = \frac{1}{9 \cdot 8 \cdot 6 \cdot 5 \cdot 3 \cdot 2} a_0.
 \end{align*}
-</div></article></body>
+</div>
+<p data-braille="continuation">There is a clear pattern, though it is annoying to write in closed form.</p>
+<p>For the set of coefficients beginning with \(a_1\text{,}\) we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+n = 2\amp: a_4 = \frac{1}{4 \cdot 3} a_1 \\
+n = 5\amp: a_7 = \frac{1}{7 \cdot 6} a_4 = \frac{1}{7 \cdot 6 \cdot 4 \cdot3 } a_1 \\
+n=8\amp: a_10 = \frac{1}{10 \cdot 9} a_7 = \frac{1}{10 \cdot 9 \cdot 7 \cdot 6 \cdot 4 \cdot 3} a_1.
+\end{align*}
+</div>
+<p data-braille="continuation">Then the general solution to the equation is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+y = a_0 y_1(x) + a_1 y_2(x)
+\end{equation*}
+</div>
+<p data-braille="continuation">where</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+y_1(x) \amp= 1 +  \frac{1}{3 \cdot 2} x^3 + \frac{1}{6 \cdot 5 \cdot 3\cdot 2} x^6 + \ldots\\
+y_2(x) \amp= x + \frac{1}{4 \cdot 3} x^4 + \frac{1}{7\cdot 6 \cdot 4 \cdot 3}x^7 + \ldots
+\end{align*}
+</div>
+<p data-braille="continuation">These power series are convergent everywhere, obviously linearly independent, and unfortunately have no closed form; that is, series representations is the best that we can do.</p>
+<div class="sagecell-sage" id="sage-1"><script type="text/x-sage">var( 'z y x'); y = 1 +  1/6 *x^3 + 1/180 *x^6
+z = x + 1/12 *x^4 + 1/504 *x^7
+a = plot([],title="(Approx) Solutions to Airy's equation")
+a += plot(y, x, (-2,2), color='red')
+a += plot(z, x, (-2,2))
+show(a)
+</script></div></article></body>
 </html>

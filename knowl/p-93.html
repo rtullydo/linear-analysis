@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:50:03-08:00       *-->
+<!--*       on 2021-01-05T14:14:50-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,43 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p xmlns:svg="http://www.w3.org/2000/svg">Derive the general solutions to the Legendre equation using recurrence relations.</p>
-<span class="incontext"><a href="ch-series-3.html#p-93">in-context</a></span>
+<p>Since \(p = 0\) and \(q = x\text{,}\) every point is an ordinary point. So we assume that a series solution exists of the form \(y = \ps\text{.}\) Plugging into the equation, we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} - x \ps = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Multiplying through, we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} - \sum_{n = 0}^\infty a_n x^{n+1} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">First, we'll make the powers match, then we'll shift indicies as necessary.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} - \sum_{n = 1}^\infty a_{n-1} x^{n} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Now that the powers of \(x\) match, the easiest way to make the index ranges match is to pop the first term off of the first sum.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+2a_2 + \sum_{n=1}^\infty (n+2)(n+1) a_{n+2} x^{n} - \sum_{n = 1}^\infty a_{n-1} x^{n} = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Before we combine, notice that right away we can see that \(a_2 = 0\text{.}\) This is going to have an interesting effect on the resulting series.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+2a_2 + \sum_{n=1}^\infty \left[(n+2)(n+1) a_{n+2} - a_{n-1} \right] x^n = 0.
+\end{equation*}
+</div>
+<p data-braille="continuation">Setting the coefficients to be 0, we get the family of relations</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+a_{n+2} = \frac{1}{(n+2)(n+1)} a_{n-1}.
+\end{equation*}
+</div>
+<p data-braille="continuation">Because there is a separation of three index elements between the terms in the recursion, there will be three families of equations. Immediately, we can see that because \(a_2 = 0\text{,}\) the recursion imples that \(a_5, a_8, a_{11}, \ldots = 0\) as well. (From the theorem, we know that we should be able to get all the information we need in terms of \(a_0\) and \(a_1\text{.}\))</p>
+<span class="incontext"><a href="ch-series-2.html#p-93">in-context</a></span>
 </body>
 </html>

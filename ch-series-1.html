@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:50:00-08:00       *-->
+<!--*       on 2021-01-05T14:14:48-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -186,6 +186,7 @@ MathJax.Hub.Config({
 <li><a href="section-1.html" data-scroll="section-1">Introduction</a></li>
 <li><a href="section-2.html" data-scroll="section-2">Calculus</a></li>
 <li><a href="section-3.html" data-scroll="section-3">Linear algebra</a></li>
+<li><a href="section-4.html" data-scroll="section-4">Differential Equations</a></li>
 </ul>
 </li>
 <li class="link">
@@ -201,20 +202,19 @@ MathJax.Hub.Config({
 </li>
 <li class="link">
 <a href="chapter-3.html" data-scroll="chapter-3"><span class="codenumber">3</span> <span class="title">All things Fourier</span></a><ul>
-<li><a href="section-11.html" data-scroll="section-11">Periodicity</a></li>
-<li><a href="section-12.html" data-scroll="section-12">Complex exponentials and trig functions</a></li>
-<li><a href="section-13.html" data-scroll="section-13">Sums of periodic functions</a></li>
-<li><a href="section-14.html" data-scroll="section-14">Questions of convergence</a></li>
-<li><a href="section-15.html" data-scroll="section-15">First applications</a></li>
-<li><a href="section-16.html" data-scroll="section-16">Fourier series and linear algebra</a></li>
-<li><a href="section-17.html" data-scroll="section-17">The Fourier transform</a></li>
-<li><a href="section-18.html" data-scroll="section-18">Convolution</a></li>
-<li><a href="section-19.html" data-scroll="section-19">Applications of convolution</a></li>
+<li><a href="section-12.html" data-scroll="section-12">Periodicity</a></li>
+<li><a href="section-13.html" data-scroll="section-13">Complex exponentials and trig functions</a></li>
+<li><a href="section-14.html" data-scroll="section-14">Sums of periodic functions</a></li>
+<li><a href="section-15.html" data-scroll="section-15">Questions of convergence</a></li>
+<li><a href="section-16.html" data-scroll="section-16">First applications</a></li>
+<li><a href="section-17.html" data-scroll="section-17">Fourier series and linear algebra</a></li>
+<li><a href="section-18.html" data-scroll="section-18">The Fourier transform</a></li>
+<li><a href="section-19.html" data-scroll="section-19">Convolution</a></li>
+<li><a href="section-20.html" data-scroll="section-20">Applications of convolution</a></li>
 </ul>
 </li>
 <li class="link">
 <a href="ch-laplace.html" data-scroll="ch-laplace"><span class="codenumber">4</span> <span class="title">The Laplace Transform</span></a><ul>
-<li><a href="ch-laplace-1.html" data-scroll="ch-laplace-1">Motivation for transform methods</a></li>
 <li><a href="ch-laplace-2.html" data-scroll="ch-laplace-2">The Laplace Transform</a></li>
 <li><a href="ch-laplace-3.html" data-scroll="ch-laplace-3">Periodic functions</a></li>
 <li><a href="ch-laplace-4.html" data-scroll="ch-laplace-4">The Laplace transform of derivatives</a></li>
@@ -232,34 +232,34 @@ MathJax.Hub.Config({
 <section class="subsection" id="subsection-5"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.1.1</span> <span class="title">Motivation</span>
 </h3>
-<p id="p-35">One of the limitations of the elementary techniques of differential equations is the extremely limited number of types of equations that can be solved. Once we are dealing with equations that are second order or higher, we are pretty much restricted to equations with constant coefficients (\(ay'' + by' + cy = 0\)), or equations in special forms (like the Cauchy-Euler equations \(ax^2y'' + bxy' + cy = 0\)).</p>
-<article class="example example-like" id="example-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-1"><h6 class="heading">
+<p id="p-41">One of the limitations of the elementary techniques of differential equations is the extremely limited number of types of equations that can be solved. Once we are dealing with equations that are second order or higher, we are pretty much restricted to equations with constant coefficients (\(ay'' + by' + cy = 0\)), or equations in special forms (like the Cauchy-Euler equations \(ax^2y'' + bxy' + cy = 0\)).</p>
+<article class="example example-like" id="example-2"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-2"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Airy's equation.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-1"><article class="example example-like"><p id="p-36">A seemingly simple equation that cannot be solved with elementary techniques is <dfn class="terminology">Airy's equation</dfn>, which is of the form</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like"><p id="p-42">A seemingly simple equation that cannot be solved with elementary techniques is <dfn class="terminology">Airy's equation</dfn>, which is of the form</p>
 <div class="displaymath">
 \begin{equation*}
 y'' - xy = 0.
 \end{equation*}
 </div></article></div>
-<p id="p-37">One problem that we run into is that many functions cannot be expressed as combinations of the elementary functions that we learn in calculus (for example, \(f(x) = \int e^{x^2}\, dx\)), and these functions are frequently the solutions to differential equations like the one in the example above. We turn, as we did in calculus, to <dfn class="terminology">power series</dfn> representations of functions. Power series are one of the most important ideas developed in introductory calculus (though it is often the case that WHY you are learning about them isn't immediately obvious). We'll begin by recalled the definition of a power series, the question of when and where such a series converges, and some basic operations that we can perform</p></section><section class="subsection" id="subsection-6"><h3 class="heading hide-type">
+<p id="p-43">One problem that we run into is that many functions cannot be expressed as combinations of the elementary functions that we learn in calculus (for example, \(f(x) = \int e^{x^2}\, dx\)), and these functions are frequently the solutions to differential equations like the one in the example above. We turn, as we did in calculus, to <dfn class="terminology">power series</dfn> representations of functions. Power series are one of the most important ideas developed in introductory calculus (though it is often the case that WHY you are learning about them isn't immediately obvious). We'll begin by recalled the definition of a power series, the question of when and where such a series converges, and some basic operations that we can perform</p></section><section class="subsection" id="subsection-6"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.1.2</span> <span class="title">Definition of power series and convergence</span>
 </h3>
 <article class="definition definition-like" id="def-powerseries"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span>
 </h6>
-<p id="p-38">An infinite series of the form</p>
+<p id="p-44">An infinite series of the form</p>
 <div class="displaymath">
 \begin{equation*}
 \sum_{n=0}^\infty a_n (x - x_0)^n
 \end{equation*}
 </div>
 <p data-braille="continuation">is called a power series centered at \(x = x_0\text{.}\)</p>
-<p id="p-39">Because we can always make the substitution \(u = x-x_0\text{,}\) it is typically sufficient to consider series centered at \(0\text{,}\)</p>
+<p id="p-45">Because we can always make the substitution \(u = x-x_0\text{,}\) it is typically sufficient to consider series centered at \(0\text{,}\)</p>
 <div class="displaymath">
 \begin{equation}
 \sum_{n=0}^\infty a_n x^n.\label{def-powerseries-zero}\tag{2.1.1}
 \end{equation}
-</div></article><p id="p-40">A power series <dfn class="terminology">converges</dfn> at a point \(x\) if the sequence of partial sums converges - that is,</p>
+</div></article><p id="p-46">A power series <dfn class="terminology">converges</dfn> at a point \(x\) if the sequence of partial sums converges - that is,</p>
 <div class="displaymath">
 \begin{equation*}
 \lim_{N \to \infty} \sum_{n = 0}^N a_n x^n
@@ -269,30 +269,30 @@ y'' - xy = 0.
 <article class="theorem theorem-like" id="thm-power-converge"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
 </h6>
-<p id="p-41">For a series of the form given in <a class="xref" data-knowl="./knowl/def-powerseries-zero.html" title="Equation 2.1.1">(2.1.1)</a>, exactly one of the following holds.</p>
+<p id="p-47">For a series of the form given in <a class="xref" data-knowl="./knowl/def-powerseries-zero.html" title="Equation 2.1.1">(2.1.1)</a>, exactly one of the following holds.</p>
 <ol class="decimal">
 <li id="li-41">\(r = 0:\) \(\ps\) converges only for \(x = 0\text{.}\)</li>
 <li id="li-42">\(r = \infty:\) \(\ps\) converges for every \(x \in \R\text{.}\)</li>
 <li id="li-43">\(r\) is finite: There is a constant \(r &gt; 0\) so that \(\ps\) converges for \(x \lt \abs{r}\) and diverges for \(x &gt; \abs{r}\text{.}\)</li>
-</ol></article><p id="p-42">The tool from calculus that is most useful in computing a radius of convergence for a power series is the <dfn class="terminology">ratio test</dfn> (the reason is that only a single \(x\) will remain after computing the ratio).</p>
+</ol></article><p id="p-48">The tool from calculus that is most useful in computing a radius of convergence for a power series is the <dfn class="terminology">ratio test</dfn> (the reason is that only a single \(x\) will remain after computing the ratio).</p>
 <article class="definition definition-like" id="definition-2"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
 </h6>
-<p id="p-43">For the power series \(\ps\text{,}\) the radius of convergence \(r\) is given by \(r = \frac{1}{L}\) where \(L\) is the limit</p>
+<p id="p-49">For the power series \(\ps\text{,}\) the radius of convergence \(r\) is given by \(r = \frac{1}{L}\) where \(L\) is the limit</p>
 <div class="displaymath">
 \begin{equation*}
 \lim_{n\to\infty} \abs{\frac{a_{n+1}}{a_n}} = L.
 \end{equation*}
 </div>
-<p data-braille="continuation">If \(L = 0\text{,}\) then \(r = \infty\) (that is, the series converges for all values of \(x\)). If \(L = \infty\text{,}\) then \(r = 0\) (that is, the series only converges trivially at \(x = 0\)).</p></article><article class="example example-like" id="example-2"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-2"><h6 class="heading">
+<p data-braille="continuation">If \(L = 0\text{,}\) then \(r = \infty\) (that is, the series converges for all values of \(x\)). If \(L = \infty\text{,}\) then \(r = 0\) (that is, the series only converges trivially at \(x = 0\)).</p></article><article class="example example-like" id="example-3"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Finding the radius of convergence.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like"><p id="p-44">Compute the radius of convergence of</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><p id="p-50">Compute the radius of convergence of</p>
 <div class="displaymath">
 \begin{equation*}
 \sum_{n=0}^\infty \frac{2^{n+1}}{5^n} x^n.
 \end{equation*}
 </div>
-<p id="p-45">We compute the limit</p>
+<p id="p-51">We compute the limit</p>
 <div class="displaymath">
 \begin{equation*}
 \lim_{n\to \infty}\abs{\frac{a_{n+1}}{a_n}} = \lim_{n\to \infty} \frac{2^{n+2}}{5^{n+1}} \cdot \frac{5^n}{2^{n + 1}} = \frac{2}{5},
@@ -301,29 +301,29 @@ y'' - xy = 0.
 <p data-braille="continuation">and so \(r = \frac{5}{2}\text{.}\)</p></article></div></section><section class="subsection" id="subsection-7"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.1.3</span> <span class="title">Algebra and calculus of power series</span>
 </h3>
-<p id="p-46">The beauty and utility in power series is that when they converge, they can be treated almost like giant polynomials. That is, we can perform algebra and calculs operations on convergent power series. To do so, first we can make a function out of a power series by restricting the domain to the interval of convergence (so that the function is well-defined). That is, if \(r\) is the radius of convergence for \(\ps\text{,}\) then we can define</p>
+<p id="p-52">The beauty and utility in power series is that when they converge, they can be treated almost like giant polynomials. That is, we can perform algebra and calculs operations on convergent power series. To do so, first we can make a function out of a power series by restricting the domain to the interval of convergence (so that the function is well-defined). That is, if \(r\) is the radius of convergence for \(\ps\text{,}\) then we can define</p>
 <div class="displaymath">
 \begin{equation*}
 f(x) = \ps, \hspace{1cm} x \in (-r,r).
 \end{equation*}
 </div>
-<p id="p-47">Before we discuss operations involving power series, we note a fundamental fact (related to the identical fact about polynomials) - two power series are equal if and only if their corresponding coefficients are equal. That is,</p>
+<p id="p-53">Before we discuss operations involving power series, we note a fundamental fact (related to the identical fact about polynomials) - two power series are equal if and only if their corresponding coefficients are equal. That is,</p>
 <div class="displaymath">
 \begin{equation*}
 \ps = \sum_{n=0}^\infty b_n x^n \text{ if and only if } a_n = b_n \text{ for all } n.
 \end{equation*}
 </div>
-<p id="p-48">When we combine power series, we have to make sure that we work on a domain where both functions are defined - that is, if \(f\) and \(g\) have radii of convergence \(r_1, r_2\) respectively, then the radius of convergence of an algebraic combination of \(f,g\) will be \(r = \min\{r_1,r_2\}\text{.}\)</p>
-<article class="assemblage assemblage-like" id="assemblage-1"><p id="p-49">Let \(f(x) = \ps\) and \(g(x) =\psg\) with common radius of convergence \(r\text{.}\)</p>
+<p id="p-54">When we combine power series, we have to make sure that we work on a domain where both functions are defined - that is, if \(f\) and \(g\) have radii of convergence \(r_1, r_2\) respectively, then the radius of convergence of an algebraic combination of \(f,g\) will be \(r = \min\{r_1,r_2\}\text{.}\)</p>
+<article class="assemblage assemblage-like" id="assemblage-1"><p id="p-55">Let \(f(x) = \ps\) and \(g(x) =\psg\) with common radius of convergence \(r\text{.}\)</p>
 <ol class="decimal">
 <li id="li-44">Addition: \(f(x) +g(x)  = \displaystyle\sum_{n=0}^\infty (a_n + b_n) x^n\text{.}\)</li>
 <li id="li-45">Scalar multiplication: \(c f(x) = \displaystyle\sum_{n=0}^\infty (ca_n) x^n\)</li>
 <li id="li-46">Multiplication of series: \(f(x) g(x) = \displaystyle\sum_{n=0}^\infty c_n x^n\) where the coefficients \(c_n\) are computed by \(c_n = \displaystyle \sum_{k=0}^n a_{n-k} b_k\) (this is essentially the result of a giant distribution and collection of like terms)</li>
 </ol>
-<p data-braille="continuation">Division can be defined as well (as long as the function in the denominator is not zero), but is used less often in what we will be studying</p></article><p id="p-50">One of our first applications of power series will be to plug them into equations, in order to figure out the coefficients. If we know the coefficients of a function given by a power series, then we know the function. Typically, finding the coefficients will involve solving a <dfn class="terminology">recurrence relation</dfn>, which is a recursive process for determining coefficients from some number of known coeffients.</p>
-<article class="example example-like" id="example-3"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h6 class="heading">
+<p data-braille="continuation">Division can be defined as well (as long as the function in the denominator is not zero), but is used less often in what we will be studying</p></article><p id="p-56">One of our first applications of power series will be to plug them into equations, in order to figure out the coefficients. If we know the coefficients of a function given by a power series, then we know the function. Typically, finding the coefficients will involve solving a <dfn class="terminology">recurrence relation</dfn>, which is a recursive process for determining coefficients from some number of known coeffients.</p>
+<article class="example example-like" id="example-4"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a recurrence relation.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><p id="p-51">Assume that the coefficients in the power series</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><p id="p-57">Assume that the coefficients in the power series</p>
 <div class="displaymath">
 \begin{equation*}
 f(x) = \ps
@@ -336,7 +336,7 @@ f(x) = \ps
 \end{equation*}
 </div>
 <p data-braille="continuation">Find a formula that gives any \(a_n\) in terms of \(a_0\text{.}\)</p>
-<p id="p-52">First, to combine power series, we'll need both the powers of the like terms to match, and the series to have the same number of terms. Notice that if we replace \(n \rightarrow n + 1\) in the second series, and we change the range of the index accordingly, we get</p>
+<p id="p-58">First, to combine power series, we'll need both the powers of the like terms to match, and the series to have the same number of terms. Notice that if we replace \(n \rightarrow n + 1\) in the second series, and we change the range of the index accordingly, we get</p>
 <div class="displaymath">
 \begin{equation*}
 \sum_{n=1}^\infty n a_n x^n - \sum_{n=1}^\infty a_{n-1} x^{n} = 0.
@@ -369,21 +369,21 @@ a_n = \frac{1}{n} a_{n-1}, \hspace{1cm} n = 1, 2, 3 \ldots.
 \amp n = 4: \,\,\, a_4 = \frac{1}{4}a_3 = \frac{1}{4\cdot 3 \cdot 2} a_0.
 \end{align*}
 </div>
-<p id="p-53">We can guess that the general formula for \(a_n\) is</p>
+<p id="p-59">We can guess that the general formula for \(a_n\) is</p>
 <div class="displaymath">
 \begin{equation*}
 a_n = \frac{1}{n!} a_0.
 \end{equation*}
 </div>
 <p data-braille="continuation">(Notice that I haven't claimed to have proved this, because that would require mathematical induction. For our purposes in this course, if a pattern looks to hold, we will assume that it continues indefinitely.)</p>
-<p id="p-54">Under the assumption that our formula for \(a_n\) holds for all \(n\text{,}\) we can say</p>
+<p id="p-60">Under the assumption that our formula for \(a_n\) holds for all \(n\text{,}\) we can say</p>
 <div class="displaymath">
 \begin{equation*}
 f(x) = a_0 \sum_{n=0}^\infty \frac{1}{n!} x^n,
 \end{equation*}
 </div>
 <p data-braille="continuation">which you might notice is the Taylor series at 0 for the function \(f(x) = a_0 e^x\text{.}\)</p></article></div>
-<p id="p-55">Just like algebra, we can perform calculus on power series in the obvious way (treating them like giant polynomials). Suppose that \(f\) is defined by a power series with domain equal to the interval of convergence, so that</p>
+<p id="p-61">Just like algebra, we can perform calculus on power series in the obvious way (treating them like giant polynomials). Suppose that \(f\) is defined by a power series with domain equal to the interval of convergence, so that</p>
 <div class="displaymath">
 \begin{equation*}
 f(x) = \ps, \,\,\, \abs{x} \lt r.
@@ -399,27 +399,27 @@ f''(x) \amp = \sum_{n=2}^\infty n(n-1) a_n x^{n-2}
 <p data-braille="continuation">and so on. Power series can also be integrated, which is straightforward to write a formula for. (You might consider doing it as an exercise.)</p></section><section class="subsection" id="subsection-8"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.1.4</span> <span class="title">Analytic functions (a connection with complex analysis)</span>
 </h3>
-<p id="p-56">A function with a power series defined on some interval \((a,b)\) is particularly nice because the power series implies the existence of derivatives of all orders. Such functions are called <dfn class="terminology">smooth</dfn>. (Note that smooth functions need not have a convergent power series, which is a weird but deep fact of real analysis!). Power series representations are so special, we name functions that have them as a special class.</p>
+<p id="p-62">A function with a power series defined on some interval \((a,b)\) is particularly nice because the power series implies the existence of derivatives of all orders. Such functions are called <dfn class="terminology">smooth</dfn>. (Note that smooth functions need not have a convergent power series, which is a weird but deep fact of real analysis!). Power series representations are so special, we name functions that have them as a special class.</p>
 <article class="definition definition-like" id="def-analytic"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span>
 </h6>
-<p id="p-57">A function \(f\) with a convergent power series representation on some non-trivial interval of convergence \((a,b)\) is called an <dfn class="terminology">analytic</dfn> function on \((a,b)\text{.}\)</p></article><p id="p-58">Analytic functions are the nicest behaved functions in calculus and its applications. One of the major theorems of calculus is that if a function is analytic, then it has a unique power series representation, called the <dfn class="terminology">Taylor series</dfn> for \(f\text{.}\) Even better, the series can be computed!</p>
+<p id="p-63">A function \(f\) with a convergent power series representation on some non-trivial interval of convergence \((a,b)\) is called an <dfn class="terminology">analytic</dfn> function on \((a,b)\text{.}\)</p></article><p id="p-64">Analytic functions are the nicest behaved functions in calculus and its applications. One of the major theorems of calculus is that if a function is analytic, then it has a unique power series representation, called the <dfn class="terminology">Taylor series</dfn> for \(f\text{.}\) Even better, the series can be computed!</p>
 <div class="displaymath">
 \begin{equation*}
 f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!} (x  -x_0)^n.
 \end{equation*}
 </div>
-<p id="p-59">The functions of introductory calculus are nearly all analytic, many on the entire real line. You should be familiar with the power series expansions of those functions derived from exponential functions.</p>
-<article class="assemblage assemblage-like" id="assemblage-2"><ol id="p-60" class="decimal">
+<p id="p-65">The functions of introductory calculus are nearly all analytic, many on the entire real line. You should be familiar with the power series expansions of those functions derived from exponential functions.</p>
+<article class="assemblage assemblage-like" id="assemblage-2"><ol id="p-66" class="decimal">
 <li id="li-47">\(\displaystyle \displaystyle e^x = 1 + x + \frac{1}{2!} x^2 + \frac{1}{3!} x^3 + \ldots = \sum_{n=0}^\infty \frac{1}{n!} x^n\)</li>
 <li id="li-48">\(\displaystyle \displaystyle \cos x = 1 - \frac{1}{2!} x^2 + \frac{1}{4!} x^4 + \ldots =   \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n}\)</li>
 <li id="li-49">\(\displaystyle \displaystyle \sin x = x - \frac{1}{3!} x^3 + \frac{1}{5!} x^5 + \ldots =   \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} x^{2n+ 1}\)</li>
-</ol></article><p id="p-61">Because we can combine power series using algebra to get new power series, we can do the same with the analytic functions that they represent. That is, if \(f, g\) are analytic, so are algebraic combinations of them.</p>
+</ol></article><p id="p-67">Because we can combine power series using algebra to get new power series, we can do the same with the analytic functions that they represent. That is, if \(f, g\) are analytic, so are algebraic combinations of them.</p>
 <article class="theorem theorem-like" id="theorem-7"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span>
 </h6>
-<p id="p-62">If \(f, g\) are analytic functions on a common interval \((a,b)\text{,}\) then so are \(f + g, f - g, fg\text{,}\) and \(\frac{f}{g}\) (as long as \(g(x) \neq 0\)).</p></article><p id="p-63">The most useful examples of analytic functions are polynomials! (From this persepective, polynomials are just finite power series.) Polynomials are analytic at every point, and so therefore are \(f + g, f - g\) and \(f g\text{.}\) Things are a bit more complicated in the case of rational functions \(\frac{f}{g}\text{,}\) because the zeroes of \(g\) determine the radius of convergence of the quotient.</p>
-<p id="p-64">Here we come across one of the first places that the analysis of analytic functions is actually secretly taking place in the complex plane. Consider the function</p>
+<p id="p-68">If \(f, g\) are analytic functions on a common interval \((a,b)\text{,}\) then so are \(f + g, f - g, fg\text{,}\) and \(\frac{f}{g}\) (as long as \(g(x) \neq 0\)).</p></article><p id="p-69">The most useful examples of analytic functions are polynomials! (From this persepective, polynomials are just finite power series.) Polynomials are analytic at every point, and so therefore are \(f + g, f - g\) and \(f g\text{.}\) Things are a bit more complicated in the case of rational functions \(\frac{f}{g}\text{,}\) because the zeroes of \(g\) determine the radius of convergence of the quotient.</p>
+<p id="p-70">Here we come across one of the first places that the analysis of analytic functions is actually secretly taking place in the complex plane. Consider the function</p>
 <div class="displaymath">
 \begin{equation*}
 f(x) = \frac{1}{1+x^2}.
@@ -432,19 +432,19 @@ f(x) = \frac{1}{1+x^2}.
 \end{equation*}
 </div>
 <p data-braille="continuation">as long as \(\abs{-x^2} \lt 1\) which is just \(\abs{x} \lt 1\text{.}\) So even though \(1 + x^2\) has no real zeros, the power series for \(f\) only had radius of convergence \(1\text{!}\) What's going on?</p>
-<p id="p-65">It turns out that when we're looking at quotients of analytic functions, we need to consider all of the zeros of the denominator, real and complex. For our example, \(1 + x^2 = 0\) has solutions \(\pm i\text{,}\) which are a distance of 1 away from the origin in the complex plane (0 on the real line). Since the closest zero to the center of our power series is 1 unit away, the radius of convergence is 1.</p>
+<p id="p-71">It turns out that when we're looking at quotients of analytic functions, we need to consider all of the zeros of the denominator, real and complex. For our example, \(1 + x^2 = 0\) has solutions \(\pm i\text{,}\) which are a distance of 1 away from the origin in the complex plane (0 on the real line). Since the closest zero to the center of our power series is 1 unit away, the radius of convergence is 1.</p>
 <article class="theorem theorem-like" id="theorem-8"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.1.9</span><span class="period">.</span>
 </h6>
-<p id="p-66">If \(p(x), q(x)\) are polynomials and \(q(x_0) \neq 0\text{,}\) then the radius of convergence of the power series representation is the distance from \(x_0\) to the closest root (real or complex) of \(q\text{.}\)</p></article><article class="example example-like" id="example-4"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h6 class="heading">
+<p id="p-72">If \(p(x), q(x)\) are polynomials and \(q(x_0) \neq 0\text{,}\) then the radius of convergence of the power series representation is the distance from \(x_0\) to the closest root (real or complex) of \(q\text{.}\)</p></article><article class="example example-like" id="example-5"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Radius of convergence for a rational function.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><p id="p-67">Compute the radius of convergence of the power series centered at \(x = 0\) of</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-73">Compute the radius of convergence of the power series centered at \(x = 0\) of</p>
 <div class="displaymath">
 \begin{equation*}
 f(x) = \frac{x^2}{(x +3)(x^2 + 3)}.
 \end{equation*}
 </div>
-<p id="p-68">The zeroes of \(q\) are \(x_1= -3, x_2 = i\sqrt{3}, x_3 = -i\sqrt{3}\text{.}\) Using the distance formula, we can compute that the distances to the origin are \(d_1 = 3, d_2 = \sqrt{3}, d_3 = \sqrt{3}\text{,}\) and so the radius of convergence is \(r = \sqrt{3}\text{.}\)</p></article></div></section></section></div></main>
+<p id="p-74">The zeroes of \(q\) are \(x_1= -3, x_2 = i\sqrt{3}, x_3 = -i\sqrt{3}\text{.}\) Using the distance formula, we can compute that the distances to the origin are \(d_1 = 3, d_2 = \sqrt{3}, d_3 = \sqrt{3}\text{,}\) and so the radius of convergence is \(r = \sqrt{3}\text{.}\)</p></article></div></section></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-02T14:50:04-08:00       *-->
+<!--*       on 2021-01-05T14:14:51-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,18 +15,18 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>The theoretical backdrop for all of this is the theory of <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Hilbert space</dfn>, which is where questions of convergence are first addessed. One of the most important Hilbert spaces is called \(L^2[a,b]\) - these are the functions \(f\) defined on an interval \([a,b]\) with finite energy. A function is in \(L^2\) if</p>
+<p>What we're really saying here is that for any \(n\neq m\) that</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\sqrt{\int_a^b f(x)^2 \, dx} \lt \infty
+\ip{J_\alpha(\la_{\alpha,n}x)}{J_\alpha(\la_{\alpha,m}x)} = \int_0^1 x J_\alpha(\la_{\alpha,n}) J_\alpha(\la_{\alpha,m}x) \, dx = 0.
 \end{equation*}
 </div>
-<p data-braille="continuation">(where \(dx\) is a more powerful type of differential called <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Lebesgue measure</dfn>). But this is precisely the inner product we considered with the Legendre polynomials:</p>
+<p data-braille="continuation">We can also show (with quite a bit of elbow grease) that</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-f \cdot g = \ip{f}{g} = \sqrt{\int_a^b f(x)g(x) \, dx}.
+\norm{J_\alpha(\la_{\alpha,n}x)} = \frac{1}{2} \left[ J_{\alpha + 1}(\la_{\alpha,n})\right]^2.
 \end{equation*}
 </div>
-<span class="incontext"><a href="ch-series-7.html#p-169">in-context</a></span>
+<span class="incontext"><a href="ch-series-6.html#p-169">in-context</a></span>
 </body>
 </html>
