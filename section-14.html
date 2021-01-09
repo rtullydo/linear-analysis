@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-05T15:17:00-08:00       *-->
+<!--*       on 2021-01-08T23:27:43-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -11,7 +11,7 @@
 <html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Sums of periodic functions</title>
+<title>Sums of sinusoids</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script type="text/x-mathjax-config">
@@ -204,7 +204,7 @@ MathJax.Hub.Config({
 <a href="chapter-3.html" data-scroll="chapter-3"><span class="codenumber">3</span> <span class="title">All things Fourier</span></a><ul>
 <li><a href="section-12.html" data-scroll="section-12">Periodicity</a></li>
 <li><a href="section-13.html" data-scroll="section-13">Complex exponentials and trig functions</a></li>
-<li><a href="section-14.html" data-scroll="section-14" class="active">Sums of periodic functions</a></li>
+<li><a href="section-14.html" data-scroll="section-14" class="active">Sums of sinusoids</a></li>
 <li><a href="section-15.html" data-scroll="section-15">Questions of convergence</a></li>
 <li><a href="section-16.html" data-scroll="section-16">First applications</a></li>
 <li><a href="section-17.html" data-scroll="section-17">Fourier series and linear algebra</a></li>
@@ -227,8 +227,137 @@ MathJax.Hub.Config({
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-14"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">3.3</span> <span class="title">Sums of periodic functions</span>
-</h2></section></div></main>
+<span class="type">Section</span> <span class="codenumber">3.3</span> <span class="title">Sums of sinusoids</span>
+</h2>
+<p id="p-211">We're going to start by considering functions that consist of finite sums of trigonometric functions. Consider a function defined by a sum of the form</p>
+<div class="displaymath">
+\begin{equation*}
+f(t) = \frac{a_0}{2} + \sum_{n=1}^N (a_n cos 2\pi nt + b_n \sin 2\pi n t).
+\end{equation*}
+</div>
+<p data-braille="continuation">The phase in a particular frequency is determined by the coefficients of the cosine and sine of that frequency. The term \(\sin 2 \pi n t\) has frequency \(n\text{,}\) and so you can think about \(f\) as a composite of pure sinusoids of frequencies \(1, \ldots, N\text{.}\) The other mysterious quantity is \(a_0/2\text{.}\) It seems odd to write an arbitrary constant this way, but it falls out of a general forumla that we're building to. (In the context of electrical circuits, the term \(a_0/2\) is called the direct current, and the sum of sinusoids is the alternating current.)</p>
+<p id="p-212">Now we can use <a class="xref" data-knowl="./knowl/eq-sinu-exp.html" title="Equation 3.2.2">(3.2.2)</a> to rewrite our sum as a series of complex exponentials (for the ease of computation).</p>
+<div class="displaymath">
+\begin{align*}
+\amp \frac{a_0}{2} + \sum_{n=1}^N (a_n \cos 2\pi nt + b_n \sin 2\pi n t)\\
+\amp = \frac{a_0}{2} + \sum_{n=1}^N \left[a_n \frac{e^{2\pi i n t} + e^{- 2\pi i n t}}{2} + b_n \frac{e^{2\pi i n t} - e^{- 2\pi i n t}}{2i}\right]\\
+\amp = \frac{a_0}{2} + \sum_{n=1}^N \left[\frac{1}{2}(a_n - ib_n) e^{2\pi i n t} + \frac{1}{2}(a_n + ib_n) e^{- 2 \pi i n t} \right]\\
+\amp = \frac{a_0}{2} + \sum_{n = 1}^N \frac{1}{2}(a_n - i b_n) e^{2 \pi i n t} + \sum_{n = 1}^N \frac{1}{2} (a_n + i b_n)e^{-2 \pi i n t}
+\end{align*}
+</div>
+<p id="p-213">The first sum contains the positive powers and the second sum the negative. We'd like to write the series as one sum over all the powers from \(-N\) to \(N\text{.}\) So we can make the definition</p>
+<div class="displaymath">
+\begin{equation*}
+c_n = \frac{1}{2}(a_n - i b_n), \,\,\, c_{-n} = \frac{1}{2}(a_n + b_n), \,\,\, n = 1, \ldots, N 
+\end{equation*}
+</div>
+<p data-braille="continuation">and furthermore, notice that when \(n = 0\text{,}\) the formulas above give \(c_0 = \frac{a_0}{2}\text{,}\) which explains the fraction. Then we can write</p>
+<div class="displaymath">
+\begin{equation*}
+\sum_{n=1}^N (a_n \cos 2 \pi n t + b_n \sin 2 \pi n t) = \sum_{n=-N}^N c_n e^{2 \pi i n t}.
+\end{equation*}
+</div>
+<p id="p-214">First, note that the \(c_n\) are complex numbers. If the signal \(f\) is real-valued, then it must be the case that for all \(n\text{,}\) \(c_n = \cc{c_{-n}}\text{,}\) which implies that</p>
+<div class="displaymath">
+\begin{equation*}
+\abs{c_n} = \abs{c_{-n}}
+\end{equation*}
+</div>
+<p data-braille="continuation">for all \(n\text{.}\) (This does not need to be the case when \(f\) takes on complex values.)</p>
+<p id="p-215">Suppose that we have a periodic function \(f\text{,}\) and assume (for now) that \(f\) has a representation in terms of complex exponentials</p>
+<div class="displaymath">
+\begin{equation*}
+f(t) = \sum_{n=-N}^N e^{2 \pi i n t}.
+\end{equation*}
+</div>
+<p data-braille="continuation">Is it possible to compute the \(c_i\text{?}\) There are many approaches to the next step, most involving serious algebra and calculus to arrive at the formula for computing \(c_i\text{.}\) We're going to move straight to the linear algebra perspective. First, we'll define perhaps the single most important vector space in mathematics.</p>
+<article class="definition definition-like" id="definition-8"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.3.1</span><span class="period">.</span>
+</h6>
+<p id="p-216">\(L^2(0,1)\) is the vector space of functions with the property that</p>
+<div class="displaymath">
+\begin{equation*}
+\int_0^1 f(x)^2 \, dx \lt \infty.
+\end{equation*}
+</div>
+<p data-braille="continuation">\(L^2\) is an inner product space when equipped with the dot product</p>
+<div class="displaymath">
+\begin{equation*}
+\ip{f}{g} = \int_0^1 f(x) \cc{g(x)} \, dx.
+\end{equation*}
+</div></article><p id="p-217">Functions in \(L^2\) are called <dfn class="terminology">square-integrable</dfn> and they show up in a huge number of applications. Perhaps most importantantly, some of our favorite functions turn out to be orthogonal in \(L^2\text{.}\)</p>
+<article class="proposition theorem-like" id="proposition-2"><h6 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.3.2</span><span class="period">.</span>
+</h6>
+<p id="p-218">The set \(\{e^{2 \pi i n t}\}_{n = -N}^N\) is orthogonal considered as a set of vectors in \(L^2\text{.}\) That is,</p>
+<div class="displaymath">
+\begin{equation*}
+\ip{e^{2 \pi i n t}}{e^{2 \pi i m t}} = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">whenever \(n \neq m\text{.}\)</p></article><article class="hiddenproof" id="proof-3"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-3"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-3"><article class="hiddenproof"><p id="p-219">Suppose that \(n \neq m\text{.}\) Then</p>
+<div class="displaymath">
+\begin{align*}
+\ip{e^{2 \pi i m t}}{e^{2 \pi i n t}} \amp = \int_0^1 e^{2 \pi i m t} \cc{e^{2 \pi i n t}} \, dt\\
+\amp= \int_0^1 e^{ 2 \pi i m t} e^{- 2 \pi i n t} \, dt\\
+\amp = \int_0^1 e^{2 \pi i (m -n) t} \, dt\\
+\amp = \frac{1}{2 \pi i (m - n)} e^{2 \pi i (m -n) t} \rvert_0^1\\
+\amp = \frac{1}{2 \pi i (m - n)} (e^{2 \pi i (m -n)} - 1)\\
+\amp = 0.
+\end{align*}
+</div>
+<p data-braille="continuation">We've used the fact that \(e^{2 \pi i k} = 1\) for any integer \(k \neq 0\text{.}\) Thus, in \(L^2\text{,}\) we have \(e^{2 \pi i n t} \perp e^{2 \pi i m t}\) when \(m \neq n\text{.}\)</p></article></div>
+<p id="p-220">We can also see that</p>
+<div class="displaymath">
+\begin{align*}
+\ip{e^{2 \pi i n t}}{e^{2 \pi i n t}} = \int_0^1 e^{2 \pi i n t} \cc{ e^{2 \pi i n t}} \, dt\\
+\amp = \int_0^1 e^{ 2 \pi i n t}e^{-2 \pi i n t}\\
+\amp = \int_0^1 1 \, dt = 1
+\end{align*}
+</div>
+<p data-braille="continuation">and so \(\norm{e^{2 \pi i n t}} = \sqrt{1} = 1\text{.}\)</p>
+<p id="p-221">We're going to use the theorem from linear algebra that lets us project onto the span of a set of orthogonal vectors.</p>
+<article class="theorem theorem-like" id="theorem-18"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.3.3</span><span class="period">.</span>
+</h6>
+<p id="p-222">If \(u\) is a vector in a vector space \(V\) and \(e_1, \ldots, e_n\) is an orthogonal set of vectors, then the projection of \(u\) onto the space \(S\) spanned by the \(e_n\) is given by the formula</p>
+<div class="displaymath">
+\begin{equation*}
+\proj_S u = \sum_{n=1}^N a_n e_n,
+\end{equation*}
+</div>
+<p data-braille="continuation">where the coefficients \(c_n\) are given by the formula</p>
+<div class="displaymath">
+\begin{equation*}
+c_n = \frac{\ip{u}{e_n}}{\norm{e_n}^2}.
+\end{equation*}
+</div>
+<p data-braille="continuation">If \(u \in S\text{,}\) then \(u = \sum c_n e_n\text{.}\)</p></article><p id="p-223">So let's write the projection of a function \(f\) onto the span of the orthogonal vectors \(e^{2 \pi i n t}\text{,}\) \(n = -N, \ldots, N\text{.}\) Let \(S\) be the space of linear combinations of the \(e^{2 \pi i n t}\text{.}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\proj_S f = \sum_{n = -N}^n c_n e^{2 \pi i n t},
+\end{equation*}
+</div>
+<p data-braille="continuation">where</p>
+<div class="displaymath">
+\begin{equation*}
+c_n = \frac{\ip{f}{e^{2 \pi i n t}}}{\norm{e^{2 \pi i n t}}^2}.
+\end{equation*}
+</div>
+<p data-braille="continuation">But these are precisely the \(c_n\) that we need a formula to compute! Assuming that \(f\) can be written as a sum of complex exponentials <em class="emphasis">is the same</em> as assuming that \(f\) is in the space spanned by the orthogonal set. Thus, if \(f\) can be written</p>
+<div class="displaymath">
+\begin{equation*}
+f = \sum_{n = -N}^N c_n e^{2 \pi i n t},
+\end{equation*}
+</div>
+<p data-braille="continuation">then the \(c_n\) can be computed via</p>
+<div class="displaymath">
+\begin{equation*}
+c_n = \frac{\ip{f}{e^{2 \pi i n t}}}{\norm{e^{2 \pi i n t}}^2} = \int_0^1 e^{- 2 \pi i n t} f(t) \, dt.
+\end{equation*}
+</div>
+<p id="p-224">The \(c_n\) are called <dfn class="terminology">Fourier coefficients</dfn>.</p>
+<p id="p-225">We have one major leap left to go - we've shown that if a periodic function \(f\) has representation as a finite sum of complex exponentials that we can produce the coefficients via an integral. We do not know yet if all periodic \(f\) can be expressed this way.</p></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-05T14:14:52-08:00       *-->
+<!--*       on 2021-01-08T23:27:46-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,18 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p xmlns:svg="http://www.w3.org/2000/svg">Before we get into when we can use the Laplace transform and why it is so powerful, we'll start with some examples of computing the transforms of some basic functions.</p>
-<span class="incontext"><a href="ch-laplace-2.html#p-213">in-context</a></span>
+<p>The first sum contains the positive powers and the second sum the negative. We'd like to write the series as one sum over all the powers from \(-N\) to \(N\text{.}\) So we can make the definition</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+c_n = \frac{1}{2}(a_n - i b_n), \,\,\, c_{-n} = \frac{1}{2}(a_n + b_n), \,\,\, n = 1, \ldots, N 
+\end{equation*}
+</div>
+<p data-braille="continuation">and furthermore, notice that when \(n = 0\text{,}\) the formulas above give \(c_0 = \frac{a_0}{2}\text{,}\) which explains the fraction. Then we can write</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\sum_{n=1}^N (a_n \cos 2 \pi n t + b_n \sin 2 \pi n t) = \sum_{n=-N}^N c_n e^{2 \pi i n t}.
+\end{equation*}
+</div>
+<span class="incontext"><a href="section-14.html#p-213">in-context</a></span>
 </body>
 </html>

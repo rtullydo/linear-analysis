@@ -1736,7 +1736,7 @@
         It's easy to miss how weird and useful this idea is. Essentially, we've come up with a way to multiply vectors and produce a vector. </p>
 
         <p>Since <xref ref="eq-cis"/> expresses <m>e^{i\theta}</m> in terms of sine and cosine, we can reverse this relation to define sine and cosine in terms of complex exponentials.
-        <me> \cos \theta = \frac{e^{i\theta} + e^{-i\theta}}{2}, \,\,\, \sin \theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}.</me></p>
+        <men xml:id="eq-sinu-exp"> \cos \theta = \frac{e^{i\theta} + e^{-i\theta}}{2}, \,\,\, \sin \theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}.</men></p>
 
         <p>One of the themes of this course is that we can decompose functions into pieces that have useful properties. One way that you might not have seen before is to pull a function apart into symmetric pieces. A function is called <term>even</term> if <m>f(x) = f(-x)</m> (corresponding to symmetry about the <m>y</m>-axis. A function is called <term>odd</term> if <m>f(x) = -f(-x)</m> (corresponding to symmetry about the origin). We can build even and odd functions out of any function in the following way:
         <me>
@@ -1841,7 +1841,122 @@
       </subsection>
       </section>
       <section>
-        <title>Sums of periodic functions</title>
+        <title>Sums of sinusoids</title>
+        <p>We're going to start by considering functions that consist of finite sums of trigonometric functions. Consider a function defined by a sum of the form
+        <me>
+          f(t) = \frac{a_0}{2} + \sum_{n=1}^N (a_n cos 2\pi nt + b_n \sin 2\pi n t).
+        </me>
+        The phase in a particular frequency is determined by the coefficients of the cosine and sine of that frequency. The term <m>\sin 2 \pi n t</m> has frequency <m>n</m>, and so you can think about <m>f</m> as a composite of pure sinusoids of frequencies <m>1, \ldots, N</m>. The other mysterious quantity is <m>a_0/2</m>. It seems odd to write an arbitrary constant this way, but it falls out of a general forumla that we're building to. (In the context of electrical circuits, the term <m>a_0/2</m> is called the direct current, and the sum of sinusoids is the alternating current.)
+        </p>
+
+        <p>Now we can use <xref ref="eq-sinu-exp"/> to rewrite our sum as a series of complex exponentials (for the ease of computation).
+        <md>
+            <mrow>\amp \frac{a_0}{2} + \sum_{n=1}^N (a_n \cos 2\pi nt + b_n \sin 2\pi n t)</mrow>
+            <mrow>\amp = \frac{a_0}{2} + \sum_{n=1}^N \left[a_n \frac{e^{2\pi i n t} + e^{- 2\pi i n t}}{2} + b_n \frac{e^{2\pi i n t} - e^{- 2\pi i n t}}{2i}\right]</mrow>
+            <mrow>\amp = \frac{a_0}{2} + \sum_{n=1}^N \left[\frac{1}{2}(a_n - ib_n) e^{2\pi i n t} + \frac{1}{2}(a_n + ib_n) e^{- 2 \pi i n t} \right]</mrow>
+            <mrow> \amp = \frac{a_0}{2} + \sum_{n = 1}^N \frac{1}{2}(a_n - i b_n) e^{2 \pi i n t} + \sum_{n = 1}^N \frac{1}{2} (a_n + i b_n)e^{-2 \pi i n t}</mrow>
+          </md>
+        </p>
+        <p>The first sum contains the positive powers and the second sum the negative. We'd like to write the series as one sum over all the powers from <m>-N</m> to <m>N</m>. So we can make the definition 
+        <me>
+        c_n = \frac{1}{2}(a_n - i b_n), \,\,\, c_{-n} = \frac{1}{2}(a_n + b_n), \,\,\, n = 1, \ldots, N 
+        </me>
+        and furthermore, notice that when <m>n = 0</m>, the formulas above give <m>c_0 = \frac{a_0}{2}</m>, which explains the fraction.
+        Then we can write
+        <me>
+          \sum_{n=1}^N (a_n \cos 2 \pi n t + b_n \sin 2 \pi n t) = \sum_{n=-N}^N c_n e^{2 \pi i n t}.
+        </me></p>
+
+        <p>First, note that the <m>c_n</m> are complex numbers. If the signal <m>f</m> is real-valued, then it must be the case that for all <m>n</m>, <m>c_n = \cc{c_{-n}}</m>, which implies that 
+        <me>
+          \abs{c_n} = \abs{c_{-n}}
+        </me>
+        for all <m>n</m>. (This does not need to be the case when <m>f</m> takes on complex values.)</p>
+
+        <p>Suppose that we have a periodic function <m>f</m>, and assume (for now) that <m>f</m> has a representation in terms of complex exponentials 
+        <me>
+          f(t) = \sum_{n=-N}^N e^{2 \pi i n t}.
+        </me>
+        Is it possible to compute the <m>c_i</m>? There are many approaches to the next step, most involving serious algebra and calculus to arrive at the formula for computing <m>c_i</m>. We're going to move straight to the linear algebra perspective. First, we'll define perhaps the single most important vector space in mathematics.
+        </p>
+
+        <definition>
+          <p><m>L^2(0,1)</m> is the vector space of functions with the property that
+          <me>
+            \int_0^1 f(x)^2 \, dx \lt \infty.
+          </me>
+          <m>L^2</m> is an inner product space when equipped with the dot product
+          <me>
+            \ip{f}{g} = \int_0^1 f(x) \cc{g(x)} \, dx.
+          </me>
+          </p>
+        </definition>
+
+        <p>Functions in <m>L^2</m> are called <term>square-integrable</term> and they show up in a huge number of applications. Perhaps most importantantly, some of our favorite functions turn out to be orthogonal in <m>L^2</m>.</p>
+
+        <proposition>
+          <p>The set <m>\{e^{2 \pi i n t}\}_{n = -N}^N</m> is orthogonal considered as a set of vectors in <m>L^2</m>. That is, 
+          <me>
+            \ip{e^{2 \pi i n t}}{e^{2 \pi i m t}} = 0
+          </me>
+          whenever <m>n \neq m</m>.</p>
+        </proposition>
+
+        <proof>
+          <p>Suppose that <m>n \neq m</m>. Then
+          <md>
+            <mrow> \ip{e^{2 \pi i m t}}{e^{2 \pi i n t}} \amp = \int_0^1 e^{2 \pi i m t} \cc{e^{2 \pi i n t}} \, dt</mrow>
+            <mrow>\amp= \int_0^1 e^{ 2 \pi i m t} e^{- 2 \pi i n t} \, dt</mrow>
+            <mrow>\amp = \int_0^1 e^{2 \pi i (m -n) t} \, dt</mrow>
+            <mrow>\amp = \frac{1}{2 \pi i (m - n)} e^{2 \pi i (m -n) t} \rvert_0^1</mrow>
+            <mrow>\amp = \frac{1}{2 \pi i (m - n)} (e^{2 \pi i (m -n)} - 1)</mrow>
+            <mrow>\amp = 0.</mrow>
+            </md>
+            We've used the fact that <m>e^{2 \pi i k} = 1</m> for any integer <m>k \neq 0</m>. Thus, in <m>L^2</m>, we have <m>e^{2 \pi i n t} \perp e^{2 \pi i m t}</m> when <m>m \neq n</m>.</p>
+          </proof>
+
+          <p>We can also see that
+            <md>
+              <mrow>\ip{e^{2 \pi i n t}}{e^{2 \pi i n t}} = \int_0^1 e^{2 \pi i n t} \cc{ e^{2 \pi i n t}} \, dt</mrow>
+              <mrow>\amp = \int_0^1 e^{ 2 \pi i n t}e^{-2 \pi i n t}</mrow>
+              <mrow>\amp = \int_0^1 1 \, dt = 1</mrow>
+            </md>
+            and so <m>\norm{e^{2 \pi i n t}} = \sqrt{1} = 1</m>.</p>
+
+          <p>We're going to use the theorem from linear algebra that lets us project onto the span of a set of orthogonal vectors.</p>
+
+          <theorem>
+            <p>If <m>u</m> is a vector in a vector space <m>V</m> and <m>e_1, \ldots, e_n</m> is an orthogonal set of vectors, then the projection of <m>u</m> onto the space <m>S</m> spanned by the <m>e_n</m> is given by the formula
+            <me>
+              \proj_S u = \sum_{n=1}^N a_n e_n,
+            </me>
+            where the coefficients <m>c_n</m> are given by the formula
+            <me>
+              c_n = \frac{\ip{u}{e_n}}{\norm{e_n}^2}.
+            </me> 
+            If <m>u \in S</m>, then <m>u = \sum c_n e_n</m>.</p>
+          </theorem>
+
+          <p>So let's write the projection of a function <m>f</m> onto the span of the orthogonal vectors <m>e^{2 \pi i n t}</m>, <m>n = -N, \ldots, N</m>. Let <m>S</m> be the space of linear combinations of the <m>e^{2 \pi i n t}</m>.
+          <me>
+              \proj_S f = \sum_{n = -N}^n c_n e^{2 \pi i n t},
+            </me>
+          where
+          <me>
+            c_n = \frac{\ip{f}{e^{2 \pi i n t}}}{\norm{e^{2 \pi i n t}}^2}.
+          </me>
+          But these are precisely the <m>c_n</m> that we need a formula to compute! Assuming that <m>f</m> can be written as a sum of complex exponentials <em>is the same</em> as assuming that <m>f</m> is in the space spanned by the orthogonal set. Thus, if <m>f</m> can be written
+          <me>
+            f = \sum_{n = -N}^N c_n e^{2 \pi i n t},
+          </me>
+          then the <m>c_n</m> can be computed via
+          <me>
+            c_n = \frac{\ip{f}{e^{2 \pi i n t}}}{\norm{e^{2 \pi i n t}}^2} = \int_0^1 e^{- 2 \pi i n t} f(t) \, dt.
+          </me></p>
+
+          <p>The <m>c_n</m> are called <term>Fourier coefficients</term>.</p>
+
+          <p>We have one major leap left to go - we've shown that if a periodic function <m>f</m> has representation as a finite sum of complex exponentials that we can produce the coefficients via an integral. We do not know yet if all periodic <m>f</m> can be expressed this way.</p>
       </section>
       <section>
         <title>Questions of convergence</title>

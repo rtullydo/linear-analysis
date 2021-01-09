@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-01-08T23:27:47-08:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="hiddenproof"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Proof</span></h6>
+<p>Suppose that \(n \neq m\text{.}\) Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+\ip{e^{2 \pi i m t}}{e^{2 \pi i n t}} \amp = \int_0^1 e^{2 \pi i m t} \cc{e^{2 \pi i n t}} \, dt\\
+\amp= \int_0^1 e^{ 2 \pi i m t} e^{- 2 \pi i n t} \, dt\\
+\amp = \int_0^1 e^{2 \pi i (m -n) t} \, dt\\
+\amp = \frac{1}{2 \pi i (m - n)} e^{2 \pi i (m -n) t} \rvert_0^1\\
+\amp = \frac{1}{2 \pi i (m - n)} (e^{2 \pi i (m -n)} - 1)\\
+\amp = 0.
+\end{align*}
+</div>
+<p data-braille="continuation">We've used the fact that \(e^{2 \pi i k} = 1\) for any integer \(k \neq 0\text{.}\) Thus, in \(L^2\text{,}\) we have \(e^{2 \pi i n t} \perp e^{2 \pi i m t}\) when \(m \neq n\text{.}\)</p></article><span class="incontext"><a href="section-14.html#proof-3">in-context</a></span>
+</body>
+</html>

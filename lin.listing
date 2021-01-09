@@ -1,0 +1,5 @@
+var('x')
+f(x) = 2*sin(3*pi*x + pi/2)
+g(x) = sin(3*pi*x)
+pic = plot(f + g, color='blue')
+show(pic)

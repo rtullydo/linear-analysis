@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-05T14:14:52-08:00       *-->
+<!--*       on 2021-01-08T23:27:46-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,12 +15,15 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Let \(f\) be a function on \([0,\infty)\text{.}\) The Laplace transform of \(f\) is defined by the integral operator</p>
+<p>Now we can use <a class="xref" data-knowl="./knowl/eq-sinu-exp.html" title="Equation 3.2.2">(3.2.2)</a> to rewrite our sum as a series of complex exponentials (for the ease of computation).</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\mathcal{L}[f] = \int_0^\infty f(t) e^{-st} \, dt = F(s).
-\end{equation*}
+\begin{align*}
+\amp \frac{a_0}{2} + \sum_{n=1}^N (a_n \cos 2\pi nt + b_n \sin 2\pi n t)\\
+\amp = \frac{a_0}{2} + \sum_{n=1}^N \left[a_n \frac{e^{2\pi i n t} + e^{- 2\pi i n t}}{2} + b_n \frac{e^{2\pi i n t} - e^{- 2\pi i n t}}{2i}\right]\\
+\amp = \frac{a_0}{2} + \sum_{n=1}^N \left[\frac{1}{2}(a_n - ib_n) e^{2\pi i n t} + \frac{1}{2}(a_n + ib_n) e^{- 2 \pi i n t} \right]\\
+\amp = \frac{a_0}{2} + \sum_{n = 1}^N \frac{1}{2}(a_n - i b_n) e^{2 \pi i n t} + \sum_{n = 1}^N \frac{1}{2} (a_n + i b_n)e^{-2 \pi i n t}
+\end{align*}
 </div>
-<span class="incontext"><a href="ch-laplace-2.html#p-212">in-context</a></span>
+<span class="incontext"><a href="section-14.html#p-212">in-context</a></span>
 </body>
 </html>

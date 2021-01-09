@@ -1,0 +1,2747 @@
+%********************************************%
+%*       Generated from PreTeXt source      *%
+%*       on 2021-01-06T15:35:45-08:00       *%
+%*   A recent stable commit (2020-08-09):   *%
+%* 98f21740783f166a773df4dc83cab5293ab63a4a *%
+%*                                          *%
+%*         https://pretextbook.org          *%
+%*                                          *%
+%********************************************%
+%% We elect to always write snapshot output into <job>.dep file
+\RequirePackage{snapshot}
+\documentclass[oneside,10pt,]{book}
+%% Custom Preamble Entries, early (use latex.preamble.early)
+%% Default LaTeX packages
+%%   1.  always employed (or nearly so) for some purpose, or
+%%   2.  a stylewriter may assume their presence
+\usepackage{geometry}
+\usepackage{tikz-cd}
+%% Some aspects of the preamble are conditional,
+%% the LaTeX engine is one such determinant
+\usepackage{ifthen}
+%% etoolbox has a variety of modern conveniences
+\usepackage{etoolbox}
+\usepackage{ifxetex,ifluatex}
+%% Raster graphics inclusion
+\usepackage{graphicx}
+%% Color support, xcolor package
+%% Always loaded, for: add/delete text, author tools
+%% Here, since tcolorbox loads tikz, and tikz loads xcolor
+\PassOptionsToPackage{usenames,dvipsnames,svgnames,table}{xcolor}
+\usepackage{xcolor}
+%% begin: defined colors, via xcolor package, for styling
+%% end: defined colors, via xcolor package, for styling
+%% Colored boxes, and much more, though mostly styling
+%% skins library provides "enhanced" skin, employing tikzpicture
+%% boxes may be configured as "breakable" or "unbreakable"
+%% "raster" controls grids of boxes, aka side-by-side
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\tcbuselibrary{breakable}
+\tcbuselibrary{raster}
+%% We load some "stock" tcolorbox styles that we use a lot
+%% Placement here is provisional, there will be some color work also
+%% First, black on white, no border, transparent, but no assumption about titles
+\tcbset{ bwminimalstyle/.style={size=minimal, boxrule=-0.3pt, frame empty,
+colback=white, colbacktitle=white, coltitle=black, opacityfill=0.0} }
+%% Second, bold title, run-in to text/paragraph/heading
+%% Space afterwards will be controlled by environment,
+%% independent of constructions of the tcb title
+%% Places \blocktitlefont onto many block titles
+\tcbset{ runintitlestyle/.style={fonttitle=\blocktitlefont\upshape\bfseries, attach title to upper} }
+%% Spacing prior to each exercise, anywhere
+\tcbset{ exercisespacingstyle/.style={before skip={1.5ex plus 0.5ex}} }
+%% Spacing prior to each block
+\tcbset{ blockspacingstyle/.style={before skip={2.0ex plus 0.5ex}} }
+%% xparse allows the construction of more robust commands,
+%% this is a necessity for isolating styling and behavior
+%% The tcolorbox library of the same name loads the base library
+\tcbuselibrary{xparse}
+%% Hyperref should be here, but likes to be loaded late
+%%
+%% Inline math delimiters, \(, \), need to be robust
+%% 2016-01-31:  latexrelease.sty  supersedes  fixltx2e.sty
+%% If  latexrelease.sty  exists, bugfix is in kernel
+%% If not, bugfix is in  fixltx2e.sty
+%% See:  https://tug.org/TUGboat/tb36-3/tb114ltnews22.pdf
+%% and read "Fewer fragile commands" in distribution's  latexchanges.pdf
+\IfFileExists{latexrelease.sty}{}{\usepackage{fixltx2e}}
+%% shorter subnumbers in some side-by-side require manipulations
+\usepackage{xstring}
+%% Text height identically 9 inches, text width varies on point size
+%% See Bringhurst 2.1.1 on measure for recommendations
+%% 75 characters per line (count spaces, punctuation) is target
+%% which is the upper limit of Bringhurst's recommendations
+\geometry{letterpaper,total={340pt,9.0in}}
+%% Custom Page Layout Adjustments (use latex.geometry)
+%% This LaTeX file may be compiled with pdflatex, xelatex, or lualatex executables
+%% LuaTeX is not explicitly supported, but we do accept additions from knowledgeable users
+%% The conditional below provides  pdflatex  specific configuration last
+%% begin: engine-specific capabilities
+\ifthenelse{\boolean{xetex} \or \boolean{luatex}}{%
+%% begin: xelatex and lualatex-specific default configuration
+\ifxetex\usepackage{xltxtra}\fi
+%% realscripts is the only part of xltxtra relevant to lualatex 
+\ifluatex\usepackage{realscripts}\fi
+%% end:   xelatex and lualatex-specific default configuration
+}{
+%% begin: pdflatex-specific default configuration
+%% We assume a PreTeXt XML source file may have Unicode characters
+%% and so we ask LaTeX to parse a UTF-8 encoded file
+%% This may work well for accented characters in Western language,
+%% but not with Greek, Asian languages, etc.
+%% When this is not good enough, switch to the  xelatex  engine
+%% where Unicode is better supported (encouraged, even)
+\usepackage[utf8]{inputenc}
+%% end: pdflatex-specific default configuration
+}
+%% end:   engine-specific capabilities
+%%
+%% Fonts.  Conditional on LaTex engine employed.
+%% Default Text Font: The Latin Modern fonts are
+%% "enhanced versions of the [original TeX] Computer Modern fonts."
+%% We use them as the default text font for PreTeXt output.
+%% Default Monospace font: Inconsolata (aka zi4)
+%% Sponsored by TUG: http://levien.com/type/myfonts/inconsolata.html
+%% Loaded for documents with intentional objects requiring monospace
+%% See package documentation for excellent instructions
+%% fontspec will work universally if we use filename to locate OTF files
+%% Loads the "upquote" package as needed, so we don't have to
+%% Upright quotes might come from the  textcomp  package, which we also use
+%% We employ the shapely \ell to match Google Font version
+%% pdflatex: "varl" package option produces shapely \ell
+%% pdflatex: "var0" package option produces plain zero (not used)
+%% pdflatex: "varqu" package option produces best upright quotes
+%% xelatex,lualatex: add OTF StylisticSet 1 for shapely \ell
+%% xelatex,lualatex: add OTF StylisticSet 2 for plain zero (not used)
+%% xelatex,lualatex: add OTF StylisticSet 3 for upright quotes
+%%
+%% Automatic Font Control
+%% Portions of a document, are, or may, be affected by defined commands
+%% These are perhaps more flexible when using  xelatex  rather than  pdflatex
+%% The following definitions are meant to be re-defined in a style, using \renewcommand
+%% They are scoped when employed (in a TeX group), and so should not be defined with an argument
+\newcommand{\divisionfont}{\relax}
+\newcommand{\blocktitlefont}{\relax}
+\newcommand{\contentsfont}{\relax}
+\newcommand{\pagefont}{\relax}
+\newcommand{\tabularfont}{\relax}
+\newcommand{\xreffont}{\relax}
+\newcommand{\titlepagefont}{\relax}
+%%
+\ifthenelse{\boolean{xetex} \or \boolean{luatex}}{%
+%% begin: font setup and configuration for use with xelatex
+%% Generally, xelatex is necessary for non-Western fonts
+%% fontspec package provides extensive control of system fonts,
+%% meaning *.otf (OpenType), and apparently *.ttf (TrueType)
+%% that live *outside* your TeX/MF tree, and are controlled by your *system*
+%% (it is possible that a TeX distribution will place fonts in a system location)
+%%
+%% The fontspec package is the best vehicle for using different fonts in  xelatex
+%% So we load it always, no matter what a publisher or style might want
+%%
+\usepackage{fontspec}
+%%
+%% begin: xelatex main font ("font-xelatex-main" template)
+%% Latin Modern Roman is the default font for xelatex and so is loaded with a TU encoding
+%% *in the format* so we can't touch it, only perhaps adjust it later
+%% in one of two ways (then known by NFSS names such as "lmr")
+%% (1) via NFSS with font family names such as "lmr" and "lmss"
+%% (2) via fontspec with commands like \setmainfont{Latin Modern Roman}
+%% The latter requires the font to be known at the system-level by its font name,
+%% but will give access to OTF font features through optional arguments
+%% https://tex.stackexchange.com/questions/470008/
+%% where-and-how-does-fontspec-sty-specify-the-default-font-latin-modern-roman
+%% http://tex.stackexchange.com/questions/115321
+%% /how-to-optimize-latin-modern-font-with-xelatex
+%%
+%% end:   xelatex main font ("font-xelatex-main" template)
+%% begin: xelatex mono font ("font-xelatex-mono" template)
+%% (conditional on non-trivial uses being present in source)
+\IfFontExistsTF{Inconsolatazi4-Regular.otf}{}{\GenericError{}{The font "Inconsolatazi4-Regular.otf" requested by PreTeXt output is not available.  Either a file cannot be located in default locations via a filename, or a font is not known by its name as part of your system.}{Consult the PreTeXt Guide for help with LaTeX fonts.}{}}
+\IfFontExistsTF{Inconsolatazi4-Bold.otf}{}{\GenericError{}{The font "Inconsolatazi4-Bold.otf" requested by PreTeXt output is not available.  Either a file cannot be located in default locations via a filename, or a font is not known by its name as part of your system.}{Consult the PreTeXt Guide for help with LaTeX fonts.}{}}
+\usepackage{zi4}
+\setmonofont[BoldFont=Inconsolatazi4-Bold.otf,StylisticSet={1,3}]{Inconsolatazi4-Regular.otf}
+%% end:   xelatex mono font ("font-xelatex-mono" template)
+%% begin: xelatex font adjustments ("font-xelatex-style" template)
+%% end:   xelatex font adjustments ("font-xelatex-style" template)
+%%
+%% Extensive support for other languages
+\usepackage{polyglossia}
+%% Set main/default language based on pretext/@xml:lang value
+%% document language code is "en-US", US English
+%% usmax variant has extra hypenation
+\setmainlanguage[variant=usmax]{english}
+%% Enable secondary languages based on discovery of @xml:lang values
+%% Enable fonts/scripts based on discovery of @xml:lang values
+%% Western languages should be ably covered by Latin Modern Roman
+%% end:   font setup and configuration for use with xelatex
+}{%
+%% begin: font setup and configuration for use with pdflatex
+%% begin: pdflatex main font ("font-pdflatex-main" template)
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%% end:   pdflatex main font ("font-pdflatex-main" template)
+%% begin: pdflatex mono font ("font-pdflatex-mono" template)
+%% (conditional on non-trivial uses being present in source)
+\usepackage[varqu,varl]{inconsolata}
+%% end:   pdflatex mono font ("font-pdflatex-mono" template)
+%% begin: pdflatex font adjustments ("font-pdflatex-style" template)
+%% end:   pdflatex font adjustments ("font-pdflatex-style" template)
+%% end:   font setup and configuration for use with pdflatex
+}
+%% Micromanage spacing, etc.  The named "microtype-options"
+%% template may be employed to fine-tune package behavior
+\usepackage{microtype}
+%% Symbols, align environment, commutative diagrams, bracket-matrix
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{amssymb}
+%% allow page breaks within display mathematics anywhere
+%% level 4 is maximally permissive
+%% this is exactly the opposite of AMSmath package philosophy
+%% there are per-display, and per-equation options to control this
+%% split, aligned, gathered, and alignedat are not affected
+\allowdisplaybreaks[4]
+%% allow more columns to a matrix
+%% can make this even bigger by overriding with  latex.preamble.late  processing option
+\setcounter{MaxMatrixCols}{30}
+%%
+%%
+%% Division Titles, and Page Headers/Footers
+%% titlesec package, loading "titleps" package cooperatively
+%% See code comments about the necessity and purpose of "explicit" option.
+%% The "newparttoc" option causes a consistent entry for parts in the ToC 
+%% file, but it is only effective if there is a \titleformat for \part.
+%% "pagestyles" loads the  titleps  package cooperatively.
+\usepackage[explicit, newparttoc, pagestyles]{titlesec}
+%% The companion titletoc package for the ToC.
+\usepackage{titletoc}
+%% Fixes a bug with transition from chapters to appendices in a "book"
+%% See generating XSL code for more details about necessity
+\newtitlemark{\chaptertitlename}
+%% begin: customizations of page styles via the modal "titleps-style" template
+%% Designed to use commands from the LaTeX "titleps" package
+%% Plain pages should have the same font for page numbers
+\renewpagestyle{plain}{%
+\setfoot{}{\pagefont\thepage}{}%
+}%
+%% Single pages as in default LaTeX
+\renewpagestyle{headings}{%
+\sethead{\pagefont\slshape\MakeUppercase{\ifthechapter{\chaptertitlename\space\thechapter.\space}{}\chaptertitle}}{}{\pagefont\thepage}%
+}%
+\pagestyle{headings}
+%% end: customizations of page styles via the modal "titleps-style" template
+%%
+%% Create globally-available macros to be provided for style writers
+%% These are redefined for each occurence of each division
+\newcommand{\divisionnameptx}{\relax}%
+\newcommand{\titleptx}{\relax}%
+\newcommand{\subtitleptx}{\relax}%
+\newcommand{\shortitleptx}{\relax}%
+\newcommand{\authorsptx}{\relax}%
+\newcommand{\epigraphptx}{\relax}%
+%% Create environments for possible occurences of each division
+%% Environment for a PTX "chapter" at the level of a LaTeX "chapter"
+\NewDocumentEnvironment{chapterptx}{mmmmmm}
+{%
+\renewcommand{\divisionnameptx}{Chapter}%
+\renewcommand{\titleptx}{#1}%
+\renewcommand{\subtitleptx}{#2}%
+\renewcommand{\shortitleptx}{#3}%
+\renewcommand{\authorsptx}{#4}%
+\renewcommand{\epigraphptx}{#5}%
+\chapter[{#3}]{#1}%
+\label{#6}%
+}{}%
+%% Environment for a PTX "section" at the level of a LaTeX "section"
+\NewDocumentEnvironment{sectionptx}{mmmmmm}
+{%
+\renewcommand{\divisionnameptx}{Section}%
+\renewcommand{\titleptx}{#1}%
+\renewcommand{\subtitleptx}{#2}%
+\renewcommand{\shortitleptx}{#3}%
+\renewcommand{\authorsptx}{#4}%
+\renewcommand{\epigraphptx}{#5}%
+\section[{#3}]{#1}%
+\label{#6}%
+}{}%
+%% Environment for a PTX "subsection" at the level of a LaTeX "subsection"
+\NewDocumentEnvironment{subsectionptx}{mmmmmm}
+{%
+\renewcommand{\divisionnameptx}{Subsection}%
+\renewcommand{\titleptx}{#1}%
+\renewcommand{\subtitleptx}{#2}%
+\renewcommand{\shortitleptx}{#3}%
+\renewcommand{\authorsptx}{#4}%
+\renewcommand{\epigraphptx}{#5}%
+\subsection[{#3}]{#1}%
+\label{#6}%
+}{}%
+%%
+%% Styles for six traditional LaTeX divisions
+\titleformat{\part}[display]
+{\divisionfont\Huge\bfseries\centering}{\divisionnameptx\space\thepart}{30pt}{\Huge#1}
+[{\Large\centering\authorsptx}]
+\titleformat{\chapter}[display]
+{\divisionfont\huge\bfseries}{\divisionnameptx\space\thechapter}{20pt}{\Huge#1}
+[{\Large\authorsptx}]
+\titleformat{name=\chapter,numberless}[display]
+{\divisionfont\huge\bfseries}{}{0pt}{#1}
+[{\Large\authorsptx}]
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+\titleformat{\section}[hang]
+{\divisionfont\Large\bfseries}{\thesection}{1ex}{#1}
+[{\large\authorsptx}]
+\titleformat{name=\section,numberless}[block]
+{\divisionfont\Large\bfseries}{}{0pt}{#1}
+[{\large\authorsptx}]
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titleformat{\subsection}[hang]
+{\divisionfont\large\bfseries}{\thesubsection}{1ex}{#1}
+[{\normalsize\authorsptx}]
+\titleformat{name=\subsection,numberless}[block]
+{\divisionfont\large\bfseries}{}{0pt}{#1}
+[{\normalsize\authorsptx}]
+\titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titleformat{\subsubsection}[hang]
+{\divisionfont\normalsize\bfseries}{\thesubsubsection}{1em}{#1}
+[{\small\authorsptx}]
+\titleformat{name=\subsubsection,numberless}[block]
+{\divisionfont\normalsize\bfseries}{}{0pt}{#1}
+[{\normalsize\authorsptx}]
+\titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titleformat{\paragraph}[hang]
+{\divisionfont\normalsize\bfseries}{\theparagraph}{1em}{#1}
+[{\small\authorsptx}]
+\titleformat{name=\paragraph,numberless}[block]
+{\divisionfont\normalsize\bfseries}{}{0pt}{#1}
+[{\normalsize\authorsptx}]
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5em}
+%%
+%% Styles for five traditional LaTeX divisions
+\titlecontents{part}%
+[0pt]{\contentsmargin{0em}\addvspace{1pc}\contentsfont\bfseries}%
+{\Large\thecontentslabel\enspace}{\Large}%
+{}%
+[\addvspace{.5pc}]%
+\titlecontents{chapter}%
+[0pt]{\contentsmargin{0em}\addvspace{1pc}\contentsfont\bfseries}%
+{\large\thecontentslabel\enspace}{\large}%
+{\hfill\bfseries\thecontentspage}%
+[\addvspace{.5pc}]%
+\dottedcontents{section}[3.8em]{\contentsfont}{2.3em}{1pc}%
+\dottedcontents{subsection}[6.1em]{\contentsfont}{3.2em}{1pc}%
+\dottedcontents{subsubsection}[9.3em]{\contentsfont}{4.3em}{1pc}%
+%%
+%% Begin: Semantic Macros
+%% To preserve meaning in a LaTeX file
+%%
+%% \mono macro for content of "c", "cd", "tag", etc elements
+%% Also used automatically in other constructions
+%% Simply an alias for \texttt
+%% Always defined, even if there is no need, or if a specific tt font is not loaded
+\newcommand{\mono}[1]{\texttt{#1}}
+%%
+%% Following semantic macros are only defined here if their
+%% use is required only in this specific document
+%%
+%% Used for inline definitions of terms
+\newcommand{\terminology}[1]{\textbf{#1}}
+%% End: Semantic Macros
+%% Division Numbering: Chapters, Sections, Subsections, etc
+%% Division numbers may be turned off at some level ("depth")
+%% A section *always* has depth 1, contrary to us counting from the document root
+%% The latex default is 3.  If a larger number is present here, then
+%% removing this command may make some cross-references ambiguous
+%% The precursor variable $numbering-maxlevel is checked for consistency in the common XSL file
+\setcounter{secnumdepth}{3}
+%%
+%% AMS "proof" environment is no longer used, but we leave previously
+%% implemented \qedhere in place, should the LaTeX be recycled
+\newcommand{\qedhere}{\relax}
+%%
+%% A faux tcolorbox whose only purpose is to provide common numbering
+%% facilities for most blocks (possibly not projects, 2D displays)
+%% Controlled by  numbering.theorems.level  processing parameter
+\newtcolorbox[auto counter, number within=section]{block}{}
+%%
+%% This document is set to number PROJECT-LIKE on a separate numbering scheme
+%% So, a faux tcolorbox whose only purpose is to provide this numbering
+%% Controlled by  numbering.projects.level  processing parameter
+\newtcolorbox[auto counter, number within=section]{project-distinct}{}
+%% A faux tcolorbox whose only purpose is to provide common numbering
+%% facilities for 2D displays which are subnumbered as part of a "sidebyside"
+\makeatletter
+\newtcolorbox[auto counter, number within=tcb@cnt@block, number freestyle={\noexpand\thetcb@cnt@block(\noexpand\alph{\tcbcounter})}]{subdisplay}{}
+\makeatother
+%%
+%% tcolorbox, with styles, for THEOREM-LIKE
+%%
+%% theorem: fairly simple numbered block/structure
+\tcbset{ theoremstyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, } }
+\newtcolorbox[use counter from=block]{theorem}[3]{title={{Theorem~\thetcbcounter\notblank{#1#2}{\space}{}\notblank{#1}{\space#1}{}\notblank{#2}{\space(#2)}{}}}, phantomlabel={#3}, breakable, parbox=false, after={\par}, fontupper=\itshape, theoremstyle, }
+%% proposition: fairly simple numbered block/structure
+\tcbset{ propositionstyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, } }
+\newtcolorbox[use counter from=block]{proposition}[3]{title={{Proposition~\thetcbcounter\notblank{#1#2}{\space}{}\notblank{#1}{\space#1}{}\notblank{#2}{\space(#2)}{}}}, phantomlabel={#3}, breakable, parbox=false, after={\par}, fontupper=\itshape, propositionstyle, }
+%% fact: fairly simple numbered block/structure
+\tcbset{ factstyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, } }
+\newtcolorbox[use counter from=block]{fact}[3]{title={{Fact~\thetcbcounter\notblank{#1#2}{\space}{}\notblank{#1}{\space#1}{}\notblank{#2}{\space(#2)}{}}}, phantomlabel={#3}, breakable, parbox=false, after={\par}, fontupper=\itshape, factstyle, }
+%%
+%% tcolorbox, with styles, for DEFINITION-LIKE
+%%
+%% definition: fairly simple numbered block/structure
+\tcbset{ definitionstyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, after upper={\space\space\hspace*{\stretch{1}}\(\lozenge\)}, } }
+\newtcolorbox[use counter from=block]{definition}[2]{title={{Definition~\thetcbcounter\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, after={\par}, definitionstyle, }
+%%
+%% tcolorbox, with styles, for EXAMPLE-LIKE
+%%
+%% example: fairly simple numbered block/structure
+\tcbset{ examplestyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, after upper={\space\space\hspace*{\stretch{1}}\(\square\)}, } }
+\newtcolorbox[use counter from=block]{example}[2]{title={{Example~\thetcbcounter\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, after={\par}, examplestyle, }
+%% question: fairly simple numbered block/structure
+\tcbset{ questionstyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, after upper={\space\space\hspace*{\stretch{1}}\(\square\)}, } }
+\newtcolorbox[use counter from=block]{question}[2]{title={{Question~\thetcbcounter\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, after={\par}, questionstyle, }
+%%
+%% tcolorbox, with styles, for inline exercises
+%%
+%% inlineexercise: fairly simple numbered block/structure
+\tcbset{ inlineexercisestyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, } }
+\newtcolorbox[use counter from=block]{inlineexercise}[2]{title={{Checkpoint~\thetcbcounter\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, after={\par}, inlineexercisestyle, }
+%%
+%% tcolorbox, with styles, for miscellaneous environments
+%%
+%% assemblage: fairly simple un-numbered block/structure
+\tcbset{ assemblagestyle/.style={size=normal, colback=white, colbacktitle=white, coltitle=black, colframe=black, rounded corners, titlerule=0.0pt, center title, fonttitle=\blocktitlefont\bfseries, blockspacingstyle, } }
+\newtcolorbox{assemblage}[2]{title={\notblank{#1}{#1}{}}, phantomlabel={#2}, breakable, parbox=false, assemblagestyle}
+%% proof: title is a replacement
+\tcbset{ proofstyle/.style={bwminimalstyle, fonttitle=\blocktitlefont\itshape, attach title to upper, after title={\space}, after upper={\space\space\hspace*{\stretch{1}}\(\blacksquare\)},
+} }
+\newtcolorbox{proof}[2]{title={\notblank{#1}{#1}{Proof.}}, phantom={\hypertarget{#2}{}}, breakable, parbox=false, after={\par}, proofstyle }
+%% Localize LaTeX supplied names (possibly none)
+\renewcommand*{\chaptername}{Chapter}
+%% Equation Numbering
+%% Controlled by  numbering.equations.level  processing parameter
+%% No adjustment here implies document-wide numbering
+\numberwithin{equation}{section}
+%% "tcolorbox" environment for a single image, occupying entire \linewidth
+%% arguments are left-margin, width, right-margin, as multiples of
+%% \linewidth, and are guaranteed to be positive and sum to 1.0
+\tcbset{ imagestyle/.style={bwminimalstyle} }
+\NewTColorBox{image}{mmm}{imagestyle,left skip=#1\linewidth,width=#2\linewidth}
+%% Program listing support: for listings, programs, consoles, and Sage code
+\ifthenelse{\boolean{xetex} \or \boolean{luatex}}%
+  {\tcbuselibrary{listings}}%
+  {\tcbuselibrary{listingsutf8}}%
+%% We define the listings font style to be the default "ttfamily"
+%% To fix hyphens/dashes rendered in PDF as fancy minus signs by listing
+%% http://tex.stackexchange.com/questions/33185/listings-package-changes-hyphens-to-minus-signs
+\makeatletter
+\lst@CCPutMacro\lst@ProcessOther {"2D}{\lst@ttfamily{-{}}{-{}}}
+\@empty\z@\@empty
+\makeatother
+%% We define a null language, free of any formatting or style
+%% for use when a language is not supported, or pseudo-code, or consoles
+%% Not necessary for Sage code, so in limited cases included unnecessarily
+\lstdefinelanguage{none}{identifierstyle=,commentstyle=,stringstyle=,keywordstyle=}
+\ifthenelse{\boolean{xetex}}{}{%
+%% begin: pdflatex-specific listings configuration
+%% translate U+0080 - U+00F0 to their textmode LaTeX equivalents
+%% Data originally from https://www.w3.org/Math/characters/unicode.xml, 2016-07-23
+%% Lines marked in XSL with "$" were converted from mathmode to textmode
+\lstset{extendedchars=true}
+\lstset{literate={ }{{~}}{1}{¡}{{\textexclamdown }}{1}{¢}{{\textcent }}{1}{£}{{\textsterling }}{1}{¤}{{\textcurrency }}{1}{¥}{{\textyen }}{1}{¦}{{\textbrokenbar }}{1}{§}{{\textsection }}{1}{¨}{{\textasciidieresis }}{1}{©}{{\textcopyright }}{1}{ª}{{\textordfeminine }}{1}{«}{{\guillemotleft }}{1}{¬}{{\textlnot }}{1}{­}{{\-}}{1}{®}{{\textregistered }}{1}{¯}{{\textasciimacron }}{1}{°}{{\textdegree }}{1}{±}{{\textpm }}{1}{²}{{\texttwosuperior }}{1}{³}{{\textthreesuperior }}{1}{´}{{\textasciiacute }}{1}{µ}{{\textmu }}{1}{¶}{{\textparagraph }}{1}{·}{{\textperiodcentered }}{1}{¸}{{\c{}}}{1}{¹}{{\textonesuperior }}{1}{º}{{\textordmasculine }}{1}{»}{{\guillemotright }}{1}{¼}{{\textonequarter }}{1}{½}{{\textonehalf }}{1}{¾}{{\textthreequarters }}{1}{¿}{{\textquestiondown }}{1}{À}{{\`{A}}}{1}{Á}{{\'{A}}}{1}{Â}{{\^{A}}}{1}{Ã}{{\~{A}}}{1}{Ä}{{\"{A}}}{1}{Å}{{\AA }}{1}{Æ}{{\AE }}{1}{Ç}{{\c{C}}}{1}{È}{{\`{E}}}{1}{É}{{\'{E}}}{1}{Ê}{{\^{E}}}{1}{Ë}{{\"{E}}}{1}{Ì}{{\`{I}}}{1}{Í}{{\'{I}}}{1}{Î}{{\^{I}}}{1}{Ï}{{\"{I}}}{1}{Ð}{{\DH }}{1}{Ñ}{{\~{N}}}{1}{Ò}{{\`{O}}}{1}{Ó}{{\'{O}}}{1}{Ô}{{\^{O}}}{1}{Õ}{{\~{O}}}{1}{Ö}{{\"{O}}}{1}{×}{{\texttimes }}{1}{Ø}{{\O }}{1}{Ù}{{\`{U}}}{1}{Ú}{{\'{U}}}{1}{Û}{{\^{U}}}{1}{Ü}{{\"{U}}}{1}{Ý}{{\'{Y}}}{1}{Þ}{{\TH }}{1}{ß}{{\ss }}{1}{à}{{\`{a}}}{1}{á}{{\'{a}}}{1}{â}{{\^{a}}}{1}{ã}{{\~{a}}}{1}{ä}{{\"{a}}}{1}{å}{{\aa }}{1}{æ}{{\ae }}{1}{ç}{{\c{c}}}{1}{è}{{\`{e}}}{1}{é}{{\'{e}}}{1}{ê}{{\^{e}}}{1}{ë}{{\"{e}}}{1}{ì}{{\`{\i}}}{1}{í}{{\'{\i}}}{1}{î}{{\^{\i}}}{1}{ï}{{\"{\i}}}{1}{ð}{{\dh }}{1}{ñ}{{\~{n}}}{1}{ò}{{\`{o}}}{1}{ó}{{\'{o}}}{1}{ô}{{\^{o}}}{1}{õ}{{\~{o}}}{1}{ö}{{\"{o}}}{1}{÷}{{\textdiv }}{1}{ø}{{\o }}{1}{ù}{{\`{u}}}{1}{ú}{{\'{u}}}{1}{û}{{\^{u}}}{1}{ü}{{\"{u}}}{1}{ý}{{\'{y}}}{1}{þ}{{\th }}{1}{ÿ}{{\"{y}}}{1}}
+%% end: pdflatex-specific listings configuration
+}
+%% End of generic listing adjustments
+%% The listings package as tcolorbox for Sage code
+%% We do as much styling as possible with tcolorbox, not listings
+%% Sage's blue is 50%, we go way lighter (blue!05 would also work)
+%% Note that we defuse listings' default "aboveskip" and "belowskip"
+\definecolor{sageblue}{rgb}{0.95,0.95,1}
+\tcbset{ sagestyle/.style={left=0pt, right=0pt, top=0ex, bottom=0ex, middle=0pt, toptitle=0pt, bottomtitle=0pt,
+boxsep=4pt, listing only, fontupper=\small\ttfamily,
+breakable, parbox=false, 
+listing options={language=Python,breaklines=true,breakatwhitespace=true, extendedchars=true, aboveskip=0pt, belowskip=0pt}} }
+\newtcblisting{sageinput}{sagestyle, colback=sageblue, sharp corners, boxrule=0.5pt, toprule at break=-0.3pt, bottomrule at break=-0.3pt, }
+\newtcblisting{sageoutput}{sagestyle, colback=white, colframe=white, frame empty, before skip=0pt, after skip=0pt, }
+%% More flexible list management, esp. for references
+%% But also for specifying labels (i.e. custom order) on nested lists
+\usepackage{enumitem}
+%% hyperref driver does not need to be specified, it will be detected
+%% Footnote marks in tcolorbox have broken linking under
+%% hyperref, so it is necessary to turn off all linking
+%% It *must* be given as a package option, not with \hypersetup
+\usepackage[hyperfootnotes=false]{hyperref}
+%% configure hyperref's  \url  to match listings' inline verbatim
+\renewcommand\UrlFont{\small\ttfamily}
+%% Hyperlinking active in electronic PDFs, all links solid and blue
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,filecolor=blue,urlcolor=blue}
+\hypersetup{pdftitle={Math 344 - Linear Analysis II Notes}}
+%% If you manually remove hyperref, leave in this next command
+\providecommand\phantomsection{}
+%% If tikz has been loaded, replace ampersand with \amp macro
+\ifdefined\tikzset
+    \tikzset{ampersand replacement = \amp}
+\fi
+%% tcolorbox styles for sidebyside layout
+\tcbset{ sbsstyle/.style={raster before skip=2.0ex, raster equal height=rows, raster force size=false} }
+\tcbset{ sbspanelstyle/.style={bwminimalstyle, fonttitle=\blocktitlefont} }
+%% Enviroments for side-by-side and components
+%% Necessary to use \NewTColorBox for boxes of the panels
+%% "newfloat" environment to squash page-breaks within a single sidebyside
+%% "xparse" environment for entire sidebyside
+\NewDocumentEnvironment{sidebyside}{mmmm}
+  {\begin{tcbraster}
+    [sbsstyle,raster columns=#1,
+    raster left skip=#2\linewidth,raster right skip=#3\linewidth,raster column skip=#4\linewidth]}
+  {\end{tcbraster}}
+%% "tcolorbox" environment for a panel of sidebyside
+\NewTColorBox{sbspanel}{mO{top}}{sbspanelstyle,width=#1\linewidth,valign=#2}
+%% extpfeil package for certain extensible arrows,
+%% as also provided by MathJax extension of the same name
+%% NB: this package loads mtools, which loads calc, which redefines
+%%     \setlength, so it can be removed if it seems to be in the 
+%%     way and your math does not use:
+%%     
+%%     \xtwoheadrightarrow, \xtwoheadleftarrow, \xmapsto, \xlongequal, \xtofrom
+%%     
+%%     we have had to be extra careful with variable thickness
+%%     lines in tables, and so also load this package late
+\usepackage{extpfeil}
+%% Custom Preamble Entries, late (use latex.preamble.late)
+%% Begin: Author-provided packages
+%% (From  docinfo/latex-preamble/package  elements)
+%% End: Author-provided packages
+%% Begin: Author-provided macros
+%% (From  docinfo/macros  element)
+%% Plus three from MBX for XML characters
+\DeclareMathOperator{\RE}{Re}
+  \DeclareMathOperator{\IM}{Im}
+  \DeclareMathOperator{\ess}{ess}
+  \DeclareMathOperator{\intr}{int}
+  \DeclareMathOperator{\dist}{dist}
+  \DeclareMathOperator{\dom}{dom}
+  \DeclareMathOperator{\diag}{diag}
+  \DeclareMathOperator{\null}{null}
+  \DeclareMathOperator{\rank}{rank}
+  \DeclareMathOperator{\col}{col}
+  \DeclareMathOperator{\row}{row}
+  \DeclareMathOperator{\proj}{proj}
+  \DeclareMathOperator\re{\mathrm {Re~}}
+  \DeclareMathOperator\im{\mathrm {Im~}}
+  
+  \newcommand\dd{\mathrm d}
+  \newcommand{\eps}{\varepsilon}
+  \newcommand{\To}{\longrightarrow}
+  \newcommand{\hilbert}{\mathcal{H}}
+  \newcommand{\s}{\mathcal{S}_2}
+  \newcommand{\A}{\mathcal{A}}
+  \newcommand\h{\mathcal{H}}
+  \newcommand{\J}{\mathcal{J}}
+  \newcommand{\M}{\mathcal{M}}
+  \newcommand{\F}{\mathbb{F}}
+  \newcommand{\N}{\mathcal{N}}
+  \newcommand{\T}{\mathbb{T}}
+  \newcommand{\W}{\mathcal{W}}
+  \newcommand{\X}{\mathcal{X}}
+  \newcommand{\D}{\mathbb{D}}
+  \newcommand{\C}{\mathbb{C}}
+  \newcommand{\BOP}{\mathbf{B}}
+  \newcommand{\Z}{\mathbb{Z}}
+  \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+  \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+  \newcommand{\pick}{\mathcal{P}_2}
+  \newcommand{\schur}{\mathcal{S}_2}
+  \newcommand{\R}{\mathbb{R}}
+  \newcommand{\Complex}{\mathbb{C}}
+  \newcommand{\Field}{\mathbb{F}}
+  \newcommand{\RPlus}{\Real^{+}}
+  \newcommand{\Polar}{\mathcal{P}_{\s}}
+  \newcommand{\Poly}{\mathcal{P}(E)}
+  \newcommand{\EssD}{\mathcal{D}}
+  \newcommand{\Lop}{\mathcal{L}}
+  \newcommand{\cc}[1]{\overline{#1}}
+  \newcommand{\abs}[1]{\left\vert#1\right\vert}
+  \newcommand{\set}[1]{\left\{#1\right\}}
+  \newcommand{\seq}[1]{\left\lt#1\right>}
+  \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+  \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+  \newcommand{\tr}{\operatorname{tr}}
+  \newcommand{\ran}[1]{\operatorname{ran}#1}
+  \newcommand{\nt}{\stackrel{\mathrm {nt}}{\to}}
+  \newcommand{\pnt}{\xrightarrow{pnt}}
+  \newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+  \newcommand{\ad}{^\ast}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\adinv}{^{\ast -1}}
+  \newcommand{\invad}{^{-1 \ast}}
+  \newcommand\Pick{\mathcal P}
+  \newcommand\Ha{\mathbb{H}}
+  \newcommand{\HH}{\Ha\times\Ha}
+  \newcommand\Htau{\mathbb{H}(\tau)}
+  \newcommand{\vp}{\varphi}
+  \newcommand{\ph}{\varphi}
+  \newcommand\al{\alpha}
+  \newcommand\ga{\gamma}
+  \newcommand\de{\delta}
+  \newcommand\ep{\varepsilon}
+  \newcommand\la{\lambda}
+  \newcommand\up{\upsilon}
+  \newcommand\si{\sigma}
+  \newcommand\beq{\begin{equation}}
+  \newcommand\ds{\displaystyle}
+  \newcommand\eeq{\end{equation}}
+  \newcommand\df{\stackrel{\rm def}{=}}
+  \newcommand\ii{\mathrm i}
+  \newcommand{\vectwo}[2]
+  {
+     \begin{pmatrix} #1 \\ #2 \end{pmatrix}
+  }
+  \newcommand{\vecthree}[3]
+  {
+     \begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}
+  }
+  \newcommand\blue{\color{blue}}
+  \newcommand\black{\color{black}}
+  \newcommand\red{\color{red}}
+  
+  \newcommand\nn{\nonumber}
+  \newcommand\bbm{\begin{bmatrix}}
+  \newcommand\ebm{\end{bmatrix}}
+  \newcommand\bpm{\begin{pmatrix}}
+  \newcommand\epm{\end{pmatrix}}
+  \numberwithin{equation}{section}
+  \newcommand\nin{\noindent}
+  \newcommand{\nCr}[2]{\,_{#1}C_{#2}} 
+  \newcommand{\vec}[1]{{\bf #1}}
+  \newcommand{\ps}{\displaystyle \sum_{n=0}^\infty a_n x^n}
+  \newcommand{\psg}{\displaystyle \sum_{n=0}^\infty b_n x^n}
+  \newcommand{\hz}{\,\mathrm{Hz}}
+\newcommand{\lt}{<}
+\newcommand{\gt}{>}
+\newcommand{\amp}{&}
+%% End: Author-provided macros
+\begin{document}
+\frontmatter
+%% begin: half-title
+\thispagestyle{empty}
+{\titlepagefont\centering
+\vspace*{0.28\textheight}
+{\Huge Math 344 - Linear Analysis II Notes}\\}
+\clearpage
+%% end:   half-title
+%% begin: title page
+%% Inspired by Peter Wilson's "titleDB" in "titlepages" CTAN package
+\thispagestyle{empty}
+{\titlepagefont\centering
+\vspace*{0.14\textheight}
+%% Target for xref to top-level element is ToC
+\addtocontents{toc}{\protect\hypertarget{x:book:linanal}{}}
+{\Huge Math 344 - Linear Analysis II Notes}\\[3\baselineskip]
+{\Large Ryan Tully-Doyle}\\[0.5\baselineskip]
+{\Large Cal Poly, SLO}\\[3\baselineskip]
+{\Large January 6, 2021}\\}
+\clearpage
+%% end:   title page
+%% begin: copyright-page
+\thispagestyle{empty}
+\vspace*{\stretch{2}}
+\vspace*{\stretch{1}}
+\null\clearpage
+%% end:   copyright-page
+%% begin: table of contents
+%% Adjust Table of Contents
+\setcounter{tocdepth}{1}
+\renewcommand*\contentsname{Contents}
+\tableofcontents
+%% end:   table of contents
+\mainmatter
+%
+%
+\typeout{************************************************}
+\typeout{Chapter 1 What you should know}
+\typeout{************************************************}
+%
+\begin{chapterptx}{What you should know}{}{What you should know}{}{}{x:chapter:ch-0}
+%
+%
+\typeout{************************************************}
+\typeout{Section 1.1 Introduction}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Introduction}{}{Introduction}{}{}{g:section:idp695222295440}
+This course is the second course in a sequence that uses the language and techniques of linear algebra to study problems in differential equations. The following sections give a broad overview of ideas from calculus, differential equations, and linear algebra that will be used in the course. An overview of ideas you should have seen before might look like%
+%
+\begin{enumerate}
+\item{}Calculus%
+\begin{itemize}[label=\textbullet]
+\item{}Taylor series%
+\item{}Interval of convergence and the ratio test%
+\item{}Power series of basic functions%
+\item{}Integrating and differentiating power series%
+\item{}Improper integrals%
+\end{itemize}
+%
+\item{}Differential equations%
+\begin{itemize}[label=\textbullet]
+\item{}Second order constant coefficient linear differential equations%
+\item{}Characteristic equations%
+\item{}Reduction of order%
+\item{}Harmonic motion (homogeneous and forced motion)%
+\end{itemize}
+%
+\item{}Linear Algebra%
+\begin{itemize}[label=\textbullet]
+\item{}Vector spaces%
+\item{}Linear independence%
+\item{}Basis of a vector space%
+\item{}Inner products (beyond the dot product)%
+\item{}Orthogonality%
+\item{}Vector projections%
+\end{itemize}
+%
+\end{enumerate}
+You don't need to be an expert, but having seen and used these ideas in the past is going to make this course quite a bit more interesting and productive.%
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 1.2 Calculus}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Calculus}{}{Calculus}{}{}{g:section:idp695237789408}
+The first of the basic ideas we're going to need is \terminology{improper integration}, which is a fancy way of saying an integral with infinity as a limit. Do not be fooled by the notation%
+\begin{equation*}
+\int_a^\infty f(x) \, dx.
+\end{equation*}
+Infinity is not a number, and the notation for improper integrals is merely shorthand for a limit (this is a recurring theme with infinity). That is, we say that an improper integral in infinity \terminology{converges} if%
+\begin{equation*}
+\int_a^\infty f(x) \, dx = \lim_{N \to \infty} \int_a^N f(x) \, dx \text{ exists and is finite}.
+\end{equation*}
+\emph{DO NOT} treat infinity like a number.%
+\par
+An infinite series is also a limit. (The clue is that infinity is present in the symbol). That is,%
+\begin{equation*}
+\sum_{n=0}^\infty a_n = \lim_{N \to \infty} \sum_{n=a}^N a_n.
+\end{equation*}
+This is sometimes called the ``limit of partial sums''. An infinite series exists if the limit of partial sums exists and is finite.    An infinite series \(\sum a_n\) is said to \terminology{converge absolutely} if \(\sum \abs{a_n}\) is a convergent series.%
+\par
+You learned many ways of determining when an infinite series converges in calculus. The most important test for us in this course is the \terminology{ratio test}, which states that a series converges (absolutely) if%
+\begin{equation*}
+\lim_{n \to \infty} \abs{\frac{a_{n+1}}{a_n}} \lt \infty.
+\end{equation*}
+%
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 1.3 Linear algebra}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Linear algebra}{}{Linear algebra}{}{}{g:section:idp695237413376}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 1.3.1 Motivation}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Motivation}{}{Motivation}{}{}{x:subsection:sec-intro-1}
+One of the most profound ideas of linear algebra is that \emph{any finite dimensional vector space over \(\R\) or \(\C\) is secretly \(\R^n\) or \(\C^n\)}. This insight allows us to reduce the study of vector spaces and the maps between them to the study of matrices.%
+\par
+The key idea is that every finite dimensional vector space can be represented in coordinates once we choose a basis. We denote the representation of a vector \(v \in V\) with respect to a basis \(\mathcal V\) by \(v_\mathcal{V}\). Better yet, that basis can be chosen to be orthonormal by way of the Gram-Schmidt process and the dot product structure of Euclidean space. The coordinatization of \(V\) also gives unique representations of linear maps betwen those spaces.%
+\begin{theorem}{}{}{g:theorem:idp695237386560}%
+Let \(V, W\) be finite dimensional vector spaces with bases \(\mathcal V, \mathcal W\). Then any linear map \(T: V \to W\) has a unique matrix representation with respect to \(\mathcal V, \mathcal W\) by%
+\begin{equation*}
+T(x) = A x
+\end{equation*}
+with%
+\begin{equation*}
+A = \bbm T(v_1)_{\mathcal W} \amp \ldots \amp T(v_n)_{\mathcal W} \ebm
+\end{equation*}
+%
+\end{theorem}
+Typical examples introduced in a linear algebra course include the space of polynomials of degree less than or equal to \(n\). At the same time, we usually also get to see a very suggestive example of a useful linear map and the representation of that map in matrix form.%
+\par
+Let \(P_n\) denote the space of polynomials of degree \(\leq n\). Consider the map \(D: P_3 \to P_2\) defined by%
+\begin{equation*}
+D(a_0 + a_1 t + a_2 t^2 + a_3 t^3) = a_1 + 2 a_2 t + 3 a_3 t^2.
+\end{equation*}
+That is, \(D\) is the map that takes the derivative of a polynomial. It isn't hard to use the standard basis for \(P_n\) to get the matrix representation%
+\begin{equation*}
+D(p) = \bbm 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \amp 3 \ebm \bbm a_0 \\ a_1 \\ a_2 \\ a_3 \ebm
+\end{equation*}
+for the action of \(D\) on \(P_3\).%
+\par
+This example is a good place to begin asking questions about how far we can push finite dimensional linear algebra. The fact that differentiation of polynomials is wonderful - but what else can we apply it to? Nice functions have power series that converge absolutely, and we like to think of an absolutely convergent power series as sort of an ``infinite polynomial''. Our intution might lead us to make a connection with calculus at this point. When we learn to work with power series, we learn that for a convergent power series,%
+\begin{equation*}
+\frac{d}{dx} \sum a_n (x-a)^n = \sum n a_n (x-a)^{n-1}.
+\end{equation*}
+In analogy with our example about polynomials above, we're tempted to write, for a function \(f\) defined by a convergent power series, that%
+\begin{equation*}
+D(f) =  \underbrace{\bbm 0 \amp 1 \amp 0 \amp 0 \amp \ldots \\ 0 \amp 0 \amp 2 \amp 0 \amp \ldots \\ 0 \amp 0 \amp 0 \amp 3 \amp \ldots \\ \vdots \amp \amp \amp \amp \ddots \ebm}_{A} \bbm a_0 \\ a_1 \\ a_2 \\ a_3 \\ \vdots \ebm = a_1 + 2a_2 (x - a) + 3 a_3 (x-1)^2 + \ldots.
+\end{equation*}
+%
+\par
+This idea is shot through with issues that need to be addressed.%
+\begin{itemize}[label=\textbullet]
+\item{}The object \(A\) is some kind of \(\infty \times \infty\) matrix. How does that make sense?%
+\item{}What are the vector spaces that \(D\) is mapping between?%
+\item{}Does the idea of coordinatization still work?%
+\item{}If it does, what exactly is ``\(\R^\infty\)'' supposed to be?%
+\item{}Do infinite dimensional vector spaces and bases make sense at all?%
+\end{itemize}
+%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 1.3.2 Inner products}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Inner products}{}{Inner products}{}{}{g:subsection:idp695237864464}
+The \terminology{dot product} of two vectors in \(\C^n\) is%
+\begin{equation}
+x \cdot y = \sum_{i=1}^n \cc y_i x_i.\label{x:men:def-dot}
+\end{equation}
+Standard notation for the dot product is \(\ip{x}{y}\) and in \(\C^n\) is equivalent to \(y\ad x\), where \(\ad\) designates the conjugate transpose of a matrix. The dot product has the following properties:%
+\begin{enumerate}
+\item{}\(\displaystyle \ip{x}{y} = \cc{\ip{y}{x}} \hspace{.2in} \text{conjugate symmetry}\)%
+\item{}\(\displaystyle \ip{x + y}{z} = \ip{x}{y} + \ip{y}{z} \hspace{.2in} \text{linearity in the first term}\)%
+\item{}\(\displaystyle \ip{x}{x} \geq 0 \hspace{.2in} \text{non-negativity}\)%
+\end{enumerate}
+%
+\par
+Once we have the dot product, we can start building the geometry of \(\C^n\). First, note that%
+\begin{equation}
+\norm{x}^2 = \ip{x}{x} = \sum_{i=1}^n \abs{x}^2.\label{x:men:eq-Euclidean-norm}
+\end{equation}
+Motivated by the real case, we say that two vectors \(x, y\) are \terminology{orthogonal} and write \(x \perp y\) if \(\ip{x}{y} = 0\).%
+\par
+Another important inequality is indicated by the relationship between angles and the dot product in \(\R^n\), where we have%
+\begin{equation*}
+\ip{x}{y} = \norm{x}\norm{y}\cos \theta,
+\end{equation*}
+where \(\theta\) is the angle between the vectors. While the idea of ``angle'' doesn't make sense in \(\C^n\) (at least in the same way), we still have the \terminology{Cauchy-Schwarz} inequality%
+\begin{equation}
+\abs{\ip{x}{y}} \leq \norm{x}\norm{y}.\label{g:men:idp695237878192}
+\end{equation}
+%
+\par
+Orthogonality also underlies the vector version of the \terminology{Pythagorean theorem},%
+\begin{equation}
+\norm{x}^2 + \norm{y}^2 = \norm{x+ y}^2 \iff x\perp y.\label{g:men:idp695237879136}
+\end{equation}
+%
+\par
+Finally, it would be remiss to leave out the single most important inequality in mathematics, our old friend the \terminology{triangle inequality}, which in vector terms can be expressed%
+\begin{equation}
+\norm{x + y} \leq \norm{x} + \norm{y}\label{g:men:idp695237880288}
+\end{equation}
+%
+\par
+Because finite dimensional vector spaces have representations in coordinates as \(\R^n\) or \(\C^n\), all finite dimensional vector spaces carry the geometric structure delineated above.%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 1.3.3 Basis and coordinates}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Basis and coordinates}{}{Basis and coordinates}{}{}{x:subsection:intro-2}
+Let \(V\) be a vector space over a field \(\F\). Recall that a (finite) set of vectors \(S \subset V\) is \terminology{linearly independent} if only the trivial solution exists for the equation%
+\begin{equation}
+0 = \sum_\mathcal{I} c_i v_i.\label{g:men:idp695237885072}
+\end{equation}
+A set \(S\) of vectors in \(V\) is said to \terminology{span} \(V\) if every vector in \(V\) can be realized as a linear combination of vectors in \(S\). That is, given \(v \in V\), there exist coefficients \(c_i\) so that%
+\begin{equation*}
+v = \sum_{\mathcal I} c_i v_i.
+\end{equation*}
+%
+\par
+A basis \(\mathcal V\) for \(V\) is a subset of \(V\) so that \(\mathcal V\) is linearly independent and \(\mathcal V\) spans \(V\). It is a major result that every vector space has a basis. The full result requires the invocation of \href{https://en.wikipedia.org/wiki/Zorn\%27s_lemma}{Zorn's Lemma} or other equivalents of the \href{https://en.wikipedia.org/wiki/Axiom_of_choice}{axiom of choice} and will not be proven here. (A nice argument can be found \href{http://www.math.lsa.umich.edu/\~kesmith/infinite.pdf}{here}.) Our interest is in modeling vector spaces the carry the logic and structure of Euclidean space. The \terminology{dimension} of \(V\) is the order of a basis \(\mathcal V\). If the basis has a finite number of elements, say \(n\), then \(V\) is called finite dimensional. In particular, (and clearly providing motivation for the definition), \(\dim \R^n = n\).%
+\par
+Suppose that \(V\) is a finite dimensional vector space with a basis \(\mathcal V\). Let \(v\) be a vector in \(V\). Then the \terminology{coordinates of \(v\) with respect to \(\mathcal V\)} are the constants \(c_i\) so that \(v = \sum_{\mathcal I} c_i v_i\). These coordinates are \emph{unique} once we have fixed a basis \(\mathcal V\). That is, we have a bijective relationship between the vectors \(v \in V\) and the coordinate representations \(\bbm c_1 \\ \vdots \\ c_n \ebm \in \F^n\). In \(\F^n\), the coordinate representation of a vector is straightforward to compute using the dot product.%
+\begin{theorem}{}{}{x:theorem:thm-finite-coords}%
+Let \(e_1, \ldots e_m\) be an orthonormal basis for \(\F^m\) and \(v \in \F^n\). Then the \(n\)th coordinate of \(v\) with respect to the basis is \(\ip{v}{e_n}\), and the expansion of \(v\) with respect to the basis is%
+\begin{equation*}
+v = \sum_{1}^m \ip{v}{e_i} e_i.
+\end{equation*}
+%
+\end{theorem}
+Furthermore, we can use the coordinate representation to write representing matrices for linear functions \(T:V \to W\). Suppose that \(V, W\) are vector spaces of dimension \(m,n\) respectively over \(\F\). Then \begin{sidebyside}{1}{0.35}{0.35}{0}%
+\begin{sbspanel}{0.3}%
+\resizebox{\linewidth}{!}{%
+\begin{tikzcd}
+    V \arrow[r,"T"] \arrow{d}{i_V} \amp W \\
+    \F^m \arrow[r,"A"] \amp \F^n \arrow{u}{i_W \inv}
+\end{tikzcd}
+}%
+\end{sbspanel}%
+\end{sidebyside}%
+ where \(A\) is the matrix that represents \(T\) and \(i\) is the natural bijection- the coordinatization - between \(V, W\) and \(\F^m, \F^n\) respectively. We should note that matrix multiplication is defined so that \begin{sidebyside}{1}{0.3}{0.3}{0}%
+\begin{sbspanel}{0.4}%
+\resizebox{\linewidth}{!}{%
+\begin{tikzcd}
+    U \arrow{r}{S} \arrow{d}{i_U} \amp V \arrow[r,"T"]  \amp W \\
+    \F^r \arrow{r}{A} \amp \F^m \arrow[r,"B"] \amp \F^n \arrow{u}{i_W \inv}
+\end{tikzcd}
+}%
+\end{sbspanel}%
+\end{sidebyside}%
+ reduces to the diagram \begin{sidebyside}{1}{0.35}{0.35}{0}%
+\begin{sbspanel}{0.3}%
+\resizebox{\linewidth}{!}{%
+\begin{tikzcd}
+    U \arrow[r,"S \circ T"] \arrow{d}{i_U} \amp W \\
+    \F^r \arrow[r,"BA"] \amp \F^n \arrow{u}{i_W \inv}
+\end{tikzcd}
+}%
+\end{sbspanel}%
+\end{sidebyside}%
+ That is, the representing matrix of a composition is the product of the representing matrices of the functions.%
+\par
+Any basis of a vector space can be replaced with an equivalent basis of orthonormal vectors - the algorithm for creating an orthonormal basis from a basis is called the \terminology{\href{https://en.wikipedia.org/wiki/Gram\%E2\%80\%93Schmidt_process}{Gram-Schmidt process}}.%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 1.3.4 Operators}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Operators}{}{Operators}{}{}{g:subsection:idp695237918272}
+When a linear function maps \(V\) into itself, special things happen. First, the matrix that represents \(T: \F^n \to \F^n\) is square. There are a large number of equivalences between the structure of square matrices, linear maps, and sets of vectors. Many of these are captured in the \terminology{invertible matrix theorem}, one of the central objects of study in elementary linear algebra.%
+\begin{theorem}{Invertible matrix theorem.}{}{x:theorem:thminvmat1}%
+Let \(A\) be an \(n \times n\) matrix. If any of the following conditions hold, all of them do. If any of them are false, they are all.%
+\begin{enumerate}
+\item{}\(A\) is invertible.%
+\item{}\(A\) row reduces to the identity matrix \(I\).%
+\item{}\(A\) has \(n\) pivot positions.%
+\item{}\(rank A = n\).%
+\item{}The equation \(A \vec x = \vec 0\) has only the trivial solution.%
+\item{}The columns of \(A\) are linearly independent.%
+\item{}The function \(T(\vec x) = A \vec x\) is one-to-one.%
+\item{}The equation \(A \vec x = \vec v\) is consistent for all \(b \in \F^n\).%
+\item{}The columns of \(A\) span \(\F^n\).%
+\item{}The function \(T(\vec x) = A \vec x\) is onto.%
+\item{}There is a matrix \(C\) so that \(C A = I\).%
+\item{}There is a matrix \(D\) so that \(A D = I\).%
+\item{}\(A^T\) is invertible.%
+\item{}\(\displaystyle \det A \neq 0.\)%
+\end{enumerate}
+%
+\end{theorem}
+Operators contain more information than the invertibility of the functions that they represent. For the following discussion, let us fix a basis of a vector space \(V\) and let \(A\) be the matrix that represents a function \(T: V \to V\). A scalar \(\la\) and a vector \(v\) are said to be an \terminology{eigenpair} for \(A\) if%
+\begin{equation*}
+A v = \la v.
+\end{equation*}
+It is straightforward to see that the set of all vectors \(v\) for which the eigenvector equation holds is a subspace of \(V\), called the \terminology{eigenspace} associated with \(\la\). The eigenspaces of the matrix \(A\) are its \terminology{invariant subspaces}, which is to say that a vector in an eigenspace is mapped by \(A\) to the same eigenspace. It turns out that knowing the invariant subspaces of \(A\) are often enough to completely characterize \(A\). If \(A\) is \(n\times n\) and \(A\) has \(n\) linearly independent eigenvectors (that is, one can find a basis of \(\F^n\) consisting of eigenvectors of \(A\)), then%
+\begin{equation*}
+A = S D S\inv,
+\end{equation*}
+where \(S\) is a matrix of eigenvectors and \(D\) is a diagonal matrix of the associated eigenvalues (including repetition of course). (One should think of \(S\) as a change of basis matrix under which the operator \(A\) becomes diagonal.)%
+\par
+Many operators are not diagonalizable, even very simple ones. For example, \(A = \bbm 1 \amp 1 \\ 0 \amp 1 \ebm\) only has a one-dimensional eigenspace. Diagonalizability is so useful that we give characterizations of those operators a special name, the \terminology{Spectral Theorem}. An operator on a real vector space is called \terminology{symmetric} if \(A^T = A\). An operator on a complex vector space is called \terminology{Hermitian} (or conjugate symmetric) if \(A\ad = \cc{A^T} = A\). One of the major theorems of elementary linear algebra is that such operators are diagonalizable and that there exists an orthonormal basis of eigenvectors for \(V\).%
+\begin{theorem}{}{}{g:theorem:idp695237934976}%
+Let \(A\) be an \(n \times n\) real (complex) matrix. Then \(A\) is diagonalizable with respect to an orthonormal basis of eigenvectors if and only if \(A\) is symmetric (hermitian).%
+\end{theorem}
+For complex operators, one can say more. \(A\) is called \terminology{normal} if \(A A\ad = A\ad A\). One reason that complex vector spaces are so much nicer than real vector spaces is that normal operators turn out to have orthonormal diagonalizations.%
+\begin{theorem}{Complex (finite) spectral theorem.}{}{g:theorem:idp695237955952}%
+Let \(A\) be an operator on a finite dimensional Hilbert space \(V\). Then \(A\) is normal if and only if \(A\) can be diagonalized with respect to an orthonormal basis of eigenvectors for \(V\).%
+\end{theorem}
+\end{subsectionptx}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 1.4 Differential Equations}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Differential Equations}{}{Differential Equations}{}{}{g:section:idp695237956544}
+A homogeneous second order linear differential equation is of the form%
+\begin{equation*}
+y'' + p(x) y' + q(x) y = 0.
+\end{equation*}
+%
+\par
+The most important differential equations of this type are \terminology{linear constant coefficient differential equations}, usually introduced in the second order. For example,%
+\begin{equation*}
+y'' + 3 y' + 2 y = \cos x
+\end{equation*}
+is such an equation. More generally, these equations have the form%
+\begin{equation*}
+a_n y^{(n)}(x) + \ldots + a_1 y'(x) + a_0 y(x) = f(x).
+\end{equation*}
+(This can be written%
+\begin{equation*}
+\mathcal{F}(y) = f(x)
+\end{equation*}
+where \(\mathcal{F}\) is the operator that takes \(y\) to the differential expression on the left hand side.) These equations are important because they are the general equations that describe harmonic motions - vibration, oscillation, and rotations.%
+\par
+The method of solution we develop in earlier courses is to find the solution by working in steps. First, we solve the associated \terminology{homogeneous equation} in order to identify any functions that are sent to the zero function by the differential operator. This is called the \terminology{homogeneous solution} \(y_h\). To do so, we use the method of the characteristic equation or the method of annihilators. In either case, we have to factor potentially high degree polynomials.%
+\begin{example}{}{g:example:idp695237965360}%
+To solve the homogeneous equation%
+\begin{equation*}
+y'' + 3y' + 2y = 0,
+\end{equation*}
+we first consider the characteristic equation%
+\begin{equation*}
+m^2 + 3m + 2 = 0
+\end{equation*}
+which factors as%
+\begin{equation*}
+(m+2)(m+1) = 0
+\end{equation*}
+with solutions \(m = -2, m=-1\). Then the principle of superposition tells us that the homogeneous solution is%
+\begin{equation*}
+y_h = c_1 e^{-2x} + c_2 e^{-x}.
+\end{equation*}
+%
+\end{example}
+Now, for the second step, we need to find a \terminology{particular solution} that we can feed into the differential equation so that \(\mathcal{F}(y_p) = f(x)\). We learn several methods for this in first courses that consider differential equations, usually including the method of undetermined coefficients and the method of variation of parameters. In both cases, we're limited to either forcing functions nice enough that we can guess the form of the solution (in the case of undetermined coefficients) or functions that we can integrate (in the case of variation of parameters). However, in physical systems we often want to consider driving or forcing functions \(f(x)\) that represent physical conditions that don't have nice integrals: for example, switches that turn on and off, or impulses that are applied to the system instantaneously (such as a strike). While the methods above can be adapted to deal with these, it is easier to \terminology{transform} the problem into a different mathematical setup that will simplify the process of dealing with these common physical situations.%
+\par
+The model problem to keep in mind is the following mass-spring type setup:%
+\begin{equation*}
+y'' + ay ' + by = F
+\end{equation*}
+where \(F\) might switch on and off or act on the system instantaneously (and so cannot be a continuous function). By transforming the problem into an equivalent domain, we can deal with these fundamental situations very easily.%
+\end{sectionptx}
+\end{chapterptx}
+%
+%
+\typeout{************************************************}
+\typeout{Chapter 2 Series solutions}
+\typeout{************************************************}
+%
+\begin{chapterptx}{Series solutions}{}{Series solutions}{}{}{x:chapter:ch-series}
+%
+%
+\typeout{************************************************}
+\typeout{Section 2.1 Power series}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Power series}{}{Power series}{}{}{x:section:ch-series-1}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.1.1 Motivation}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Motivation}{}{Motivation}{}{}{g:subsection:idp695237974224}
+One of the limitations of the elementary techniques of differential equations is the extremely limited number of types of equations that can be solved. Once we are dealing with equations that are second order or higher, we are pretty much restricted to equations with constant coefficients (\(ay'' + by' + cy = 0\)), or equations in special forms (like the Cauchy-Euler equations \(ax^2y'' + bxy' + cy = 0\)).%
+\begin{example}{Airy's equation.}{g:example:idp695237976272}%
+A seemingly simple equation that cannot be solved with elementary techniques is \terminology{Airy's equation}, which is of the form%
+\begin{equation*}
+y'' - xy = 0.
+\end{equation*}
+%
+\end{example}
+One problem that we run into is that many functions cannot be expressed as combinations of the elementary functions that we learn in calculus (for example, \(f(x) = \int e^{x^2}\, dx\)), and these functions are frequently the solutions to differential equations like the one in the example above. We turn, as we did in calculus, to \terminology{power series} representations of functions. Power series are one of the most important ideas developed in introductory calculus (though it is often the case that WHY you are learning about them isn't immediately obvious). We'll begin by recalled the definition of a power series, the question of when and where such a series converges, and some basic operations that we can perform%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.1.2 Definition of power series and convergence}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Definition of power series and convergence}{}{Definition of power series and convergence}{}{}{g:subsection:idp695237979936}
+\begin{definition}{}{x:definition:def-powerseries}%
+An infinite series of the form%
+\begin{equation*}
+\sum_{n=0}^\infty a_n (x - x_0)^n
+\end{equation*}
+is called a power series centered at \(x = x_0\).%
+\par
+Because we can always make the substitution \(u = x-x_0\), it is typically sufficient to consider series centered at \(0\),%
+\begin{equation}
+\sum_{n=0}^\infty a_n x^n.\label{x:men:def-powerseries-zero}
+\end{equation}
+%
+\end{definition}
+A power series \terminology{converges} at a point \(x\) if the sequence of partial sums converges - that is,%
+\begin{equation*}
+\lim_{N \to \infty} \sum_{n = 0}^N a_n x^n
+\end{equation*}
+exists and is equal to a finite value. The \terminology{interval of convergence} of a power series (centered at 0) is the largest interval of the form \(I = (-r,r)\) for which the series converges for each \(x \in (-r,r)\). The quantity \(r\) is called the \terminology{radius of convergence}. There are three possibilities for the value of \(r\).%
+\begin{theorem}{}{}{x:theorem:thm-power-converge}%
+For a series of the form given in \hyperref[x:men:def-powerseries-zero]{({\xreffont\ref{x:men:def-powerseries-zero}})}, exactly one of the following holds.%
+\begin{enumerate}
+\item{}\(r = 0:\) \(\ps\) converges only for \(x = 0\).%
+\item{}\(r = \infty:\) \(\ps\) converges for every \(x \in \R\).%
+\item{}\(r\) is finite: There is a constant \(r > 0\) so that \(\ps\) converges for \(x \lt \abs{r}\) and diverges for \(x > \abs{r}\).%
+\end{enumerate}
+%
+\end{theorem}
+The tool from calculus that is most useful in computing a radius of convergence for a power series is the \terminology{ratio test} (the reason is that only a single \(x\) will remain after computing the ratio).%
+\begin{definition}{}{g:definition:idp695238000176}%
+For the power series \(\ps\), the radius of convergence \(r\) is given by \(r = \frac{1}{L}\) where \(L\) is the limit%
+\begin{equation*}
+\lim_{n\to\infty} \abs{\frac{a_{n+1}}{a_n}} = L.
+\end{equation*}
+If \(L = 0\), then \(r = \infty\) (that is, the series converges for all values of \(x\)). If \(L = \infty\), then \(r = 0\) (that is, the series only converges trivially at \(x = 0\)).%
+\end{definition}
+\begin{example}{Finding the radius of convergence.}{g:example:idp695238000432}%
+Compute the radius of convergence of%
+\begin{equation*}
+\sum_{n=0}^\infty \frac{2^{n+1}}{5^n} x^n.
+\end{equation*}
+%
+\par
+We compute the limit%
+\begin{equation*}
+\lim_{n\to \infty}\abs{\frac{a_{n+1}}{a_n}} = \lim_{n\to \infty} \frac{2^{n+2}}{5^{n+1}} \cdot \frac{5^n}{2^{n + 1}} = \frac{2}{5},
+\end{equation*}
+and so \(r = \frac{5}{2}\).%
+\end{example}
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.1.3 Algebra and calculus of power series}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Algebra and calculus of power series}{}{Algebra and calculus of power series}{}{}{g:subsection:idp695238008016}
+The beauty and utility in power series is that when they converge, they can be treated almost like giant polynomials. That is, we can perform algebra and calculs operations on convergent power series. To do so, first we can make a function out of a power series by restricting the domain to the interval of convergence (so that the function is well-defined). That is, if \(r\) is the radius of convergence for \(\ps\), then we can define%
+\begin{equation*}
+f(x) = \ps, \hspace{1cm} x \in (-r,r).
+\end{equation*}
+%
+\par
+Before we discuss operations involving power series, we note a fundamental fact (related to the identical fact about polynomials) - two power series are equal if and only if their corresponding coefficients are equal. That is,%
+\begin{equation*}
+\ps = \sum_{n=0}^\infty b_n x^n \text{ if and only if } a_n = b_n \text{ for all } n.
+\end{equation*}
+%
+\par
+When we combine power series, we have to make sure that we work on a domain where both functions are defined - that is, if \(f\) and \(g\) have radii of convergence \(r_1, r_2\) respectively, then the radius of convergence of an algebraic combination of \(f,g\) will be \(r = \min\{r_1,r_2\}\).%
+\begin{assemblage}{}{g:assemblage:idp695238011456}%
+Let \(f(x) = \ps\) and \(g(x) =\psg\) with common radius of convergence \(r\).%
+\begin{enumerate}
+\item{}Addition: \(f(x) +g(x)  = \displaystyle\sum_{n=0}^\infty (a_n + b_n) x^n\).%
+\item{}Scalar multiplication: \(c f(x) = \displaystyle\sum_{n=0}^\infty (ca_n) x^n\)%
+\item{}Multiplication of series: \(f(x) g(x) = \displaystyle\sum_{n=0}^\infty c_n x^n\) where the coefficients \(c_n\) are computed by \(c_n = \displaystyle \sum_{k=0}^n a_{n-k} b_k\) (this is essentially the result of a giant distribution and collection of like terms)%
+\end{enumerate}
+Division can be defined as well (as long as the function in the denominator is not zero), but is used less often in what we will be studying%
+\end{assemblage}
+One of our first applications of power series will be to plug them into equations, in order to figure out the coefficients. If we know the coefficients of a function given by a power series, then we know the function. Typically, finding the coefficients will involve solving a \terminology{recurrence relation}, which is a recursive process for determining coefficients from some number of known coeffients.%
+\begin{example}{Solving a recurrence relation.}{g:example:idp695238020544}%
+Assume that the coefficients in the power series%
+\begin{equation*}
+f(x) = \ps
+\end{equation*}
+satisfy the equation%
+\begin{equation*}
+\sum_{n=1}^\infty n a_n x^n - \sum_{n=0}^\infty a_n x^{n+1} = 0.
+\end{equation*}
+Find a formula that gives any \(a_n\) in terms of \(a_0\).%
+\par
+First, to combine power series, we'll need both the powers of the like terms to match, and the series to have the same number of terms. Notice that if we replace \(n \rightarrow n + 1\) in the second series, and we change the range of the index accordingly, we get%
+\begin{equation*}
+\sum_{n=1}^\infty n a_n x^n - \sum_{n=1}^\infty a_{n-1} x^{n} = 0.
+\end{equation*}
+As the powers of the corresponding terms match, and the range of indicies match, we can combine the series using addition to get%
+\begin{equation*}
+\sum_{n=1}^\infty (na_n - a_{n-1}) x^n = 0.
+\end{equation*}
+Because a convergent power series can only be equal to zero if the coefficients are all zero, we get the recurrence relation%
+\begin{equation*}
+na_n - a_{n-1}  = 0, \hspace{1cm} n = 1, 2, 3, \ldots,
+\end{equation*}
+which can be written%
+\begin{equation*}
+a_n = \frac{1}{n} a_{n-1}, \hspace{1cm} n = 1, 2, 3 \ldots.
+\end{equation*}
+This gives a family of equations that we can use to find each coefficient in terms of \(a_0\) and eventually guess a formula that won't require us to work recursively.%
+%
+\begin{align*}
+\amp n = 1: \,\,\, a_1 = a_0.\\
+\amp n = 2: \,\,\, a_2 = \frac{1}{2}a_1 = \frac{1}{2} a_0.\\
+\amp n = 3: \,\,\, a_3 = \frac{1}{3}a_2 = \frac{1}{3\cdot 2} a_0.\\
+\amp n = 4: \,\,\, a_4 = \frac{1}{4}a_3 = \frac{1}{4\cdot 3 \cdot 2} a_0.
+\end{align*}
+We can guess that the general formula for \(a_n\) is%
+\begin{equation*}
+a_n = \frac{1}{n!} a_0.
+\end{equation*}
+(Notice that I haven't claimed to have proved this, because that would require mathematical induction. For our purposes in this course, if a pattern looks to hold, we will assume that it continues indefinitely.)%
+\par
+Under the assumption that our formula for \(a_n\) holds for all \(n\), we can say%
+\begin{equation*}
+f(x) = a_0 \sum_{n=0}^\infty \frac{1}{n!} x^n,
+\end{equation*}
+which you might notice is the Taylor series at 0 for the function \(f(x) = a_0 e^x\).%
+\end{example}
+Just like algebra, we can perform calculus on power series in the obvious way (treating them like giant polynomials). Suppose that \(f\) is defined by a power series with domain equal to the interval of convergence, so that%
+\begin{equation*}
+f(x) = \ps, \,\,\, \abs{x} \lt r.
+\end{equation*}
+Then we can differentiate \(f\) term by term to any order of derivative (after all, we're never going to run out of \(x\)es):%
+\begin{align*}
+f'(x) \amp= \sum_{n=1}^\infty n a_n x^{n-1}\\
+f''(x) \amp = \sum_{n=2}^\infty n(n-1) a_n x^{n-2}
+\end{align*}
+and so on. Power series can also be integrated, which is straightforward to write a formula for. (You might consider doing it as an exercise.)%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.1.4 Analytic functions (a connection with complex analysis)}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Analytic functions (a connection with complex analysis)}{}{Analytic functions (a connection with complex analysis)}{}{}{g:subsection:idp695238032112}
+A function with a power series defined on some interval \((a,b)\) is particularly nice because the power series implies the existence of derivatives of all orders. Such functions are called \terminology{smooth}. (Note that smooth functions need not have a convergent power series, which is a weird but deep fact of real analysis!). Power series representations are so special, we name functions that have them as a special class.%
+\begin{definition}{}{x:definition:def-analytic}%
+A function \(f\) with a convergent power series representation on some non-trivial interval of convergence \((a,b)\) is called an \terminology{analytic} function on \((a,b)\).%
+\end{definition}
+Analytic functions are the nicest behaved functions in calculus and its applications. One of the major theorems of calculus is that if a function is analytic, then it has a unique power series representation, called the \terminology{Taylor series} for \(f\). Even better, the series can be computed!%
+%
+\begin{equation*}
+f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!} (x  -x_0)^n.
+\end{equation*}
+The functions of introductory calculus are nearly all analytic, many on the entire real line. You should be familiar with the power series expansions of those functions derived from exponential functions.%
+\begin{assemblage}{}{g:assemblage:idp695238042416}%
+%
+\begin{enumerate}
+\item{}\(\displaystyle \displaystyle e^x = 1 + x + \frac{1}{2!} x^2 + \frac{1}{3!} x^3 + \ldots = \sum_{n=0}^\infty \frac{1}{n!} x^n\)%
+\item{}\(\displaystyle \displaystyle \cos x = 1 - \frac{1}{2!} x^2 + \frac{1}{4!} x^4 + \ldots =   \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n}\)%
+\item{}\(\displaystyle \displaystyle \sin x = x - \frac{1}{3!} x^3 + \frac{1}{5!} x^5 + \ldots =   \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} x^{2n+ 1}\)%
+\end{enumerate}
+%
+\end{assemblage}
+Because we can combine power series using algebra to get new power series, we can do the same with the analytic functions that they represent. That is, if \(f, g\) are analytic, so are algebraic combinations of them.%
+\begin{theorem}{}{}{g:theorem:idp695238046048}%
+If \(f, g\) are analytic functions on a common interval \((a,b)\), then so are \(f + g, f - g, fg\), and \(\frac{f}{g}\) (as long as \(g(x) \neq 0\)).%
+\end{theorem}
+The most useful examples of analytic functions are polynomials! (From this persepective, polynomials are just finite power series.) Polynomials are analytic at every point, and so therefore are \(f + g, f - g\) and \(f g\). Things are a bit more complicated in the case of rational functions \(\frac{f}{g}\), because the zeroes of \(g\) determine the radius of convergence of the quotient.%
+\par
+Here we come across one of the first places that the analysis of analytic functions is actually secretly taking place in the complex plane. Consider the function%
+\begin{equation*}
+f(x) = \frac{1}{1+x^2}.
+\end{equation*}
+\(1 + x^2\) doesn't possess any real zeroes. Does this mean that the power series for \(f\) converges everywhere? Let's see. Using the fact that \(\frac{1}{1 - x} = 1 + x + x^2 + \ldots\) for \(\abs{x} \lt 1\), we can show that%
+\begin{equation*}
+\frac{1}{1 + x^2} = \frac{1}{1 - (-x^2)} = 1 + (-x^2) + (-x^2)^2 + (-x^2)^3 + \ldots = \sum_{n=0}^\infty (-1)^n x^{2n},
+\end{equation*}
+as long as \(\abs{-x^2} \lt 1\) which is just \(\abs{x} \lt 1\). So even though \(1 + x^2\) has no real zeros, the power series for \(f\) only had radius of convergence \(1\)! What's going on?%
+\par
+It turns out that when we're looking at quotients of analytic functions, we need to consider all of the zeros of the denominator, real and complex. For our example, \(1 + x^2 = 0\) has solutions \(\pm i\), which are a distance of 1 away from the origin in the complex plane (0 on the real line). Since the closest zero to the center of our power series is 1 unit away, the radius of convergence is 1.%
+\begin{theorem}{}{}{g:theorem:idp695238057984}%
+If \(p(x), q(x)\) are polynomials and \(q(x_0) \neq 0\), then the radius of convergence of the power series representation is the distance from \(x_0\) to the closest root (real or complex) of \(q\).%
+\end{theorem}
+\begin{example}{Radius of convergence for a rational function.}{g:example:idp695238060400}%
+Compute the radius of convergence of the power series centered at \(x = 0\) of%
+\begin{equation*}
+f(x) = \frac{x^2}{(x +3)(x^2 + 3)}.
+\end{equation*}
+%
+\par
+The zeroes of \(q\) are \(x_1= -3, x_2 = i\sqrt{3}, x_3 = -i\sqrt{3}\). Using the distance formula, we can compute that the distances to the origin are \(d_1 = 3, d_2 = \sqrt{3}, d_3 = \sqrt{3}\), and so the radius of convergence is \(r = \sqrt{3}\).%
+\end{example}
+\end{subsectionptx}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 2.2 Series solutions at ordinary points}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Series solutions at ordinary points}{}{Series solutions at ordinary points}{}{}{x:section:ch-series-2}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.2.1 Ordinary points}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Ordinary points}{}{Ordinary points}{}{}{g:subsection:idp695238064928}
+Consider the second order linear differential equation%
+\begin{equation*}
+y'' + p(x) y' + q(x) y = 0.
+\end{equation*}
+The fact that we have functions as ``coefficients'' for the terms means that our previous tools do not apply. Instead, we'll try to discover solutions using power series and recurrence relations. It will be much easier to do this if \(p\) and \(q\) are well-behaved where we center our power series.%
+\begin{definition}{}{x:definition:def-ordinary-point}%
+A point \(x = x_0\) is an \terminology{ordinary point} for the differential equation%
+\begin{equation*}
+y'' + p(x) y' + q(x) y = 0
+\end{equation*}
+if \(p\) and \(q\) are analytic at \(x = x_0\). If a point is not ordinary, then it is called a \terminology{singular point} of the equation.%
+\end{definition}
+\begin{example}{Finding ordinary points.}{g:example:idp695238068400}%
+Find the ordinary points of the differential equation%
+\begin{equation*}
+y'' + \frac{1}{x^2 - 1} y' + \frac{1}{x - 3} y = 0.
+\end{equation*}
+%
+\par
+Because \(p, q\) fail to be analytic at \(x = \pm 1, 3\) the equation is singular at those three points. Every other point is an ordinary point.%
+\end{example}
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.2.2 Power series solutions at ordinary points}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Power series solutions at ordinary points}{}{Power series solutions at ordinary points}{}{}{g:subsection:idp695238074512}
+We now give an example of solving a differential equation with series solutions. We'll start with a problem that we already know the solution to, before moving on to solving Airy's equation. It will be useful to recall the expressions for the derivatives of convergent power series. If \(y = \ps\), then%
+\begin{align*}
+y' \amp= \sum_{n=1}^\infty n a_n x^{n-1},\\
+y'' \amp = \sum_{n=2}^\infty n(n-1) a_n x^{n-2}.
+\end{align*}
+%
+\begin{example}{Finding series solutions.}{g:example:idp695238076768}%
+Find the general solution to the differential equation \(y'' + y = 0\) using series methods.%
+\par
+We expect to find two linearly independent solutions, and we expect the general solution to be of the form \(y = c_1 y_1 + c_2 y_2\) for arbitrary constants \(c_1, c_2\) because we have a second order equation. Notice that \(p = 0\) and \(q = 1\) which are analytic at every point, so we will work at the center \(x = 0\) and assume that our solution is of the form \(y = \ps\).%
+\par
+On taking derivatives and plugging into the differential equation, we get%
+\begin{equation*}
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} + \ps = 0.
+\end{equation*}
+We want to combine these into a single sum and use a recurrence relation to find the solutions, but we need the terms and the index ranges to match. If we shift the index on the first sum by letting \(n - 2 \to n \), we get%
+\begin{equation*}
+\sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} + \ps = 0.
+\end{equation*}
+Now we can combine the series to get%
+\begin{equation*}
+\sum_{n=0}^\infty \left[(n+2)(n+1) a_{n+2} + a_n\right]x^n = 0
+\end{equation*}
+which gives the family of coefficient equations%
+\begin{equation*}
+(n+2)(n+1)a_{n+2} + a_n = 0
+\end{equation*}
+which is convenient to rearrange as%
+\begin{equation*}
+a_{n+2} = -\frac{1}{(n+2)(n+1)} a_n, \,\,\, n = 0, 1, 2, \ldots
+\end{equation*}
+%
+\par
+Notice that we need two pieces of information to determine all of the information contained in this recursion: \(n = 0\) starts a chain that gives the coefficients for the even values of \(n\), and \(n = 1\) starts a chain that gives that information for the odd values (corresponding to the two separate independent solutions). We consider each family separately.%
+\begin{align*}
+n = 0\amp: a_2 = -\frac{1}{2 \cdot 1} a_0 = -\frac{1}{2!}a_0\\
+n = 2\amp: a_4 = -\frac{1}{4 \cdot 3} a_2 = \frac{1}{4 \cdot 3 \cdot 2 \cdot 1} a_0 = \frac{1}{4!} a_0\\
+n=4\amp: a_6 = -\frac{1}{6 \cdot 5} a_4 = -\frac{1}{6!} a_0.
+\end{align*}
+That is, the even terms seem to be of the form \(a_{2k} = \frac{(-1)^k}{(2k!)} a_0\).%
+\par
+For the odd values of \(n\), we get%
+\begin{align*}
+n = 1\amp: a_3 = -\frac{1}{3 \cdot 2} a_1 = -\frac{1}{3!}a_1\\
+n = 3\amp: a_5 = -\frac{1}{5 \cdot 4} a_3 = \frac{1}{5 \cdot 4 \cdot 3 \cdot2 \cdot 1} a_1 = \frac{1}{5!} a_1\\
+n=5\amp: a_7 = -\frac{1}{7 \cdot 6} a_5 = -\frac{1}{7!} a_1.
+\end{align*}
+which looks like \(a_{2k+1} = \frac{(-1)^k}{(2k+1)!} a_1\).%
+\par
+Now that we know the coeffients of the power series, we can write%
+\begin{align*}
+y \amp= a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \ldots\\
+\amp= a_0 + a_1 x - \frac{1}{2!} a_0 x^2 - \frac{1}{3!} a_1 x^3 + \ldots\\
+\amp = a_0 ( 1 - \frac{1}{2!} x^2 + \frac{1}{4!} x^4 - \ldots) + a_1 (x - \frac{1}{3!} x^3 + \frac{1}{5!}x^5 - \ldots)
+\end{align*}
+which allows us to write \(y = a_0 y_1 + a_0 y_2\) where%
+\begin{equation*}
+y_1(x) = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n},  \hspace{1cm} y_2 = \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!} x^{2n+1}.
+\end{equation*}
+%
+\par
+An easy application of the rato test shows that each of these series converges for all values of \(x\) (that is, the radius of converge is \(\infty\)).%
+\par
+Finally, we need to verify that these series are linearly independent. With two objects, this will be true as long as the functions aren't scalar multiples of each other, which is indeed the case.%
+\par
+(We might note that none of this is surprising in this case because the series in question have very nice closed forms you should recongize on sight!)%
+\end{example}
+At an ordinary point, we will always follow the steps in the example above.%
+\begin{enumerate}
+\item{}Assume that a solution of the form \(y = \ps\) exists.%
+\item{}Plug the series into the equation to get a recurrence relation and find the coefficients in terms of \(a_0\) and \(a_1\).%
+\item{}Use the ratio test to find the radius of convergence (which is where out solution is valid).%
+\item{}Verify that the solutions are linearly independent.%
+\end{enumerate}
+%
+\begin{theorem}{}{}{g:theorem:idp695238099632}%
+Let \(p, q\) be analytic functions on some common interval \(\abs{x - x_0} \lt r\) centered at \(x_0\). Then the general solution to the second order differential equation%
+\begin{equation*}
+y'' + p y' + q y = 0
+\end{equation*}
+can be represented as power series centered at \(x_0\) on the same interval. The coefficients in the series can be described in terms of the initial data \(a_0, a_1\), and the general solution can be rearranged into the form%
+\begin{equation*}
+y = a_0 y_1 + a_1 y_2
+\end{equation*}
+where \(y_1, y_2\) are linearly independent.%
+\end{theorem}
+We conclude this chapter with the solution of Airy's equation.%
+\begin{example}{Airy's equation.}{g:example:idp695238104368}%
+Solve the equation%
+\begin{equation*}
+y'' - x y = 0.
+\end{equation*}
+%
+\par
+Since \(p = 0\) and \(q = x\), every point is an ordinary point. So we assume that a series solution exists of the form \(y = \ps\). Plugging into the equation, we get%
+\begin{equation*}
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} - x \ps = 0.
+\end{equation*}
+Multiplying through, we get%
+\begin{equation*}
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} - \sum_{n = 0}^\infty a_n x^{n+1} = 0.
+\end{equation*}
+First, we'll make the powers match, then we'll shift indicies as necessary.%
+\begin{equation*}
+\sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} - \sum_{n = 1}^\infty a_{n-1} x^{n} = 0.
+\end{equation*}
+Now that the powers of \(x\) match, the easiest way to make the index ranges match is to pop the first term off of the first sum.%
+\begin{equation*}
+2a_2 + \sum_{n=1}^\infty (n+2)(n+1) a_{n+2} x^{n} - \sum_{n = 1}^\infty a_{n-1} x^{n} = 0.
+\end{equation*}
+Before we combine, notice that right away we can see that \(a_2 = 0\). This is going to have an interesting effect on the resulting series.%
+\begin{equation*}
+2a_2 + \sum_{n=1}^\infty \left[(n+2)(n+1) a_{n+2} - a_{n-1} \right] x^n = 0.
+\end{equation*}
+Setting the coefficients to be 0, we get the family of relations%
+\begin{equation*}
+a_{n+2} = \frac{1}{(n+2)(n+1)} a_{n-1}.
+\end{equation*}
+Because there is a separation of three index elements between the terms in the recursion, there will be three families of equations. Immediately, we can see that because \(a_2 = 0\), the recursion imples that \(a_5, a_8, a_{11}, \ldots = 0\) as well. (From the theorem, we know that we should be able to get all the information we need in terms of \(a_0\) and \(a_1\).)%
+\par
+For the set of coefficients beginning with \(a_0\), we have%
+\begin{align*}
+n = 1\amp: a_3 = \frac{1}{3 \cdot 2} a_0\\
+n = 4\amp: a_6 = \frac{1}{6 \cdot 5} a_3 = \frac{1}{6 \cdot 5 \cdot 3 \cdot 2} a_0\\
+n=7\amp: a_9 = \frac{1}{9 \cdot 8} a_6 = \frac{1}{9 \cdot 8 \cdot 6 \cdot 5 \cdot 3 \cdot 2} a_0.
+\end{align*}
+There is a clear pattern, though it is annoying to write in closed form.%
+\par
+For the set of coefficients beginning with \(a_1\), we have%
+\begin{align*}
+n = 2\amp: a_4 = \frac{1}{4 \cdot 3} a_1 \\
+n = 5\amp: a_7 = \frac{1}{7 \cdot 6} a_4 = \frac{1}{7 \cdot 6 \cdot 4 \cdot3 } a_1 \\
+n=8\amp: a_10 = \frac{1}{10 \cdot 9} a_7 = \frac{1}{10 \cdot 9 \cdot 7 \cdot 6 \cdot 4 \cdot 3} a_1.
+\end{align*}
+Then the general solution to the equation is%
+\begin{equation*}
+y = a_0 y_1(x) + a_1 y_2(x)
+\end{equation*}
+where%
+\begin{align*}
+y_1(x) \amp= 1 +  \frac{1}{3 \cdot 2} x^3 + \frac{1}{6 \cdot 5 \cdot 3\cdot 2} x^6 + \ldots\\
+y_2(x) \amp= x + \frac{1}{4 \cdot 3} x^4 + \frac{1}{7\cdot 6 \cdot 4 \cdot 3}x^7 + \ldots
+\end{align*}
+These power series are convergent everywhere, obviously linearly independent, and unfortunately have no closed form; that is, series representations is the best that we can do.%
+\begin{sageinput}
+var( 'z y x'); y = 1 +  1/6 *x^3 + 1/180 *x^6
+z = x + 1/12 *x^4 + 1/504 *x^7
+a = plot([],title="(Approx) Solutions to Airy's equation")
+a += plot(y, x, (-2,2), color='red')
+a += plot(z, x, (-2,2))
+show(a)
+\end{sageinput}
+\end{example}
+\end{subsectionptx}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 2.3 Legendre series}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Legendre series}{}{Legendre series}{}{}{x:section:ch-series-3}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.3.1 Legendre's equation}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Legendre's equation}{}{Legendre's equation}{}{}{g:subsection:idp695238121696}
+Physics and applied mathematics provide a wealth of differential equations, some of which are sufficiently common to carry special names, notably%
+\begin{gather*}
+(1 - x^2)y'' - 2x y' + c(c + 1)y = 0, \,\,\, \text{ (Legendre's equation)}\\
+y'' - 2xy' + 2cy = 0, \,\,\, \text{ (Hermite's equation)}\\
+(1 - x^2) y'' - xy' + c^2 y = 0 \,\,\, \text{ (Chebyshev's equation)}
+\end{gather*}
+where \(c\) is some parameter that can take on any real value. All of these equations have an ordinary point at \(x = 0\), and so have series solutions of the form \(y = \ps\). The solutions to these equations for different values of \(c\) have special properties, particularly when \(c\) is an integer.%
+\par
+In this section, we'll investigate the solutions and properties of the Legendre equation. First, note that the equation as written is not in our standard form. We'll need to rewrite it to get an estimate for the interval of convergence of our series solution (though it will be convenient to leave it in its original form when we attempt to solve it.) In the form%
+\begin{equation*}
+y'' - \frac{2x}{1 - x^2} y' + \frac{c(c+1)}{1 - x^2} y = 0,
+\end{equation*}
+we can see that \(p, q\) are analytic at the very least on the interval \((-1,1)\), as the power series for \(\frac{1}{1- x^2}\) has radius of convergence \(1\).%
+\par
+Armed with the knowledge that our solutions exist, we can follow the usual technique to derive the solutions.%
+\begin{inlineexercise}{}{g:exercise:idp695238129648}%
+Derive the general solutions to the Legendre equation using recurrence relations.%
+\end{inlineexercise}%
+In general, the solutions to Legendre's equation for a fixed constant \(c\) are of the form%
+\begin{equation*}
+y = y_1(x) + y_2(x)
+\end{equation*}
+with%
+\begin{align*}
+y_1(x) \amp= a_0\left[1 - \frac{c(c+1)}{2}x^2 + \frac{(c-2)c(c+1)(c+3)}{4!} x^4\right. \\
+\amp\left.\hspace{1in} - \frac{(c-4)(c-2)c(c+1)(c+3)(c+5)}{6!} x^6 +\ldots\right]\\
+\\
+y_2(x) \amp= a_1\left[x - \frac{(c-1)(c+2)}{3!} x^3 + \frac{(c-3)(c-1)(c+2)(c+4)}{5!}x^5 + \ldots\right]
+\end{align*}
+%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.3.2 Legendre polynomial}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Legendre polynomial}{}{Legendre polynomial}{}{}{g:subsection:idp695238133296}
+It turns out that the most important case of the Legendre equation occurs when the constant \(c\) is an integer, which we emphasize by calling it \(c=N\). In that case, the recursion that determines the solution to the equation is%
+\begin{equation*}
+a_{n+2} = -\frac{n(n+1) - N(N+1)}{(n+1)(n+2)} a_n.
+\end{equation*}
+Since \(N\) is fixed, this means that \(a_{N+2} = 0\), and moreover that the subsequent terms in the recursion are zero as well:%
+\begin{equation*}
+a_{N+2} = a_{N+4} = a_{N+6} = \ldots = 0.
+\end{equation*}
+That is, either \(y_1\) or \(y_2\) is a finite power series - a polynomial - depending on if \(N\) is even or odd. These polynomials turn out to be quite useful.%
+\begin{definition}{}{g:definition:idp695238133808}%
+Let \(N\) be a nonnegative intger. The \terminology{Legendre polynomial of degree \(N\)}, denoted \(P_N(x)\), is the polynomial solution to%
+\begin{equation*}
+(1- x^2) y'' - 2 x y' + N(N+1)y = 0,
+\end{equation*}
+normalized so that \(P_N(1) = 1\).%
+\end{definition}
+\begin{example}{}{g:example:idp695238138800}%
+The first few Legendre polynomials are easy to write down. Remember that each polynomial is normalized to have \(P_N(1) = 1\).%
+\begin{align*}
+N \amp= 0:y_1(x) = a_0 \Rightarrow P_1(x) = 1.\\
+N \amp= 1: y_2(x) = a_1 x \Rightarrow P_2(x) = x.\\
+N \amp= 2: y_1(x) = a_0(1 - 3x^2) \Rightarrow P_2(x) = \frac{1}{2}(3x^2 -1).  
+\end{align*}
+%
+\end{example}
+For larger values of \(N\), we need a better method to produce these polynomials. Fortunately for us, computer algebra systems have functions that produce these polynomials very quickly. (The following is in the mathematical language Sage. Similar functions exist in MATLAB, Mathematica, Octave, python, etc.)%
+\begin{sageinput}
+var('x')
+legendre_P(2,x)
+\end{sageinput}
+If we wish to proceeed by hand, there is an explicit formula for generating \(P_N(x)\) known as Rodrigues's formula:%
+\begin{equation*}
+P_N(x) = \frac{1}{2^N N!} \frac{d^N}{dx^N} (x^2 - 1)^N, \hspace{1cm} N = 0, 1, 2, \ldots
+\end{equation*}
+%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.3.3 Legendre polynomials and vector spaces}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Legendre polynomials and vector spaces}{}{Legendre polynomials and vector spaces}{}{}{g:subsection:idp695238146752}
+Here we reach an instance of one of the most important larger themes of mathematical analysis - we can view functions with nice properties as vectors sitting inside an infinite dimensional vector space. With certain modifications, these spaces act very similarly to the familiar Euclidean spaces \(\R^n\). One of the most important features of vector spaces is that vectors can be decomposed into orthogonal pieces with respect to some inner product in terms of a basis. For example, we can think of the Taylor series for a function as expressing that function in terms of the vectors \(1, x, x^2, \ldots\), where the coefficients \(\frac{f^{(n)}(a)}{n!}\) are really the coordinates of the vector.%
+\par
+The continuous functions on the interval \([-1,1]\) are denoted \(C^0[-1,1]\). (We're using symmetric intervals in this case because the Legendre polynomials are even or odd.) This space is a (infinite dimensional) inner product space with the dot product defined as%
+\begin{equation*}
+f \cdot g = \ip{f}{g} = \int_{-1}^1 f(x) g(x) \, dx.
+\end{equation*}
+Following the analogy with \(\R^n\), we define two vectors in an inner product space to be \terminology{orthogonal} if \(\ip{f}{g} = 0\). Beyond a notion of ``angle'', the inner product also gives a way to measure length with the \terminology{norm} defined in this case by%
+\begin{equation*}
+\norm{f} = \sqrt{\ip{f}{f}} = \sqrt{\int_{-1}^1 f(x)^2 \, dx}.
+\end{equation*}
+%
+\begin{theorem}{}{}{g:theorem:idp695238149680}%
+The Legendre polynomials are mutually orthogonal; that is,%
+\begin{equation*}
+\ip{P_j}{P_k} = \int_{-1}^1 P_j(x) P_k(x) \, dx = 0 \text{ if } j \neq k.
+\end{equation*}
+Thus, the polynomials \(P_0, P_1, \ldots, P_n\) are an orthogonal basis for the space of polynomials of degree \(n\) or less.%
+\end{theorem}
+\begin{proof}{}{g:proof:idp695238156304}
+See Annin, Goode, p. 744.%
+\end{proof}
+Furthermore, one can show that for a fixed integer \(j\) that%
+\begin{equation*}
+\norm{P_j} = \sqrt{\frac{2}{2j+1}}.
+\end{equation*}
+%
+\par
+One of the most important properties of an orthgonal basis for an inner product space is that generic vectors can be decomposed into orthogonal pieces. Suppose that we have the set of Legendre polynomials \(P_0, \ldots, P_N\) as an orthogonal basis for the polynomials of degree \(N\) or less. Then we can compute the expansion of a polynomial in terms of Legendre polynomials by the formula%
+\begin{equation*}
+p(x) = \sum_{i=0}^{N} a_i P_i = \sum_{i=0}^n \frac{\ip{p}{P_i}}{\norm{P_i}^2} P_i.
+\end{equation*}
+This should look familiar, as we are finding the coefficients \(a_i\) by using the vector projection formula \(\proj_v u = \frac{u\cdot v}{\norm{v}^2} u\). Since we know that \(\norm{P_i}^2 = \frac{2}{2i + 1}\), we get the specific expansion%
+\begin{equation*}
+p(x) = \sum_{i=1}^N a_i P_i(x), \text{ where } a_i = \frac{2i+1}{2} \int_{-1}^1 p(x) P_i(x) \, dx.
+\end{equation*}
+%
+\par
+The real power of the expansion idea is that it holds for general functions, not just polynomials, under the additional assumption that \(f \in C^1(-1,1)\); that is, both \(f, f'\) are continuous.%
+\begin{theorem}{}{}{g:theorem:idp695238163008}%
+Suppose that \(f, f'\) are continuous on \((-1,1)\). Then \(f\) has a Legendre series expansion on \((-1,1)\) given by%
+\begin{equation*}
+f(x) = \sum_{i=1}^\infty a_i P_i(x)
+\end{equation*}
+where each \(a_i\) is given by the vector projection%
+\begin{equation*}
+a_i = \frac{\ip{f}{P_i}}{\norm{P_i}^2} = \frac{2i + 1}{2} \int_{-1}^1 f(x)P_i(x)\, dx.
+\end{equation*}
+%
+\end{theorem}
+It is not at all obvious that an infinite series of functions should converge, nor what it means for a series of functions to converge to another function. Mathematicians wrestled with these ideas for more than a century establishing the basics of modern function theory. Proof of the theorem above will require you to consult an advanced textbook on spaces of functions. For now, accept the assertion that the theorem above does indeed have a proof and that mathematicians, physicists, and engineers have been using these sorts of ideas for far longer than they have been rigorously demonstrable.%
+\par
+You might wonder why we would prefer to work with Legendre series rather than the Taylor series that are so easy to compute - first, notice that Taylor series only exist for \emph{analytic} functions, where here we have Legendre series for functions that are merely continuously differentiable. Secondly, it turns out that working numerically with Taylor approximations is actually pretty terrible. The term used in numerical analysis is \terminology{ill-conditioned}. Legendre expansions are significantly more stable in computations. In many cases, Legendre series also converge to the function being approximated much more quickly than Taylor series, which we can illustrate with the following example.%
+\begin{example}{Taylor and Legendre approximation of \(\sin \pi x\)..}{g:example:idp695238169360}%
+The function \(\sin \pi x\) completes one period on the interval \((-1, 1)\) and obviously has a continuous derivative. The Taylor expansion of \(\sin \pi x\) to degree 5 is given by the formula%
+\begin{equation*}
+T_5(x) = \pi x - \frac{\pi^3 x^3}{6} + \frac{\pi^5 x^5}{120}
+\end{equation*}
+It is straightforward to compute the first few terms in the Legendre expansion as follows: First, note that since sine is odd, there will be no terms of even degree. That is, \(\sin x = a_1 P_1(x) + a_3 P_3(x) + a_5 P_5(x)\).%
+\begin{align*}
+a_1 \amp= \frac{2(1) + 1}{2} \int_{-1}^1 x \sin \pi x\, dx = \frac{3}{\pi}\\
+a_3 \amp= \frac{2(3) + 1}{2} \int_{-1}^1 \frac{1}{2}(3x^2 - 1) \sin\pi x \, dx = \frac{7}{\pi^3}(\pi^2 - 15)\\
+a_5 \amp= \frac{2(5) + 1}{2} \int_{-1}^1 P_5(x) \, dx = \frac{11}{\pi^5} (945 - 105\pi^2 + \pi^4)
+\end{align*}
+%
+\par
+Let us compare these approximations.%
+\begin{sageinput}
+var ('x')
+f(x) = sin(x)
+g = plot(sin(pi*x), (-1,1))
+P1 = legendre_P(1, x)
+P3 = legendre_P(3, x)
+P5 = legendre_P(5, x)
+P(x) = 3/pi * P1 + 7/pi**3*(pi**2 - 15)*P3 + 11/pi**5*(945 - 105*pi**2 + pi**4)*P5
+g+= plot(P(x), (-1,1), color='red')
+T(x) = pi*x - pi**3*x**3/6 + pi**5*x**5/120
+g+= plot(T(x), (-1,1), color = 'green')
+show(g)
+\end{sageinput}
+Notice how much deviation there is in the Taylor approximation towards the end of the interval, as compared to the Legendre approximation which even at 5th degree fits right into the sine function.%
+\end{example}
+\end{subsectionptx}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 2.4 Series solutions at regular singularities}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Series solutions at regular singularities}{}{Series solutions at regular singularities}{}{}{x:section:ch-series-4}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.4.1 Types of singular points}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Types of singular points}{}{Types of singular points}{}{}{g:subsection:idp695238176880}
+So far, we've looked at differential equations at ordinary points, specifically%
+\begin{equation*}
+y'' + p(x)y' + q(x)y = 0.
+\end{equation*}
+That is, we've assumed that analytic solutions exist and proceeded with power series methods. However, a major area of interest in many applied settings is what happens at points where p%
+ and \(q\) fail to be analytic. These \terminology{singular points} are often very important to consider when analyzing a system. (You may need to know what happens to the behavior of the system as the input approaches a singular point.)%
+\begin{definition}{}{x:definition:def-singular-point}%
+A point \(x = x_0\) is a \terminology{regular singular point} of the equation%
+\begin{equation*}
+y'' + p(x)y' + q(x) y= 0
+\end{equation*}
+if%
+\begin{enumerate}
+\item{}\(x_0\) is a singular point of the equation,%
+\item{}and both%
+\begin{equation*}
+\hat{p}(x) = (x - x_0)p(x), \hspace{1cm} \hat{q(x)}=(x-x_0)^2 q(x)
+\end{equation*}
+are analytic at \(x = x_0\)%
+\end{enumerate}
+A singular point that does not satisfy these conditions is called an \terminology{irregular singular point}.%
+\end{definition}
+To give you some terminology (and a connection with complex analysis), a function \(f(x)\) for which \(f(x)(x = x_0)^n\) is analytic at \(x_0\) for \(n = N\) but singular at \(x_0\) for \(n \lt N\) is said to have a \terminology{pole of order \(N\) at \(x_0\)}. The point of the definition above is that for a second order equation, essentially the worst singular behavior we can have and still work with series directly is second order poles. Similar statements apply to higher order equations.%
+\begin{example}{Classifying points.}{g:example:idp695238185008}%
+Classify the points of the equation%
+\begin{equation*}
+y'' + \frac{1}{x(x-1)^2}y' + \frac{x}{x(x-1)^3} y = 0
+\end{equation*}
+%
+\par
+The equation clearly has singularities at \(x = 0, 1\). For \(x = 0\),%
+\begin{equation*}
+\hat{p}(x) = x p(x) = \frac{1}{x - 1}, \hspace{1cm} \hat{q}(x) = xq(x) \frac{1}{(x-1)^3},
+\end{equation*}
+both of which are analytic at \(x = 0\). Thus, \(x =0\) is a regular singular point.%
+\par
+On the other hand, at \(x = 1\), we have%
+\begin{equation*}
+\hat{p}(x) = (x - 1) p(x) = \frac{1}{x(x-1)},
+\end{equation*}
+which is singular at \(x = 1\). Thus, \(x =1\) is an irregular singular point.%
+\end{example}
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.4.2 Series solutions at regular singular points}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Series solutions at regular singular points}{}{Series solutions at regular singular points}{}{}{g:subsection:idp695238195472}
+Suppose that \(x = x_0\) is a regular singular point for the equation%
+\begin{equation*}
+y'' + p(x)y' + q(x)y = 0.
+\end{equation*}
+Essentially we can remove the singular behavior by multiplying through by \((x - x_0)^2\) to get an equation of the form%
+\begin{equation*}
+(x - x_0)^2 y'' + (x-x_0)\hat{p}(x) y' + \hat{q}(x) y = 0
+\end{equation*}
+where \(\hat{p} = (x-x_0)p(x), \hat{q} = (x - x_0)^2 q(x)\) are analytic at \(x_0\). Going one step further, we can make the substitution \(u = x - x_0\), which moves the regular singular point to \(x=0\), and so we can restrict our attention to equations of the form%
+\begin{equation*}
+x^2 + x p(x) y' + q(x) y = 0
+\end{equation*}
+where \(p, q\) are analytic at \(0\). (We've essentially just pulled the singular behavior out of the coefficient functions to make it easier to analyze.)%
+\par
+The most elementary equation in this family is the Cauchy-Euler equation, where \(p, q\) are just constants \(p_0, q_0\). In that case, we have a second order linear constant coefficient homogeneous equation, which we can solve using the method of the indicial equation.%
+\begin{theorem}{}{}{g:theorem:idp695238202944}%
+Suppose we have a Cauchy-Euler equation%
+\begin{equation*}
+x^2 y'' + x p_0 y' + q_0 y = 0.
+\end{equation*}
+The equation has solutions on \((0,\infty)\) of the form \(y = x^r\), where \(r\) is a solution to the indicial equation%
+\begin{equation}
+r(r-1) + p_0 r + q_0 = 0\label{x:men:eq-indicial}
+\end{equation}
+%
+\end{theorem}
+We can use the constant case to guide our method for more general coefficients. Suppose we have an equation with coefficient functions%
+\begin{equation*}
+x^2 y'' + xp(x)y' + q(x) y = 0
+\end{equation*}
+with \(p,q\) analytic at \(0\). Then we can assume that there is some positive radius of convergence \(R\) for which \(p, q\) both have convergent series expansions%
+\begin{align*}
+p(x) \amp= p_0 + p_1 x + p_2 x^2 + \ldots\\
+q(x) \amp= q_0 + q_1 x + q_2 x^2 + \ldots
+\end{align*}
+We can plug these in to get the equation%
+\begin{equation*}
+x^2 y'' + x\left(p_0 + p_1 x + p_2 x^2 + \ldots\right)y' + \left(q_0 + q_1 x + q_2 x^2 + \ldots \right)y = 0.
+\end{equation*}
+Now we have to make a guess. Notice that if \(x\) is very small, then \(p(x) \approx p_0\) and \(q(x) \approx q_0\), which means that near 0, the equation is approximately the Cauchy-Euler equation:%
+\begin{equation*}
+x^2 y'' + x\left(p_0 + p_1 x + p_2 x^2 + \ldots\right)y' + \left(q_0 + q_1 x + q_2 x^2 + \ldots \right)y \approx x^2 y'' + p_0 x y' + q_0 y = 0.
+\end{equation*}
+So we guess that the form of the series solution includes a term \(x^r\) that describes the behavior of the function near \(x = 0\) in \((0,R)\) (where we're looking at a Cauchy-Euler equation) and a piece in terms of a power series that picks up the behavior away from \(0\).%
+\par
+That is, using this intuition, we can guess that for the equation%
+\begin{equation*}
+x^2 y'' +  x p(x) y' + q(x) y = 0,
+\end{equation*}
+solutions will be of the form%
+\begin{equation}
+y(x) = x^r \sum_{n=0}^\infty a_n x^n, \,\,\,a_0 \neq 0\label{x:men:eq-frob}
+\end{equation}
+where as before, \(r\) is a solution to the indicial equation%
+\begin{equation*}
+r(r-1) + p_0 r + q_0 = 0.
+\end{equation*}
+This turns out to be the right idea, and series of the form \hyperref[x:men:eq-frob]{({\xreffont\ref{x:men:eq-frob}})} are called \terminology{Frobenius series}.%
+\begin{theorem}{}{}{x:theorem:thm-frob-real-distinct}%
+For \(x > 0\), suppose that%
+\begin{equation}
+x^2 y'' + xp(x)y' + q(x)y = 0\label{x:men:eq-reg-sing}
+\end{equation}
+and that \(p, q\) are analytic at 0 with a mutual radius of convergence \(R\). Write \(p(x) = \sum p_n x^n, q(x) = \sum q_n x^n\). Let \(r_1, r_2\) be roots of the indicial equation \hyperref[x:men:eq-indicial]{({\xreffont\ref{x:men:eq-indicial}})}, and assume that \(r_1 \geq r_2\) if the roots are real.%
+\par
+Then \hyperref[x:men:eq-reg-sing]{({\xreffont\ref{x:men:eq-reg-sing}})} has a Frobenius series solution of the form%
+\begin{equation*}
+y_1(x) = x^{r_1} \sum_{n=0}^\infty a_n x^n, \,\,\, a_0 \neq 0
+\end{equation*}
+which converges at least on \((0,R)\).%
+\par
+If \(r_1, r_2\) are distinct and do not differ by an integer, then there exists a second linearly independent Frobenius series solution of the form%
+\begin{equation*}
+y_2(x) = x^{r_2} \sum_{n=0}^\infty b_n x^n, \,\,\, b_0 \neq 0.
+\end{equation*}
+%
+\end{theorem}
+The reason that we require the roots not to differ by an integer is that if they do, the resulting solutions will not be linearly independent. We'll address that case in the next section. First, let's look at an example of finding Frobenius series solutions. It is useful to note the following derivatives of Frobenius series:%
+\begin{equation*}
+y(x) = x^r \sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty a_n x^{n + r}
+\end{equation*}
+%
+\begin{equation}
+y'(x) = \sum_{n=0}^\infty (n+r) a_n x^{n + r - 1}\label{x:men:eq-frob-first}
+\end{equation}
+%
+\begin{equation}
+y''(x) = \sum_{n=0}^\infty (n+r)(n+r - 1) a_n x^{n + r - 2}.\label{x:men:eq-frob-second}
+\end{equation}
+%
+\begin{example}{Using recursion to find a Frobenius series.}{g:example:idp695238230384}%
+Find two linearly independent solutions to the equation%
+\begin{equation}
+4x^2 y'' + 3 x y' + xy = 0.\label{x:men:ex-frob}
+\end{equation}
+%
+\par
+To check the form of the solutions, we'll put the problem into standard form -%
+\begin{equation*}
+x^2 y'' + x (\frac{3}{4}) y' + x y = 0,
+\end{equation*}
+so that \(p (x) = \frac{3}{4}, q(x) = x\), both of which are analytic on \((0 \infty)\). We need \(p_0 = p(0) = \frac{3}{4},  q_0 = q(0) = 0\) to find \(r_1, r_2\). The indicial equation is therefore%
+\begin{equation*}
+r(r-1) + \frac{3}{4} r + 0 = 0
+\end{equation*}
+which has roots \(r = 0, r = \frac{1}{4}\). These are distinct real roots that do not differ by an integer, so we know that we have two linearly independent Frobenius solutions of the form%
+\begin{equation*}
+y_1(x) = \sum_{n=0}^\infty a_n x^n, \,\,\, y_2(x) = x^{1/4} \sum_{n=0}^\infty b_n x^n.
+\end{equation*}
+%
+\par
+Plugging in the expressions for the series derivatives, we get%
+\begin{align*}
+0 \amp = 4x^2 \sum_{n=0}^\infty (n+r)(n+r - 1) a_n x^{n + r - 2} + 3 x \sum_{n=0}^\infty (n+r) a_n x^{n + r - 1} + x \sum_{n=0}^\infty a_n x^{n + r}\\
+\amp = \sum_{n=0}^\infty 4(n+r)(n+r -1) a_n x^{n + r} + \sum_{n=0}^\infty 3(n+r) a_n x^{n + r} +  \sum_{n=0}^\infty a_n x^{n + r + 1}\\
+\amp = \sum_{n=0}^\infty 4(n+r)(n+r -1) a_{n - 1} x^{n + r} + \sum_{n=0}^\infty 3(n+r) a_n x^{n + r} +  \sum_{n=1}^\infty a_{n - 1} x^{n + r}
+\end{align*}
+To combine the series, we can pull off the term for \(n=0\) on the left sums and get the expression%
+\begin{equation*}
+x^r (4r(r-1) + 3r)a_0 = 0
+\end{equation*}
+which we should note leads directly to the indicial equation. For the remaining terms, we combine the series and get the recurrence relation%
+\begin{equation*}
+[4(n + r)(n+r - 1) + 3(n+r)]a_n + a_{n-1} = 0
+\end{equation*}
+which simplifies to%
+\begin{equation*}
+a_n = \frac{1}{4(n+r)(n+r - 1) + 3(n+ r)} a_{n-1}
+\end{equation*}
+Now we can use the values of \(r\) that we determined before to write the Frobenius series for each value.%
+\par
+\(r = 0\): Here, we have a standard power series recursion%
+\begin{equation*}
+a_n = \frac{1}{4n(n-1) + 3n} a_{n-1} = \frac{1}{n(4n - 1)} a_{n-1}
+\end{equation*}
+which gives%
+\begin{align*}
+n \amp= 1: a_1 = \frac{1}{1 \cdot3 } a_0\\
+n\amp =2: a_2 = \frac{1}{2 \cdot 7}a_1 = \frac{1}{1 \cdot 3 \cdot 2 \cdot 7}a_0 = \frac{1}{2! (3 \cdot 7)}a_0\\
+n\amp = 3: a_3 = \frac{1}{3 \cdot 11} a_2 =  \frac{1}{3!(3 \cdot 7 \cdot 11)} a_0
+\end{align*}
+In general, this pattern looks something like%
+\begin{equation*}
+a_n = \frac{1}{n! (3 \cdot 7 \cdot \ldots \cdot (4n -1))} a_0
+\end{equation*}
+Thus, the Frobenius series is%
+\begin{equation*}
+y_1(x) = a_0 x^0 \sum_{n=0}^\infty \frac{1}{n! (3 \cdot 7 \cdot \ldots \cdot (4n -1))} x^n, \,\,\, x \in (0, \infty).
+\end{equation*}
+%
+\par
+\(r = \frac{1}{4}\): We'll use \(b_i\) to denote the coefficients of the second solution. Plugging in \(r\), we get the recursion%
+\begin{align*}
+a_n \amp= \frac{1}{4(n+\frac{1}{4})(n+\frac{1}{4} - 1) + 3(n+ \frac{1}{4})} a_{n-1}\\
+\amp= \frac{1}{n(4n+1)} a_{n-1}
+\end{align*}
+which will give%
+\begin{equation*}
+a_n = \frac{1}{n!(5 \cdot 9 \cdot \ldots \cdot (4n + 1))} a_0.
+\end{equation*}
+Thus, a second independent solution is%
+\begin{equation*}
+y_2(x) = b_0 x^{1/4} \sum_{n=1}^\infty \frac{1}{n!(5 \cdot 9 \cdot \ldots \cdot (4n + 1))} x^n, \,\,\, x \in (0\infty).
+\end{equation*}
+We could choose any value for \(a_0, b_0\) and have a solution to \hyperref[x:men:ex-frob]{({\xreffont\ref{x:men:ex-frob}})}, so it is convenient to let both be 1, and then write%
+\begin{align*}
+y_1(x) \amp= \sum_{n=0}^\infty \frac{1}{n! (3 \cdot 7 \cdot \ldots \cdot(4n -1))} x^n, \,\,\, x \in (0, \infty)\\
+y_2(x) \amp = x^{1/4} \sum_{n=1}^\infty \frac{1}{n!(5 \cdot 9 \cdot \ldots \cdot (4n + 1))} x^n, \,\,\, x \in (0,\infty)
+\end{align*}
+%
+\end{example}
+\end{subsectionptx}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 2.5 More on Frobenius methods (partial)}
+\typeout{************************************************}
+%
+\begin{sectionptx}{More on Frobenius methods (partial)}{}{More on Frobenius methods (partial)}{}{}{x:section:ch-series-5}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.5.1 Frobeius theory at regular singular points}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Frobeius theory at regular singular points}{}{Frobeius theory at regular singular points}{}{}{g:subsection:idp695238251456}
+More may end up here eventually. For now, it is sufficient to note that the method of reduction of order can be used to produce a second linearly independent solution from the first Frobenius series obtained. The form of the resulting answer will vary depending on the nature of the roots.%
+\begin{theorem}{}{}{x:theorem:thm-frob-general}%
+For \(x > 0\), suppose that%
+\begin{equation}
+x^2 y'' + xp(x)y' + q(x)y = 0\label{x:men:eq-reg-sing-2}
+\end{equation}
+and that \(p, q\) are analytic at 0 with a mutual radius of convergence \(R\). Write \(p(x) = \sum p_n x^n, q(x) = \sum q_n x^n\). Let \(r_1, r_2\) be roots of the indicial equation \hyperref[x:men:eq-indicial]{({\xreffont\ref{x:men:eq-indicial}})}, and assume that \(r_1 \geq r_2\) if the roots are real.%
+\par
+Then \hyperref[x:men:eq-reg-sing-2]{({\xreffont\ref{x:men:eq-reg-sing-2}})} has two linearly independent solutions on at least the interval \((0,R)\). Exactly one of the following cases holds.%
+\begin{enumerate}
+\item{}\(r_1 - r_2\) is not an integer.%
+\begin{gather*}
+y_1(x) = x^{r_1} \sum_{n=0}^\infty a_n x^n, \,\,\, a_0 \neq 0\\
+y_2(x) = x_{r_2} \sum_{n=0}^\infty b_n x^n, \,\,\, a_0 \neq 0.
+\end{gather*}
+%
+\item{}\(r_1 = r_2 = r\).%
+\begin{gather*}
+y_1(x) = x^{r} \sum_{n=0}^\infty a_n x^n, \,\,\, a_0 \neq 0\\
+y_2(x) = y_1(x) \ln x + x_{r} \sum_{n=0}^\infty b_n x^n, \,\,\, a_0 \neq 0.
+\end{gather*}
+%
+\item{}\(r_1 - r_2\) a positive integer.%
+\begin{gather*}
+y_1(x) = x^{r_1} \sum_{n=0}^\infty a_n x^n, \,\,\, a_0 \neq 0\\
+y_2(x) = Ay_1(x) \ln x + x_{r_2} \sum_{n=0}^\infty b_n x^n, \,\,\, a_0 \neq 0.
+\end{gather*}
+%
+\end{enumerate}
+%
+\end{theorem}
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.5.2 Irregular points}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Irregular points}{}{Irregular points}{}{}{g:subsection:idp695238263472}
+Irregular points are important but outside the scope of this class. See \href{https://ocw.mit.edu/courses/mathematics/18-305-advanced-analytic-methods-in-science-and-engineering-fall-2004/lecture-notes/eight1.pdf}{this lecture} for example as a starting point. The main idea is that solutions still involve Frobenius series, but now multiplied by exponential factors. That is, irregular points give rise to solutions that blow up or collapse!%
+\end{subsectionptx}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 2.6 Bessel equations}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Bessel equations}{}{Bessel equations}{}{}{x:section:ch-series-6}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.6.1 Bessel's differential equation}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Bessel's differential equation}{}{Bessel's differential equation}{}{}{g:subsection:idp695238265808}
+One of the most important differential equations in applied mathematics and physical science is the \href{https://en.wikipedia.org/wiki/Bessel_function}{Bessel differential equation}, which has the form%
+\begin{equation}
+x^2 y''+ x y' + (x^2 - \alpha^2) y = 0\label{x:men:eq-bessel}
+\end{equation}
+for some complex constant \(\alpha\), which is called the \terminology{order} of the solutions arising from the associated equation. Bessel's equation and the associated solutions are a core technique in the analysis of the propagation of waves, for example.%
+\par
+In general, we have to write the solutions to this equation in terms of integrals; that is, there are not closed form solutions. But since \hyperref[x:men:eq-bessel]{({\xreffont\ref{x:men:eq-bessel}})} has a regular singular point at \(0\), in the case where \(\alpha\) is a nonnegative real constant, we can use Frobenius techniques to write series solutions.%
+\par
+Since \(p(0) = 1\) and \(q(0) = -\alpha^2\), we get the indicial equation%
+\begin{equation*}
+r(r-1) + r - \alpha^2,
+\end{equation*}
+which has solutions \(\pm \alpha\). As long as \(2\alpha\) is not an integer, we can find two Frobenius series solutions of the form%
+\begin{equation*}
+y(x) = x^r \sum_{n=0}^\infty a_n x^n,
+\end{equation*}
+and again it is useful to recall the derivative formulas \hyperref[x:men:eq-frob-first]{({\xreffont\ref{x:men:eq-frob-first}})} and \hyperref[x:men:eq-frob-second]{({\xreffont\ref{x:men:eq-frob-second}})}.%
+\par
+We proceed with our standard technique and recover a series solution from a recurrence relation. Substituting into the \hyperref[x:men:eq-bessel]{({\xreffont\ref{x:men:eq-bessel}})}, we get%
+\begin{equation*}
+\sum_{n=0}^\infty [(r + n)^2 - \alpha^2]a_n x^{n+r} + \sum_{n=2}^\infty a_{n-2} x^{n+r} = 0.
+\end{equation*}
+We can peel off the first two terms of the left sum. For \(n=0\), we get the indicial equation. For \(n = 1\), we get%
+\begin{equation*}
+[(r + 1)^2 - \alpha^2]a_1 = 0.
+\end{equation*}
+For \(n \geq 2\), we get the recurrence relation%
+\begin{equation*}
+[(n+r)^2 - \alpha^2]a_n = a_{n -2}.
+\end{equation*}
+%
+\par
+To construct the first solution, consider the root \(r = \alpha\). The recurrence relation becomes%
+\begin{equation*}
+a_n = -\frac{1}{n(2\alpha + n)} a_{n-2}.
+\end{equation*}
+Since the gap between the terms in the relation is two, there will be two families of coefficients. Since \(a_1 = 0\), it must be that \(a_3, a_5, \ldots = 0\). On the other hand, with a little work we get that the even terms are characterized by%
+\begin{equation*}
+a_{2k} = \frac{(-1)^k}{2 \cdot 4 \ldots \cdot (2k) \cdot (2\alpha + 2) \ldots \cdot (2 \alpha + 2k)} a_0,
+\end{equation*}
+which is a bit of a bear. Next, we'll try to reduce this into a more palatable form. First, we can pull out a whole pile of 2s to get something a bit more condensed, and a form that might help guide a useful choice for \(a_0\).%
+\begin{equation*}
+a_{2k} = \frac{(-1)^k}{2^{2k} k! (\alpha + 1) \cdots (\alpha + k)} a_0, k = 1, 2, \ldots.
+\end{equation*}
+Then we have a Frobenius series solution to \hyperref[x:men:eq-bessel]{({\xreffont\ref{x:men:eq-bessel}})} of the form%
+\begin{equation}
+y_1(x) = a_0 x^\alpha \left[1 + \frac{(-1)^k}{2^{2k} k! (\alpha + 1) \cdots (\alpha + k)} x^{2k}\right].\label{x:men:eq-bessel-series}
+\end{equation}
+%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.6.2 Bessel functions of the first kind}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Bessel functions of the first kind}{}{Bessel functions of the first kind}{}{}{g:subsection:idp695238279872}
+When \(\alpha = N\) is an integer, the formula collapses even further if we make a clever choice for the arbitrary constant \(a_0\). Let%
+\begin{equation*}
+a_0 = \frac{!}{N!2^N}.
+\end{equation*}
+Then the solution is denoted \(J_N(x)\) and is called the \terminology{Bessel function of the first kind of order \(N\)} and has the form%
+\begin{equation*}
+J_N(x) = \sum_{k=0}^\infty \frac{(-1)^k}{k!(N + k)!} \left(\frac{x}{2}\right)^{2k + N}.
+\end{equation*}
+%
+\par
+The following code uses prebuilt libraries to construct and plot the first few examples of \(J_N\)%
+\begin{sageinput}
+var('x')
+g = plot(bessel_J(0, x), (0,50), color = 'red')
+g += plot(bessel_J(1, x), (0,50), color = 'blue')
+g += plot(bessel_J(2,x), (0,50), color = 'green')
+show(g)
+\end{sageinput}
+The graphs above should suggest \emph{why} these functions are useful at modeling wave propagation - each function oscillates with decreasing amplitude and has an infinite number of zeros on \((0,\infty)\).%
+\par
+To deal with the case where \(\alpha \in (0,\infty)\) is not an integer, we need to introduce a generalization of the factorial function called the \terminology{\href{https://en.wikipedia.org/wiki/Gamma_function}{gamma function}}, one of the most famous special functions in mathematics. The basic idea of the gamma function is to ``fill in the spaces'' between the factorials with a nice, smooth function that retains the special properties of the factorial function (that is, a nice function \(y\) for which \(y(x) = x y(x-1)\)). It turns out that the best way to do that is with a function defined in terms of an integral.%
+\begin{definition}{}{x:definition:def-gamma-function}%
+The gamma function \(\Gamma: (0, \infty) \to \R\) is defined by the integral formula%
+\begin{equation}
+\Gamma(x) = \int_0^\infty t^{x-1} e^{-t} \, dt.\label{x:men:eq-gamma-prop}
+\end{equation}
+%
+\end{definition}
+The gamma function is actually defined on all complex numbers outside of the negative integers, but we do not need that fact here.%
+\begin{theorem}{}{}{x:theorem:thm-gamma-factorial}%
+For \(x > 0\),%
+\begin{equation*}
+\Gamma(x + 1) = (x + 1) \Gamma(x).
+\end{equation*}
+%
+\end{theorem}
+\begin{proof}{}{g:proof:idp695238299472}
+This is an immediate consequence of integration by parts.%
+\begin{align*}
+\Gamma(x + 1) \amp= \int_0^\infty t^{x} e^{-t} \, dt\\
+\amp= \left[-t^{x} e^{-t}\right]_0^\infty + x \int_0^\infty t^{x - 1} e^{-t} \, dt\\
+\amp= x \Gamma(x)
+\end{align*}
+%
+\end{proof}
+If we had a starting point, we could show that the gamma function generates the factorials. Fortunately, it is very easy to show that%
+\begin{equation*}
+\Gamma(1) = \int_0^\infty e^{-t} \, dt = 1.
+\end{equation*}
+Then induction on \hyperref[x:men:eq-gamma-prop]{({\xreffont\ref{x:men:eq-gamma-prop}})} gets us%
+\begin{equation*}
+\Gamma(2) = 2\Gamma(1) = 2!, \,\,\, \Gamma(3) = 3\Gamma(2) = 3!,
+\end{equation*}
+and in general that for a positive integer \(N\) that%
+\begin{equation*}
+\Gamma(N) = N!.
+\end{equation*}
+%
+\par
+At the same time, we can get the factorial-like formula%
+\begin{equation}
+\Gamma(x + k + 1) = [(x+1)(x+2)\cdots(x+k)] \Gamma(x).\label{x:men:eq-gamma-factorial-like}
+\end{equation}
+%
+\par
+Now we can extend the gamma function to negative numbers that aren't integers by using the relation%
+\begin{equation}
+\Gamma(x) = \frac{\Gamma(x+1)}{x}\label{x:men:eq-gamma-extension}
+\end{equation}
+If \(x \in (-1,0)\), then \(x + 1 \in (0,1)\), and so for \(x \in (-1,0)\) we use \hyperref[x:men:eq-gamma-extension]{({\xreffont\ref{x:men:eq-gamma-extension}})} as the definition of \(\Gamma(x)\). We can continue in this way inductively: if \(x \in (-2,-1)\), then \(x+ 1 \in (-1,0)\), which is now defined, and again we use formula \hyperref[x:men:eq-gamma-extension]{({\xreffont\ref{x:men:eq-gamma-extension}})}. The resulting function is continuous off the negative integers and has the graph below.%
+\begin{sageinput}
+var('x')
+plot(gamma(x), (-5,5), detect_poles='true', ymin=-5, ymax = 5)
+\end{sageinput}
+The gamma function allows us to define the Bessel functions for non-integer orders. First, choose%
+\begin{equation*}
+a_0 = \frac{1}{2^\alpha \Gamma(\alpha + 1)}
+\end{equation*}
+and plug into \hyperref[x:men:eq-bessel-series]{({\xreffont\ref{x:men:eq-bessel-series}})} to get%
+\begin{equation}
+J_\alpha(x) = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k+1) \, \Gamma(\alpha + k + 1)} \left(\frac{x}{2}\right)^{2k + \alpha},\label{x:men:eq-bessel-first}
+\end{equation}
+which by the definition of \(\Gamma\) reduces to \(J_N(x)\) when \(N\) is an integer.%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.6.3 Bessel functions of the second kind}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Bessel functions of the second kind}{}{Bessel functions of the second kind}{}{}{g:subsection:idp695238311952}
+Because the differential equation \hyperref[x:men:eq-bessel]{({\xreffont\ref{x:men:eq-bessel}})} has lots of solutions, there are many ways to write down a pair of linearly independent functions that solve the equation. The function that we will consider here, we choose for convenience by convention of physicists and engineers, but there are several equivalent ways of formulating the general solution. First, note that as long as \(2\alpha\) isn't an integer, the second root to the indicial equation, \(r = -\alpha\) will also have an associated and linearly independent solution. It is straightforward that we can just replace \(\alpha\) with \(-\alpha\) in \hyperref[x:men:eq-bessel-first]{({\xreffont\ref{x:men:eq-bessel-first}})} to get%
+\begin{equation*}
+J_{-\alpha} = \sum_{k=0}^\infty \frac{(-1)^k}{\Gamma(k + 1) \, \Gamma(k - \alpha + 1)} \left(\frac{x}{2}\right)^{2k - \alpha}
+\end{equation*}
+and a general solution%
+\begin{equation*}
+y(x) = c_1 J_\alpha(x) + c_2 J_{-\alpha}(x).
+\end{equation*}
+In practice, we don't use \(J_{-\alpha}\) as the second solution, but rather a linear combination of \(J_{\alpha}\) and \(J_{-\alpha}\). Thus we define the \terminology{Bessel function of the second kind of order \(\alpha\)} by%
+\begin{equation*}
+Y_\alpha(x) = \frac{J_\alpha(x) \cos \alpha \pi - J_{-\alpha}(x)}{\sin \alpha \pi}.
+\end{equation*}
+The function is construced this way because it extends naturally to the case where \(\alpha\) is an integer, avoiding the complications of the reduction of order technique needed to derive the second solution from the first in the \(\alpha\) is an integer case. Without doing the computations, it is enough to know that if \(\alpha = n\), then we can define%
+\begin{equation*}
+Y_n(x) = \lim_{\alpha \to n} \left[\frac{J_\alpha(x) \cos \alpha \pi - J_{-\alpha}(x)}{\sin \alpha \pi}\right]
+\end{equation*}
+and that this sum can be computed.%
+\par
+Thus the general solution to Bessel's equation is%
+\begin{equation*}
+y(x) = c_1 J_\alpha(x) + c_2 Y_\alpha(x)
+\end{equation*}
+for \(\alpha \in (0,\infty)\).%
+\begin{sageinput}
+var('x')
+g = plot(bessel_Y(0, x), (0,50), color = 'red')
+g += plot(bessel_Y(1, x), (0,50), color = 'blue')
+g += plot(bessel_Y(2,x), (0,50), color = 'green')
+show(g)
+\end{sageinput}
+Notice that the \(Y_\alpha\) are unbounded at \(x = 0\), which is typically not a desired characteristic in a physical problem.%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 2.6.4 Bessel-Fourier series}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Bessel-Fourier series}{}{Bessel-Fourier series}{}{}{g:subsection:idp695238327984}
+We've already seen that Legendre polynomials from an orthgonal basis for the \(C^1\) functions on a finite interval with respect to the inner product%
+\begin{equation*}
+\ip{f}{g} = \int f(x) g(x) \, dx.
+\end{equation*}
+It turns out that Bessel functions can be used to form a different orthogonal system of functions that serve as a basis for the \(C^1\) functions (one of of an infinite family), but with a slightly different inner product. In fact, just one function \(J_\alpha\) can be used to generate the basis (where the choice of \(\alpha\) lets us describe functions in terms of a solution to a particular physical scenario).%
+\par
+The graphs of \(J_\alpha\) should be evidence that for a given \(\alpha\), \(J_\alpha\) has infinite zeros (as it wiggles back and forth across the \(x\)-axis). For a fixed \(\alpha\), let \(\la_{\alpha, n}\) denote the sequence of positive zeros of \(J_\alpha\).%
+\par
+To construct an orthonormal family, we'll need to use a modification of the standard inner product by introducing a \terminology{weight function}. One way of thinking about the standard inner product \(x \cdot y = \sum x_i y_i\) or \(\ip{f}{g} = \int fg\) is that we give all terms equal importance. But there's no reason that we have to do that. A weight function \(w(x) \geq 0\) essentially turns an inner product into a weighted average instead of a standard average. On \(\R^n\), a weighted inner product has the form \(x \cdot y = \sum x_i y_i w(i)\). On function spaces, we have the \terminology{weighted inner product with respect to \(w\)} which is given by%
+\begin{equation*}
+\ip{f}{g} = \int_0^1 f(x)g(x)w(x)\, dx.
+\end{equation*}
+We do this because we change the geomerty of the space when we use a new inner product. New vectors will be orthogonal. We will choose the weight function \(w(x) = x\), and we get the following fact about the family \(J_\alpha(\la_{\alpha,n}x)\).%
+\begin{proposition}{}{}{g:proposition:idp695238335008}%
+Let \(\alpha\) be a fixed parameter, and let \(\la_{\alpha, n}\) denote the sequence of positive zeros of the Bessel function of the first kind \(J_\alpha\).%
+\par
+Then with respect to the weighted inner product%
+\begin{equation*}
+\ip{f}{g} = \int_0^1 xf(x)g(x)\, dx
+\end{equation*}
+the family of functions given by%
+\begin{equation*}
+\{J_\alpha(\la_{\alpha,n} x)\}_{n=1}^\infty
+\end{equation*}
+is an orthogonal set of vectors in \(C^1[0,1]\).%
+\end{proposition}
+What we're really saying here is that for any \(n\neq m\) that%
+\begin{equation*}
+\ip{J_\alpha(\la_{\alpha,n}x)}{J_\alpha(\la_{\alpha,m}x)} = \int_0^1 x J_\alpha(\la_{\alpha,n}) J_\alpha(\la_{\alpha,m}x) \, dx = 0.
+\end{equation*}
+We can also show (with quite a bit of elbow grease) that%
+\begin{equation*}
+\norm{J_\alpha(\la_{\alpha,n}x)} = \frac{1}{2} \left[ J_{\alpha + 1}(\la_{\alpha,n})\right]^2.
+\end{equation*}
+%
+\par
+Even better, the family \(J_\alpha(\la_{\alpha,n}x)\) turns out to be a basis for \(C^1\), and so we can express any \(C^1\) function in terms of a series of Bessel functions.%
+\begin{theorem}{Fourier-Bessel expansion.}{}{x:theorem:thm-fourier-bessel}%
+Suppose that \(f \in C^1[0,1]\). Then for \(x \in [0,1]\),%
+\begin{equation*}
+f(x) = a_1 J_\alpha(\la_{\alpha,1}x) + a_2 J_\alpha(\la_{\alpha,2}x) + \ldots = \sum_{n = 1}^\infty a_n J_\alpha (\la_{\alpha, n} x),
+\end{equation*}
+where the coefficients \(a_i\) are given by the projection formula%
+\begin{equation*}
+a_i = \frac{\ip{f}{J_{\alpha}(\la_{\alpha,i}x)}}{\norm{J_{\alpha}(\la_{\alpha,i}x)}^2} = \frac{2}{\left[ J_{\alpha + 1}(\la_{\alpha,i})\right]^2} \int_0^1 x f(x) J_\alpha(\la_{\alpha, i}x)\, dx.
+\end{equation*}
+%
+\end{theorem}
+Again, the proof of convergence of these types of series is beyond the scope of the course and more suited to a course in real analysis or partial differential equations. We keep emphasizing the vector notation not just to impress with our ability to assemble huge blocks of mathematics, but to point out that all we're really doing here is linear algebra with fancier vectors.%
+\end{subsectionptx}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 2.7 Series as vectors (an introduction to \(L^2\))}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Series as vectors (an introduction to \(L^2\))}{}{Series as vectors (an introduction to \(L^2\))}{}{}{x:section:ch-series-7}
+One of the major themes of this section is that functions are secretly vectors. Even better, functions with some level of regularity are vectors in an inner product space, which means that we can use basic ideas from linear algebra to understand them (once we know which space they are in). The key idea in all of this is that the integral is really just an infinite sum indexed by the input \(x\), and so the dot product is really just a finite dimensional version of an integral (in fact, there are areas of math where this is made explicit, as in probability theory).%
+\par
+With Legendre polynomials and Bessel functions, we've demonstrated that \(C^1\) functions live inside an infinite dimensional inner product space. Just as in finite dimensional linear algebra, we used the orthogonal expansion theorem to write \(f\) as%
+\begin{equation*}
+f(x) = \sum \frac{\ip{f(x)}{b_n(x)}}{\ip{b_n(x)}{b_n(x)}} b_n(x)
+\end{equation*}
+for some orthogonal basis \(b_n\). We pick a set of basis function based on the particular problem we are trying to understand. For example, if we're doing numerical estimation of a function, we can choose \(b_n\) to be the Legendre polynomials and get better approximations that the basic Taylor series. If we're studying functions acting in a system associated with a Bessel equation, we can express the function in terms of the solutions to that system to understand how the wave behavior is driving the function.%
+\par
+The theoretical backdrop for all of this is the theory of \terminology{Hilbert space}, which is where questions of convergence are first addessed. One of the most important Hilbert spaces is called \(L^2[a,b]\) - these are the functions \(f\) defined on an interval \([a,b]\) with finite energy. A function is in \(L^2\) if%
+\begin{equation*}
+\sqrt{\int_a^b f(x)^2 \, dx} \lt \infty
+\end{equation*}
+(where \(dx\) is a more powerful type of differential called \terminology{Lebesgue measure}). But this is precisely the inner product we considered with the Legendre polynomials:%
+\begin{equation*}
+f \cdot g = \ip{f}{g} = \sqrt{\int_a^b f(x)g(x) \, dx}.
+\end{equation*}
+%
+\par
+Taylor polynomials and Legendre polynomials are outstanding bases to use for \(L^2\) if we're interested in looking at local behavior of a function (say zeros or extreme points). But lots of other functions live in \(L^2\) that don't have nice behavior that we might be interested in looking at. For example, we might have an equation that models a circuit, and we want to feed in a square wave to see what the response might be.%
+\begin{sageinput}
+var('x')
+f1(x) = 1
+f2(x) = 0
+f(x) = piecewise([((0,1),f1),((1,2),f2), ((2,3), f1)])
+plot(f, (0,3))
+\end{sageinput}
+Now, we can come up with a Legendre polynomial expansion for this function (at least on the piecewise bits), but it isn't going to really capture what's interesting about the square wave - a square wave is \terminology{periodic}. If only there was a basis of functions for \(L^2\) that was orthogonal and periodic and that could be used to model functions like the square wave. Such a basis would be extremely useful for solving differential equations involving oscillations. If only....%
+\end{sectionptx}
+\end{chapterptx}
+%
+%
+\typeout{************************************************}
+\typeout{Chapter 3 All things Fourier}
+\typeout{************************************************}
+%
+\begin{chapterptx}{All things Fourier}{}{All things Fourier}{}{}{g:chapter:idp695238366112}
+%
+%
+\typeout{************************************************}
+\typeout{Section 3.1 Periodicity}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Periodicity}{}{Periodicity}{}{}{g:section:idp695238366496}
+As hinted at in the prior section, our concern for this chapter will be to study functions that are \terminology{periodic}, that is, functions that repeat their behavior after a fixed change in the input variable (called the \terminology{period} of the function). Periodic functions are some of the most important in the physical sciences, engineering, and mathematics. We're setting the stage for your eventual adventures in partial differential equations, and so we need to treat two kinds of input variables, space and time. A typical function we might consider could look something like \(f(x, t) = y\), where the position \(x\) and time \(t\) both determine the behavior of the output \(y\).%
+\par
+For now, we'll restrict our attention to functions of one variable. A function \(f(t)\) is \terminology{periodic of period \(T\)} if there is some constant \(T\) so that%
+\begin{equation*}
+f(t) = f(t + T)
+\end{equation*}
+for all \(t\). Of course, if one such \(T\) exists, many do. That is, any integer multiple of the period is also a period.  (For example, \(\cos t = \cos (t + 2n\pi)\) for every integer \(n\).) The smallest such \(T\) for which \(f(t) = f(t + T)\) is called the fundamental period.%
+\par
+One iteration of the function over a period is called a \terminology{cycle}. The number of cycles per unit input is referred to in earlier courses as the frequency of the functions, but this isn't really a correct idea unless we're talking about a simple sine or cosine. Consider the function%
+\begin{equation*}
+f(t) = \cos 2\pi t + \frac{2}{3} \cos 6\pi t.
+\end{equation*}
+The periods of the individual summands are 1 and 1\slash{}3 but the period of the entire function is 1.%
+\begin{sageinput}
+var('t')
+f(t) = cos(2*pi*t) + 2/3*cos(6*pi*t)
+plot(f, (-3,3))
+\end{sageinput}
+While the period of \(f\) is 1, it doesn't really make sense to talk about the \emph{frequency} of \(f\) as a single number, because \(f\) seems to carry two frequencies, one from each of the constituent cosines. Naturally, we might be led to the naive conclusion that any sum of period functions is periodic, but this can't be true. Functions with irrational periods make this impossible. Consider the function \(g(t) = \cos t + \sin \sqrt{2} t\). No integer multiple of \(\sqrt{2}\) will ever coincide with an integer multiple of \(1\), and so these functions will never coincide at the end of a cycle. (In fact, the graph of this function is quite chaotic.)%
+\begin{sageinput}
+var('t')
+f(t) = cos(sqrt(2)*t) + cos(t)
+plot(f, (-60,60))
+\end{sageinput}
+On the other hand, it's pretty easy to show that any two functions with rational periods must eventually coincide.%
+\begin{inlineexercise}{}{g:exercise:idp695238382704}%
+\(f\)\(T\)\(g\)\(S\)\(f + g\)\end{inlineexercise}%
+The classical example we see over and over again of time periodic systems is \emph{harmonic oscillation}. We discover that the state of a harmonic oscillator is given by a function%
+\begin{equation*}
+x(t) = A \sin(2 \pi \nu t + \phi)
+\end{equation*}
+for amplitude \(A\), frequency \(\nu\), and phase \(\phi\). The period of the function is \(1/\nu\) (which you should show by direct computation).%
+\par
+For spatial periodicity, the classical problem is the distribution of heat on a circular ring. A point on the ring is designated by an angle \(\theta\). Space periodicity comes from the fact that for any function that depends on the position on the ring \(f(\theta)\), it will be the case that \(f(\theta) = f(\theta + 2\pi)\). The problem is to give some initial distribution of heat on the ring. In the long run as \(t\to\infty\), we expect the ring to be evenly distributed (constant for all \(\theta\)). So how can we write down the short term distributions?%
+\par
+Fourier's idea was to try to model the answer with a sum of sines:%
+\begin{equation*}
+T(\theta, t) = \sum_{n=1}^\infty A_n(t) \sin(n \theta + \phi_n).
+\end{equation*}
+This idea basically launched the development of the language of modern physics and engineering.%
+\par
+A term \(\sin(n\theta + \phi)\) is called a \terminology{harmonic} (from the mathematics of music). In the same way that a musical chord is made up of several harmonics combined into a whole, so too is the function \(T(\theta,t)\) made up of harmonics that build the complete function. As weird as it seems, in some sense we're going to treat physical systems like music and try to pull the solutions apart in terms of their consituent notes.%
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 3.2 Complex exponentials and trig functions}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Complex exponentials and trig functions}{}{Complex exponentials and trig functions}{}{}{g:section:idp695238366624}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 3.2.1 Complex numbers and arithmetic}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Complex numbers and arithmetic}{}{Complex numbers and arithmetic}{}{}{g:subsection:idp695238393536}
+I am a complex analyst by trade, so I will assert that the complex numbers are really the only way to go if you want to do mathematical analysis. The use of complex numbers and functions to represent real systems is common convention for several reasons. First, the math is WAY easier in the complex setting. Basically, without delving into complex analysis, we're going to be cheating by thinking of functions as complex-valued with real inputs.%
+\par
+First and foremost, I am a mathematician, not an engineer, so I will use the symbol \(i\) to represent the terribly named imaginary unit%
+\begin{equation*}
+i = \sqrt{-1}.
+\end{equation*}
+Feel free to use \(j\) if it makes your brain happy.%
+\par
+A complex number is a quantity%
+\begin{equation*}
+z = x + iy
+\end{equation*}
+where \(x, y\) are real numbers. \(x\) is called the \terminology{real part} of \(z\) and is written \(x = \RE z\). Likewise, \(y\) is called the \terminology{imaginary part} of \(z\) (yes, the imaginary part is real) and is written \(y = \IM z\). Notice that this means that we can think of the real numbers as living inside the complex numbers (it's the set with \(y = 0\)).%
+\par
+You should think of the complex numbers as essentially having the same structural features as the real numbers. The operations are defined on the real and imaginary parts, with the additional feature that \(i^2 = -1\). Say that \(z = x + iy\) and \(w = a + ib\).%
+\begin{itemize}[label=\textbullet]
+\item{}Addition:%
+\begin{equation*}
+z + w =  (x + a) + i(y + b)
+\end{equation*}
+%
+\item{}Multiplication%
+\begin{equation*}
+zw = (a + ib)(x + iy) = (ax - by) + i(bx + ay)
+\end{equation*}
+%
+\item{}Division:%
+\begin{equation*}
+\frac{z}{w} = \frac{x + iy}{a + ib} = \frac{(x + iy)(a - ib)}{(a + ib)(a - ib)} = \frac{(ax + by)}{a^2 + b^2} + i \frac{ay - bx}{a^2 + b^2}
+\end{equation*}
+%
+\end{itemize}
+%
+\par
+If \(z = x + iy\) then the \terminology{complex conjugate} of \(z\) is%
+\begin{equation*}
+\cc{z} = x - iy.
+\end{equation*}
+Complex conjugates follow the following ``distribution'' like rules:%
+\begin{equation*}
+\cc{z + w} = \cc{z} + \cc{w}, \,\, \cc{zw} = \cc{z} \cc{w}, \,\, \cc{\cc{z}} =z.
+\end{equation*}
+With complex conjugates, it is very easy to write formulas for the real and imaginary part of a complex number.%
+\begin{equation*}
+\RE z = \frac{z + \cc{z}}{2}, \,\,\, \IM z = \frac{z - \cc{z}}{2i}
+\end{equation*}
+%
+\par
+Complex conjugates are very important in calculus and matrix settings, so we have an alternative notation that we apply to more complicated objects: \(\cc{z} = z\ad\). Because integrals are limits of finite sums, integration respects complex conjugation and we write%
+\begin{equation*}
+\left(\int f(t)g(t) \, dt \right)\ad = \int f(t)\ad g(t)\ad \, dt.
+\end{equation*}
+%
+\par
+A natural way to think of a complex number is as a vector, with the real part representing the ``\(x\)-coordinate'' and the imaginary part the ``\(y\)''. Because of the way that complex conjugates are defined, we can compute the norm or magnitude of a complex number by%
+\begin{equation*}
+\abs{z} = \sqrt{x^2 + y^2} = \sqrt{z \cc{z}}.
+\end{equation*}
+In practice, it is useful to write the above expression as \(\abs{z}^2 = z \cc{z}\).%
+\begin{theorem}{Parallelogram identity.}{}{g:theorem:idp695238413872}%
+Let \(z, w\) be complex numbers. Then%
+\begin{equation*}
+\abs{z + w}^2 + \abs{z - w}^2 = 2(\abs{z}^2 + \abs{w}^2).
+\end{equation*}
+%
+\end{theorem}
+Another useful related property is%
+\begin{equation*}
+\abs{z + w}^2 = \abs{z}^2 + 2\RE z\cc{w} + \abs{w}^2.
+\end{equation*}
+%
+\par
+Finally, just as a vector in \(\R^2\) can be thought of in both Cartesian and polar forms, so too can a complex number. Given \(z = x + iy\), the length of the vector can be written \(r = \abs{z} = \sqrt{x^2 + y^2}\) and the angle from the positive real axis satisifies \(\tan \theta = \frac{y}{x}\). The angle \(\theta\) is called the \terminology{argument} of the complex number and is sometimes written \(\arg z\). First note that this means that the complex numbers of radius 1 coincide precisely with the unit circle. Since \(x = r \cos \theta\) and \(y = r \sin \theta\), we can write%
+\begin{equation*}
+z = r\cos\theta + i r \sin \theta,
+\end{equation*}
+though we're quickly going to get a more useful form. The thing to note is that complex numbers naturally encode and support the trig functions that represent rotations. As complicated as complex numbers might seem, this is the major theme of our use of them: \emph{complex numbers are rotations of real numbers}.%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 3.2.2 Complex exponentials and Euler's formula}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Complex exponentials and Euler's formula}{}{Complex exponentials and Euler's formula}{}{}{g:subsection:idp695238393664}
+The most important complex function is the complex exponential \(f(z) = e^z\).  Given a Taylor series with a positive interval of convergence, we can extend the Taylor series formula to complex numbers simply by plugging in complex numbers. The set of convergence will be a disk with diameter equivalent to the real interval of convergence. Hence, we make the definition%
+\begin{equation*}
+e^z = \sum_{n=0}^\infty \frac{z^n}{n!},
+\end{equation*}
+which converges for all \(z \in \C\). It is an easy exercise (do it!) to show that%
+\begin{equation*}
+\cc{e^z} = e^{\cc{z}}.
+\end{equation*}
+%
+\par
+As is the case in one variable, \(e^z\) is the unique function that is its own derivative. We will take on authority that the complex exponential satisfies the usual algebraic properties (as defining the complex logarithm is more appropriately done in a complex analysis course):%
+\begin{align*}
+e^{z + w} \amp= e^z + e^w\\
+{e^z}^w \amp e^{zw}
+\end{align*}
+%
+\par
+Using the properties of exponential functions, we can write%
+\begin{equation*}
+e^z = e^{x + iy} = e^x e^{iy}.
+\end{equation*}
+This doesn't seem like we've gained much, but something magical happens with \(e^{iy}\). When the power of a complex exponential is purely imaginary, it corresponds to a point on the unit circle! That is,%
+\begin{equation}
+e^{iy} = \cos y + i \sin y,\label{x:men:eq-cis}
+\end{equation}
+which is an almost unimaginably useful formula called \terminology{Euler's formula}. You might suspect such a relationship should hold given that the Taylor series for sine and cosine \emph{almost} look like they add to \(e^x\) in the real case, but the alternating signs are wrong. In the complex case, this relation holds.%
+\par
+What this means is that complex multiplication and division (and hence exponentiation) can be rewritten in form that is tractable. If \(z_1 = r_1 e^{i\theta_1}, z_2 = r_2 e^{i\theta_2}\), then%
+\begin{equation*}
+z_1 z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)},
+\end{equation*}
+and%
+\begin{equation*}
+\frac{z_1}{z_2} = \frac{r_1}{r_2} e^{i \theta_1 - \theta_2}.
+\end{equation*}
+It's easy to miss how weird and useful this idea is. Essentially, we've come up with a way to multiply vectors and produce a vector.%
+\par
+Since \hyperref[x:men:eq-cis]{({\xreffont\ref{x:men:eq-cis}})} expresses \(e^{i\theta}\) in terms of sine and cosine, we can reverse this relation to define sine and cosine in terms of complex exponentials.%
+\begin{equation*}
+\cos \theta = \frac{e^{i\theta} + e^{-i\theta}}{2}, \,\,\, \sin \theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}.
+\end{equation*}
+%
+\par
+One of the themes of this course is that we can decompose functions into pieces that have useful properties. One way that you might not have seen before is to pull a function apart into symmetric pieces. A function is called \terminology{even} if \(f(x) = f(-x)\) (corresponding to symmetry about the \(y\)-axis. A function is called \terminology{odd} if \(f(x) = -f(-x)\) (corresponding to symmetry about the origin). We can build even and odd functions out of any function in the following way:%
+\begin{equation*}
+f_{even}(x) = \frac{f(x) + f(-x)}{2}, \,\,\, f_{odd}(x) = \frac{f(x) - f(-x)}{2}.
+\end{equation*}
+%
+\begin{inlineexercise}{}{g:exercise:idp695238435088}%
+\(f_{even}\)\(f_{odd}\)\end{inlineexercise}%
+\(f_{even}\) and \(f_{odd}\) decompose \emph{any} function into symmertic pieces, as%
+\begin{equation*}
+f_{even}(x) + f_{odd}(x) = \frac{f(x) + f(-x)}{2} + \frac{f(x) - f(-x)}{2} = f(x).
+\end{equation*}
+It turns out that the even and odd pieces of the complex exponential are the trig functions.%
+\begin{equation*}
+\frac{e^{i\theta} + e^{-i\theta}}{2} = \cos \theta,
+\end{equation*}
+and%
+\begin{equation*}
+\frac{e^{i\theta} - e^{-i\theta}}{2} = i \sin \theta.
+\end{equation*}
+%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 3.2.3 What complex exponentials mean and how to use them}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{What complex exponentials mean and how to use them}{}{What complex exponentials mean and how to use them}{}{}{g:subsection:idp695238438880}
+Typically, we're going to be working with a real parameter \(t\). So define the function%
+\begin{equation*}
+f(t) = e^{it} = \cos t + i \sin t.
+\end{equation*}
+As \(t\) moves along in time, what is \(f\) doing? If we think about the complex numbers as vectors (that is, \(f(t) = (\RE f(t), \IM f(t))\), we can think of \(f\) as a parametric function where \(x(t) = \cos t\) and \(y(t) = \sin t\). Then as \(t\) increases, the graph of \(f\) traces out the unit circle, rotating in the counterclockwise direction. Likewise, negative complex exponentials trace out the unit circle but in the clockwise direction. One complete traversal of the circle takes place as \(t\) goes from \(0\) to \(2 \pi\).%
+\par
+It is typical practice in applications to work with integer values for frequency, and so in engineering (and general Fourier analysis), the convention is to use as the basic exponential relation%
+\begin{equation*}
+e^{2\pi i t} = \cos 2\pi t + i \sin 2\pi t,
+\end{equation*}
+as this gives a function with frequency \(1\) (that is, we complete one loop around the unit circle for \(t \in [0,1]\)). In other words, \(e^{2\pi i t}\) has frequency \(1 \hz\). More generally,%
+\begin{equation*}
+e^{2\pi n i t} = \cos{2 \pi n t} + i \sin 2\pi n t
+\end{equation*}
+has frequency \(n \hz\).%
+\par
+Notice that \(e^{-2\pi n i t}\) also has frequency \(n \hz\), but travels in the opposite direction. This will be an important theme in Fourier analysis - oscillations of a given frequency have \emph{two} components, propagating in opposite directions.%
+\par
+Complex exponentials are vastly easier to work with than the sinusoids. Recall that the generic sine function is%
+\begin{equation*}
+f(t) = A \sin(2 \pi \nu t + \phi)
+\end{equation*}
+with frequency \(\nu\), amplitude \(A\), and phase \(\phi\). The complex exponential with the same information is%
+\begin{equation*}
+g(t) = A e^{i(2\pi \nu t + \phi)}
+\end{equation*}
+which can be split into%
+\begin{equation*}
+g(t) = Ae^{i\phi} e^{2 \pi \nu u t}.
+\end{equation*}
+Notice that%
+\begin{equation*}
+\abs{Ae^{i\phi} e^{2 \pi \nu u t}} = \abs{A} = A
+\end{equation*}
+and that \(e^{i\phi}\) describes a starting point on the unit circle.%
+\par
+Finally, we'll come to a fact that you may have seen in previous courses, though usually without explanation. \begin{fact}{}{}{g:fact:idp695238458256}%
+\end{fact}
+ This is not at all obvious from a superimposed graph.%
+\begin{sageinput}
+var('x')
+f(x) = 2*sin(3*pi*x + pi/2)
+g(x) = sin(3*pi*x)
+pic = plot(f, color='red')
+pic += plot(g, color = 'green')
+show(pic)
+\end{sageinput}
+But if we plot the sum, we get:%
+\begin{sageinput}
+var('x')
+f(x) = 2*sin(3*pi*x + pi/2)
+g(x) = sin(3*pi*x)
+pic = plot(f + g, color='blue')
+show(pic)
+\end{sageinput}
+Here the computation is massively simplified by the use of complex exponentials. Consider%
+\begin{equation*}
+A_1 e^{i(2 \pi \nu + \phi_1)} + A_2 e^{i(2 \pi \nu + \phi_2)}.
+\end{equation*}
+Using basic exponential algebra, we can compute%
+\begin{align*}
+\amp A_1 e^{i(2 \pi \nu + \phi_1)} + A_2 e^{i(2 \pi \nu + \phi_2)}\\
+\amp = e^{2 \pi i \nu t}\left(A_1 e^{i\phi_1} + A_2 e^{i\phi_2}\right).
+\end{align*}
+That is, the sum of two exponentials with the same frequency is another exponential of the same frequency (but with a new phase and amplitude).%
+\end{subsectionptx}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 3.3 Sums of periodic functions}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Sums of periodic functions}{}{Sums of periodic functions}{}{}{g:section:idp695238462320}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 3.4 Questions of convergence}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Questions of convergence}{}{Questions of convergence}{}{}{g:section:idp695238462752}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 3.5 First applications}
+\typeout{************************************************}
+%
+\begin{sectionptx}{First applications}{}{First applications}{}{}{g:section:idp695238463184}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 3.6 Fourier series and linear algebra}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Fourier series and linear algebra}{}{Fourier series and linear algebra}{}{}{g:section:idp695238463568}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 3.7 The Fourier transform}
+\typeout{************************************************}
+%
+\begin{sectionptx}{The Fourier transform}{}{The Fourier transform}{}{}{g:section:idp695238464000}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 3.8 Convolution}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Convolution}{}{Convolution}{}{}{g:section:idp695238464384}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 3.9 Applications of convolution}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Applications of convolution}{}{Applications of convolution}{}{}{g:section:idp695238464768}
+\end{sectionptx}
+\end{chapterptx}
+%
+%
+\typeout{************************************************}
+\typeout{Chapter 4 The Laplace Transform}
+\typeout{************************************************}
+%
+\begin{chapterptx}{The Laplace Transform}{}{The Laplace Transform}{}{}{x:chapter:ch-laplace}
+%
+%
+\typeout{************************************************}
+\typeout{Section 4.1 The Laplace Transform}
+\typeout{************************************************}
+%
+\begin{sectionptx}{The Laplace Transform}{}{The Laplace Transform}{}{}{x:section:ch-laplace-2}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 4.1.1 Definition of the Laplace Transform}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Definition of the Laplace Transform}{}{Definition of the Laplace Transform}{}{}{g:subsection:idp695238466736}
+Our first transform method is the \terminology{Laplace transform}, which takes a function \(f:[0,\infty) \to \R\) and produces a function of a new variable \(F(s)\).%
+\begin{definition}{}{x:definition:def-laplace}%
+Let \(f\) be a function on \([0,\infty)\). The Laplace transform of \(f\) is defined by the integral operator%
+\begin{equation*}
+\mathcal{L}[f] = \int_0^\infty f(t) e^{-st} \, dt = F(s).
+\end{equation*}
+%
+\end{definition}
+Before we get into when we can use the Laplace transform and why it is so powerful, we'll start with some examples of computing the transforms of some basic functions.%
+\begin{example}{\(f(t) = 1\).}{g:example:idp695238472144}%
+We'll start by computing the Laplace transform of \(f(t) = 1\). Recall that when we're dealing with improper integrals (with limits at \(\infty\) in this case), we need to consider the integral as shorthand for a limit.%
+%
+\begin{align*}
+L[1] \amp = \int_0^\infty 1 \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-st} \, dt\\
+\amp = \lim_{B \to \infty} \left(\frac{-1}{s} e^{-st}\right) \bigg\rvert_0^B\\
+\amp = \frac{-1}{s} \lim_{B\to\infty} e^{-sB} - 1\\
+\amp = \frac{1}{s}.
+\end{align*}
+So \(\mathcal{L}[1] = \frac{1}{s}\), as long as \(s >0\) (or the improper integral fails to converge, a condition that will usually apply).%
+\end{example}
+\begin{example}{\(f(t) = t\).}{g:example:idp695238476624}%
+Now let's look at \(f(t) = t\), which will require integration by parts.%
+\begin{align*}
+\mathcal{L}{t} \amp= \int_0^\infty t \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B t e^{-st} \, dt\\
+\amp= \lim_{B \to \infty} \frac{-t}{s} e^{-st}\bigg\rvert_0^B - \int_0^B \frac{-1}{s}e^{-st}\, dt\\
+\amp = \lim_{B \to \infty} \frac{-B}{s} e^{-sB} - 0 + \frac{1}{s} \lim_{B \to \infty} \int_0^B e^{-st}\, dt\\
+\amp= 0 - 0 + \frac{1}{s}\mathcal{L}[1] = \frac{1}{s^2}
+\end{align*}
+so long as \(s > 0\). (Note that it is very easy so show that as \(B \to \infty\), we get \(\frac{-B}{s}e^{-sB} \to 0\) by L'Hospital's rule.)%
+\end{example}
+\begin{inlineexercise}{}{g:exercise:idp695238477392}%
+Use the same idea as the previous example to show that%
+\begin{equation*}
+\mathcal{L}[t^n] = \frac{n!}{s^{n+1}}, \hspace{1cm} s > 0
+\end{equation*}
+for any positive integer \(n\).%
+\end{inlineexercise}%
+\begin{example}{\(f(t) = e^{at}\).}{g:example:idp695238482992}%
+Now consider the exponential function \(e^{at}\) for some constant \(a\).%
+\begin{align*}
+\mathcal{L}[e^{at}] \amp= \int_0^\infty e^{at} \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-(s - a)t} \, dt\\
+\amp = \lim_{B\to\infty} \frac{-1}{s-a} e^{-(s-a)t} \bigg\rvert_0^B\\
+\amp= \frac{-1}{s - a} \lim_{B \to \infty} e^{-(s-a)B} - 1 = \frac{1}{s-a}
+\end{align*}
+as long as \(s > a\).%
+\end{example}
+\begin{example}{\(f(t) = \cos bt\).}{g:example:idp695238486384}%
+Our final introductory example concerns the basic trig function \(f(t) = \cos bt\). (We can use parts here or just note that%
+\begin{equation*}
+\int e^{at}\cos{bt} \, dt= \frac{e^{at}}{a^2 + b^2}(a\cos bt + b \sin bt)
+\end{equation*}
+which is a standard table integral.) Then,%
+\begin{align*}
+\mathcal{L}[\cos bt] \amp= \int_0^\infty \cos bt \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-st} \cos bt  \, dt\\
+\amp= \lim_{B \to \infty} \left[ \frac{e^{-st}}{s^2 + b^2} (-s\cos bt + b \sin bt)\right]\bigg\rvert_0^B\\
+\amp= \frac{s}{s^2 + b^2}
+\end{align*}
+%
+\end{example}
+\begin{inlineexercise}{}{g:exercise:idp695238490176}%
+Use a standard integral and the argument in the previous example to show that%
+\begin{equation*}
+\mathcal{L}[\sin bt] = \frac{b}{s^2 + b^2}, \hspace{1cm} s > 0.
+\end{equation*}
+%
+\end{inlineexercise}%
+ Notice that at this point, we have constructed the Laplace transforms of the basic forms of forcing functions that we consider in the method of undetermined coefficients (which is no accident!).\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 4.1.2 Basic properties of the Laplace transform}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Basic properties of the Laplace transform}{}{Basic properties of the Laplace transform}{}{}{g:subsection:idp695238466864}
+One of the most important properties of the integral is that it acts linearly on the integrand. That is, for constants \(a,b\) and integrable functions \(f,g\), we have%
+\begin{equation*}
+\int af + bg = a\int f + b \int g.
+\end{equation*}
+Because the integral is linear, often operations that are defined in terms of integrals are also linear. This is the case with the Laplace transform as long as it converges, since%
+\begin{align*}
+\mathcal{L}[af(t) + bg(t)] \amp= \int_0^\infty e^{-st}(a f(t) + b g(t)) \, dt\\
+\amp= a \int_0^\infty e^{-st}f(t) \, dt + b \int_0^\infty e^{-st} g(t) \, dt\\
+\amp = a \mathcal{L}[f(t)] + b \mathcal{L}[g(t)]
+\end{align*}
+This often gets recorded as the equivalent conditions%
+\begin{equation}
+\mathcal{L}[f+g] = \mathcal{L}[f] + \mathcal{L}[g]\label{g:men:idp695238495392}
+\end{equation}
+and%
+\begin{equation}
+\mathcal{L}[cf] = c \mathcal{L}[f].\label{g:men:idp695238495776}
+\end{equation}
+%
+\begin{example}{Laplace transform of a combination of functions.}{g:example:idp695238492304}%
+Compute the Laplace transform of \(f(t) = t^2 + 3e^{2t} + \sin 3t\), including the domain.%
+\par
+Linearity makes this easy, since%
+\begin{align*}
+\mathcal{L}[2t^2 + 3e^{2t} + \sin 3t] \amp= \mathcal{L}[2t^2] + \mathcal{L}[3e^{2t}] + \mathcal{L}[\sin 3t]\\
+\amp= 2\mathcal{L}[t^2] + 3\mathcal{L}[e^{2t}] + \mathcal{L}[\sin 3t]\\
+\amp= 2\frac{1}{s^2} + 3\frac{1}{s-2} + \frac{3}{s^2 + 9}, \hspace{1in} s > 2.
+\end{align*}
+%
+\end{example}
+Combined with the results from the previous discussion, we can now compute the transforms of a lot of the most important forcing functions that we consider when we learn constant coefficient linear equations. So far, it seems like we haven't gained much of an advantage, but the next section should make clear that the Laplace transform can handle functions far beyond what can be done with earlier methods. Also still open is the big question: \begin{question}{}{g:question:idp695238499936}%
+How does the Laplace transform apply to differential equations?%
+\end{question}
+%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 4.1.3 Piecewise continuous functions}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Piecewise continuous functions}{}{Piecewise continuous functions}{}{}{g:subsection:idp695238500320}
+The most important quality of the Laplace transform is that it can be used on functions that are piecewise continuous. In physical situations, this correponds to forcing functions that change at points of time. For example, a continuously applied constant force could suddenly become a harmonic force modeled by a trig function at some time, and then at a later time, the force could disappear. Functions that change definitions, but which remain continuous in between those points of change are called \terminology{piecewise continuous functions}.%
+\begin{definition}{}{x:definition:def-piecewise}%
+A function \(f(t)\) is a piecewise continuous function on an interval \([a,b]\) if the interval can be divided up into finitely many subintervals \([a_i,a_{i+1}]\) so that%
+\begin{enumerate}
+\item{}\(f\) is a continuous function when restricted to each \([a_i,a_{i+1}]\), and%
+\item{}\(f\) does not possess a  vertical asymptote at any of the points \(a_i\) (that is, \(f\) approaches a finite limit at the end of each subinterval)%
+\end{enumerate}
+If \(f\) is piecewise continuous on every interval of the form \([0,b]\) for any constant \(b\), then \(f\) is piecewise continuous on \([0,\infty)\).%
+\end{definition}
+\end{subsectionptx}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 4.2 Periodic functions}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Periodic functions}{}{Periodic functions}{}{}{x:section:ch-laplace-3}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 4.3 The Laplace transform of derivatives}
+\typeout{************************************************}
+%
+\begin{sectionptx}{The Laplace transform of derivatives}{}{The Laplace transform of derivatives}{}{}{x:section:ch-laplace-4}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 4.4 The shifting theorems}
+\typeout{************************************************}
+%
+\begin{sectionptx}{The shifting theorems}{}{The shifting theorems}{}{}{x:section:ch-laplace-5}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 4.5 Heaviside functions}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Heaviside functions}{}{Heaviside functions}{}{}{x:section:ch-laplace-6}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 4.6 Impulses - the Dirac delta ``function''}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Impulses - the Dirac delta ``function''}{}{Impulses - the Dirac delta ``function''}{}{}{x:section:ch-laplace-7}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 4.7 Convolution}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Convolution}{}{Convolution}{}{}{x:section:ch-laplace-8}
+\end{sectionptx}
+\end{chapterptx}
+\end{document}
