@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-08T23:27:43-08:00       *-->
+<!--*       on 2021-01-09T13:13:47-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -229,6 +229,9 @@ MathJax.Hub.Config({
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-14"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.3</span> <span class="title">Sums of sinusoids</span>
 </h2>
+<section class="subsection" id="subsection-25"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.3.1</span> <span class="title">Sums of complex exponentials</span>
+</h3>
 <p id="p-211">We're going to start by considering functions that consist of finite sums of trigonometric functions. Consider a function defined by a sum of the form</p>
 <div class="displaymath">
 \begin{equation*}
@@ -270,11 +273,13 @@ c_n = \frac{1}{2}(a_n - i b_n), \,\,\, c_{-n} = \frac{1}{2}(a_n + b_n), \,\,\, n
 f(t) = \sum_{n=-N}^N e^{2 \pi i n t}.
 \end{equation*}
 </div>
-<p data-braille="continuation">Is it possible to compute the \(c_i\text{?}\) There are many approaches to the next step, most involving serious algebra and calculus to arrive at the formula for computing \(c_i\text{.}\) We're going to move straight to the linear algebra perspective. First, we'll define perhaps the single most important vector space in mathematics.</p>
+<p data-braille="continuation">Is it possible to compute the \(c_i\text{?}\) Since they are complex numbers, whatever we are going to do is going to involve dealing with that fact (which isn't really any more difficult that real calculus). There are many approaches to the next step, most involving serious algebra and calculus to arrive at the formula for computing \(c_i\text{.}\) We're going to move straight to the linear algebra perspective, which while more abstract is much more clear about why the formulas turn out the way that they do. First, we'll define perhaps the single most important vector space in mathematics.</p></section><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.3.2</span> <span class="title">Computing \(c_n\) using linear algebra</span>
+</h3>
 <article class="definition definition-like" id="definition-8"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.3.1</span><span class="period">.</span>
 </h6>
-<p id="p-216">\(L^2(0,1)\) is the vector space of functions with the property that</p>
+<p id="p-216">\(L^2(0,1)\) is the complex vector space of functions with the property that</p>
 <div class="displaymath">
 \begin{equation*}
 \int_0^1 f(x)^2 \, dx \lt \infty.
@@ -357,7 +362,10 @@ c_n = \frac{\ip{f}{e^{2 \pi i n t}}}{\norm{e^{2 \pi i n t}}^2} = \int_0^1 e^{- 2
 \end{equation*}
 </div>
 <p id="p-224">The \(c_n\) are called <dfn class="terminology">Fourier coefficients</dfn>.</p>
-<p id="p-225">We have one major leap left to go - we've shown that if a periodic function \(f\) has representation as a finite sum of complex exponentials that we can produce the coefficients via an integral. We do not know yet if all periodic \(f\) can be expressed this way.</p></section></div></main>
+<p id="p-225">We have one major leap left to go - we've shown that if a periodic function \(f\) has representation as a finite sum of complex exponentials that we can produce the coefficients via an integral. We do not know yet if all periodic \(f\) can be expressed this way.</p></section><section class="subsection" id="subsection-27"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.3.3</span> <span class="title">Fourier coefficients as a function</span>
+</h3>
+<p id="p-226">One of the major themes of our course is the idea of <em class="emphasis">transforms</em>, which change a function in some setting to another function in a different setting. The Fourier coefficients can be thought of as the outputs of a function \(\hat{f}\) that takes an integer \(n\) as an input and produces \(c_n\text{.}\)</p></section></section></div></main>
 </div>
 </body>
 </html>

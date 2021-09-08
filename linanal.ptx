@@ -1842,6 +1842,7 @@
       </section>
       <section>
         <title>Sums of sinusoids</title>
+        <subsection><title>Sums of complex exponentials</title>
         <p>We're going to start by considering functions that consist of finite sums of trigonometric functions. Consider a function defined by a sum of the form
         <me>
           f(t) = \frac{a_0}{2} + \sum_{n=1}^N (a_n cos 2\pi nt + b_n \sin 2\pi n t).
@@ -1877,11 +1878,13 @@
         <me>
           f(t) = \sum_{n=-N}^N e^{2 \pi i n t}.
         </me>
-        Is it possible to compute the <m>c_i</m>? There are many approaches to the next step, most involving serious algebra and calculus to arrive at the formula for computing <m>c_i</m>. We're going to move straight to the linear algebra perspective. First, we'll define perhaps the single most important vector space in mathematics.
-        </p>
+        Is it possible to compute the <m>c_i</m>? Since they are complex numbers, whatever we are going to do is going to involve dealing with that fact (which isn't really any more difficult that real calculus). There are many approaches to the next step, most involving serious algebra and calculus to arrive at the formula for computing <m>c_i</m>. We're going to move straight to the linear algebra perspective, which while more abstract is much more clear about why the formulas turn out the way that they do. First, we'll define perhaps the single most important vector space in mathematics.
+        </p></subsection>
+
+        <subsection><title>Computing <m>c_n</m> using linear algebra</title>
 
         <definition>
-          <p><m>L^2(0,1)</m> is the vector space of functions with the property that
+          <p><m>L^2(0,1)</m> is the complex vector space of functions with the property that
           <me>
             \int_0^1 f(x)^2 \, dx \lt \infty.
           </me>
@@ -1957,6 +1960,20 @@
           <p>The <m>c_n</m> are called <term>Fourier coefficients</term>.</p>
 
           <p>We have one major leap left to go - we've shown that if a periodic function <m>f</m> has representation as a finite sum of complex exponentials that we can produce the coefficients via an integral. We do not know yet if all periodic <m>f</m> can be expressed this way.</p>
+  
+          <p>Finally, one of the major themes of our course is the idea of <em>transforms</em>, which change a function in some setting to another function in a different setting. The Fourier coefficients can be thought of as the outputs of a function <m>\hat{f}</m> that takes an integer <m>n</m> as an input and produces <m>c_n</m>.</p>
+
+        </subsection>
+        <section><title>Period, frequency, and spectrum</title>
+
+        <p>Let us consider a signal <m>f(t)</m> that is real and periodic with period 1. Let us suppose further (on assumption for now) that we can represent <m>f</m> with an infinite series
+        <me>
+          f(t) = \sum_{n = -\infty}^\infty c_n e^{2 \pi i n t}
+        </me>
+        even though we haven't yet showed that such series converge for which sorts of <m>f</m>. (We will do that in the next section).
+
+      </subsection>
+
       </section>
       <section>
         <title>Questions of convergence</title>

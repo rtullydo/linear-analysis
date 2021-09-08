@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-08T23:27:47-08:00       *-->
+<!--*       on 2021-01-09T13:13:50-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,15 +15,13 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Now consider the exponential function \(e^{at}\) for some constant \(a\text{.}\)</p>
+<p>Use the same idea as the previous example to show that</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-\mathcal{L}[e^{at}] \amp= \int_0^\infty e^{at} \cdot e^{-st} \, dt = \lim_{B \to \infty} \int_0^B e^{-(s - a)t} \, dt\\
-\amp = \lim_{B\to\infty} \frac{-1}{s-a} e^{-(s-a)t} \bigg\rvert_0^B\\
-\amp= \frac{-1}{s - a} \lim_{B \to \infty} e^{-(s-a)B} - 1 = \frac{1}{s-a}
-\end{align*}
+\begin{equation*}
+\mathcal{L}[t^n] = \frac{n!}{s^{n+1}}, \hspace{1cm} s &gt; 0
+\end{equation*}
 </div>
-<p data-braille="continuation">as long as \(s &gt; a\text{.}\)</p>
+<p data-braille="continuation">for any positive integer \(n\text{.}\)</p>
 <span class="incontext"><a href="ch-laplace-2.html#p-233">in-context</a></span>
 </body>
 </html>
